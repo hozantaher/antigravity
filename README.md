@@ -46,6 +46,12 @@ Repozitář už není mrtvý kód, ale živý organický systém, se kterým AI 
 
 ## 🛠 Instalace a Použití
 
+### 🤖 Autonomní Agenti (Jules) a CI/CD Automatizace
+Projekt je plně připraven na spolupráci s asynchronními agenty (např. Google Jules).
+- **GitHub Actions (`.github/workflows/antigravity-audit.yml`)**: Zajišťuje striktní kontrolu architektonického driftu (Governer) při každém Pull Requestu.
+- **Pre-commit Hooks (Husky + lint-staged)**: Automatický self-healing (`audit --heal`) upraví driftované vektorové linky při commitu a zajistí aktualizaci `ARCHITECTURE.md`.
+- **`AI_INSTRUCTIONS.md`**: Obsahuje instrukce pro agenty, jak mají použít náš MCP server při modifikacích kódu. Pro delegování úkolů na Julese spusťte např.: `npx @google/jules new "Vaše zadání..."`.
+
 ```bash
 # Zkompilování
 npm install
