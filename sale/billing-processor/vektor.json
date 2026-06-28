@@ -1,0 +1,14 @@
+{
+  "id": "billing-processor",
+  "story_axis": "sale",
+  "state": "pending",
+  "facets": {
+    "ui": [
+      "./billing-processor.vue"
+    ],
+    "server": [
+      "../../@server/api/sale/billing-processor.ts"
+    ]
+  },
+  "edges": []
+}

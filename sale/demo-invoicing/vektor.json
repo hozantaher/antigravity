@@ -3,9 +3,7 @@
   "story_axis": "sale",
   "state": "pending",
   "facets": {
-    "ui": [
-      "./demo-invoicing.vue"
-    ],
+    "ui": [],
     "fake": []
   },
   "edges": []
