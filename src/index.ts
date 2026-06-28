@@ -3,6 +3,7 @@ import { UnifiedVectorEngine } from './engine';
 import { CyberneticGovernor } from './governor';
 import { TransactionalRefactorEngine } from './refactor';
 import { MCPServer } from './mcp';
+import { ContextAwareScaffolder } from './scaffold';
 import path from 'path';
 
 const program = new Command();
@@ -69,6 +70,21 @@ program
     const root = process.cwd();
     const mcpServer = new MCPServer(root);
     mcpServer.listen();
+  });
+
+program
+  .command('create <nodeId> <pathHint>')
+  .description('Vytvoří nový uzel stromu, odhadne kontext a vygeneruje boilerplate i reverzní linky')
+  .action((nodeId: string, pathHint: string) => {
+    const root = process.cwd();
+    const scaffolder = new ContextAwareScaffolder(root);
+    try {
+      const report = scaffolder.generateNode(nodeId, pathHint);
+      console.log(report.join('\n'));
+    } catch (e: any) {
+      console.error(`Chyba při zakládání uzlu: ${e.message}`);
+      process.exit(1);
+    }
   });
 
 program.parse(process.argv);

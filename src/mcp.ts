@@ -1,6 +1,7 @@
 import { UnifiedVectorEngine } from './engine';
 import { CyberneticGovernor } from './governor';
 import { TransactionalRefactorEngine } from './refactor';
+import { ContextAwareScaffolder } from './scaffold';
 
 export class MCPServer {
   private rootDir: string;
@@ -73,6 +74,18 @@ export class MCPServer {
                 },
                 required: ['oldId', 'newId']
               }
+            },
+            {
+              name: 'antigravity_create_node',
+              description: 'Generates a new vector-tree node, inferring context and creating boilerplate files and reverse links.',
+              inputSchema: {
+                type: 'object',
+                properties: { 
+                  nodeId: { type: 'string' },
+                  pathHint: { type: 'string' }
+                },
+                required: ['nodeId', 'pathHint']
+              }
             }
           ]
         }
@@ -118,6 +131,18 @@ export class MCPServer {
             id: req.id,
             result: {
               content: [{ type: 'text', text: `Node renamed successfully. Plan executed:\n${plan.join('\n')}` }]
+            }
+          };
+        }
+
+        if (toolName === 'antigravity_create_node') {
+          const scaffolder = new ContextAwareScaffolder(this.rootDir);
+          const report = scaffolder.generateNode(args.nodeId, args.pathHint);
+          return {
+            jsonrpc: '2.0',
+            id: req.id,
+            result: {
+              content: [{ type: 'text', text: `Node created successfully:\n${report.join('\n')}` }]
             }
           };
         }
