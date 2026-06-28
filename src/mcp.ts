@@ -2,6 +2,7 @@ import { UnifiedVectorEngine } from './engine';
 import { CyberneticGovernor } from './governor';
 import { TransactionalRefactorEngine } from './refactor';
 import { ContextAwareScaffolder } from './scaffold';
+import { FuzzyVectorRouter } from './router';
 
 export class MCPServer {
   private rootDir: string;
@@ -86,6 +87,17 @@ export class MCPServer {
                 },
                 required: ['nodeId', 'pathHint']
               }
+            },
+            {
+              name: 'antigravity_search_nodes',
+              description: 'Searches the vector tree using fuzzy matching on node intent, tags, and structure.',
+              inputSchema: {
+                type: 'object',
+                properties: { 
+                  query: { type: 'string' }
+                },
+                required: ['query']
+              }
             }
           ]
         }
@@ -143,6 +155,18 @@ export class MCPServer {
             id: req.id,
             result: {
               content: [{ type: 'text', text: `Node created successfully:\n${report.join('\n')}` }]
+            }
+          };
+        }
+
+        if (toolName === 'antigravity_search_nodes') {
+          const router = new FuzzyVectorRouter(this.rootDir);
+          const results = await router.search(args.query);
+          return {
+            jsonrpc: '2.0',
+            id: req.id,
+            result: {
+              content: [{ type: 'text', text: JSON.stringify(results, null, 2) }]
             }
           };
         }

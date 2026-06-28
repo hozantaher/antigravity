@@ -4,6 +4,7 @@ export interface VektorManifest {
   state?: 'pending' | 'met';
   facets?: Record<string, string[]>;
   edges?: string[];
+  tags?: string[];
 }
 
 export interface ResolvedNode {

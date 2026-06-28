@@ -4,6 +4,7 @@ import { CyberneticGovernor } from './governor';
 import { TransactionalRefactorEngine } from './refactor';
 import { MCPServer } from './mcp';
 import { ContextAwareScaffolder } from './scaffold';
+import { FuzzyVectorRouter } from './router';
 import path from 'path';
 
 const program = new Command();
@@ -83,6 +84,25 @@ program
       console.log(report.join('\n'));
     } catch (e: any) {
       console.error(`Chyba při zakládání uzlu: ${e.message}`);
+      process.exit(1);
+    }
+  });
+
+program
+  .command('search <query>')
+  .description('Fuzzy sémantické hledání v repozitáři přes vektorové uzly')
+  .action(async (query: string) => {
+    const root = process.cwd();
+    const router = new FuzzyVectorRouter(root);
+    try {
+      const results = await router.search(query);
+      if (results.length === 0) {
+        console.log('Žádné výsledky.');
+      } else {
+        console.log(JSON.stringify(results, null, 2));
+      }
+    } catch (e: any) {
+      console.error(`Chyba při hledání: ${e.message}`);
       process.exit(1);
     }
   });
