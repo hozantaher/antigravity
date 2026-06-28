@@ -2,6 +2,7 @@ import { Command } from 'commander';
 import { UnifiedVectorEngine } from './engine';
 import { CyberneticGovernor } from './governor';
 import { TransactionalRefactorEngine } from './refactor';
+import { MCPServer } from './mcp';
 import path from 'path';
 
 const program = new Command();
@@ -59,6 +60,15 @@ program
       console.error(`Chyba refaktoringu: ${e.message}`);
       process.exit(1);
     }
+  });
+
+program
+  .command('mcp')
+  .description('Spustí Model Context Protocol (MCP) server na standardním vstupu/výstupu pro integraci s AI (Claude/Cursor)')
+  .action(() => {
+    const root = process.cwd();
+    const mcpServer = new MCPServer(root);
+    mcpServer.listen();
   });
 
 program.parse(process.argv);
