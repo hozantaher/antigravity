@@ -134,20 +134,20 @@ program
 
 program
   .command('map')
-  .description('Vygeneruje ARCHITECTURE.md s mapou vektorového stromu (Mermaid graf) pro AI agenty')
+  .description('Vygeneruje docs/reference/topology-map.md s mapou vektorového stromu (Mermaid graf) pro AI agenty')
   .action(async () => {
     const root = process.cwd();
     const engine = new UnifiedVectorEngine(root);
     await engine.scan();
     const md = engine.generateArchitectureMap();
-    const outPath = path.join(root, 'docs', 'ARCHITECTURE.md');
+    const outPath = path.join(root, 'docs', 'reference', 'topology-map.md');
     fs.writeFileSync(outPath, md, 'utf8');
-    console.log(`Mapa architektury úspěšně vygenerována do: ${outPath}`);
+    console.log(`SUCCESS: Architecture map generated at docs/reference/topology-map.md`);
   });
 
 program
   .command('docs')
-  .description('Automaticky vygeneruje dokumentaci z vektorových manifestů (AUTODOCS.md)')
+  .description('Automaticky vygeneruje dokumentaci z vektorových manifestů (docs/reference/autodocs.md)')
   .action(async () => {
     const root = process.cwd();
     const generator = new DocGenerator(root);

@@ -3,6 +3,19 @@ import path from 'path';
 import { glob } from 'glob';
 import { VektorManifest } from './types';
 
+function levenshtein(a: string, b: string): number {
+  const matrix = Array.from({ length: a.length + 1 }, () => Array(b.length + 1).fill(0));
+  for (let i = 0; i <= a.length; i++) matrix[i][0] = i;
+  for (let j = 0; j <= b.length; j++) matrix[0][j] = j;
+  for (let i = 1; i <= a.length; i++) {
+    for (let j = 1; j <= b.length; j++) {
+      if (a[i - 1] === b[j - 1]) matrix[i][j] = matrix[i - 1][j - 1];
+      else matrix[i][j] = Math.min(matrix[i - 1][j - 1], matrix[i][j - 1], matrix[i - 1][j]) + 1;
+    }
+  }
+  return matrix[a.length][b.length];
+}
+
 export class CyberneticGovernor {
   private rootDir: string;
   private autoHeal: boolean;
@@ -75,8 +88,23 @@ export class CyberneticGovernor {
         if (!validNodes.has(targetId)) {
           report.push(`DETECTED: Orphaned link in ${file}: Node '${targetId}' does not exist`);
           if (this.autoHeal) {
-            content = content.replace(match[0], '');
-            report.push(`  -> HEALED: Stripped orphaned magic comment`);
+            let bestMatch = '';
+            let lowestDist = Infinity;
+            for (const validNode of validNodes) {
+              const dist = levenshtein(targetId, validNode);
+              if (dist < lowestDist) {
+                lowestDist = dist;
+                bestMatch = validNode;
+              }
+            }
+
+            if (bestMatch && lowestDist <= 3) {
+              content = content.replace(match[0], match[0].replace(targetId, bestMatch));
+              report.push(`  -> HEALED (Fuzzy): Fixed typo in magic comment from '${targetId}' to '${bestMatch}'`);
+            } else {
+              content = content.replace(match[0], '');
+              report.push(`  -> HEALED (Destructive): Stripped orphaned magic comment`);
+            }
           }
         }
       }

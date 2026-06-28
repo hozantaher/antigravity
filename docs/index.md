@@ -1,15 +1,23 @@
-# Antigravity Dokumentace
+---
+layout: home
 
-Vítejte v centrální složce dokumentace. Najdete zde všechny strategické plány, automaticky vygenerované mapy enginu i kompletní archiv historických rozhodnutí.
+hero:
+  name: "Antigravity"
+  text: "Vector-Tree Engine"
+  tagline: "Samořídící ekosystém pro kód. Zapomeňte na MVC, přejděte na sémantické uzly."
+  actions:
+    - theme: brand
+      text: Začít zde
+      link: /guide/introduction
+    - theme: alt
+      text: Developer Workflow
+      link: /developer/workflow
 
-## 🗺️ Migrace a Plány
-Dokumenty popisující náš aktuální postup (Lift & Shift):
-- [Migration Plan](./MIGRATION_PLAN.md) - Odškrtávací seznam migrovaných modulů
-- [Phase Plan](./PHASE_PLAN.md) - Rozdělení migrace do 4 striktních fází
-
-## ⚙️ Systém a Architektura
-Tyto dokumenty jsou generovány automaticky pomocí enginu:
-- [Autodocs](./AUTODOCS.md) - Kompletní extrakce znalostí ze všech `vektor.json` manifestů (spustíte pomocí `node dist/index.js docs`)
-- [Architecture Map](./ARCHITECTURE.md) - Sémantická mapa (Mermaid) všech uzlů (spustíte pomocí `node dist/index.js map`)
-
-
+features:
+  - title: Cybernetic Governor
+    details: Hlídač architektonického driftu. Zabrání rozbití závislostí a automaticky opraví vazby.
+  - title: Model Context Protocol (MCP)
+    details: Nativně zabudovaný AI server, se kterým si AI agenti mohou povídat napřímo.
+  - title: Transactional Refactoring
+    details: Přesun a přejmenování složek už nikdy nerozbije kód. Transakční updaty přes CLI.
+---

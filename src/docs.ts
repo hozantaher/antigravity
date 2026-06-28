@@ -53,7 +53,6 @@ export class DocGenerator {
       }
     }
     
-    fs.writeFileSync(path.join(this.rootDir, 'docs', 'AUTODOCS.md'), output, 'utf8');
-    console.log('SUCCESS: Auto-documentation generated at docs/AUTODOCS.md');
-  }
+    fs.writeFileSync(path.join(this.rootDir, 'docs', 'reference', 'autodocs.md'), output, 'utf8');
+    console.log('SUCCESS: Auto-documentation generated at docs/reference/autodocs.md');
 }
