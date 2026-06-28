@@ -9,7 +9,10 @@
   "scripts": {
     "build": "tsc",
     "start": "ts-node src/index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ag:audit": "node dist/index.js audit",
+    "ag:map": "node dist/index.js map",
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +20,8 @@
   "type": "commonjs",
   "devDependencies": {
     "@types/node": "^26.0.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.0.8",
     "ts-node": "^10.9.2",
     "typescript": "^6.0.3"
   },

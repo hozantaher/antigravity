@@ -1,0 +1,12 @@
+{
+  "id": "demo-invoicing",
+  "story_axis": "sale",
+  "state": "pending",
+  "facets": {
+    "ui": [
+      "./demo-invoicing.vue"
+    ],
+    "fake": []
+  },
+  "edges": []
+}
