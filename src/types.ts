@@ -22,3 +22,5 @@ export interface EdgeDependency {
   targetId: string;
   implicit: boolean; // true if found via AST/imports but missing in edges
 }
+
+// @vektor-link: missing-node
