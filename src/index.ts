@@ -1,6 +1,7 @@
 import { Command } from 'commander';
 import { UnifiedVectorEngine } from './engine';
 import { CyberneticGovernor } from './governor';
+import { TransactionalRefactorEngine } from './refactor';
 import path from 'path';
 
 const program = new Command();
@@ -43,6 +44,20 @@ program
       if (!options.heal) {
         process.exit(1);
       }
+    }
+  });
+
+program
+  .command('rename <oldId> <newId> [newPath]')
+  .description('Přejmenuje a přesune uzel napříč celou architekturou včetně Gitu a reverzních vazeb')
+  .action(async (oldId: string, newId: string, newPath?: string) => {
+    const root = process.cwd();
+    const refactor = new TransactionalRefactorEngine(root);
+    try {
+      await refactor.executeRename(oldId, newId, newPath);
+    } catch (e: any) {
+      console.error(`Chyba refaktoringu: ${e.message}`);
+      process.exit(1);
     }
   });
 
