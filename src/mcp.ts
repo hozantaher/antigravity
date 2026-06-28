@@ -101,6 +101,14 @@ export class MCPServer {
                 },
                 required: ['query']
               }
+            },
+            {
+              name: 'antigravity_project_overview',
+              description: 'Generates a global architecture map with a Mermaid graph of the entire vector tree.',
+              inputSchema: {
+                type: 'object',
+                properties: {}
+              }
             }
           ]
         }
@@ -179,6 +187,19 @@ export class MCPServer {
             id: req.id,
             result: {
               content: [{ type: 'text', text: JSON.stringify(results, null, 2) }]
+            }
+          };
+        }
+
+        if (toolName === 'antigravity_project_overview') {
+          const engine = new UnifiedVectorEngine(this.rootDir);
+          await engine.scan();
+          const md = engine.generateArchitectureMap();
+          return {
+            jsonrpc: '2.0',
+            id: req.id,
+            result: {
+              content: [{ type: 'text', text: md }]
             }
           };
         }

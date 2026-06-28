@@ -38,6 +38,7 @@ Jakýkoliv AI agent si může s Antigravity otevřít `stdio` rouru a získat na
 - `antigravity_rename_node`
 - `antigravity_create_node`
 - `antigravity_search_nodes`
+- `antigravity_project_overview`
 
 Repozitář už není mrtvý kód, ale živý organický systém, se kterým AI přímo hovoří.
 
@@ -67,6 +68,11 @@ node dist/index.js search "faktury"
 **Získání kontextové bubliny (LLM Bubble)**
 ```bash
 node dist/index.js resolve sale-settlement
+```
+
+**Generování mapy architektury (ARCHITECTURE.md pro AI agenty)**
+```bash
+node dist/index.js map
 ```
 
 **Audit driftu a Self-Healing**

@@ -7,6 +7,7 @@ import { ContextAwareScaffolder } from './scaffold';
 import { FuzzyVectorRouter } from './router';
 import { DiaryManager } from './diary';
 import path from 'path';
+import fs from 'fs';
 
 const program = new Command();
 
@@ -122,6 +123,19 @@ program
       console.error(`Neznámá akce '${action}'. Použijte např. "log".`);
       process.exit(1);
     }
+  });
+
+program
+  .command('map')
+  .description('Vygeneruje ARCHITECTURE.md s mapou vektorového stromu (Mermaid graf) pro AI agenty')
+  .action(async () => {
+    const root = process.cwd();
+    const engine = new UnifiedVectorEngine(root);
+    await engine.scan();
+    const md = engine.generateArchitectureMap();
+    const outPath = path.join(root, 'ARCHITECTURE.md');
+    fs.writeFileSync(outPath, md, 'utf8');
+    console.log(`Mapa architektury úspěšně vygenerována do: ${outPath}`);
   });
 
 program.parse(process.argv);

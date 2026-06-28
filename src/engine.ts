@@ -104,4 +104,56 @@ export class UnifiedVectorEngine {
       manifest: node.manifest
     };
   }
+
+  /**
+   * Generates a global architecture map in Markdown (with a Mermaid graph)
+   * to provide maximum initial context for AI agents.
+   */
+  public generateArchitectureMap(): string {
+    let md = '# Antigravity Vector-Tree Architecture Map\n\n';
+    md += 'Tento soubor byl automaticky vygenerován pro poskytnutí maximálního kontextu AI agentům.\n\n';
+    md += '## 🗺️ Topologie Uzlů (Mermaid Graf)\n\n';
+    md += '```mermaid\n';
+    md += 'graph TD\n';
+
+    // Build graph nodes
+    for (const [id, node] of this.nodes.entries()) {
+      const state = this.getRollupState(id);
+      const style = state === 'pending' ? 'stroke:#ff9900,stroke-width:2px' : 'stroke:#00cc66,stroke-width:1px';
+      // Quote the label to avoid mermaid syntax errors with special chars if any exist in the future
+      md += `  ${id}["${id} (${node.manifest.story_axis || 'unknown'})"]\n`;
+      md += `  style ${id} ${style}\n`;
+    }
+
+    // Build graph edges
+    for (const [id, node] of this.nodes.entries()) {
+      if (node.manifest.edges) {
+        for (const edge of node.manifest.edges) {
+          if (this.nodes.has(edge)) {
+            md += `  ${id} --> ${edge}\n`;
+          }
+        }
+      }
+    }
+
+    md += '```\n\n';
+    md += '## 🗂️ Seznam Uzlů\n\n';
+
+    for (const [id, node] of this.nodes.entries()) {
+      const state = this.getRollupState(id);
+      md += `### \`${id}\`\n`;
+      md += `- **Cesta:** \`${node.path}\`\n`;
+      md += `- **Osa příběhu (Story Axis):** ${node.manifest.story_axis || 'N/A'}\n`;
+      md += `- **Stav:** ${state}\n`;
+      if (node.manifest.tags && node.manifest.tags.length > 0) {
+        md += `- **Tagy:** ${node.manifest.tags.join(', ')}\n`;
+      }
+      if (node.manifest.edges && node.manifest.edges.length > 0) {
+        md += `- **Hrany (Edges):** ${node.manifest.edges.join(', ')}\n`;
+      }
+      md += '\n';
+    }
+
+    return md;
+  }
 }
