@@ -1,0 +1,533 @@
+/* Odpovědi — Chatwoot-style two-pane triage, Claude aesthetic.
+   Scoped under .app-odpovedi; reads --app-* tokens only. */
+
+/* NOTE: the live .app-odpovedi grid is the 3-pane rule in app-odpovedi.css
+   (imported after this file). The old 2-pane rule that lived here was dead
+   (overridden) and was removed in S2 to avoid confusion. */
+
+/* ── Left: list column ──────────────────────────────────────────────── */
+.app-odpovedi__list {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  border-right: 1px solid var(--app-border);
+  min-width: 0;
+  background: var(--app-bg);
+}
+
+.app-odpovedi__stats {
+  display: flex;
+  gap: var(--app-space-1);
+  padding: var(--app-space-3) var(--app-space-4);
+  border-bottom: 1px solid var(--app-border-soft);
+}
+.app-stat {
+  flex: 1;
+  min-width: 0;
+}
+.app-stat__n {
+  font-family: var(--app-font-serif);
+  font-size: var(--app-text-title);
+  line-height: 1.1;
+  color: var(--app-text);
+}
+.app-stat__l {
+  font-size: var(--app-text-xs);
+  color: var(--app-text-muted);
+  letter-spacing: 0.01em;
+}
+
+.app-odpovedi__filters {
+  display: flex;
+  gap: var(--app-space-1);
+  padding: var(--app-space-2) var(--app-space-4);
+  border-bottom: 1px solid var(--app-border-soft);
+}
+/* The "Zájem" triage lane — the priority view. Carries a warm accent tint even
+   when unpressed so the operator's eye lands on the hot-lead backlog first. */
+.app-chip-toggle--hot { color: var(--app-accent-strong); }
+.app-chip-toggle--hot:not([aria-pressed="true"]):hover { background: var(--app-accent-soft); }
+
+.app-odpovedi__rows {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+/* Bulk-select (#1021): checkbox + row button in a 2-col grid. Grid (not flex)
+   so the row track is a deterministic 1fr — a flex child inherits the base
+   .app-row width:100% as its basis and collapses to ~min-content otherwise. */
+.app-row-wrap {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  border-bottom: 1px solid var(--app-border-soft);
+}
+.app-row-wrap--selected { background: var(--app-accent-soft); }
+.app-row__check {
+  margin: 0 0 0 var(--app-space-3);
+  cursor: pointer;
+  accent-color: var(--app-accent-strong);
+}
+.app-row-wrap .app-row { border-bottom: none; width: auto; min-width: 0; }
+
+.app-bulkbar {
+  display: flex;
+  align-items: center;
+  gap: var(--app-space-3);
+  padding: var(--app-space-2) var(--app-space-4);
+  border-bottom: 1px solid var(--app-border-soft);
+  background: var(--app-surface-sunk);
+  font-size: var(--app-text-sm);
+}
+.app-bulkbar__all { display: flex; align-items: center; gap: var(--app-space-2); cursor: pointer; color: var(--app-text-muted); white-space: nowrap; }
+.app-bulkbar__all input { accent-color: var(--app-accent-strong); cursor: pointer; }
+.app-bulkbar__act { margin-left: auto; }
+.app-bulkbar__msg { color: var(--app-text-soft); font-size: var(--app-text-xs); }
+
+.app-row {
+  display: block;
+  width: 100%;
+  text-align: left;
+  appearance: none;
+  border: none;
+  border-bottom: 1px solid var(--app-border-soft);
+  background: transparent;
+  cursor: pointer;
+  padding: var(--app-space-3) var(--app-space-4);
+  font: inherit;
+  transition: background var(--app-fast) var(--app-ease);
+}
+.app-row:hover { background: var(--app-surface-hover); }
+.app-row[aria-current="true"] {
+  background: var(--app-surface);
+  box-shadow: inset 3px 0 0 var(--app-accent);
+}
+.app-row__top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--app-space-2);
+  margin-bottom: 3px;
+}
+.app-row__name {
+  font-weight: 600;
+  font-size: var(--app-text-base);
+  color: var(--app-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.app-row__name--unread::before {
+  content: "";
+  display: inline-block;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--app-accent);
+  margin-right: 7px;
+  vertical-align: middle;
+}
+.app-row__time {
+  font-size: var(--app-text-xs);
+  color: var(--app-text-soft);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.app-row__subj {
+  font-size: var(--app-text-sm);
+  color: var(--app-text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 3px;
+}
+/* Inbox snippet line (mail-client). One muted line, truncated. */
+.app-row__snippet {
+  font-size: var(--app-text-xs);
+  color: var(--app-text-soft);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 6px;
+}
+.app-row__clip { font-size: var(--app-text-xs); flex-shrink: 0; opacity: 0.7; }
+.app-row__star { color: var(--app-warning); flex-shrink: 0; font-size: var(--app-text-sm); }
+/* Starred toolbar button — filled amber when the conversation is flagged. */
+.app-btn--starred { color: var(--app-warning); border-color: var(--app-warning); font-weight: 700; }
+/* Unread row: a touch more presence than read rows (subject darker). */
+.app-row--unread .app-row__subj { color: var(--app-text); font-weight: 600; }
+
+
+/* ── Right: conversation pane ───────────────────────────────────────── */
+.app-odpovedi__pane {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+/* Keyboard-shortcut hint — own thin row below the filters (mail-client). */
+.app-kbd-hint {
+  padding: 4px var(--app-space-4) var(--app-space-2);
+  font-size: var(--app-text-xs); color: var(--app-text-soft);
+  display: flex; align-items: center; gap: 4px; flex-wrap: wrap;
+}
+.app-kbd-hint kbd {
+  font-family: var(--app-font-mono, monospace); font-size: 10px;
+  padding: 1px 5px; border: 1px solid var(--app-border); border-radius: 4px;
+  background: var(--app-surface); color: var(--app-text-muted);
+}
+
+/* Mined signals strip (#1578) — phones/prices pulled from the email body. */
+.app-mined {
+  display: flex; align-items: center; flex-wrap: wrap; gap: var(--app-space-2);
+  margin: 0 var(--app-space-5) var(--app-space-3);
+  padding: var(--app-space-2) var(--app-space-3);
+  border: 1px solid var(--app-accent-soft); border-radius: var(--app-radius-sm);
+  background: var(--app-accent-soft);
+}
+.app-mined__label { font-size: var(--app-text-xs); color: var(--app-text-soft); text-transform: uppercase; letter-spacing: 0.06em; }
+.app-mined__phone {
+  font-size: var(--app-text-sm); font-weight: 700; color: var(--app-accent-strong);
+  text-decoration: none; padding: 2px var(--app-space-2); border-radius: var(--app-radius-pill);
+  border: 1px solid var(--app-accent-strong);
+}
+.app-mined__phone:hover { background: var(--app-accent-strong); color: var(--app-on-accent, #fff); }
+/* ── Action rail (#1586 R1) — phone is the hero of the reading pane ─────── */
+.app-actionrail {
+  display: flex; align-items: center; gap: var(--app-space-2);
+  margin: 0 var(--app-space-5) var(--app-space-3);
+}
+.app-actionrail__primary {
+  display: inline-flex; align-items: center; gap: var(--app-space-2);
+  font-size: var(--app-text-base); font-weight: 700; cursor: pointer;
+  padding: var(--app-space-2) var(--app-space-4); border-radius: var(--app-radius);
+  text-decoration: none; border: 1px solid transparent;
+}
+.app-actionrail__call { color: var(--app-on-accent, #fff); background: var(--app-accent-strong); }
+.app-actionrail__call:hover { filter: brightness(1.06); }
+.app-actionrail__call .app-actionrail__txt strong { font-variant-numeric: tabular-nums; }
+.app-actionrail__replyhero { color: var(--app-on-accent, #fff); background: var(--app-accent-strong); }
+.app-actionrail__replyhero:hover { filter: brightness(1.06); }
+.app-actionrail__ico { font-size: var(--app-text-lg); line-height: 1; }
+.app-actionrail__secondary {
+  font-size: var(--app-text-sm); font-weight: 600; cursor: pointer;
+  padding: var(--app-space-2) var(--app-space-3); border-radius: var(--app-radius);
+  color: var(--app-text); background: transparent; border: 1px solid var(--app-border-soft);
+}
+.app-actionrail__secondary:hover { border-color: var(--app-accent-strong); }
+.app-mined__phonewrap { display: inline-flex; align-items: center; gap: var(--app-space-1); }
+.app-savephone {
+  font-size: var(--app-text-xs); font-weight: 600; cursor: pointer;
+  color: var(--app-text-soft); background: transparent;
+  border: 1px solid var(--app-border-soft); border-radius: var(--app-radius-pill);
+  padding: 1px var(--app-space-2);
+}
+.app-savephone:hover:not(:disabled) { color: var(--app-text); border-color: var(--app-accent-strong); }
+.app-savephone:disabled { opacity: 0.6; cursor: default; }
+.app-savephone--done { color: var(--app-positive); border: 1px solid transparent; }
+.app-mined__price { font-size: var(--app-text-sm); font-weight: 600; color: var(--app-text); }
+.app-mined__flag { font-size: var(--app-text-xs); font-weight: 700; padding: 2px var(--app-space-2); border-radius: var(--app-radius-pill); }
+.app-mined__flag--call { color: var(--app-accent-strong); background: var(--app-surface); border: 1px solid var(--app-accent-strong); }
+.app-mined__flag--urgent { color: var(--app-negative); background: var(--app-negative-soft); }
+.app-mined__loc { font-size: var(--app-text-sm); font-weight: 600; color: var(--app-text-muted); }
+
+/* ── Signature contact card (#1581 M2.1) ────────────────────────────── */
+.app-sig {
+  display: flex; align-items: center; flex-wrap: wrap; gap: var(--app-space-2);
+  margin: 0 var(--app-space-5) var(--app-space-3);
+  padding: var(--app-space-2) var(--app-space-3);
+  border: 1px solid var(--app-border-soft); border-radius: var(--app-radius-sm);
+  background: var(--app-surface);
+}
+.app-sig__label { font-size: var(--app-text-xs); color: var(--app-text-soft); text-transform: uppercase; letter-spacing: 0.06em; }
+.app-sig__company { font-size: var(--app-text-sm); font-weight: 600; color: var(--app-text); }
+.app-sig__ico { font-size: var(--app-text-xs); font-weight: 700; color: var(--app-text-muted); font-variant-numeric: tabular-nums; }
+.app-sig__crm { font-size: var(--app-text-xs); font-weight: 700; color: var(--app-positive); background: var(--app-positive-soft); padding: 2px var(--app-space-2); border-radius: var(--app-radius-pill); }
+.app-sig__email { font-size: var(--app-text-sm); color: var(--app-accent-strong); text-decoration: none; }
+.app-sig__email:hover { text-decoration: underline; }
+
+/* Mail-client action toolbar above the message header. */
+.app-pane__toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--app-space-2);
+  padding: var(--app-space-2) var(--app-space-5);
+  border-bottom: 1px solid var(--app-border-soft);
+  background: var(--app-surface-sunk);
+}
+.app-pane__toolbar-contact { margin-left: auto; text-decoration: none; }
+.app-pane__handled {
+  font-size: var(--app-text-sm); font-weight: 600; color: var(--app-positive);
+  display: inline-flex; align-items: center; gap: 4px;
+}
+.app-pane__head {
+  padding: var(--app-space-4) var(--app-space-5);
+  border-bottom: 1px solid var(--app-border-soft);
+}
+/* Sender block with avatar initial (mail-client header). */
+.app-pane__from { display: flex; align-items: flex-start; gap: var(--app-space-3); }
+.app-pane__fromtext { min-width: 0; flex: 1; }
+.app-avatar {
+  flex-shrink: 0;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--app-font-serif); font-size: var(--app-text-lg); font-weight: 600;
+  color: var(--app-on-accent, #fff);
+  background: var(--app-accent);
+  margin-top: 3px;
+}
+.app-pane__subject {
+  font-family: var(--app-font-serif);
+  font-size: var(--app-text-title);
+  color: var(--app-text);
+  margin: 0 0 var(--app-space-2);
+  line-height: 1.25;
+}
+.app-pane__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--app-space-3);
+  align-items: center;
+  font-size: var(--app-text-sm);
+  color: var(--app-text-muted);
+}
+.app-pane__scroll { flex: 1; overflow-y: auto; }
+
+/* ── Vehicle capture panel (Odpovědi → Vozidlo) ─────────────────────── */
+.app-capture {
+  margin: 0 var(--app-space-5) var(--app-space-5);
+  padding: var(--app-space-4);
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius);
+  background: var(--app-surface-sunk);
+}
+.app-capture__head { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--app-space-3); }
+.app-capture__ver {
+  font-size: var(--app-text-xs); font-weight: 600; color: var(--app-accent-strong);
+  background: var(--app-accent-soft); padding: 2px 8px; border-radius: var(--app-radius-pill);
+}
+.app-capture__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--app-space-2); margin-bottom: var(--app-space-3); }
+.app-capture__field { display: flex; flex-direction: column; gap: 3px; font-size: var(--app-text-xs); color: var(--app-text-muted); min-width: 0; }
+.app-capture__field input {
+  font: inherit; font-size: var(--app-text-sm); color: var(--app-text);
+  background: var(--app-surface); border: 1px solid var(--app-border);
+  border-radius: var(--app-radius-sm); padding: 6px 8px; width: 100%; box-sizing: border-box;
+}
+.app-capture__field input:focus { outline: none; border-color: var(--app-accent); }
+.app-btn {
+  appearance: none; font: inherit; font-size: var(--app-text-sm); font-weight: 600;
+  border: 1px solid var(--app-border); background: var(--app-surface); color: var(--app-text);
+  border-radius: var(--app-radius-sm); padding: 8px var(--app-space-4); cursor: pointer;
+  transition: background var(--app-fast) var(--app-ease);
+}
+.app-btn:hover:not(:disabled) { background: var(--app-surface-hover); }
+.app-btn:disabled { opacity: 0.55; cursor: default; }
+.app-btn--primary { background: var(--app-accent); border-color: var(--app-accent); color: var(--app-on-accent); }
+.app-btn--primary:hover:not(:disabled) { background: var(--app-accent-strong); }
+.app-capture__msg { margin-top: var(--app-space-2); font-size: var(--app-text-xs); color: var(--app-text-muted); }
+.app-capture--linked { display: flex; align-items: center; gap: var(--app-space-3); }
+.app-capture__ok { font-size: var(--app-text-sm); font-weight: 600; color: var(--app-positive); }
+.app-capture__link { font-size: var(--app-text-sm); color: var(--app-accent-strong); text-decoration: none; font-weight: 600; }
+.app-capture__link:hover { text-decoration: underline; }
+
+/* ── Calm states ────────────────────────────────────────────────────── */
+.app-skeleton-row {
+  height: 60px;
+  margin: var(--app-space-3) var(--app-space-4);
+  border-radius: var(--app-radius-sm);
+  background: linear-gradient(90deg, var(--app-surface-sunk) 25%, var(--app-surface-hover) 50%, var(--app-surface-sunk) 75%);
+  background-size: 200% 100%;
+  animation: app-shimmer 1.4s ease-in-out infinite;
+}
+
+/* ── Narrow fallback: single column, pane below list ────────────────── */
+@media (max-width: 980px) {
+  .app-odpovedi { grid-template-columns: 1fr; height: auto; }
+  .app-odpovedi__list { border-right: none; }
+}
+.app-pane__contact-link { color: var(--app-accent-strong); text-decoration: none; font-weight: 600; }
+.app-pane__contact-link:hover { text-decoration: underline; }
+
+/* ── Reply draft panel (Ollama assist) ──────────────────────────────── */
+.app-draft {
+  margin: 0 var(--app-space-5) var(--app-space-5);
+  padding: var(--app-space-4);
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius);
+  background: var(--app-surface-sunk);
+}
+.app-draft__head { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--app-space-3); }
+.app-draft__ver { font-size: var(--app-text-xs); font-weight: 600; color: var(--app-accent-strong); background: var(--app-accent-soft); padding: 2px 8px; border-radius: var(--app-radius-pill); }
+.app-draft__text {
+  width: 100%; box-sizing: border-box; font: inherit; font-size: var(--app-text-sm);
+  color: var(--app-text); background: var(--app-surface); border: 1px solid var(--app-border);
+  border-radius: var(--app-radius-sm); padding: 10px; line-height: var(--app-leading-body);
+  resize: vertical; margin-bottom: var(--app-space-3);
+}
+.app-draft__text:focus { outline: none; border-color: var(--app-accent); }
+.app-draft__actions { display: flex; align-items: center; flex-wrap: wrap; gap: var(--app-space-2); }
+.app-draft__note { font-size: var(--app-text-xs); color: var(--app-text-soft); }
+.app-row__tags { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; }
+.app-tag--veh { color: var(--app-accent-strong); background: var(--app-accent-soft); }
+/* Mined-signal row chips (#1578 M1). Phone is the headline — the row carries
+   the actual number so the operator can dial without opening the reply. */
+.app-tag--phone { color: var(--app-positive); background: var(--app-positive-soft); font-variant-numeric: tabular-nums; }
+.app-tag--call  { color: var(--app-accent-strong); }
+.app-tag--urgent { color: var(--app-warning); }
+/* The 📞 call queue lane — phone-in-body leads, the highest-value výkup view. */
+.app-chip-toggle--phone { color: var(--app-positive); }
+.app-chip-toggle--phone:not([aria-pressed="true"]):hover { background: var(--app-positive-soft); }
+
+/* ── Classification confidence + override (#1020) ───────────────────── */
+.app-classify {
+  display: flex; align-items: center; flex-wrap: wrap; gap: var(--app-space-2);
+  margin: 0 var(--app-space-5) var(--app-space-3);
+  padding: var(--app-space-2) var(--app-space-3);
+  border: 1px solid var(--app-border-soft); border-radius: var(--app-radius-sm);
+  background: var(--app-surface-sunk);
+}
+.app-classify__conf {
+  font-size: var(--app-text-xs); font-weight: 600; padding: 2px var(--app-space-2);
+  border-radius: var(--app-radius-pill); white-space: nowrap;
+}
+.app-classify__conf--high { color: var(--app-positive); background: var(--app-positive-soft); }
+.app-classify__conf--mid  { color: var(--app-accent-strong); background: var(--app-accent-soft); }
+.app-classify__conf--low  { color: var(--app-warning); background: var(--app-warning-soft); }
+.app-classify__conf--none { color: var(--app-text-soft); background: transparent; border: 1px dashed var(--app-border); }
+.app-classify__label { font-size: var(--app-text-xs); color: var(--app-text-soft); margin-left: var(--app-space-2); }
+.app-classify__opts { display: flex; flex-wrap: wrap; gap: var(--app-space-1, 4px); }
+.app-classify__opt {
+  appearance: none; border: 1px solid var(--app-border); background: var(--app-surface);
+  color: var(--app-text-muted); font: inherit; font-size: var(--app-text-xs);
+  padding: 2px var(--app-space-2); border-radius: var(--app-radius-pill); cursor: pointer;
+  transition: background var(--app-fast) var(--app-ease), color var(--app-fast) var(--app-ease);
+}
+.app-classify__opt:hover:not(:disabled) { background: var(--app-surface-hover); color: var(--app-text); }
+.app-classify__opt--active { font-weight: 700; cursor: default; }
+.app-classify__opt:disabled:not(.app-classify__opt--active) { opacity: 0.5; cursor: default; }
+.app-classify__msg { font-size: var(--app-text-xs); color: var(--app-text-soft); }
+
+/* ── Reply composer (real send → outbox → relay) ────────────────────── */
+.app-compose {
+  margin: 0 var(--app-space-5) var(--app-space-5);
+  padding: var(--app-space-4);
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius);
+  background: var(--app-surface-sunk);
+}
+.app-compose__head { display: flex; align-items: baseline; justify-content: space-between; gap: var(--app-space-2); margin-bottom: var(--app-space-3); }
+.app-compose__to { font-size: var(--app-text-xs); color: var(--app-text-soft); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.app-compose__text {
+  width: 100%; box-sizing: border-box; font: inherit; font-size: var(--app-text-sm);
+  color: var(--app-text); background: var(--app-surface); border: 1px solid var(--app-border);
+  border-radius: var(--app-radius-sm); padding: 10px; line-height: var(--app-leading-body);
+  resize: vertical; margin-bottom: var(--app-space-3);
+}
+.app-compose__text:focus { outline: none; border-color: var(--app-accent); }
+
+/* Reply template picker (#1022) — chips above the textarea seed a draft. */
+.app-compose__templates {
+  display: flex; align-items: center; flex-wrap: wrap;
+  gap: var(--app-space-2); margin-bottom: var(--app-space-3);
+}
+.app-compose__templates-label {
+  font-size: var(--app-text-xs); color: var(--app-text-soft);
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.app-compose__template-chip {
+  appearance: none; border: 1px solid var(--app-border); background: var(--app-surface);
+  color: var(--app-text-muted); font: inherit; font-size: var(--app-text-sm);
+  padding: 3px var(--app-space-3); border-radius: var(--app-radius-pill); cursor: pointer;
+  transition: background var(--app-fast) var(--app-ease), color var(--app-fast) var(--app-ease),
+    border-color var(--app-fast) var(--app-ease);
+}
+.app-compose__template-chip:hover {
+  background: var(--app-accent-soft); color: var(--app-accent-strong); border-color: var(--app-accent-strong);
+}
+.app-compose__template-chip:disabled { opacity: 0.5; cursor: default; }
+
+.app-compose__actions { display: flex; align-items: center; flex-wrap: wrap; gap: var(--app-space-2); }
+.app-compose__confirm-q { font-size: var(--app-text-sm); color: var(--app-text); font-weight: 600; }
+.app-compose__msg { margin-top: var(--app-space-2); font-size: var(--app-text-xs); color: var(--app-text-muted); }
+.app-compose__note { margin-top: var(--app-space-2); font-size: var(--app-text-xs); color: var(--app-text-soft); }
+.app-compose--done { text-align: center; }
+.app-compose__sent { font-family: var(--app-font-serif); font-size: var(--app-text-lg); color: var(--app-accent-strong); }
+
+/* Attachments (2026-06-24) — drag-drop / paste / picker previews. */
+.app-compose__drop { position: relative; border-radius: var(--app-radius-sm); transition: outline var(--app-fast) var(--app-ease); }
+.app-compose__drop--over { outline: 2px dashed var(--app-accent); outline-offset: 3px; }
+.app-compose__drop--over::after {
+  content: 'Pusť pro přiložení';
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  font-size: var(--app-text-sm); font-weight: 700; color: var(--app-accent-strong);
+  background: var(--app-accent-soft); opacity: 0.92; border-radius: var(--app-radius-sm); pointer-events: none;
+}
+.app-compose__attach { display: flex; flex-wrap: wrap; gap: var(--app-space-2); margin-bottom: var(--app-space-3); }
+.app-compose__att {
+  display: inline-flex; align-items: center; gap: 6px; max-width: 210px;
+  padding: 4px 6px 4px 4px; border: 1px solid var(--app-border);
+  border-radius: var(--app-radius-pill); background: var(--app-surface); box-shadow: var(--app-shadow-sm);
+}
+.app-compose__att-img { width: 30px; height: 30px; object-fit: cover; border-radius: var(--app-radius-sm); flex-shrink: 0; }
+.app-compose__att-doc { display: inline-flex; width: 30px; height: 30px; align-items: center; justify-content: center; color: var(--app-accent-strong); flex-shrink: 0; }
+.app-compose__att-name { font-size: var(--app-text-xs); color: var(--app-text-muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.app-compose__att-x {
+  display: inline-flex; align-items: center; border: none; background: transparent;
+  color: var(--app-text-soft); cursor: pointer; padding: 2px; border-radius: 50%; flex-shrink: 0;
+}
+.app-compose__att-x:hover { color: var(--app-negative); background: var(--app-surface-hover); }
+
+/* ── Chat thread (WhatsApp/Signal/Chatwoot style) ───────────────────── */
+.app-chat { display: flex; flex-direction: column; gap: var(--app-space-3); padding: var(--app-space-5); }
+.app-chat__note { padding: var(--app-space-5); font-size: var(--app-text-sm); color: var(--app-text-soft); }
+.app-msg { display: flex; flex-direction: column; max-width: 78%; }
+.app-msg--theirs { align-self: flex-start; align-items: flex-start; }
+.app-msg--ours { align-self: flex-end; align-items: flex-end; }
+.app-msg__bubble {
+  padding: 9px 13px; border-radius: var(--app-radius); font-size: var(--app-text-base);
+  line-height: var(--app-leading-body); white-space: pre-wrap; word-break: break-word;
+}
+.app-msg--theirs .app-msg__bubble {
+  background: var(--app-surface-sunk); color: var(--app-text);
+  border: 1px solid var(--app-border-soft); border-bottom-left-radius: var(--app-radius-sm);
+}
+.app-msg--ours .app-msg__bubble {
+  background: var(--app-accent-soft); color: var(--app-text);
+  border: 1px solid var(--app-accent-soft); border-bottom-right-radius: var(--app-radius-sm);
+}
+.app-msg__text--empty { color: var(--app-text-soft); font-style: italic; }
+.app-msg__status { font-weight: 600; }
+.app-msg__status--sent { color: var(--app-accent-strong); }
+.app-msg__status--pending { color: var(--app-text-soft); }
+.app-msg__status--err { color: var(--app-danger, #c0392b); }
+.app-msg__meta { font-size: var(--app-text-xs); color: var(--app-text-soft); margin-top: 3px; padding: 0 4px; }
+
+/* Inbound attachment strip — seller machine photos shown in the conversation. */
+.app-attstrip { margin: 0 var(--app-space-5) var(--app-space-4); }
+.app-attstrip__label { font-size: var(--app-text-xs); font-weight: 600; color: var(--app-text-muted); margin-bottom: var(--app-space-2); }
+.app-attstrip__items { display: flex; flex-wrap: wrap; gap: var(--app-space-2); }
+.app-attstrip__thumb {
+  display: block; width: 84px; height: 84px; border-radius: var(--app-radius-sm);
+  overflow: hidden; border: 1px solid var(--app-border); background: var(--app-surface-sunk);
+}
+.app-attstrip__thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.app-attstrip__thumb:hover { border-color: var(--app-accent); }
+.app-attstrip__file {
+  display: inline-flex; align-items: center; gap: 4px; font-size: var(--app-text-xs);
+  color: var(--app-accent-strong); background: var(--app-surface-sunk);
+  border: 1px solid var(--app-border); border-radius: var(--app-radius-pill);
+  padding: 5px 11px; text-decoration: none; max-width: 200px; overflow: hidden;
+  text-overflow: ellipsis; white-space: nowrap;
+}
+.app-attstrip__file:hover { border-color: var(--app-accent); }
+
+/* Vehicle-capture photo preview — reply images that will attach to the vehicle. */
+.app-capture__photos { margin-bottom: var(--app-space-3); }
+.app-capture__photos-label { font-size: var(--app-text-xs); font-weight: 600; color: var(--app-text-muted); }
+.app-capture__photos-row { display: flex; flex-wrap: wrap; gap: var(--app-space-2); margin-top: 4px; }
+.app-capture__photo {
+  width: 56px; height: 56px; object-fit: cover; border-radius: var(--app-radius-sm);
+  border: 1px solid var(--app-border); background: var(--app-surface);
+}

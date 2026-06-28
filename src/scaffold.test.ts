@@ -26,10 +26,10 @@ describe('ContextAwareScaffolder', () => {
     expect(report.length).toBeGreaterThan(0);
     expect(fs.existsSync(path.join(testRoot, 'sale/billing/vektor.json'))).toBe(true);
     expect(fs.existsSync(path.join(testRoot, 'sale/billing/billing.vue'))).toBe(true);
-    
+
     const backendFile = path.join(testRoot, '@server/api/sale/billing.ts');
     expect(fs.existsSync(backendFile)).toBe(true);
-    
+
     const backendContent = fs.readFileSync(backendFile, 'utf8');
     expect(backendContent).toContain('// @vek' + 'tor-link: billing');
   });
@@ -37,7 +37,7 @@ describe('ContextAwareScaffolder', () => {
   it('should throw an error if the directory already exists', () => {
     const scaffolder = new ContextAwareScaffolder(testRoot);
     fs.mkdirSync(path.join(testRoot, 'sale/billing'), { recursive: true });
-    
+
     expect(() => {
       scaffolder.generateNode('billing', 'sale/billing');
     }).toThrow('already exists');

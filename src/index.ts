@@ -134,7 +134,9 @@ program
 
 program
   .command('map')
-  .description('Vygeneruje docs/reference/topology-map.md s mapou vektorového stromu (Mermaid graf) pro AI agenty')
+  .description(
+    'Vygeneruje docs/reference/topology-map.md s mapou vektorového stromu (Mermaid graf) pro AI agenty'
+  )
   .action(async () => {
     const root = process.cwd();
     const engine = new UnifiedVectorEngine(root);
@@ -147,7 +149,9 @@ program
 
 program
   .command('docs')
-  .description('Automaticky vygeneruje dokumentaci z vektorových manifestů (docs/reference/autodocs.md)')
+  .description(
+    'Automaticky vygeneruje dokumentaci z vektorových manifestů (docs/reference/autodocs.md)'
+  )
   .action(async () => {
     const root = process.cwd();
     const generator = new DocGenerator(root);

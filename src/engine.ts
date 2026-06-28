@@ -126,8 +126,9 @@ export class UnifiedVectorEngine {
     // Build graph nodes
     for (const [id, node] of this.nodes.entries()) {
       const state = this.getRollupState(id);
-      let style = state === 'pending' ? 'stroke:#ff9900,stroke-width:2px' : 'stroke:#00cc66,stroke-width:1px';
-      
+      let style =
+        state === 'pending' ? 'stroke:#ff9900,stroke-width:2px' : 'stroke:#00cc66,stroke-width:1px';
+
       // Override style if origin is specified
       if (node.manifest.origin === 'frontier') {
         style = 'stroke:#3399ff,stroke-width:3px,fill:#cce5ff,color:#333';

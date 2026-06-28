@@ -1,0 +1,364 @@
+/* Nastavení — scoped to .app-nastaveni, reads only --app-* tokens. Co-located
+   with Nastaveni.jsx. .app-empty / .app-empty__* come from app-shared.css
+   (imported once by AppShell). Clean rebuild of the Settings surface
+   (src/pages/Settings.jsx + src/components/settings/*) on the frame. */
+
+.app-nastaveni {
+  max-width: 980px;
+}
+
+/* ── Head ───────────────────────────────────────────────────────────────── */
+.app-nast__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--app-space-4);
+  margin-bottom: var(--app-space-4);
+}
+.app-nast__title {
+  font-family: var(--app-font-serif);
+  font-size: var(--app-text-hero);
+  font-weight: 500;
+  color: var(--app-text);
+  margin: 0;
+}
+.app-nast__sub {
+  display: block;
+  margin-top: 2px;
+  font-size: var(--app-text-xs);
+  color: var(--app-text-soft);
+  max-width: 64ch;
+}
+
+/* ── Tab bar — underline active ─────────────────────────────────────────── */
+.app-nast-tabs {
+  display: flex;
+  gap: var(--app-space-2);
+  border-bottom: 1px solid var(--app-border);
+  margin-bottom: var(--app-space-5);
+}
+.app-nast-tab {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px var(--app-space-3);
+  margin-bottom: -1px;
+  font: inherit;
+  font-size: var(--app-text-sm);
+  font-weight: 600;
+  color: var(--app-text-muted);
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: color var(--app-fast) var(--app-ease), border-color var(--app-fast) var(--app-ease);
+}
+.app-nast-tab:hover { color: var(--app-text); }
+.app-nast-tab--active {
+  color: var(--app-accent-strong);
+  border-bottom-color: var(--app-accent);
+}
+
+/* ── Panel + cards ──────────────────────────────────────────────────────── */
+.app-nast-panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--app-space-4);
+  min-width: 0;
+}
+.app-nast-card {
+  background: var(--app-surface);
+  border: 1px solid var(--app-border-soft);
+  border-radius: var(--app-radius);
+  padding: var(--app-space-3) var(--app-pad-card);
+}
+.app-nast-note {
+  margin: 0;
+  font-size: var(--app-text-xs);
+  color: var(--app-text-soft);
+  max-width: 70ch;
+}
+.app-nastaveni code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.92em;
+  color: var(--app-text-muted);
+  opacity: 0.85;
+}
+
+/* ── Field rows (branding) ──────────────────────────────────────────────── */
+.app-nast-field {
+  padding: var(--app-space-3) 0;
+  border-top: 1px solid var(--app-border-soft);
+}
+.app-nast-field:first-child { border-top: none; }
+.app-nast-field--changed {
+  background: color-mix(in oklch, var(--app-accent) 5%, transparent);
+  border-radius: var(--app-radius-sm);
+  margin: 0 calc(-1 * var(--app-space-3));
+  padding-left: var(--app-space-3);
+  padding-right: var(--app-space-3);
+}
+.app-nast-field__top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--app-space-3);
+}
+.app-nast-field__label {
+  font-size: var(--app-text-sm);
+  font-weight: 600;
+  color: var(--app-text);
+}
+.app-nast-req { color: var(--app-negative); margin-left: 2px; }
+.app-nast-field__meta {
+  flex-shrink: 0;
+  font-size: var(--app-text-xs);
+  color: var(--app-text-soft);
+  white-space: nowrap;
+}
+.app-nast-field__desc {
+  font-size: var(--app-text-xs);
+  color: var(--app-text-soft);
+  margin: 2px 0 var(--app-space-2);
+}
+
+/* ── Inputs (mirrors the .app-sb-input look) ─────────────────────────────── */
+.app-nast-input {
+  width: 100%;
+  padding: 7px var(--app-space-3);
+  font: inherit;
+  font-size: var(--app-text-base);
+  color: var(--app-text);
+  background: var(--app-surface-sunk);
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius-sm);
+  transition: border-color var(--app-fast);
+}
+.app-nast-input:focus { outline: none; border-color: var(--app-accent); }
+.app-nast-input::placeholder { color: var(--app-text-soft); }
+.app-nast-input:disabled { opacity: 0.6; cursor: not-allowed; }
+.app-nast-input--num { width: 150px; font-variant-numeric: tabular-nums; }
+
+/* ── Action bar (sticky save) ───────────────────────────────────────────── */
+.app-nast-actionbar {
+  position: sticky;
+  bottom: var(--app-space-3);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--app-space-4);
+  padding: var(--app-space-3) var(--app-pad-card);
+  background: var(--app-surface);
+  border: 1px solid var(--app-border-soft);
+  border-radius: var(--app-radius);
+  box-shadow: var(--app-shadow-sm);
+}
+.app-nast-actionbar__hint {
+  margin-right: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: var(--app-text-xs);
+  color: var(--app-text-soft);
+}
+
+/* ── Buttons ────────────────────────────────────────────────────────────── */
+.app-nast-save {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 9px var(--app-space-5);
+  font: inherit;
+  font-size: var(--app-text-sm);
+  font-weight: 600;
+  color: var(--app-on-accent);
+  background: var(--app-accent);
+  border: 1px solid var(--app-accent);
+  border-radius: var(--app-radius-sm);
+  cursor: pointer;
+  transition: background var(--app-fast), border-color var(--app-fast);
+}
+.app-nast-save:hover:not(:disabled) { background: var(--app-accent-strong); border-color: var(--app-accent-strong); }
+.app-nast-save:disabled { opacity: 0.5; cursor: default; }
+.app-nast-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  padding: 6px var(--app-space-3);
+  font: inherit;
+  font-size: var(--app-text-sm);
+  color: var(--app-text-muted);
+  background: var(--app-surface);
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius-sm);
+  cursor: pointer;
+  transition: border-color var(--app-fast), color var(--app-fast);
+}
+.app-nast-ghost:hover:not(:disabled) { color: var(--app-text); border-color: var(--app-border-strong); }
+.app-nast-ghost:disabled { opacity: 0.5; cursor: default; }
+.app-nast-iconbtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px; height: 30px;
+  background: transparent;
+  border: 1px solid var(--app-border-soft);
+  border-radius: var(--app-radius-sm);
+  color: var(--app-text-muted);
+  cursor: pointer;
+  transition: color var(--app-fast), border-color var(--app-fast);
+}
+.app-nast-iconbtn:hover { border-color: var(--app-border-strong); color: var(--app-text); }
+.app-nast-iconbtn--danger:hover { color: var(--app-negative); border-color: var(--app-negative); }
+
+.app-nast-spin { animation: app-nast-rot 1s linear infinite; }
+@keyframes app-nast-rot { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .app-nast-spin { animation: none; } }
+
+/* ── Skeleton ───────────────────────────────────────────────────────────── */
+.app-nast-skel {
+  height: 44px;
+  margin: var(--app-space-2) 0;
+  border-radius: var(--app-radius-sm);
+  background: linear-gradient(90deg, var(--app-surface) 25%, var(--app-surface-hover) 50%, var(--app-surface) 75%);
+  background-size: 200% 100%;
+  animation: app-shimmer 1.4s ease-in-out infinite;
+}
+
+/* ── ICP section + editable table ───────────────────────────────────────── */
+.app-nast-section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--app-space-3);
+  margin-bottom: var(--app-space-3);
+}
+.app-nast-section-title {
+  font-family: var(--app-font-serif);
+  font-size: var(--app-text-title);
+  font-weight: 500;
+  color: var(--app-text);
+  margin: 0;
+}
+.app-nast-count { font-family: var(--app-font-sans); font-size: var(--app-text-xs); color: var(--app-text-soft); font-weight: 600; }
+.app-nast-emptyline { padding: var(--app-space-3); font-size: var(--app-text-sm); color: var(--app-text-soft); }
+
+.app-nast-table { display: flex; flex-direction: column; }
+.app-nast-tr {
+  display: grid;
+  grid-template-columns: 130px minmax(0, 1.4fr) 84px minmax(0, 1fr) 60px 36px;
+  align-items: center;
+  gap: var(--app-space-3);
+  padding: var(--app-space-2) 0;
+  border-top: 1px solid var(--app-border-soft);
+}
+.app-nast-tr--head {
+  border-top: none;
+  font-size: var(--app-text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--app-text-soft);
+}
+.app-nast-tr--off { opacity: 0.5; }
+.app-nast-code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: var(--app-text-sm);
+  color: var(--app-text);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.app-nast-check { display: flex; align-items: center; justify-content: center; }
+.app-nast-check input { accent-color: var(--app-accent); }
+
+/* ── Thresholds groups ──────────────────────────────────────────────────── */
+.app-nast-group {
+  background: var(--app-surface);
+  border: 1px solid var(--app-border-soft);
+  border-radius: var(--app-radius);
+  overflow: hidden;
+}
+.app-nast-group__head {
+  display: flex;
+  align-items: center;
+  gap: var(--app-space-2);
+  width: 100%;
+  padding: var(--app-space-3) var(--app-pad-card);
+  font: inherit;
+  text-align: left;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--app-text);
+}
+.app-nast-group__title { font-weight: 700; font-size: var(--app-text-sm); }
+.app-nast-group__desc {
+  flex: 1; min-width: 0;
+  font-size: var(--app-text-xs); color: var(--app-text-soft);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.app-nast-group__count {
+  flex-shrink: 0;
+  font-size: var(--app-text-xs); color: var(--app-text-soft);
+  background: var(--app-surface-sunk);
+  padding: 1px 8px; border-radius: var(--app-radius-pill);
+}
+.app-nast-group__body { border-top: 1px solid var(--app-border-soft); }
+.app-nast-thr {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--app-space-4);
+  padding: var(--app-space-3) var(--app-pad-card);
+  border-top: 1px solid var(--app-border-soft);
+}
+.app-nast-thr:first-child { border-top: none; }
+.app-nast-thr__info { flex: 1; min-width: 0; }
+.app-nast-thr__control { display: flex; align-items: center; gap: var(--app-space-2); flex-shrink: 0; flex-wrap: wrap; justify-content: flex-end; }
+.app-nast-unit { font-size: var(--app-text-xs); color: var(--app-text-soft); }
+.app-nast-err { font-size: var(--app-text-xs); color: var(--app-negative); }
+.app-nast-ico-muted { color: var(--app-text-soft); vertical-align: -0.1em; }
+
+/* ── Add-sector modal ───────────────────────────────────────────────────── */
+.app-nast-modal {
+  position: fixed; inset: 0; z-index: 1000;
+  display: flex; align-items: center; justify-content: center;
+  padding: var(--app-space-5);
+  background: color-mix(in oklch, var(--app-text) 38%, transparent);
+}
+.app-nast-modal__panel {
+  width: 100%; max-width: 440px;
+  display: flex; flex-direction: column; gap: var(--app-space-3);
+  background: var(--app-surface);
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius-lg);
+  box-shadow: var(--app-shadow);
+  padding: var(--app-space-5);
+}
+.app-nast-modal__title { margin: 0; font-family: var(--app-font-serif); font-size: var(--app-text-title); font-weight: 500; color: var(--app-text); }
+.app-nast-modal__err {
+  display: flex; align-items: center; gap: 6px;
+  font-size: var(--app-text-sm); color: var(--app-negative);
+  background: var(--app-negative-soft);
+  padding: var(--app-space-2) var(--app-space-3); border-radius: var(--app-radius-sm);
+}
+.app-nast-modal__label {
+  display: flex; flex-direction: column; gap: 4px;
+  font-size: var(--app-text-sm); font-weight: 600; color: var(--app-text-muted);
+}
+.app-nast-modal__actions { display: flex; justify-content: flex-end; gap: var(--app-space-2); margin-top: var(--app-space-2); }
+
+/* ── Narrow viewports ───────────────────────────────────────────────────── */
+@media (max-width: 760px) {
+  .app-nast-tr {
+    grid-template-columns: 1fr 70px 56px 32px;
+    grid-template-areas:
+      "code code code del"
+      "name weight active del"
+      "pfx pfx pfx pfx";
+    gap: var(--app-space-2);
+  }
+  .app-nast-tr--head { display: none; }
+}

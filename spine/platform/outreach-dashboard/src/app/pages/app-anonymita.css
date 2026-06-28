@@ -1,0 +1,189 @@
+/* Diagnostika anonymity — scoped to .app-anonymita, reads only --app-* tokens. */
+
+.app-anonymita {
+  max-width: 920px;
+}
+
+/* Header — title + last-updated + actions */
+.app-anonymita__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--app-space-4);
+  margin-bottom: var(--app-space-5);
+}
+.app-anonymita__title {
+  font-family: var(--app-font-serif);
+  font-size: var(--app-text-hero);
+  font-weight: 500;
+  color: var(--app-text);
+  margin: 0;
+}
+.app-anonymita__sub {
+  display: block;
+  margin-top: 2px;
+  font-size: var(--app-text-xs);
+  color: var(--app-text-soft);
+}
+.app-anonymita__actions {
+  display: flex;
+  gap: var(--app-space-2);
+  flex-shrink: 0;
+}
+
+.app-anonymita__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px var(--app-space-3);
+  font: inherit;
+  font-size: var(--app-text-sm);
+  color: var(--app-text-muted);
+  background: var(--app-surface);
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius-sm);
+  cursor: pointer;
+  transition: border-color var(--app-fast), color var(--app-fast), background var(--app-fast);
+}
+.app-anonymita__btn:hover:not(:disabled) {
+  color: var(--app-text);
+  border-color: var(--app-border-strong);
+}
+.app-anonymita__btn:disabled { opacity: 0.5; cursor: default; }
+.app-anonymita__btn--primary {
+  color: var(--app-on-accent, #fff);
+  background: var(--app-accent);
+  border-color: var(--app-accent);
+}
+.app-anonymita__btn--primary:hover:not(:disabled) {
+  background: var(--app-accent-strong);
+  border-color: var(--app-accent-strong);
+  color: var(--app-on-accent, #fff);
+}
+
+/* Stat strip */
+.app-anonymita__stats {
+  display: grid;
+  /* S4: auto-fit so the strip reflows at any width (no media query). */
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--app-space-3);
+  margin-bottom: var(--app-space-5);
+}
+.app-astat {
+  padding: var(--app-space-3) var(--app-pad-card);
+  background: var(--app-surface);
+  border: 1px solid var(--app-border-soft);
+  border-radius: var(--app-radius);
+}
+.app-astat__n {
+  font-family: var(--app-font-serif);
+  font-size: var(--app-text-title);
+  font-weight: 500;
+  color: var(--app-text);
+  line-height: 1.1;
+}
+.app-astat__l {
+  margin-top: 3px;
+  font-size: var(--app-text-xs);
+  color: var(--app-text-soft);
+}
+.app-astat--ok   .app-astat__n { color: var(--app-positive); }
+.app-astat--warn .app-astat__n { color: var(--app-warning); }
+.app-astat--err  .app-astat__n { color: var(--app-negative); }
+
+/* Critical alert banner */
+.app-anonymita__alert {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--app-space-2);
+  padding: var(--app-space-3) var(--app-pad-card);
+  margin-bottom: var(--app-space-5);
+  font-size: var(--app-text-sm);
+  line-height: var(--app-leading-body);
+  color: var(--app-negative);
+  background: var(--app-negative-soft);
+  border: 1px solid var(--app-negative);
+  border-radius: var(--app-radius);
+}
+.app-anonymita__alert svg { flex-shrink: 0; margin-top: 1px; }
+.app-anonymita__alert strong { font-weight: 700; }
+
+/* Probe matrix */
+.app-anonymita__matrix {
+  display: flex;
+  flex-direction: column;
+  gap: var(--app-space-1);
+}
+.app-amx__head,
+.app-amx__row {
+  display: grid;
+  grid-template-columns: 1fr 116px 116px 96px;
+  gap: var(--app-space-3);
+  align-items: center;
+}
+.app-amx__head {
+  padding: 0 var(--app-pad-card) var(--app-space-2);
+  font-size: var(--app-text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--app-text-soft);
+}
+.app-amx__row {
+  padding: var(--app-space-3) var(--app-pad-card);
+  background: var(--app-surface);
+  border: 1px solid var(--app-border-soft);
+  border-radius: var(--app-radius);
+  font-size: var(--app-text-sm);
+}
+.app-amx__row--crit { border-color: var(--app-negative); }
+.app-amx__mb {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  color: var(--app-text);
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.app-amx__crit { color: var(--app-negative); flex-shrink: 0; }
+.app-amx__when {
+  color: var(--app-text-soft);
+  font-size: var(--app-text-xs);
+}
+
+/* Probe status chip */
+.app-achip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 9px;
+  border-radius: var(--app-radius-pill);
+  font-size: var(--app-text-xs);
+  font-weight: 600;
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+.app-achip__n { font-variant-numeric: tabular-nums; }
+.app-achip--ok      { color: var(--app-positive); background: var(--app-positive-soft); border-color: var(--app-positive); }
+.app-achip--warn    { color: var(--app-warning);  background: var(--app-warning-soft);  border-color: var(--app-warning); }
+.app-achip--fail    { color: var(--app-negative); background: var(--app-negative-soft); border-color: var(--app-negative); }
+.app-achip--pending { color: var(--app-text-muted); background: var(--app-surface-sunk); border-color: var(--app-border); }
+
+/* Loading skeleton — uses the shared app-shimmer keyframe (app-shared.css). The
+   "skel" substring opts into the reduced-motion guard there. */
+.app-anonymita__rows {
+  display: flex;
+  flex-direction: column;
+  gap: var(--app-space-1);
+}
+.app-skel-row {
+  height: 44px;
+  border-radius: var(--app-radius);
+  border: 1px solid var(--app-border-soft);
+  background: linear-gradient(100deg, var(--app-surface) 30%, var(--app-surface-hover) 50%, var(--app-surface) 70%);
+  background-size: 200% 100%;
+  animation: app-shimmer 1.4s ease-in-out infinite;
+}

@@ -1,0 +1,47 @@
+/* Kampaně — Claude-style read-only campaign overview cards.
+   Scoped under .app-kampane; reads --app-* tokens only. */
+
+.app-kampane { max-width: 860px; }
+.app-kampane__grid { display: flex; flex-direction: column; gap: var(--app-space-4); }
+
+/* Halt advisory pill (#1004) — bounce-rate safety signal on each card. */
+.app-halt {
+  display: flex; align-items: center; gap: var(--app-space-2);
+  margin-top: var(--app-space-3); padding: var(--app-space-2) var(--app-space-3);
+  border-radius: var(--app-radius-sm); font-size: var(--app-text-xs);
+}
+.app-halt__dot { width: 8px; height: 8px; border-radius: 50%; flex: none; }
+.app-halt__label { font-weight: 700; }
+.app-halt__rate { color: var(--app-text-soft); margin-left: auto; }
+.app-halt--ok   { background: var(--app-positive-soft); }
+.app-halt--ok   .app-halt__dot { background: var(--app-positive); }
+.app-halt--ok   .app-halt__label { color: var(--app-positive); }
+.app-halt--warn { background: var(--app-warning-soft); }
+.app-halt--warn .app-halt__dot { background: var(--app-warning); }
+.app-halt--warn .app-halt__label { color: var(--app-warning); }
+.app-halt--stop { background: var(--app-negative-soft); }
+.app-halt--stop .app-halt__dot { background: var(--app-negative); }
+.app-halt--stop .app-halt__label { color: var(--app-negative); }
+
+.app-camp {
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius-lg);
+  background: var(--app-surface);
+  padding: var(--app-space-5);
+  box-shadow: var(--app-shadow-sm);
+}
+.app-camp__head { display: flex; align-items: baseline; justify-content: space-between; gap: var(--app-space-3); margin-bottom: var(--app-space-2); }
+.app-camp__name { font-family: var(--app-font-serif); font-size: var(--app-text-title); color: var(--app-text); margin: 0; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.app-camp__meta { font-size: var(--app-text-sm); color: var(--app-text-muted); margin-bottom: var(--app-space-4); }
+
+
+.app-camp__stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--app-space-3); }
+.app-cstat { background: var(--app-surface-sunk); border-radius: var(--app-radius); padding: var(--app-space-3) var(--app-space-4); }
+.app-cstat__n { font-family: var(--app-font-serif); font-size: var(--app-text-title); line-height: 1.1; color: var(--app-text); }
+.app-cstat__l { font-size: var(--app-text-xs); color: var(--app-text-muted); margin-top: 2px; }
+.app-camp__rate { margin-top: var(--app-space-3); font-size: var(--app-text-sm); color: var(--app-text-muted); }
+.app-camp__rate strong { color: var(--app-text); }
+
+.app-empty { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 320px; gap: var(--app-space-2); color: var(--app-text-soft); text-align: center; }
+.app-skel { height: 180px; border-radius: var(--app-radius-lg); background: linear-gradient(90deg, var(--app-surface) 25%, var(--app-surface-hover) 50%, var(--app-surface) 75%); background-size: 200% 100%; animation: app-shimmer 1.4s ease-in-out infinite; }
+@media (max-width: 720px) { .app-camp__stats { grid-template-columns: repeat(2, 1fr); } }

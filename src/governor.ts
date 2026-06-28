@@ -100,7 +100,9 @@ export class CyberneticGovernor {
 
             if (bestMatch && lowestDist <= 3) {
               content = content.replace(match[0], match[0].replace(targetId, bestMatch));
-              report.push(`  -> HEALED (Fuzzy): Fixed typo in magic comment from '${targetId}' to '${bestMatch}'`);
+              report.push(
+                `  -> HEALED (Fuzzy): Fixed typo in magic comment from '${targetId}' to '${bestMatch}'`
+              );
             } else {
               content = content.replace(match[0], '');
               report.push(`  -> HEALED (Destructive): Stripped orphaned magic comment`);
@@ -135,11 +137,11 @@ export class CyberneticGovernor {
         const dir = path.dirname(file);
         if (manifest.facets) {
           for (const paths of Object.values(manifest.facets)) {
-             (paths as string[]).forEach(p => {
-               // Resolve to relative path from rootDir
-               const resolved = path.normalize(path.join(dir, p));
-               allTrackedFiles.add(resolved);
-             });
+            (paths as string[]).forEach((p) => {
+              // Resolve to relative path from rootDir
+              const resolved = path.normalize(path.join(dir, p));
+              allTrackedFiles.add(resolved);
+            });
           }
         }
       } catch (e) {}
@@ -151,9 +153,9 @@ export class CyberneticGovernor {
     });
 
     for (const file of spineFiles) {
-       if (!allTrackedFiles.has(path.normalize(file))) {
-         report.push(`DETECTED: Unmapped file in spine: ${file} (not referenced in any facets)`);
-       }
+      if (!allTrackedFiles.has(path.normalize(file))) {
+        report.push(`DETECTED: Unmapped file in spine: ${file} (not referenced in any facets)`);
+      }
     }
 
     return report;

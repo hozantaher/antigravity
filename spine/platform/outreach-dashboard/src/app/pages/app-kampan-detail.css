@@ -1,0 +1,193 @@
+/* Kampaň detail + editor — Antique Alchemist frame. All colors via --app-*
+   tokens so light/dark parity is automatic. Responsive: grid collapses to one
+   column under 760px; sticky hero actions stay reachable. */
+
+.kd { max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: var(--app-space-4); }
+
+.kd-link {
+  display: inline-flex; align-items: center; gap: 5px; width: fit-content;
+  color: var(--app-text-muted); text-decoration: none; font-size: var(--app-text-sm);
+  transition: color var(--app-fast) var(--app-ease);
+}
+.kd-link:hover { color: var(--app-accent-strong); }
+.kd-back { margin-bottom: calc(-1 * var(--app-space-2)); }
+
+/* Hero */
+.kd-hero {
+  display: flex; align-items: flex-start; justify-content: space-between; gap: var(--app-space-4);
+  flex-wrap: wrap;
+}
+.kd-hero__main { display: flex; align-items: center; gap: var(--app-space-3); flex-wrap: wrap; min-width: 0; }
+/* .app-shell prefix raises specificity over `.app-shell h2` so demoting the
+   campaign name from <h1> to <h2> (topbar owns the page <h1>) keeps the hero size. */
+.app-shell .kd-hero__name {
+  margin: 0; font-family: var(--app-font-serif); font-size: var(--app-text-hero);
+  font-weight: 500; color: var(--app-text); line-height: 1.15; word-break: break-word;
+}
+.kd-hero__actions { display: flex; gap: var(--app-space-2); flex-shrink: 0; }
+
+/* Buttons */
+.kd-btn {
+  display: inline-flex; align-items: center; gap: 6px; cursor: pointer;
+  font: inherit; font-size: var(--app-text-sm); font-weight: 600; line-height: 1;
+  padding: 8px 13px; border-radius: var(--app-radius-sm);
+  border: 1px solid var(--app-border); background: var(--app-surface); color: var(--app-text);
+  transition: background var(--app-fast) var(--app-ease), border-color var(--app-fast), color var(--app-fast), opacity var(--app-fast);
+}
+.kd-btn:hover:not(:disabled) { border-color: var(--app-border-strong); background: var(--app-surface-sunk); }
+.kd-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.kd-btn--ghost { background: transparent; border-color: transparent; color: var(--app-text-muted); padding: 6px 9px; }
+.kd-btn--ghost:hover:not(:disabled) { background: var(--app-surface-sunk); border-color: var(--app-border); color: var(--app-text); }
+.kd-btn--primary { background: var(--app-accent); border-color: var(--app-accent); color: var(--app-on-accent); }
+.kd-btn--primary:hover:not(:disabled) { background: var(--app-accent-strong); border-color: var(--app-accent-strong); }
+.kd-btn--warn { background: var(--app-warning-soft); border-color: var(--app-warning); color: var(--app-warning); }
+.kd-btn--danger { background: var(--app-negative); border-color: var(--app-negative); color: var(--app-on-accent); }
+.kd-btn--danger:hover:not(:disabled) { filter: brightness(0.92); }
+.kd-actions { display: flex; justify-content: flex-end; gap: var(--app-space-2); margin-top: var(--app-space-2); }
+
+/* Blockers */
+.kd-blockers {
+  border: 1px solid var(--app-negative); background: var(--app-negative-soft);
+  border-radius: var(--app-radius); padding: var(--app-space-3) var(--app-space-4); color: var(--app-text);
+}
+.kd-blockers__t { display: flex; align-items: center; gap: 7px; font-weight: 700; color: var(--app-negative); margin-bottom: 6px; }
+.kd-blockers ul { margin: 0; padding-left: 22px; font-size: var(--app-text-sm); }
+
+/* KPI strip */
+.kd-kpis {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: var(--app-space-2);
+}
+.kd-kpi {
+  background: var(--app-surface); border: 1px solid var(--app-border-soft); border-radius: var(--app-radius);
+  padding: var(--app-space-3) var(--app-space-4); box-shadow: var(--app-shadow-sm);
+}
+.kd-kpi__n { font-family: var(--app-font-serif); font-size: var(--app-text-title); font-weight: 600; color: var(--app-text); }
+.kd-kpi__l { font-size: var(--app-text-xs); color: var(--app-text-soft); margin-top: 2px; text-transform: uppercase; letter-spacing: 0.04em; }
+
+/* Section layout — two intentional columns: content (left, wider) + delivery
+   settings (right). Avoids the ragged voids a uniform auto-fill grid creates
+   when cards differ a lot in height, and keeps cards from jumping between
+   columns when one expands into edit mode (each column is a stable flex stack). */
+.kd-grid { display: grid; grid-template-columns: 1.55fr 1fr; gap: var(--app-space-4); align-items: start; }
+.kd-col { display: flex; flex-direction: column; gap: var(--app-space-4); min-width: 0; }
+/* Single focused column for the create wizard. */
+.kd-stack { display: flex; flex-direction: column; gap: var(--app-space-4); max-width: 760px; }
+
+/* Card */
+.kd-card {
+  background: var(--app-surface); border: 1px solid var(--app-border); border-radius: var(--app-radius-lg);
+  padding: var(--app-pad-card); box-shadow: var(--app-shadow-sm); display: flex; flex-direction: column;
+}
+.kd-card__head { display: flex; align-items: center; justify-content: space-between; gap: var(--app-space-2); min-height: 26px; }
+.kd-card__title { display: flex; align-items: center; gap: 7px; font-weight: 700; font-size: var(--app-text-base); color: var(--app-text); }
+.kd-card__title svg { color: var(--app-accent); }
+.kd-card__hint { font-size: var(--app-text-xs); color: var(--app-text-soft); margin-top: 3px; line-height: 1.4; }
+.kd-card__body { margin-top: var(--app-space-3); }
+
+/* Read rows */
+.kd-readrows { display: flex; flex-direction: column; gap: 8px; }
+.kd-readrow { display: grid; grid-template-columns: 96px 1fr; gap: var(--app-space-3); align-items: baseline; }
+.kd-k { font-size: var(--app-text-xs); color: var(--app-text-soft); text-transform: uppercase; letter-spacing: 0.04em; }
+.kd-v { font-size: var(--app-text-sm); color: var(--app-text); word-break: break-word; }
+.kd-muted { color: var(--app-text-soft); font-style: italic; }
+
+/* Forms */
+.kd-form { display: flex; flex-direction: column; gap: var(--app-space-3); }
+.kd-field { display: flex; flex-direction: column; gap: 5px; }
+.kd-field > span { font-size: var(--app-text-xs); color: var(--app-text-muted); font-weight: 600; }
+.kd-row2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--app-space-3); }
+.kd-input {
+  font: inherit; font-size: var(--app-text-sm); color: var(--app-text);
+  background: var(--app-bg); border: 1px solid var(--app-border); border-radius: var(--app-radius-sm);
+  padding: 8px 10px; width: 100%; transition: border-color var(--app-fast) var(--app-ease), box-shadow var(--app-fast);
+}
+.kd-input:focus { outline: none; border-color: var(--app-accent); box-shadow: 0 0 0 3px var(--app-accent-soft); }
+.kd-textarea { resize: vertical; min-height: 64px; line-height: 1.5; }
+
+/* Chips */
+.kd-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.kd-chips--read { gap: 5px; }
+.kd-chip {
+  display: inline-flex; align-items: center; gap: 5px; font-size: var(--app-text-xs);
+  background: var(--app-accent-soft); color: var(--app-accent-strong); border-radius: var(--app-radius-pill);
+  padding: 3px 6px 3px 10px;
+}
+.kd-chip button { display: inline-flex; align-items: center; border: none; background: transparent; color: inherit; cursor: pointer; padding: 0; opacity: 0.7; }
+.kd-chip button:hover { opacity: 1; }
+.kd-chip--read { background: var(--app-surface-sunk); color: var(--app-text-muted); padding: 3px 9px; }
+.kd-chip-add { display: flex; gap: 6px; }
+
+/* Segmented control */
+.kd-seg { display: inline-flex; border: 1px solid var(--app-border); border-radius: var(--app-radius-sm); overflow: hidden; width: fit-content; }
+.kd-seg button {
+  font: inherit; font-size: var(--app-text-xs); font-weight: 600; padding: 7px 12px; cursor: pointer;
+  background: var(--app-surface); color: var(--app-text-muted); border: none; border-right: 1px solid var(--app-border);
+}
+.kd-seg button:last-child { border-right: none; }
+.kd-seg button.on { background: var(--app-accent); color: var(--app-on-accent); }
+
+/* Estimate badge */
+.kd-estimate {
+  display: flex; align-items: center; gap: 7px; font-size: var(--app-text-sm); color: var(--app-text);
+  background: var(--app-positive-soft); border-radius: var(--app-radius-sm); padding: 8px 11px; width: fit-content;
+}
+.kd-estimate svg { color: var(--app-positive); }
+
+/* Locked notice */
+.kd-locked {
+  display: flex; align-items: center; gap: 9px; flex-wrap: wrap;
+  background: var(--app-warning-soft); border: 1px dashed var(--app-warning); border-radius: var(--app-radius-sm);
+  padding: 9px 11px; font-size: var(--app-text-sm); color: var(--app-text); margin-bottom: var(--app-space-3);
+}
+.kd-locked svg { color: var(--app-warning); }
+.kd-locked .kd-btn { margin-left: auto; }
+
+/* Sequence */
+.kd-steps { display: flex; flex-direction: column; gap: var(--app-space-2); }
+.kd-step { display: grid; grid-template-columns: 34px 1fr 92px auto; gap: var(--app-space-2); align-items: end; background: var(--app-bg); border: 1px solid var(--app-border-soft); border-radius: var(--app-radius-sm); padding: 8px; }
+.kd-step__ord { display: flex; align-items: center; gap: 2px; font-size: var(--app-text-sm); font-weight: 700; color: var(--app-text-muted); padding-bottom: 8px; }
+.kd-step__f { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.kd-step__f > span { font-size: var(--app-text-xs); color: var(--app-text-soft); }
+.kd-step__btns { display: flex; align-items: center; gap: 2px; padding-bottom: 4px; }
+.kd-icon { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border: 1px solid var(--app-border); background: var(--app-surface); border-radius: var(--app-radius-sm); cursor: pointer; color: var(--app-text-muted); font-size: 13px; }
+.kd-icon:hover:not(:disabled) { border-color: var(--app-border-strong); color: var(--app-text); }
+.kd-icon:disabled { opacity: 0.4; cursor: not-allowed; }
+.kd-icon--danger:hover:not(:disabled) { color: var(--app-negative); border-color: var(--app-negative); }
+.kd-seq-foot { display: flex; align-items: center; gap: var(--app-space-4); flex-wrap: wrap; font-size: var(--app-text-xs); }
+.kd-warn { display: inline-flex; align-items: center; gap: 5px; color: var(--app-warning); font-size: var(--app-text-xs); }
+.kd-seqlist { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.kd-seqitem { display: flex; align-items: center; justify-content: space-between; gap: var(--app-space-3); padding: 7px 10px; background: var(--app-bg); border: 1px solid var(--app-border-soft); border-radius: var(--app-radius-sm); }
+.kd-seqitem__tpl { display: inline-flex; align-items: center; gap: 6px; font-size: var(--app-text-sm); color: var(--app-text); }
+.kd-seqitem__tpl svg { color: var(--app-text-soft); }
+.kd-seqitem__delay { font-size: var(--app-text-xs); color: var(--app-text-soft); white-space: nowrap; }
+
+/* Staircase */
+.kd-stair { display: flex; flex-wrap: wrap; gap: var(--app-space-2); align-items: flex-end; }
+.kd-stair__cell { display: flex; flex-direction: column; gap: 4px; width: 84px; }
+.kd-stair__cell .kd-input { padding: 6px 8px; }
+.kd-stair__lbl { font-size: var(--app-text-xs); color: var(--app-text-soft); }
+.kd-stair__cell .kd-icon { align-self: flex-start; margin-top: 2px; }
+.kd-stairread { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.kd-pill { display: inline-flex; align-items: center; gap: 4px; font-size: var(--app-text-sm); font-weight: 600; color: var(--app-text); background: var(--app-surface-sunk); border-radius: var(--app-radius-pill); padding: 3px 11px; }
+.kd-pill svg { color: var(--app-text-soft); margin-left: 2px; }
+
+/* Danger zone */
+.kd-card[data-testid="kd-danger"] { border-color: var(--app-negative-soft); }
+.kd-danger { display: flex; flex-direction: column; gap: var(--app-space-2); }
+.kd-danger p { margin: 0; font-size: var(--app-text-sm); }
+.kd-danger .kd-btn--danger { width: fit-content; }
+
+/* Responsive */
+/* Below ~900px the two columns get cramped — collapse to a single stack. */
+@media (max-width: 900px) {
+  .kd-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 760px) {
+  .kd-hero { flex-direction: column; align-items: stretch; }
+  .kd-hero__actions { justify-content: flex-end; }
+  .kd-row2 { grid-template-columns: 1fr; }
+  .kd-step { grid-template-columns: 28px 1fr; grid-auto-rows: auto; }
+  .kd-step__f--narrow { grid-column: 2; }
+  .kd-step__btns { grid-column: 2; justify-content: flex-end; }
+  .kd-readrow { grid-template-columns: 84px 1fr; }
+}

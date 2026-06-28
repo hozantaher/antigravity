@@ -1,0 +1,112 @@
+{
+  "base": "http://127.0.0.1:5175",
+  "generated_at": "2026-04-30T18:55:19.648Z",
+  "method": "lighthouse 12.x via chrome-launcher (chromium 1217), --headless=new, --onlyCategories=performance, default mobile throttling preset",
+  "budgets": {
+    "lcp_ms": 2500,
+    "inp_ms": 200,
+    "cls": 0.1,
+    "js_route_kb_gzipped": 300
+  },
+  "shared_js_chunks_gzipped_bytes": {
+    "index.js": 13475,
+    "vendor-react.js": 60532,
+    "vendor-router.js": 13826,
+    "vendor-sentry.js": 155185,
+    "shared_total_bytes": 243018,
+    "shared_total_kb": 237
+  },
+  "routes": [
+    {
+      "path": "/",
+      "perf": 88,
+      "lcp_ms": 3196,
+      "cls": 0.01,
+      "tbt_ms": 0,
+      "fcp_ms": 2746,
+      "si_ms": 2746,
+      "inp_proxy_tbt_ms": 0,
+      "total_byte_weight_kb_uncompressed": 430,
+      "script_byte_weight_kb_uncompressed": 250,
+      "route_chunk_gzipped_bytes": 0,
+      "route_total_js_gzipped_kb": 237,
+      "vs_budget_lcp": "FAIL (3196>2500)",
+      "vs_budget_cls": "PASS",
+      "vs_budget_js_kb": "PASS (237<300)"
+    },
+    {
+      "path": "/replies",
+      "perf": 81,
+      "lcp_ms": 4316,
+      "cls": 0,
+      "tbt_ms": 0,
+      "fcp_ms": 2783,
+      "si_ms": 2783,
+      "inp_proxy_tbt_ms": 0,
+      "total_byte_weight_kb_uncompressed": 429,
+      "script_byte_weight_kb_uncompressed": 250,
+      "route_chunk_gzipped_bytes": 4506,
+      "route_total_js_gzipped_kb": 241,
+      "vs_budget_lcp": "FAIL (4316>2500)",
+      "vs_budget_cls": "PASS",
+      "vs_budget_js_kb": "PASS (241<300)"
+    },
+    {
+      "path": "/campaigns",
+      "perf": 81,
+      "lcp_ms": 4321,
+      "cls": 0,
+      "tbt_ms": 0,
+      "fcp_ms": 2794,
+      "si_ms": 2794,
+      "inp_proxy_tbt_ms": 0,
+      "total_byte_weight_kb_uncompressed": 431,
+      "script_byte_weight_kb_uncompressed": 252,
+      "route_chunk_gzipped_bytes": 4865,
+      "route_total_js_gzipped_kb": 242,
+      "vs_budget_lcp": "FAIL (4321>2500)",
+      "vs_budget_cls": "PASS",
+      "vs_budget_js_kb": "PASS (242<300)"
+    },
+    {
+      "path": "/companies",
+      "perf": 80,
+      "lcp_ms": 4334,
+      "cls": 0,
+      "tbt_ms": 0,
+      "fcp_ms": 2937,
+      "si_ms": 2937,
+      "inp_proxy_tbt_ms": 0,
+      "total_byte_weight_kb_uncompressed": 460,
+      "script_byte_weight_kb_uncompressed": 280,
+      "route_chunk_gzipped_bytes": 25423,
+      "route_total_js_gzipped_kb": 262,
+      "vs_budget_lcp": "FAIL (4334>2500)",
+      "vs_budget_cls": "PASS",
+      "vs_budget_js_kb": "PASS (262<300)"
+    },
+    {
+      "path": "/mailboxes",
+      "perf": 79,
+      "lcp_ms": 4482,
+      "cls": 0.009,
+      "tbt_ms": 12,
+      "fcp_ms": 2931,
+      "si_ms": 2931,
+      "inp_proxy_tbt_ms": 12,
+      "total_byte_weight_kb_uncompressed": 460,
+      "script_byte_weight_kb_uncompressed": 278,
+      "route_chunk_gzipped_bytes": 21687,
+      "route_total_js_gzipped_kb": 258,
+      "vs_budget_lcp": "FAIL (4482>2500)",
+      "vs_budget_cls": "PASS",
+      "vs_budget_js_kb": "PASS (258<300)"
+    }
+  ],
+  "notes": [
+    "INP not directly measurable from cold-load Lighthouse; TBT used as proxy (TBT 0-12ms across routes -> INP budget likely safe).",
+    "Lighthouse default applies 4x CPU throttle and Slow-4G network simulation, so absolute LCP values are conservative.",
+    "Run executed against `vite preview` build (production bundle) on 127.0.0.1:5175 with no live BFF; routes that fetch on mount may show lighter LCP than under real backend latency.",
+    "vendor-sentry chunk (155 kb gzipped) dominates shared payload at ~65% of route JS — single biggest perf lever."
+  ]
+}

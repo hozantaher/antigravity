@@ -1,0 +1,48 @@
+runConfig:
+  runtime: nodejs22
+  concurrency: 80
+  cpu: 1
+  memoryMiB: 512
+  minInstances: 0
+  maxInstances: 4
+
+scripts:
+  # 1. Vite build → dist/
+  # 2. pnpm deploy vytvoří /workspace/deploy-out/ se self-contained node_modules
+  #    (skutečné kopie, žádné symlinky → funguje v Cloud Run)
+  # 3. dist/ zkopírujeme ručně (je v .gitignore, pnpm deploy ho vynechá)
+  # deploy-out/ je UVNITŘ rootDir (apps/outreach-dashboard/) —
+  # buildpack Docker image obsahuje jen rootDir, ne celý /workspace.
+  # pnpm self-provisioned: the App Hosting nodejs buildpack falls back to npm for a
+  # workspace sub-package rootDir (the pnpm-lock.yaml here is a workspace stub), so
+  # `pnpm` is not on PATH. Bring it up via corepack (npm -g fallback), then do a
+  # filtered workspace install from /workspace (= repo root at build time) so
+  # `pnpm deploy` has the real pnpm store/structure.
+  buildCommand: >-
+    (corepack enable && corepack prepare pnpm@10.9.0 --activate) || npm install -g pnpm@10.9.0 &&
+    cd /workspace &&
+    pnpm install --filter "outreach-dashboard..." --no-frozen-lockfile &&
+    pnpm --filter outreach-dashboard run build &&
+    pnpm --filter outreach-dashboard deploy --prod --legacy /workspace/features/platform/outreach-dashboard/deploy-out &&
+    cp -r features/platform/outreach-dashboard/dist features/platform/outreach-dashboard/deploy-out/
+  runCommand: node deploy-out/server.js
+
+env:
+  - variable: NODE_ENV
+    value: production
+  - variable: SKIP_BOOT_INVARIANT_EXIT
+    value: "1"
+  - variable: NO_CRON
+    value: "1"
+  # Browser nemůže posílat x-api-key header — BFF auth je pro machine-to-machine.
+  # Přístup je chráněn URL nepoveřejností + HTTPS. Zvažit DASHBOARD_AUTH_ENABLED v budoucnu.
+  - variable: BFF_AUTH_DISABLED
+    value: "1"
+  - variable: GO_SERVER_URL
+    value: https://machinery-outreach-production.up.railway.app
+  - variable: CORS_ORIGIN
+    value: https://taher-ui-be--taher-ui-client.europe-west4.hosted.app
+  - variable: DATABASE_URL
+    secret: outreach-database-url
+  - variable: OUTREACH_API_KEY
+    secret: outreach-api-key

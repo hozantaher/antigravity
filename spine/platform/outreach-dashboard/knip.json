@@ -1,0 +1,34 @@
+{
+  "$schema": "https://unpkg.com/knip@6/schema.json",
+  "entry": [
+    "server.js",
+    "vite.config.js",
+    "playwright.config.js",
+    "src/main.jsx",
+    "src/App.jsx",
+    "src/test/setup.js",
+    "src/**/*.test.js",
+    "src/**/*.test.jsx",
+    "src/**/*.fuzz.test.js",
+    "scripts/*.mjs",
+    "scripts/*.js",
+    "e2e/**/*.spec.ts",
+    "e2e/**/*.ts"
+  ],
+  "project": [
+    "src/**/*.{js,jsx}",
+    "scripts/**/*.{mjs,js}",
+    "e2e/**/*.ts",
+    "server.js"
+  ],
+  "ignore": [
+    "**/.stryker-tmp/**",
+    "**/dist/**",
+    "**/node_modules/**",
+    "**/reports/**",
+    "**/__snapshots__/**"
+  ],
+  "ignoreDependencies": [
+    "@axe-core/playwright"
+  ]
+}

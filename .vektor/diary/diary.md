@@ -30,3 +30,17 @@ Tento log je automaticky spravován systémem Antigravity.
 - **Affected Nodes:** None
 - **Details:** Fáze 1 a 2 dokončeny: Proveden auto-heal na starých manifestech ve spine. Odstraněna karanténa Frontiera. Architektura je 100% zmapována.
 
+
+## [2026-06-28T23:25:43.366Z] MANUAL_LOG
+
+- **Actor:** Human
+- **Affected Nodes:** None
+- **Details:** Lift & Shift of outreach-dashboard from legacy hozan-taher to spine/platform/outreach-dashboard completed successfully.
+
+
+## [2026-06-28T23:28:06.036Z] MANUAL_LOG
+
+- **Actor:** Human
+- **Affected Nodes:** None
+- **Details:** Hromadná oprava 136 zkorumpovaných legacy manifestů ve složce products. Architektura je nyní na 100% čistá bez warningů.
+

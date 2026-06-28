@@ -1,0 +1,160 @@
+/* Upozornění — scoped to .app-upozorneni, reads only --app-* tokens. */
+
+.app-upozorneni {
+  max-width: 920px;
+}
+
+.app-upozorneni__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--app-space-4);
+  margin-bottom: var(--app-space-5);
+}
+
+.app-upozorneni__title {
+  font-family: var(--app-font-serif);
+  font-size: var(--app-text-hero);
+  font-weight: 500;
+  color: var(--app-text);
+  margin: 0;
+}
+
+.app-upozorneni__sub {
+  display: block;
+  margin-top: 2px;
+  font-size: var(--app-text-xs);
+  color: var(--app-text-soft);
+}
+
+.app-upozorneni__refresh {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  padding: 7px var(--app-space-3);
+  font: inherit;
+  font-size: var(--app-text-sm);
+  color: var(--app-text-muted);
+  background: var(--app-surface);
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius-sm);
+  cursor: pointer;
+  transition: border-color var(--app-fast), color var(--app-fast);
+}
+.app-upozorneni__refresh:hover:not(:disabled) {
+  color: var(--app-text);
+  border-color: var(--app-border-strong);
+}
+.app-upozorneni__refresh:disabled { opacity: 0.5; cursor: default; }
+
+/* Stat strip */
+.app-upozorneni__stats {
+  display: grid;
+  /* S4: auto-fit so the strip reflows at any width (no media query). */
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--app-space-3);
+  margin-bottom: var(--app-space-5);
+}
+.app-ustat {
+  padding: var(--app-space-3) var(--app-pad-card);
+  background: var(--app-surface);
+  border: 1px solid var(--app-border-soft);
+  border-radius: var(--app-radius);
+}
+.app-ustat__n {
+  font-family: var(--app-font-serif);
+  font-size: var(--app-text-title);
+  font-weight: 500;
+  color: var(--app-text);
+  line-height: 1.1;
+}
+.app-ustat__l {
+  margin-top: 3px;
+  font-size: var(--app-text-xs);
+  color: var(--app-text-soft);
+}
+.app-ustat--err .app-ustat__n { color: var(--app-negative); }
+.app-ustat--warn .app-ustat__n { color: var(--app-warning); }
+
+/* Notification list */
+.app-upozorneni__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--app-space-2);
+}
+
+.app-unotif {
+  display: grid;
+  grid-template-columns: 28px 1fr auto;
+  gap: var(--app-space-3);
+  align-items: start;
+  padding: var(--app-space-3) var(--app-pad-card);
+  background: var(--app-surface);
+  border: 1px solid var(--app-border-soft);
+  border-left: 3px solid var(--app-border);
+  border-radius: var(--app-radius);
+}
+
+.app-unotif__icon { padding-top: 1px; }
+
+.app-unotif__body { min-width: 0; }
+
+.app-unotif__meta {
+  display: flex;
+  gap: 7px;
+  align-items: baseline;
+  flex-wrap: wrap;
+  font-size: var(--app-text-xs);
+  color: var(--app-text-soft);
+}
+.app-unotif__sev {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.app-unotif__msg {
+  margin-top: 4px;
+  font-size: var(--app-text-sm);
+  color: var(--app-text);
+  line-height: 1.45;
+}
+
+.app-unotif__actions {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+.app-unotif__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  font-size: var(--app-text-sm);
+  text-decoration: none;
+  color: var(--app-text-muted);
+  background: var(--app-surface-sunk);
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius-sm);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: border-color var(--app-fast), color var(--app-fast);
+}
+.app-unotif__btn:hover:not(:disabled) {
+  color: var(--app-text);
+  border-color: var(--app-border-strong);
+}
+.app-unotif__btn--primary {
+  color: var(--app-on-accent, #fff);
+  background: var(--app-accent);
+  border-color: var(--app-accent);
+}
+.app-unotif__btn--primary:hover:not(:disabled) {
+  background: var(--app-accent-strong);
+  border-color: var(--app-accent-strong);
+  color: var(--app-on-accent, #fff);
+}
+.app-unotif__btn:disabled { opacity: 0.55; cursor: default; }

@@ -1,0 +1,153 @@
+/* CRM klienti — Claude-style pipeline header + filters + directory/detail.
+   Scoped .app-crm*. Reads --app-* tokens only (light/dark parity automatic). */
+
+/* Page column: fixed-height stack — header + stats + filters are intrinsic,
+   the directory split flexes to fill the rest (so the stat strip can't push
+   the split off-screen). */
+.app-crm-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--app-space-4);
+  height: calc(100vh - var(--app-topbar-h) - 2 * var(--app-pad-page));
+  min-height: 520px;
+}
+
+/* Header — title + freshness sub + refresh (mirrors Upozorneni/Dedup head). */
+.app-crm__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--app-space-4);
+  flex-shrink: 0;
+}
+.app-crm__title {
+  font-family: var(--app-font-serif);
+  font-size: var(--app-text-hero);
+  font-weight: 500;
+  color: var(--app-text);
+  margin: 0;
+}
+.app-crm__sub { display: block; margin-top: 2px; font-size: var(--app-text-xs); color: var(--app-text-soft); }
+.app-crm__sub--warn { color: var(--app-warning); font-weight: 600; }
+.app-crm__refresh {
+  display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0;
+  padding: 7px var(--app-space-3); font: inherit; font-size: var(--app-text-sm);
+  color: var(--app-text-muted); background: var(--app-surface);
+  border: 1px solid var(--app-border); border-radius: var(--app-radius-sm);
+  cursor: pointer; transition: border-color var(--app-fast), color var(--app-fast);
+}
+.app-crm__refresh:hover:not(:disabled) { color: var(--app-text); border-color: var(--app-border-strong); }
+.app-crm__refresh:disabled { opacity: 0.5; cursor: default; }
+
+/* Pipeline stat strip — auto-fit so a variable number of status cells fits. */
+.app-crm__stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(116px, 1fr));
+  gap: var(--app-space-3);
+  flex-shrink: 0;
+}
+.app-cstat {
+  padding: var(--app-space-3) var(--app-pad-card);
+  background: var(--app-surface);
+  border: 1px solid var(--app-border-soft);
+  border-radius: var(--app-radius);
+}
+.app-cstat__n {
+  font-family: var(--app-font-serif); font-size: var(--app-text-title); font-weight: 500;
+  color: var(--app-text); line-height: 1.1; font-variant-numeric: tabular-nums;
+}
+.app-cstat__l { margin-top: 3px; font-size: var(--app-text-xs); color: var(--app-text-soft); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* Facet filter bar */
+.app-crm__filters { display: flex; align-items: center; flex-wrap: wrap; gap: var(--app-space-2) var(--app-space-3); flex-shrink: 0; }
+.app-crm__fgroup { display: flex; align-items: center; flex-wrap: wrap; gap: 4px; }
+.app-crm__flabel { font-size: var(--app-text-xs); text-transform: uppercase; letter-spacing: 0.04em; color: var(--app-text-soft); font-weight: 600; margin-right: 2px; }
+.app-crm__fcount { color: var(--app-text-soft); font-size: var(--app-text-xs); margin-left: 4px; font-variant-numeric: tabular-nums; }
+.app-crm__reset { appearance: none; margin-left: auto; font: inherit; font-size: var(--app-text-sm); color: var(--app-text-muted); background: transparent; border: none; cursor: pointer; padding: 4px var(--app-space-2); border-radius: var(--app-radius-sm); }
+.app-crm__reset:hover { color: var(--app-text); text-decoration: underline; }
+
+/* Directory split — flexes to fill what the header/stats/filters leave. */
+.app-crm {
+  display: grid;
+  grid-template-columns: var(--app-list-w) 1fr;
+  grid-template-rows: minmax(0, 1fr);
+  flex: 1;
+  min-height: 0;
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius-lg);
+  background: var(--app-surface);
+  overflow: hidden;
+}
+.app-crm__list { display: flex; flex-direction: column; min-height: 0; border-right: 1px solid var(--app-border); min-width: 0; background: var(--app-bg); }
+.app-crm__search { padding: var(--app-space-3) var(--app-space-4); border-bottom: 1px solid var(--app-border-soft); }
+.app-crm__search input {
+  width: 100%; box-sizing: border-box; font: inherit; font-size: var(--app-text-sm);
+  color: var(--app-text); background: var(--app-surface); border: 1px solid var(--app-border);
+  border-radius: var(--app-radius-sm); padding: 7px 10px;
+}
+.app-crm__search input:focus { outline: none; border-color: var(--app-accent); }
+.app-crm__rows { flex: 1; overflow-y: auto; min-height: 0; }
+
+/* List footer: total count + pagination (parity with prev/next). */
+.app-crm__pager {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--app-space-2);
+  flex-shrink: 0; padding: var(--app-space-2) var(--app-space-4);
+  border-top: 1px solid var(--app-border-soft);
+  font-size: var(--app-text-xs); color: var(--app-text-soft);
+  font-variant-numeric: tabular-nums;
+}
+.app-crm__pagerbtns { display: flex; align-items: center; gap: 6px; }
+.app-crm__pagebtn {
+  appearance: none; display: inline-flex; align-items: center; justify-content: center;
+  width: 26px; height: 24px; padding: 0; color: var(--app-text-muted);
+  background: var(--app-surface); border: 1px solid var(--app-border);
+  border-radius: var(--app-radius-sm); cursor: pointer;
+  transition: border-color var(--app-fast), color var(--app-fast);
+}
+.app-crm__pagebtn:hover:not(:disabled) { color: var(--app-text); border-color: var(--app-border-strong); }
+.app-crm__pagebtn:disabled { opacity: 0.4; cursor: default; }
+
+.app-crow {
+  display: block; width: 100%; text-align: left; appearance: none; border: none;
+  border-bottom: 1px solid var(--app-border-soft); background: var(--app-bg);
+  cursor: pointer; padding: var(--app-space-3) var(--app-space-4); font: inherit;
+  transition: background var(--app-fast) var(--app-ease);
+}
+.app-crow:hover { background: var(--app-surface-hover); }
+.app-crow[aria-current="true"] { background: var(--app-surface); box-shadow: inset 3px 0 0 var(--app-accent); }
+.app-crow__name { font-weight: 600; font-size: var(--app-text-base); color: var(--app-text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.app-crow__sub { font-size: var(--app-text-sm); color: var(--app-text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin: 2px 0 6px; }
+.app-crow__tags { display: flex; flex-wrap: wrap; gap: 4px; }
+.app-tag--rel { color: var(--app-accent-strong); background: var(--app-accent-soft); }
+.app-tag--linked { color: var(--app-text-muted); background: var(--app-surface-sunk); }
+
+.app-crm__pane { min-width: 0; min-height: 0; overflow-y: auto; padding: var(--app-space-5); }
+.app-cd__name { font-family: var(--app-font-serif); font-size: var(--app-text-title); color: var(--app-text); margin: 0 0 4px; }
+.app-cd__sub { font-size: var(--app-text-sm); color: var(--app-text-muted); margin-bottom: var(--app-space-3); }
+.app-cd__section { margin-top: var(--app-space-4); }
+.app-cd__label { font-size: var(--app-text-xs); text-transform: uppercase; letter-spacing: 0.04em; color: var(--app-text-soft); font-weight: 600; margin-bottom: var(--app-space-2); }
+.app-cd__row { display: flex; justify-content: space-between; gap: var(--app-space-3); padding: 5px 0; font-size: var(--app-text-sm); border-bottom: 1px solid var(--app-border-soft); }
+.app-cd__row dt { color: var(--app-text-muted); }
+.app-cd__row dd { color: var(--app-text); margin: 0; text-align: right; word-break: break-word; }
+.app-cd__link { display: block; padding: 8px 0; font-size: var(--app-text-sm); color: var(--app-accent-strong); text-decoration: none; border-bottom: 1px solid var(--app-border-soft); font-weight: 600; }
+.app-cd__link:hover { text-decoration: underline; }
+
+/* Linked vehicles (Nabízená vozidla) — the hot-lead signal surfaces. */
+.app-cd__vehicle {
+  display: block; padding: 8px 10px; margin-bottom: 6px;
+  background: var(--app-surface-sunk); border: 1px solid var(--app-border-soft);
+  border-radius: var(--app-radius-sm); text-decoration: none;
+  transition: border-color var(--app-fast);
+}
+.app-cd__vehicle:hover { border-color: var(--app-accent); }
+.app-cd__vehrow { display: flex; align-items: center; justify-content: space-between; gap: var(--app-space-2); }
+.app-cd__vehtitle { font-size: var(--app-text-sm); font-weight: 600; color: var(--app-text); min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.app-cd__vehmeta { margin-top: 3px; font-size: var(--app-text-xs); color: var(--app-text-soft); }
+
+.app-skeleton-row { height: 56px; margin: var(--app-space-3) var(--app-space-4); border-radius: var(--app-radius-sm); background: linear-gradient(90deg, var(--app-surface-sunk) 25%, var(--app-surface-hover) 50%, var(--app-surface-sunk) 75%); background-size: 200% 100%; animation: app-shimmer 1.4s ease-in-out infinite; }
+
+@media (max-width: 980px) {
+  .app-crm-page { height: auto; }
+  .app-crm { grid-template-columns: 1fr; flex: initial; }
+  .app-crm__list { border-right: none; }
+}

@@ -47,7 +47,9 @@ export class ContextAwareScaffolder {
     const backendDir = path.join(this.rootDir, '@server', 'api', storyAxis);
     fs.mkdirSync(backendDir, { recursive: true });
     const backendFile = path.join(backendDir, `${nodeId}.ts`);
-    const backendContent = `// @vek` + `tor-link: ${nodeId}\nexport default function() {\n  // TODO: implement logic\n}\n`;
+    const backendContent =
+      `// @vek` +
+      `tor-link: ${nodeId}\nexport default function() {\n  // TODO: implement logic\n}\n`;
     fs.writeFileSync(backendFile, backendContent);
     report.push(`CREATED: Framework-pinned backend stub at ${backendFile} with reverse link`);
 

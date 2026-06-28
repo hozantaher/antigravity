@@ -1,0 +1,591 @@
+/* app-odpovedi.css — single-screen reply triage, restructured to a full
+ * three-pane email client (folder rail · list · reading pane).
+ *
+ * Reuses the --app-* token set (tokens.css, scoped under .app-shell) so light +
+ * dark stay in parity for free. The visual upgrade ("výrazné vizuální zlepšení",
+ * 2026-06-24) trades the old flat-hairline look for LAYERED DEPTH:
+ *   - panes step in tone left→right (recessed rail → mid list → lit pane) so the
+ *     reading surface reads as raised without heavy shadows;
+ *   - interactive things (folders, rows, composer) lift on hover/active with a
+ *     soft sepia shadow instead of every divider carrying the same 1px weight;
+ *   - row hierarchy gets real breathing room + a clear name→subject→snippet→tags
+ *     cascade.
+ * Antique aesthetic, denser spacing, and full dark parity are all preserved.
+ */
+
+.app-odpovedi {
+  display: grid;
+  grid-template-columns: var(--app-folders-w) var(--app-list-w) 1fr;
+  grid-template-rows: minmax(0, 1fr);
+  height: calc(100vh - var(--app-topbar-h) - 2 * var(--app-pad-page));
+  min-height: 460px;
+  border: 1px solid var(--app-border-strong);
+  border-radius: var(--app-radius-lg);
+  background: var(--app-surface);
+  box-shadow: var(--app-shadow);
+  overflow: hidden;
+}
+
+/* ── PANE 1 — folder / account rail (recessed) ─────────────────────────── */
+.app-folders {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  min-width: 0;
+  gap: var(--app-space-1);
+  padding: var(--app-space-3) var(--app-space-2);
+  border-right: 1px solid var(--app-border-strong);
+  background: var(--app-surface-sunk);
+}
+.app-folders__brand {
+  font-family: var(--app-font-serif);
+  font-size: var(--app-text-title);
+  color: var(--app-text);
+  margin: 0 0 var(--app-space-2);
+  padding: var(--app-space-1) var(--app-space-3);
+  letter-spacing: -0.005em;
+}
+.app-folders__list { display: flex; flex-direction: column; gap: 3px; }
+.app-folder {
+  font: inherit;
+  font-size: var(--app-text-sm);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: var(--app-space-2);
+  width: 100%;
+  padding: var(--app-space-2) var(--app-space-3);
+  border: 1px solid transparent;
+  border-radius: var(--app-radius);
+  background: transparent;
+  color: var(--app-text-muted);
+  cursor: pointer;
+  text-align: left;
+  transition: background var(--app-fast) var(--app-ease),
+    color var(--app-fast) var(--app-ease), box-shadow var(--app-fast) var(--app-ease);
+}
+.app-folder:hover { background: var(--app-surface-hover); color: var(--app-text); }
+.app-folder__ico { display: inline-flex; line-height: 1; flex-shrink: 0; opacity: 0.9; }
+.app-folder__label { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.app-folder__count {
+  font-size: var(--app-text-xs);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--app-text-soft);
+  background: var(--app-surface);
+  border: 1px solid var(--app-border-soft);
+  border-radius: var(--app-radius-pill);
+  padding: 0 6px;
+  min-width: 18px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.app-folder--on {
+  background: var(--app-accent-soft);
+  color: var(--app-accent-strong);
+  border-color: var(--app-accent-soft);
+  /* No left accent rail — the active folder reads from the tint + accent text +
+     accent count badge; the inset bar was a stray vertical line on the chip. */
+  box-shadow: var(--app-shadow-sm);
+}
+.app-folder--on .app-folder__ico { opacity: 1; }
+.app-folder--on .app-folder__count {
+  color: var(--app-on-accent);
+  background: var(--app-accent);
+  border-color: var(--app-accent);
+}
+
+/* ── PANE 2 — list (mid tone) ──────────────────────────────────────────── */
+.app-list {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  min-width: 0;
+  border-right: 1px solid var(--app-border);
+  background: var(--app-bg);
+}
+.app-list__head { padding: var(--app-space-3) var(--app-space-3) var(--app-space-2); }
+/* Folder-rail title removed in S2 — the page <h1> now lives in the topbar. */
+
+/* Search field — inset well with a leading icon + clear button. */
+.app-search {
+  display: flex;
+  align-items: center;
+  gap: var(--app-space-2);
+  padding: 0 var(--app-space-3);
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius);
+  background: var(--app-surface);
+  box-shadow: inset 0 1px 2px rgba(58, 40, 16, 0.05);
+  transition: border-color var(--app-fast) var(--app-ease), box-shadow var(--app-fast) var(--app-ease);
+}
+.app-search:focus-within {
+  border-color: var(--app-accent);
+  box-shadow: 0 0 0 3px var(--app-accent-soft);
+}
+.app-search__ico { display: inline-flex; color: var(--app-text-soft); flex-shrink: 0; }
+.app-search__input {
+  flex: 1;
+  min-width: 0;
+  font: inherit;
+  font-size: var(--app-text-sm);
+  color: var(--app-text);
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 7px 0;
+}
+.app-search__input::placeholder { color: var(--app-text-soft); }
+.app-search__input::-webkit-search-cancel-button { display: none; }
+.app-search__clear {
+  display: inline-flex;
+  align-items: center;
+  border: none;
+  background: transparent;
+  color: var(--app-text-soft);
+  cursor: pointer;
+  padding: 2px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.app-search__clear:hover { color: var(--app-text); background: var(--app-surface-hover); }
+
+.app-kbd-hint {
+  padding: var(--app-space-1) var(--app-space-3) var(--app-space-2);
+  font-size: var(--app-text-xs);
+  color: var(--app-text-soft);
+}
+.app-kbd-hint kbd {
+  font: inherit;
+  font-size: var(--app-text-xs);
+  padding: 1px 5px;
+  margin: 0 1px;
+  border: 1px solid var(--app-border);
+  border-radius: 4px;
+  background: var(--app-surface);
+  color: var(--app-text-muted);
+}
+
+.app-rows {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  border-top: 1px solid var(--app-border-soft);
+}
+
+/* Reuse app-row look; deepens the active affordance. Hover is the inherited
+   .app-row:hover background tint only — NO inset ring, which otherwise paints a
+   stray 1px line down the button's left edge (after the checkbox) on hover. */
+.app-row { width: 100%; }
+/* Active (open-in-pane) row — the accent rail belongs at the very LEFT edge of
+   the whole row, BEFORE the bulk-select checkbox, with the tint spanning the
+   full row. .app-row--active is on the button (grid col 2), so the rail + tint
+   live on the .app-row-wrap grid (col 1 checkbox · col 2 button) via :has(). The
+   button itself goes transparent and drops the inherited aria-current rail
+   (.app-row[aria-current="true"] in app-odpovedi.css, specificity 0,2,0) — the
+   [aria-current] qualifier here makes it 0,3,0 so there is exactly ONE rail, at
+   the row's left edge, not a second one wedged after the checkbox. */
+.app-rows .app-row-wrap:has(.app-row--active) {
+  background: var(--app-accent-soft);
+  box-shadow: inset 4px 0 0 var(--app-accent);
+}
+.app-rows .app-row--active[aria-current="true"] {
+  background: transparent;
+  box-shadow: none;
+}
+
+/* Real-time "new replies" pill — floats at the top of the list, never yanks
+   the operator's scroll position. */
+.app-newpill {
+  position: sticky;
+  top: var(--app-space-2);
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin: var(--app-space-2) auto 0;
+  left: 0; right: 0;
+  width: fit-content;
+  font: inherit;
+  font-size: var(--app-text-xs);
+  font-weight: 700;
+  color: var(--app-on-accent);
+  background: var(--app-accent);
+  border: none;
+  border-radius: var(--app-radius-pill);
+  padding: 5px 13px;
+  cursor: pointer;
+  box-shadow: var(--app-shadow);
+  animation: app-pop var(--app-normal) var(--app-ease);
+}
+.app-newpill:hover { background: var(--app-accent-strong); }
+
+/* Infinite-scroll sentinel + footer. */
+.app-sentinel { height: 1px; }
+.app-more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: var(--app-space-3);
+  font-size: var(--app-text-xs);
+  color: var(--app-text-soft);
+}
+.app-more--end { color: var(--app-text-soft); opacity: 0.7; }
+.app-spin { animation: app-spin 0.9s linear infinite; }
+
+/* ── PANE 3 — reading pane (lit / raised) ──────────────────────────────── */
+.app-pane {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background: var(--app-surface);
+}
+
+.app-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--app-space-4);
+  padding: var(--app-space-4) var(--app-pad-card);
+  border-bottom: 1px solid var(--app-border-soft);
+  background: var(--app-surface);
+}
+.app-head__title { min-width: 0; }
+.app-head__name {
+  font-family: var(--app-font-serif);
+  font-size: var(--app-text-title);
+  color: var(--app-text);
+  margin: 0;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.app-head__subject {
+  display: block;
+  margin-top: 2px;
+  font-size: var(--app-text-base);
+  color: var(--app-text-muted);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  max-width: 60ch;
+}
+.app-head__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--app-space-2);
+  flex-shrink: 0;
+}
+.app-head__time { font-size: var(--app-text-sm); color: var(--app-text-muted); white-space: nowrap; }
+.app-flag-btn, .app-archive, .app-contact-link, .app-crm-btn {
+  font: inherit;
+  font-size: var(--app-text-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius);
+  background: var(--app-surface);
+  color: var(--app-text-muted);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background var(--app-fast) var(--app-ease),
+    border-color var(--app-fast) var(--app-ease), color var(--app-fast) var(--app-ease),
+    box-shadow var(--app-fast) var(--app-ease);
+}
+.app-flag-btn:hover, .app-archive:hover, .app-contact-link:hover, .app-crm-btn:hover {
+  background: var(--app-surface-hover);
+  color: var(--app-text);
+  box-shadow: var(--app-shadow-sm);
+}
+.app-archive { font-weight: 600; }
+.app-flag-btn--on {
+  color: var(--app-warning);
+  border-color: var(--app-warning);
+  background: var(--app-warning-soft);
+}
+.app-handled {
+  font-size: var(--app-text-sm);
+  color: var(--app-positive);
+  font-weight: 600;
+  display: inline-flex; align-items: center; gap: 5px;
+}
+
+/* Merged Fakta strip. */
+.app-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--app-space-2);
+  padding: var(--app-space-3) var(--app-pad-card);
+  border-bottom: 1px solid var(--app-border-soft);
+}
+.app-fact {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: var(--app-text-sm);
+  padding: 4px 10px;
+  border-radius: var(--app-radius-pill);
+  border: 1px solid var(--app-border-soft);
+  background: var(--app-surface-sunk);
+  color: var(--app-text);
+  text-decoration: none;
+}
+a.app-fact:hover { border-color: var(--app-accent); box-shadow: var(--app-shadow-sm); }
+.app-fact--identity { font-weight: 600; }
+.app-fact--positive { color: var(--app-positive); border-color: var(--app-positive); background: var(--app-positive-soft); }
+.app-fact--urgent { color: var(--app-negative); border-color: var(--app-negative); background: var(--app-negative-soft); }
+.app-fact__ico { line-height: 1; }
+
+/* AI classification disclosure. */
+.app-ai { margin: 0; border-bottom: 1px solid var(--app-border-soft); }
+.app-ai__summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--app-space-3);
+  padding: var(--app-space-3) var(--app-pad-card);
+  cursor: pointer;
+  user-select: none;
+  font-size: var(--app-text-sm);
+  color: var(--app-text-muted);
+}
+.app-ai__summary:hover { color: var(--app-text); }
+.app-ai__conf { color: var(--app-text-soft); font-variant-numeric: tabular-nums; }
+.app-ai__body { padding: 0 var(--app-pad-card) var(--app-space-3); }
+
+/* Conversation scrolls above the sticky composer. */
+.app-thread {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: var(--app-space-4) var(--app-pad-card);
+  background: var(--app-surface);
+}
+
+/* Sticky composer — lifted card pinned to the bottom of the pane. */
+.app-composer {
+  flex-shrink: 0;
+  border-top: 1px solid var(--app-border);
+  background: var(--app-surface);
+  box-shadow: 0 -3px 10px rgba(58, 40, 16, 0.05);
+  padding: var(--app-space-3) var(--app-pad-card);
+  max-height: var(--app-composer-max, 48vh);
+  overflow-y: auto;
+}
+.app-shell[data-theme="dark"] .app-composer { box-shadow: 0 -3px 12px rgba(0, 0, 0, 0.30); }
+
+/* Toast — optimistic-action failures, bottom-centre. */
+.app-toast {
+  position: fixed;
+  left: 50%;
+  bottom: var(--app-space-6);
+  transform: translateX(-50%);
+  z-index: 40;
+  font-size: var(--app-text-sm);
+  font-weight: 600;
+  color: var(--app-text);
+  background: var(--app-surface);
+  border: 1px solid var(--app-border-strong);
+  border-radius: var(--app-radius);
+  box-shadow: var(--app-shadow);
+  padding: var(--app-space-3) var(--app-space-5);
+  animation: app-pop var(--app-normal) var(--app-ease);
+}
+.app-toast--err { border-color: var(--app-negative); color: var(--app-negative); }
+
+@keyframes app-pop {
+  from { opacity: 0; transform: translateX(-50%) translateY(6px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+/* The list pill reuses app-pop but is auto-margin-centred, not transl(X) — keep
+   its own keyframe so the transform isn't fought. */
+.app-newpill { animation-name: app-pop-pill; }
+@keyframes app-pop-pill {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes app-spin { to { transform: rotate(360deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .app-newpill, .app-toast { animation: none; }
+  .app-spin { animation: none; }
+}
+
+/* ── Responsive ────────────────────────────────────────────────────────── */
+/* Medium widths: collapse the rail to an icon strip. */
+@media (max-width: 1180px) and (min-width: 901px) {
+  .app-odpovedi { grid-template-columns: 58px var(--app-list-w) 1fr; }
+  .app-folder { justify-content: center; padding: var(--app-space-2); }
+  .app-folder__label, .app-folder__count, .app-folders__brand { display: none; }
+}
+/* Narrow (iPad split): icon rail full-height on the left, list above pane. */
+@media (max-width: 900px) {
+  .app-odpovedi {
+    grid-template-columns: 58px 1fr;
+    grid-template-rows: minmax(150px, 38vh) 1fr;
+    height: auto;
+  }
+  .app-folders { grid-column: 1; grid-row: 1 / 3; }
+  .app-list { grid-column: 2; grid-row: 1; }
+  .app-odpovedi > :last-child { grid-column: 2; grid-row: 2; }
+  .app-folder { justify-content: center; padding: var(--app-space-2); }
+  .app-folder__label, .app-folder__count, .app-folders__brand { display: none; }
+}
+
+/* ── Bulk triage bar (list — feature parity with pages/Replies.jsx) ──── */
+.app-bulkbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--app-space-2) var(--app-space-3);
+  padding: var(--app-space-2) var(--app-space-3);
+  border-top: 1px solid var(--app-border-soft);
+  background: var(--app-surface-sunk);
+  font-size: var(--app-text-sm);
+}
+.app-bulkbar__all {
+  display: flex;
+  align-items: center;
+  gap: var(--app-space-2);
+  cursor: pointer;
+  color: var(--app-text-muted);
+  white-space: nowrap;
+}
+.app-bulkbar__all input { accent-color: var(--app-accent-strong); cursor: pointer; }
+.app-bulkbar__acts {
+  display: flex;
+  align-items: center;
+  gap: var(--app-space-2);
+  margin-left: auto;
+  flex-wrap: wrap;
+}
+.app-bulkbar__acts .app-btn { font-size: var(--app-text-xs); padding: 4px 9px; }
+.app-bulkbar__clear { padding: 4px 7px; }
+.app-bulkbar__msg {
+  color: var(--app-text-soft);
+  font-size: var(--app-text-xs);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* ── Dialogs (forward-to-CRM handoff + hide confirm) ────────────────────── */
+.app-dialog-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--app-space-4);
+  background: rgba(31, 22, 8, 0.46);
+  animation: app-fade var(--app-fast) var(--app-ease);
+}
+.app-shell[data-theme="dark"] .app-dialog-bg { background: rgba(0, 0, 0, 0.58); }
+.app-dialog {
+  width: 100%;
+  max-width: 460px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--app-space-3);
+  padding: var(--app-pad-card);
+  background: var(--app-surface);
+  border: 1px solid var(--app-border-strong);
+  border-radius: var(--app-radius-lg);
+  box-shadow: var(--app-shadow);
+  animation: app-pop-dialog var(--app-normal) var(--app-ease);
+}
+.app-dialog__title {
+  display: flex;
+  align-items: center;
+  gap: var(--app-space-2);
+  font-family: var(--app-font-serif);
+  font-size: var(--app-text-lg);
+  color: var(--app-text);
+}
+.app-dialog__note {
+  margin: 0;
+  font-size: var(--app-text-sm);
+  color: var(--app-text-muted);
+  line-height: var(--app-leading-body);
+}
+.app-dialog__input {
+  width: 100%;
+  box-sizing: border-box;
+  font: inherit;
+  font-size: var(--app-text-sm);
+  color: var(--app-text);
+  padding: 8px 10px;
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius);
+  background: var(--app-surface-sunk);
+  resize: vertical;
+}
+.app-dialog__input:focus-visible {
+  outline: none;
+  border-color: var(--app-accent);
+  box-shadow: 0 0 0 3px var(--app-accent-soft);
+}
+.app-dialog__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--app-space-2);
+  margin-top: var(--app-space-1);
+}
+.app-btn--danger {
+  color: var(--app-on-accent);
+  background: var(--app-negative);
+  border-color: var(--app-negative);
+}
+.app-btn--danger:hover:not(:disabled) { filter: brightness(0.94); }
+
+/* ── Forward composer (Přeposlat) — extends the shared dialog tokens ── */
+.app-dialog__err {
+  margin: -4px 0 0;
+  font-size: var(--app-text-xs);
+  color: var(--app-negative);
+}
+.app-dialog__check {
+  display: flex;
+  align-items: center;
+  gap: var(--app-space-2);
+  font-size: var(--app-text-sm);
+  color: var(--app-text-muted);
+  cursor: pointer;
+}
+.app-dialog__check input { cursor: pointer; }
+.app-dialog__quote {
+  border: 1px solid var(--app-border);
+  border-left: 3px solid var(--app-border-strong);
+  border-radius: var(--app-radius);
+  background: var(--app-surface-sunk);
+  padding: 8px 10px;
+  max-height: 140px;
+  overflow: auto;
+}
+.app-dialog__quote-h {
+  font-size: var(--app-text-xs);
+  color: var(--app-text-muted);
+  margin-bottom: 4px;
+}
+.app-dialog__quote-b {
+  font-size: var(--app-text-sm);
+  color: var(--app-text);
+  line-height: var(--app-leading-body);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.app-dialog__confirm-q {
+  flex: 1 1 auto;
+  align-self: center;
+  font-size: var(--app-text-sm);
+  color: var(--app-text);
+}
+
+@keyframes app-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes app-pop-dialog {
+  from { opacity: 0; transform: translateY(8px) scale(0.99); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .app-dialog-bg, .app-dialog { animation: none; }
+}

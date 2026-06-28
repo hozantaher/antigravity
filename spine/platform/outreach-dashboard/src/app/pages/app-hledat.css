@@ -1,0 +1,27 @@
+/* Hledat — cross-entity global search. Scoped .app-hledat. */
+
+.app-hledat { max-width: 760px; }
+.app-hledat__input {
+  width: 100%; box-sizing: border-box; font: inherit; font-size: var(--app-text-lg);
+  color: var(--app-text); background: var(--app-surface); border: 1px solid var(--app-border);
+  border-radius: var(--app-radius); padding: 12px 16px; margin: var(--app-space-4) 0 var(--app-space-5);
+}
+.app-hledat__input:focus { outline: none; border-color: var(--app-accent); }
+.app-hledat__hint { color: var(--app-text-soft); font-size: var(--app-text-base); }
+
+.app-hledat__groups { display: flex; flex-direction: column; gap: var(--app-space-5); }
+.app-hledat__grouphead {
+  font-size: var(--app-text-xs); text-transform: uppercase; letter-spacing: 0.04em;
+  font-weight: 600; color: var(--app-text-soft); margin-bottom: var(--app-space-2);
+  display: flex; align-items: center; gap: var(--app-space-2);
+}
+.app-hledat__count { color: var(--app-accent-strong); }
+.app-hledat__hit {
+  display: flex; flex-direction: column; gap: 2px; text-decoration: none;
+  padding: var(--app-space-3) var(--app-space-3); border: 1px solid var(--app-border-soft);
+  border-radius: var(--app-radius-sm); background: var(--app-surface); margin-bottom: var(--app-space-2);
+  transition: border-color var(--app-fast) var(--app-ease), background var(--app-fast) var(--app-ease);
+}
+.app-hledat__hit:hover { border-color: var(--app-accent); background: var(--app-surface-hover); }
+.app-hledat__primary { font-weight: 600; font-size: var(--app-text-base); color: var(--app-text); }
+.app-hledat__secondary { font-size: var(--app-text-sm); color: var(--app-text-muted); }

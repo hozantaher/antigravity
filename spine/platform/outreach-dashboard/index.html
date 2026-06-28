@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Outreach</title>
+    <!--
+      AO (2026-05-18) — Signal Desktop aesthetic. Inter is the only font;
+      Source Serif 4 dropped (operator pivoted away from Anthropic Claude.ai
+      look). preconnect to gstatic so the actual font file fetch isn't blocked
+      behind a fresh DNS handshake.
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!--
+      iter52 Bug 6 — FOUC prevention: read theme from localStorage BEFORE React
+      mounts so the page never flashes the wrong colour scheme. The React Layout
+      component still owns the toggle; this script only sets the initial attribute.
+      Must run synchronously (no defer/async) so it executes before first paint.
+    -->
+    <script>
+      (function() {
+        try {
+          var t = localStorage.getItem('theme');
+          if (t === 'dark' || t === 'light') {
+            document.documentElement.setAttribute('data-theme', t);
+          }
+        } catch (e) {
+          // localStorage may be unavailable in private/sandboxed contexts — ignore.
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

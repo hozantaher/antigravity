@@ -1,0 +1,142 @@
+/* app-shared.css — primitives shared across every surface. Imported once via
+   AppShell (which wraps all / routes), so each page CSS no longer re-defines
+   these. Scoped under .app-* class names; reads --app-* tokens only.
+   CONTRACT 2026-05-31: deduped from 5 page files (.app-tag/.app-empty/shimmer)
+   + 3 (.app-chip-toggle). */
+
+/* Pill tag — base. Per-surface colour modifiers (e.g. .app-tag--crm) stay local.
+   inline-flex (was inline-block) so a leading lucide icon centers with its
+   label instead of sitting on the text baseline (#1586 emoji → lucide). */
+.app-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--app-text-xs);
+  font-weight: 600;
+  padding: 2px 9px;
+  border-radius: var(--app-radius-pill);
+  line-height: 1.5;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Inline lucide icon sitting next to text in a non-flex container (#1586).
+   lucide renders a bare <svg> that otherwise drops to the text baseline; this
+   nudges it onto the optical center of the adjacent label. In flex containers
+   (.app-tag, .app-fact, .app-row__tags …) align-items already handles it and this
+   margin/align is harmless. */
+.app-ico {
+  display: inline-block;
+  vertical-align: -0.15em;
+  flex-shrink: 0;
+}
+
+/* Filter / toggle chip — list filters across surfaces. */
+.app-chip-toggle {
+  appearance: none;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--app-text-muted);
+  font: inherit;
+  font-size: var(--app-text-sm);
+  padding: 4px var(--app-space-3);
+  border-radius: var(--app-radius-pill);
+  cursor: pointer;
+  transition: background var(--app-fast) var(--app-ease), color var(--app-fast) var(--app-ease);
+}
+.app-chip-toggle:hover { background: var(--app-surface-hover); }
+.app-chip-toggle[aria-pressed="true"] {
+  background: var(--app-accent-soft);
+  color: var(--app-accent-strong);
+  font-weight: 600;
+}
+
+/* Calm empty / error state — centred, generous. */
+.app-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: var(--app-space-2);
+  color: var(--app-text-soft);
+  text-align: center;
+  padding: var(--app-space-6);
+}
+.app-empty__title {
+  font-family: var(--app-font-serif);
+  font-size: var(--app-text-lg);
+  color: var(--app-text-muted);
+}
+
+/* Skeleton shimmer — keyframe + reduced-motion guard shared by every surface's
+   loading placeholder (each keeps its own sized .app-skel* class). */
+@keyframes app-shimmer { from { background-position: 200% 0; } to { background-position: -200% 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .app-shell [class*="skel"] { animation: none; }
+}
+
+/* Empty-state extras (Empty component): soft icon, hint, recovery action. */
+.app-empty__icon {
+  width: 48px; height: 48px; border-radius: var(--app-radius); margin-bottom: var(--app-space-1);
+  display: flex; align-items: center; justify-content: center;
+  background: var(--app-surface-sunk); color: var(--app-text-soft);
+}
+.app-empty__hint { font-size: var(--app-text-sm); color: var(--app-text-soft); max-width: 32ch; line-height: var(--app-leading-body); }
+.app-empty__action {
+  margin-top: var(--app-space-2); appearance: none; font: inherit; font-size: var(--app-text-sm); font-weight: 600;
+  color: var(--app-accent-strong); background: var(--app-accent-soft); border: 1px solid transparent;
+  border-radius: var(--app-radius-pill); padding: 6px 14px; cursor: pointer; text-decoration: none;
+}
+.app-empty__action:hover { background: var(--app-accent); color: var(--app-on-accent); }
+
+/* Topbar pipeline-heartbeat indicator (IngestFreshness). */
+.app-fresh {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: var(--app-text-xs); color: var(--app-text-soft); white-space: nowrap;
+  cursor: default;
+}
+.app-fresh__dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; background: var(--app-text-soft); }
+.app-fresh--live .app-fresh__dot { background: var(--app-positive, #4a8a5c); box-shadow: 0 0 0 3px color-mix(in oklch, var(--app-positive, #4a8a5c) 22%, transparent); }
+.app-fresh--stale { color: var(--app-warning, #b07a2a); }
+.app-fresh--stale .app-fresh__dot { background: var(--app-warning, #b07a2a); }
+.app-fresh--idle { opacity: 0.6; }
+
+/* ── Checkbox / radio intrinsic sizing (app-wide guard) ─────────────────────
+   The form reset in index.css stretches bare <input> to width:100%. Inside
+   a flex row that places a checkbox next to its label (e.g. the
+   SegmentBuilder dedup toggle + tree rows, TopTargets row-select), the
+   stretched checkbox eats the whole row and collapses the label into a sliver.
+   Scope-guard every checkbox/radio back to its intrinsic box. */
+.app-shell input[type="checkbox"],
+.app-shell input[type="radio"] {
+  width: auto;
+  flex: 0 0 auto;
+}
+
+/* ── Shell health banners (S3) ─────────────────────────────────────────── */
+.app-banners { display: flex; flex-direction: column; flex-shrink: 0; }
+.app-banner {
+  display: flex; align-items: center; gap: var(--app-space-2);
+  padding: 8px var(--app-pad-page);
+  font-size: var(--app-text-sm);
+}
+.app-banner svg { flex-shrink: 0; }
+.app-banner a { color: inherit; font-weight: 700; text-decoration: underline; }
+.app-banner--err  { background: var(--app-negative-soft); color: var(--app-negative); border-bottom: 1px solid var(--app-negative); }
+.app-banner--warn { background: var(--app-warning-soft);  color: var(--app-warning);  border-bottom: 1px solid var(--app-warning); }
+
+/* ── Emergency Pause-All (S6) ──────────────────────────────────────────── */
+.app-pause-all {
+  display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0;
+  padding: 5px var(--app-space-3);
+  font: inherit; font-size: var(--app-text-sm); font-weight: 600;
+  color: var(--app-negative);
+  background: transparent;
+  border: 1px solid var(--app-negative);
+  border-radius: var(--app-radius-sm);
+  cursor: pointer;
+  transition: background var(--app-fast), color var(--app-fast);
+}
+.app-pause-all:hover:not(:disabled) { background: var(--app-negative); color: var(--app-on-accent); }
+.app-pause-all:disabled { opacity: 0.5; cursor: default; }

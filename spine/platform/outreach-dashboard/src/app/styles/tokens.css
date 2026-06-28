@@ -1,0 +1,202 @@
+/*
+ * tokens.css — UX design system.
+ *
+ * Visual direction (operator 2026-06-01): ANTIQUE ALCHEMIST LABORATORY.
+ *   - Light = an aged manuscript / parchment by daylight: vellum surfaces,
+ *     oak-gall (iron-gall) ink, cinnabar/vermilion accent (the alchemist's red
+ *     pigment, HgS), verdigris green, ochre-gold warnings, faint inked hairlines.
+ *   - Dark = the same laboratory by candlelight: dark walnut + bistre surfaces,
+ *     warm copper-amber glow, parchment-cream ink.
+ *   - Antique old-style serif for display; humanist sans kept for dense data so
+ *     tables stay legible. Subtle paper grain + vignette for atmosphere.
+ *
+ * Token NAMES + structure are unchanged from the prior Claude-aesthetic build —
+ * only the values, the serif stack, and the background texture change, so every
+ * surface re-themes for free. SCOPED under `.app-shell`; is untouched. Light is
+ * the default; dark is full parity via `.app-shell[data-theme="dark"]`.
+ *
+ * No remote build pipeline — fonts come from system stacks
+ * (feedback_outreach_dashboard_local_only).
+ */
+
+.app-shell {
+  /* ── Surfaces — aged parchment / vellum ─────────────────────────────── */
+  --app-bg:            #F1E8D2;  /* page — aged parchment */
+  --app-surface:       #FAF3E1;  /* cards / panels — fresh vellum */
+  --app-surface-sunk:  #E6D9BA;  /* wells, inactive — pressed parchment */
+  --app-surface-hover: #EFE4C8;  /* row/control hover */
+
+  /* ── Ink — oak-gall, very dark warm sepia, never pure #000 ──────────── */
+  --app-text:          #2A2014;
+  --app-text-muted:    #645338;  /* faded ink — ≥4.5:1 on bg */
+  --app-text-soft:     #8A7650;  /* dusty ink */
+
+  /* ── Accent — cinnabar / vermilion (HgS, the alchemical red) ────────── */
+  --app-accent:        #A53A26;
+  --app-accent-strong: #832C1C;
+  --app-accent-soft:   #ECD8C6;  /* tint bg for chips/active — sanguine wash */
+  --app-on-accent:     #FBF3E2;
+
+  /* ── Semantic — pigment-tuned (verdigris / oxblood / ochre) ─────────── */
+  --app-positive:      #5A7340; --app-positive-soft: #E4E6CC;  /* verdigris */
+  --app-negative:      #9A2B1E; --app-negative-soft: #EFD6CC;  /* oxblood */
+  --app-warning:       #97701B; --app-warning-soft:  #EFE2C2;  /* ochre gold */
+
+  /* ── Hairlines — inked rules ────────────────────────────────────────── */
+  --app-border:        #D8C7A0;
+  --app-border-soft:   #E5D8B8;
+  --app-border-strong: #C4AE82;
+
+  /* ── Typography — antique old-style serif display + humanist sans data ─ */
+  --app-font-serif: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Palatino, 'Hoefler Text', Georgia, serif;
+  --app-font-sans:  'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  /* Type scale — editorial, 20% denser (operator request 2026-05-31). */
+  --app-text-hero:    26px;  /* serif page title */
+  --app-text-title:   18px;  /* serif section title */
+  --app-text-lg:      14px;
+  --app-text-base:    12px;  /* body */
+  --app-text-sm:      10.5px;
+  --app-text-xs:      9.5px;
+  --app-leading-body: 1.55;
+
+  /* ── Spacing — 8-pt rhythm, 20% denser ──────────────────────────────── */
+  --app-space-1: 3px;  --app-space-2: 6px;  --app-space-3: 10px;
+  --app-space-4: 13px; --app-space-5: 19px; --app-space-6: 26px;
+  --app-space-7: 38px; --app-space-8: 51px;
+  --app-pad-page:    32px;
+  --app-pad-card:    16px;
+
+  /* ── Chrome dimensions ──────────────────────────────────────────────── */
+  --app-sidebar-w: 186px;
+  --app-topbar-h:  48px;
+  --app-folders-w: 208px;  /* Odpovědi folder/account rail (3-pane mail client) */
+  --app-list-w:    304px;
+  --app-aside-w:   288px;
+  --app-composer-max: 48vh; /* Odpovědi reply composer cap (S2) */
+
+  /* ── Radii — slightly tighter than Claude's pillowy soft (parchment, not
+       plastic), but still gentle ────────────────────────────────────────── */
+  --app-radius-sm: 5px; --app-radius: 8px; --app-radius-lg: 12px; --app-radius-pill: 999px;
+
+  /* ── Elevation — soft warm sepia shadows ────────────────────────────── */
+  --app-shadow-sm: 0 1px 2px rgba(58,40,16,0.06), 0 1px 3px rgba(58,40,16,0.07);
+  --app-shadow:    0 2px 8px rgba(58,40,16,0.09), 0 1px 3px rgba(58,40,16,0.06);
+
+  /* ── Motion ─────────────────────────────────────────────────────────── */
+  --app-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --app-fast: 140ms; --app-normal: 240ms;
+
+  /* Paper grain + vignette — a faint inked speckle over the parchment plus a
+     soft edge darkening, for laboratory-manuscript atmosphere. Pure CSS (no
+     remote asset). Kept very low-opacity so text contrast is unaffected. */
+  --app-grain:
+    radial-gradient(rgba(60,42,18,0.035) 0.5px, transparent 0.6px) 0 0 / 3px 3px,
+    radial-gradient(rgba(60,42,18,0.028) 0.5px, transparent 0.6px) 1.5px 1.5px / 3px 3px,
+    radial-gradient(120% 90% at 50% 0%, transparent 60%, rgba(58,40,16,0.06) 100%) 0 0 / 100% 100%;
+
+  /* Base application */
+  background-color: var(--app-bg);
+  background-image: var(--app-grain);
+  background-attachment: fixed;
+  color: var(--app-text);
+  font-family: var(--app-font-sans);
+  font-size: var(--app-text-base);
+  line-height: var(--app-leading-body);
+  -webkit-font-smoothing: antialiased;
+  color-scheme: light;
+}
+
+/* ── Dark parity — the laboratory by candlelight ──────────────────────── */
+.app-shell[data-theme="dark"] {
+  color-scheme: dark;
+  --app-bg:            #1C160E;  /* bistre / dark walnut night */
+  --app-surface:       #271F14;  /* aged wood panel */
+  --app-surface-sunk:  #15100A;
+  --app-surface-hover: #322817;
+
+  --app-text:          #ECDFC4;  /* candlelight parchment */
+  --app-text-muted:    #AE9C78;
+  --app-text-soft:     #80704F;
+
+  --app-accent:        #CB6A4A;  /* cinnabar lit by flame */
+  --app-accent-strong: #DD8460;
+  --app-accent-soft:   #3A2415;
+  --app-on-accent:     #1C160E;
+
+  --app-positive:      #8AA15E; --app-positive-soft: #2A2E1A;  /* verdigris glow */
+  --app-negative:      #D2715C; --app-negative-soft: #38211A;
+  --app-warning:       #CBA255; --app-warning-soft:  #352A14;  /* gilt */
+
+  --app-border:        #3D3320;
+  --app-border-soft:   #2E2616;
+  --app-border-strong: #51442B;
+
+  --app-shadow-sm: 0 1px 2px rgba(0,0,0,0.30);
+  --app-shadow:    0 2px 10px rgba(0,0,0,0.38);
+
+  /* Candlelight grain — warm speckle + a soft glow falling from the top
+     (as if a flame lit the page) instead of a darkening vignette. */
+  --app-grain:
+    radial-gradient(rgba(255,210,140,0.018) 0.5px, transparent 0.6px) 0 0 / 3px 3px,
+    radial-gradient(rgba(0,0,0,0.10) 0.5px, transparent 0.6px) 1.5px 1.5px / 3px 3px,
+    radial-gradient(120% 80% at 50% 0%, rgba(214,160,90,0.07) 0%, transparent 55%) 0 0 / 100% 100%;
+}
+
+/* ── Compact density — laptop / short-screen reclaim (S0) ──────────────────
+   Driven by [data-density="compact"], set on the shell by useDensity() (auto on
+   laptop-narrow OR short viewports, or by the manual toggle). Compresses
+   SPACING + chrome only — body type stays put so legibility + the axe-core
+   contrast ratchet are unaffected (only the decorative serif display shrinks a
+   touch). Every value is a token, so all surfaces re-flow for free. Thresholds
+   live in src/app/lib/breakpoints.js. */
+.app-shell[data-density="compact"] {
+  /* Spacing rhythm — ~25% tighter */
+  --app-space-1: 2px;  --app-space-2: 5px;  --app-space-3: 8px;
+  --app-space-4: 10px; --app-space-5: 14px; --app-space-6: 19px;
+  --app-space-7: 28px; --app-space-8: 38px;
+  --app-pad-page: 14px;
+  --app-pad-card: 12px;
+
+  /* Chrome dimensions */
+  --app-topbar-h:  40px;
+  --app-folders-w: 168px;
+  --app-list-w:    264px;
+  --app-aside-w:   248px;
+  --app-composer-max: 30vh; /* cap composer harder on short laptops → more thread */
+
+  /* Decorative serif display only — the data type scale is untouched */
+  --app-text-hero:  22px;
+  --app-text-title: 16px;
+}
+
+/* ── Collapsed sidebar — icon rail (S0) ───────────────────────────────────
+   data-sidebar="collapsed" narrows the rail to an icon strip; AppShell hides the
+   labels/wordmark in JS. Width is a token so the flex content area follows for
+   free. */
+.app-shell[data-sidebar="collapsed"] {
+  --app-sidebar-w: 56px;
+}
+
+/* Serif display helper — headings opt into the antique serif. */
+.app-shell h1, .app-shell h2, .app-shell .app-serif {
+  font-family: var(--app-font-serif);
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  color: var(--app-text);
+}
+.app-shell h1 { font-size: var(--app-text-hero); line-height: 1.15; margin: 0; }
+.app-shell h2 { font-size: var(--app-text-title); line-height: 1.2;  margin: 0; }
+
+/* Scrollbars — pinned to tokens with an OPAQUE track so a system-dark
+   browser can't bleed a black band through a transparent track. */
+.app-shell, .app-shell * { scrollbar-color: var(--app-border-strong) var(--app-surface-sunk); }
+.app-shell *::-webkit-scrollbar { width: 10px; height: 10px; }
+.app-shell *::-webkit-scrollbar-track { background: var(--app-surface-sunk); }
+.app-shell *::-webkit-scrollbar-thumb {
+  background: var(--app-border-strong);
+  border-radius: 8px;
+  border: 2px solid var(--app-surface-sunk);
+  background-clip: content-box;
+}
+.app-shell *::-webkit-scrollbar-corner { background: var(--app-surface-sunk); }

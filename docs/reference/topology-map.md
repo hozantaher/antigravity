@@ -10,22 +10,14 @@ graph TD
   style supply stroke:#ff9900,stroke-width:2px
   sale["sale (sale)"]
   style sale stroke:#ff9900,stroke-width:2px
-  platform["platform (platform)"]
-  style platform stroke:#ff9900,stroke-width:2px
   engine["engine (engine)"]
   style engine stroke:#ff9900,stroke-width:2px
   demand["demand (demand)"]
   style demand stroke:#ff9900,stroke-width:2px
+  outreach-dashboard["outreach-dashboard (platform)"]
+  style outreach-dashboard stroke:#ff9900,stroke-width:2px
   demo-invoicing["demo-invoicing (sale)"]
   style demo-invoicing stroke:#ff9900,stroke-width:2px
-  platform-heal["platform-heal (platform)"]
-  style platform-heal stroke:#3399ff,stroke-width:3px,fill:#cce5ff,color:#333
-  platform-core["platform-core (platform)"]
-  style platform-core stroke:#3399ff,stroke-width:3px,fill:#cce5ff,color:#333
-  platform-compliance["platform-compliance (platform)"]
-  style platform-compliance stroke:#ff9900,stroke-width:2px
-  platform-audit["platform-audit (platform)"]
-  style platform-audit stroke:#ff9900,stroke-width:2px
   engine-learn["engine-learn (engine)"]
   style engine-learn stroke:#3399ff,stroke-width:3px,fill:#cce5ff,color:#333
   engine-drive["engine-drive (engine)"]
@@ -34,8 +26,6 @@ graph TD
   style demand-search stroke:#ff9900,stroke-width:2px
   demand-discover["demand-discover (demand)"]
   style demand-discover stroke:#3399ff,stroke-width:3px,fill:#cce5ff,color:#333
-  platform-heal-drift-detect["platform-heal-drift-detect (platform)"]
-  style platform-heal-drift-detect stroke:#ff9900,stroke-width:2px
   engine-learn-action-graph["engine-learn-action-graph (engine)"]
   style engine-learn-action-graph stroke:#ff9900,stroke-width:2px
   engine-drive-write["engine-drive-write (engine)"]
@@ -44,6 +34,8 @@ graph TD
   style engine-drive-read stroke:#ff9900,stroke-width:2px
   demand-discover-crawl["demand-discover-crawl (demand)"]
   style demand-discover-crawl stroke:#ff9900,stroke-width:2px
+  undefined["undefined (unknown)"]
+  style undefined stroke:#00cc66,stroke-width:1px
 ```
 
 ## 🗂️ Seznam Uzlů
@@ -58,11 +50,6 @@ graph TD
 - **Osa příběhu (Story Axis):** sale
 - **Stav:** pending
 
-### `platform`
-- **Cesta:** `spine/platform`
-- **Osa příběhu (Story Axis):** platform
-- **Stav:** pending
-
 ### `engine`
 - **Cesta:** `spine/engine`
 - **Osa příběhu (Story Axis):** engine
@@ -73,33 +60,15 @@ graph TD
 - **Osa příběhu (Story Axis):** demand
 - **Stav:** pending
 
+### `outreach-dashboard`
+- **Cesta:** `spine/platform/outreach-dashboard`
+- **Osa příběhu (Story Axis):** platform
+- **Stav:** pending
+- **Původ (Origin):** hozan-taher/features/platform
+
 ### `demo-invoicing`
 - **Cesta:** `spine/sale/demo-invoicing`
 - **Osa příběhu (Story Axis):** sale
-- **Stav:** pending
-
-### `platform-heal`
-- **Cesta:** `spine/platform/heal`
-- **Osa příběhu (Story Axis):** platform
-- **Stav:** pending
-- **Původ (Origin):** frontier
-- **Tagy:** drift-detect, re-map, trust
-
-### `platform-core`
-- **Cesta:** `spine/platform/core`
-- **Osa příběhu (Story Axis):** platform
-- **Stav:** pending
-- **Původ (Origin):** frontier
-- **Tagy:** compliance, audit, credential-vault, proxy-egress
-
-### `platform-compliance`
-- **Cesta:** `spine/platform/compliance`
-- **Osa příběhu (Story Axis):** platform
-- **Stav:** pending
-
-### `platform-audit`
-- **Cesta:** `spine/platform/audit`
-- **Osa příběhu (Story Axis):** platform
 - **Stav:** pending
 
 ### `engine-learn`
@@ -128,11 +97,6 @@ graph TD
 - **Původ (Origin):** frontier
 - **Tagy:** crawl, fingerprint, bot, discovery
 
-### `platform-heal-drift-detect`
-- **Cesta:** `spine/platform/heal/drift-detect`
-- **Osa příběhu (Story Axis):** platform
-- **Stav:** pending
-
 ### `engine-learn-action-graph`
 - **Cesta:** `spine/engine/learn/action-graph`
 - **Osa příběhu (Story Axis):** engine
@@ -152,4 +116,9 @@ graph TD
 - **Cesta:** `spine/demand/discover/crawl`
 - **Osa příběhu (Story Axis):** demand
 - **Stav:** pending
+
+### `undefined`
+- **Cesta:** `products/auction24/features/platform/admin/list-latency`
+- **Osa příběhu (Story Axis):** N/A
+- **Stav:** met
 

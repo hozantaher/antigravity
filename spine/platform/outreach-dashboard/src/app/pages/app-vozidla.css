@@ -1,0 +1,312 @@
+/* Vozidla — Claude-style inventory TABLE + detail aside.
+   Scoped under .app-vozidla; reads --app-* tokens only. */
+
+.app-vozidla {
+  display: flex;
+  gap: var(--app-space-4);
+  align-items: flex-start;
+  height: calc(100vh - var(--app-topbar-h) - 2 * var(--app-pad-page));
+  min-height: 420px;
+}
+.app-vozidla__main {
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* ── Search + make + price-range toolbar ────────────────────────────── */
+.app-vozidla__toolbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--app-space-2);
+  margin-bottom: var(--app-space-3);
+}
+.app-vozidla__search { position: relative; display: inline-flex; align-items: center; flex: 1 1 220px; max-width: 320px; }
+.app-vozidla__search svg { position: absolute; left: 10px; color: var(--app-text-soft); pointer-events: none; }
+.app-vozidla__search input {
+  width: 100%;
+  box-sizing: border-box;
+  font: inherit;
+  font-size: var(--app-text-sm);
+  color: var(--app-text);
+  background: var(--app-surface);
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius-sm);
+  padding: 7px 10px 7px 32px;
+}
+.app-vozidla__search input:focus { outline: none; border-color: var(--app-accent); }
+.app-vozidla__select {
+  font: inherit;
+  font-size: var(--app-text-sm);
+  color: var(--app-text);
+  background: var(--app-surface);
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius-sm);
+  padding: 6px 8px;
+  max-width: 180px;
+}
+.app-vozidla__select:focus { outline: none; border-color: var(--app-accent); }
+.app-vozidla__price-range { display: inline-flex; align-items: center; gap: 4px; }
+.app-vozidla__price-in {
+  width: 88px;
+  box-sizing: border-box;
+  font: inherit;
+  font-size: var(--app-text-sm);
+  color: var(--app-text);
+  background: var(--app-surface);
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius-sm);
+  padding: 7px 8px;
+}
+.app-vozidla__price-in:focus { outline: none; border-color: var(--app-accent); }
+.app-vozidla__price-dash { color: var(--app-text-soft); }
+.app-vozidla__reset {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 10px;
+  font: inherit;
+  font-size: var(--app-text-sm);
+  color: var(--app-text-muted);
+  background: var(--app-surface-sunk);
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius-sm);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: border-color var(--app-fast), color var(--app-fast);
+}
+.app-vozidla__reset:hover { color: var(--app-text); border-color: var(--app-border-strong); }
+
+/* ── Status filter chips ────────────────────────────────────────────── */
+.app-vozidla__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--app-space-1);
+  margin-bottom: var(--app-space-3);
+}
+.app-chip-toggle__n { color: var(--app-text-soft); font-weight: 600; margin-left: 2px; }
+.app-chip-toggle[aria-pressed="true"] .app-chip-toggle__n { color: var(--app-accent-strong); }
+
+/* ── Table ──────────────────────────────────────────────────────────── */
+.app-vozidla__tablewrap {
+  flex: 1;
+  overflow-y: auto;
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius-lg);
+  background: var(--app-surface);
+}
+.app-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--app-text-sm);
+}
+.app-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--app-surface);
+  text-align: left;
+  font-size: var(--app-text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+  color: var(--app-text-soft);
+  padding: var(--app-space-3) var(--app-space-4);
+  border-bottom: 1px solid var(--app-border);
+  white-space: nowrap;
+}
+.app-th { cursor: pointer; user-select: none; }
+.app-th:hover { color: var(--app-text-muted); }
+.app-th--active { color: var(--app-accent-strong); }
+.app-th__arrow { color: var(--app-accent); }
+
+.app-tr { cursor: pointer; }
+/* Paint EVERY cell explicitly (not transparent rows). A transparent <td> lets
+   a dark-mode browser extension (Dark Reader etc.) or force-dark darken the
+   gap — that was the black 'Přidáno' column + black hovered row the operator
+   saw. Backgrounds live on the td so no cell is ever transparent. */
+.app-table tbody td {
+  background: var(--app-surface);
+  padding: var(--app-space-3) var(--app-space-4);
+  border-bottom: 1px solid var(--app-border-soft);
+  vertical-align: middle;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 240px;
+  transition: background var(--app-fast) var(--app-ease);
+}
+.app-tr:hover td { background: var(--app-surface-hover); }
+.app-tr--active td { background: var(--app-accent-soft); }
+
+/* Neutralize index.css's UNSCOPED global sticky-last-column rules
+   (`td:last-child { position:sticky; right:0; background:var(--bg) }` +
+   `tbody tr:hover td:last-child { background:var(--surface2) }`). They bled
+   into the table and repainted the 'Přidáno' cell with tokens — which
+   render dark in the operator's browser (black last cell, esp. on hover).
+   These app-scoped rules outrank them (specificity) and use tokens. */
+.app-shell table th:last-child,
+.app-shell table td:last-child { position: static; right: auto; z-index: auto; }
+.app-table thead th:last-child { background: var(--app-surface); }
+.app-table tbody td:last-child { background: var(--app-surface); }
+.app-tr:hover td:last-child { background: var(--app-surface-hover); }
+.app-tr--active td:last-child { background: var(--app-accent-soft); }
+.app-td-strong { font-weight: 600; color: var(--app-text); }
+.app-td-muted { color: var(--app-text-muted); }
+.app-table tbody tr:last-child td { border-bottom: none; }
+
+.app-skel-row {
+  height: 44px;
+  margin: var(--app-space-2) 0;
+  border-radius: var(--app-radius-sm);
+  background: linear-gradient(90deg, var(--app-surface) 25%, var(--app-surface-hover) 50%, var(--app-surface) 75%);
+  background-size: 200% 100%;
+  animation: app-shimmer 1.4s ease-in-out infinite;
+}
+.app-vozidla__rows { padding-top: var(--app-space-2); }
+
+/* ── Detail aside (unchanged) ───────────────────────────────────────── */
+.app-vozidla__aside {
+  flex: 0 0 var(--app-aside-w);
+  align-self: stretch;
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius-lg);
+  background: var(--app-surface);
+  overflow-y: auto;
+  padding: var(--app-space-5);
+}
+.app-vd__title { font-family: var(--app-font-serif); font-size: var(--app-text-title); color: var(--app-text); margin: 0 0 var(--app-space-2); }
+.app-vd__close {
+  float: right; appearance: none; border: none; background: transparent;
+  color: var(--app-text-soft); cursor: pointer; font-size: var(--app-text-lg);
+  line-height: 1; padding: 2px 6px; border-radius: var(--app-radius-sm);
+}
+.app-vd__close:hover { background: var(--app-surface-hover); color: var(--app-text); }
+.app-vd__section { margin-top: var(--app-space-4); }
+.app-vd__label {
+  font-size: var(--app-text-xs); text-transform: uppercase; letter-spacing: 0.04em;
+  color: var(--app-text-soft); font-weight: 600; margin-bottom: var(--app-space-2);
+}
+.app-vd__row {
+  display: flex; justify-content: space-between; gap: var(--app-space-3);
+  padding: 5px 0; font-size: var(--app-text-sm); border-bottom: 1px solid var(--app-border-soft);
+}
+.app-vd__row dt { color: var(--app-text-muted); }
+.app-vd__row dd { color: var(--app-text); margin: 0; text-align: right; word-break: break-word; }
+.app-vd__link { display: inline-block; margin-top: var(--app-space-2); font-size: var(--app-text-sm); font-weight: 600; color: var(--app-accent-strong); text-decoration: none; }
+.app-vd__link:hover { text-decoration: underline; }
+.app-vd__notes {
+  font-size: var(--app-text-sm); color: var(--app-text); line-height: var(--app-leading-body);
+  white-space: pre-wrap; word-break: break-word;
+}
+
+/* ── Editable prices + margin (detail aside) ────────────────────────── */
+.app-vd__prices {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--app-space-3) var(--app-space-4);
+}
+.app-vd__price { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.app-vd__price-label {
+  font-size: var(--app-text-xs); text-transform: uppercase; letter-spacing: 0.03em;
+  color: var(--app-text-soft); font-weight: 600;
+}
+.app-vd__price-row { display: flex; align-items: center; gap: 5px; }
+.app-vd__price-input {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  font: inherit;
+  font-size: var(--app-text-sm);
+  color: var(--app-text);
+  background: var(--app-surface);
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius-sm);
+  padding: 6px 8px;
+}
+.app-vd__price-input:focus { outline: none; border-color: var(--app-accent); }
+.app-vd__price-save {
+  display: inline-flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  width: 26px; height: 26px;
+  color: var(--app-on-accent);
+  background: var(--app-accent);
+  border: 1px solid var(--app-accent);
+  border-radius: var(--app-radius-sm);
+  cursor: pointer;
+  transition: background var(--app-fast);
+}
+.app-vd__price-save:hover:not(:disabled) { background: var(--app-accent-strong); }
+.app-vd__price-save:disabled { opacity: 0.5; cursor: default; }
+.app-vd__margin {
+  font-family: var(--app-font-serif);
+  font-size: var(--app-text-title);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  padding-top: 2px;
+}
+
+/* ── Editable notes (detail aside) ──────────────────────────────────── */
+.app-vd__notes-edit {
+  width: 100%;
+  box-sizing: border-box;
+  font: inherit;
+  font-size: var(--app-text-sm);
+  color: var(--app-text);
+  background: var(--app-surface);
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius-sm);
+  padding: 8px 10px;
+  resize: vertical;
+  line-height: var(--app-leading-body);
+}
+.app-vd__notes-edit:focus { outline: none; border-color: var(--app-accent); }
+.app-vd__notes-save {
+  margin-top: var(--app-space-2);
+  appearance: none; font: inherit; font-size: var(--app-text-sm); font-weight: 600;
+  color: var(--app-on-accent); background: var(--app-accent);
+  border: 1px solid var(--app-accent); border-radius: var(--app-radius-sm);
+  padding: 6px 14px; cursor: pointer;
+  transition: background var(--app-fast);
+}
+.app-vd__notes-save:hover:not(:disabled) { background: var(--app-accent-strong); }
+.app-vd__notes-save:disabled { opacity: 0.5; cursor: default; }
+
+/* ── Status stepper (detail aside) ──────────────────────────────────── */
+.app-stepper__track { display: flex; flex-wrap: wrap; gap: 4px; }
+.app-step {
+  appearance: none; font: inherit; font-size: var(--app-text-xs); font-weight: 600;
+  color: var(--app-text-muted); background: var(--app-surface-sunk);
+  border: 1px solid var(--app-border); border-radius: var(--app-radius-pill);
+  padding: 4px 10px; cursor: pointer;
+  transition: background var(--app-fast) var(--app-ease), color var(--app-fast) var(--app-ease);
+}
+.app-step:hover:not(:disabled):not(.app-step--active) { background: var(--app-surface-hover); color: var(--app-text); }
+.app-step:disabled { opacity: 0.55; cursor: default; }
+.app-step--active { cursor: default; }
+.app-stepper__foot { display: flex; align-items: center; gap: var(--app-space-3); margin-top: var(--app-space-2); }
+.app-step--cancel {
+  border-color: transparent; background: transparent; color: var(--app-negative);
+  padding: 4px 0; border-radius: 0;
+}
+.app-step--cancel:hover:not(:disabled) { background: transparent; text-decoration: underline; color: var(--app-negative); }
+.app-stepper__msg { font-size: var(--app-text-xs); color: var(--app-text-muted); }
+.app-stepper__msg--err { color: var(--app-negative); }
+
+@media (max-width: 980px) {
+  .app-vozidla { flex-direction: column; height: auto; }
+  .app-vozidla__aside { flex: none; width: 100%; }
+}
+
+/* Vehicle photos — captured from the seller's reply. */
+.app-vd__photos { display: flex; flex-wrap: wrap; gap: var(--app-space-2); }
+.app-vd__photo {
+  display: block; width: 72px; height: 72px; border-radius: var(--app-radius-sm);
+  overflow: hidden; border: 1px solid var(--app-border); background: var(--app-surface-sunk);
+}
+.app-vd__photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.app-vd__photo:hover { border-color: var(--app-accent); }

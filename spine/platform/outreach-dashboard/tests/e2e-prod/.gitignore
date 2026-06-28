@@ -1,0 +1,2 @@
+# Persisted Firebase session (contains refresh token) — never commit.
+.auth/

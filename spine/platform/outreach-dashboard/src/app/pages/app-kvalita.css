@@ -1,0 +1,75 @@
+/* Kvalita dat — system data-quality health. Scoped .app-kvalita. */
+
+.app-kvalita { max-width: 760px; }
+.app-kvalita__eyebrow {
+  font-size: var(--app-text-sm); color: var(--app-accent-strong); font-weight: 600;
+  letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 var(--app-space-3);
+}
+
+.app-kvalita__hero {
+  border-radius: var(--app-radius-lg); padding: var(--app-space-5);
+  margin: var(--app-space-4) 0 var(--app-space-6); border: 1px solid var(--app-border);
+  background: var(--app-surface);
+}
+.app-kvalita__hero--ok   { background: var(--app-positive-soft); border-color: transparent; }
+.app-kvalita__hero--warn { background: var(--app-warning-soft);  border-color: transparent; }
+.app-kvalita__hero--err  { background: var(--app-negative-soft); border-color: transparent; }
+.app-kvalita__herobig {
+  font-family: var(--app-font-serif); font-size: var(--app-text-hero); line-height: 1.1; color: var(--app-text);
+}
+.app-kvalita__herosub { font-size: var(--app-text-sm); color: var(--app-text-muted); margin-top: var(--app-space-2); }
+
+.app-kvalita__group { margin-bottom: var(--app-space-6); }
+.app-kvalita__grouphead {
+  display: flex; align-items: center; gap: var(--app-space-2);
+  font-size: var(--app-text-xs); text-transform: uppercase; letter-spacing: 0.04em;
+  font-weight: 600; color: var(--app-text-soft); margin-bottom: var(--app-space-3);
+}
+.app-dq-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+
+.app-dq-check {
+  display: flex; align-items: center; gap: var(--app-space-4);
+  padding: var(--app-space-4); border: 1px solid var(--app-border); border-radius: var(--app-radius);
+  background: var(--app-surface); margin-bottom: var(--app-space-2);
+}
+.app-dq-check__count {
+  font-family: var(--app-font-serif); font-size: var(--app-text-title); line-height: 1;
+  min-width: 56px; text-align: right; color: var(--app-text); flex-shrink: 0;
+}
+.app-dq-check--ok .app-dq-check__count { color: var(--app-positive); }
+.app-dq-check--err .app-dq-check__count { color: var(--app-negative); }
+.app-dq-check--warn .app-dq-check__count { color: var(--app-warning); }
+.app-dq-check__body { flex: 1; min-width: 0; }
+.app-dq-check__label { font-weight: 600; font-size: var(--app-text-base); color: var(--app-text); }
+.app-dq-check__hint { font-size: var(--app-text-sm); color: var(--app-text-muted); margin-top: 2px; line-height: 1.5; }
+.app-dq-check__action {
+  flex-shrink: 0; font-size: var(--app-text-sm); font-weight: 600; color: var(--app-accent-strong);
+  text-decoration: none; white-space: nowrap;
+}
+.app-dq-check__action:hover { text-decoration: underline; }
+
+/* Task-list (úkolovník) extras — all-clear state + collapsed healthy footer. */
+.app-kvalita__allclear {
+  padding: var(--app-space-6); text-align: center; color: var(--app-text-muted);
+  font-family: var(--app-font-serif); font-size: var(--app-text-lg);
+  border: 1px dashed var(--app-border); border-radius: var(--app-radius);
+}
+.app-kvalita__healthy { margin-top: var(--app-space-5); color: var(--app-text-soft); }
+.app-kvalita__healthy summary {
+  cursor: pointer; font-size: var(--app-text-sm); font-weight: 600; color: var(--app-text-muted);
+  padding: var(--app-space-2) 0; list-style-position: inside;
+}
+.app-kvalita__healthy summary:hover { color: var(--app-text); }
+.app-kvalita__healthy ul {
+  margin: var(--app-space-2) 0 0; padding-left: var(--app-space-5);
+  font-size: var(--app-text-sm); color: var(--app-text-soft); line-height: 1.7;
+}
+
+/* One-click fix button on an actionable data-quality task. */
+.app-dq-check__fix {
+  flex-shrink: 0; appearance: none; font: inherit; font-size: var(--app-text-sm); font-weight: 600;
+  color: var(--app-on-accent); background: var(--app-accent); border: 1px solid var(--app-accent);
+  border-radius: var(--app-radius-pill); padding: 5px 14px; cursor: pointer; white-space: nowrap;
+}
+.app-dq-check__fix:hover:not(:disabled) { background: var(--app-accent-strong); }
+.app-dq-check__fix:disabled { opacity: 0.6; cursor: default; }

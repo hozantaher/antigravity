@@ -1,0 +1,37 @@
+{
+  "score": 100,
+  "components": {
+    "mutation": {
+      "value": null,
+      "weight": 0.3,
+      "contribution": 0
+    },
+    "linkage": {
+      "value": 100,
+      "weight": 0.2,
+      "contribution": 20
+    },
+    "assertion": {
+      "value": 100,
+      "weight": 0.2,
+      "contribution": 20
+    },
+    "fixtureDrift": {
+      "value": null,
+      "weight": 0.1,
+      "contribution": 0
+    },
+    "noSignal": {
+      "value": 100,
+      "weight": 0.1,
+      "contribution": 10
+    },
+    "flaky": {
+      "value": 100,
+      "weight": 0.1,
+      "contribution": 10
+    }
+  },
+  "severity": "green",
+  "generated_at": "2026-04-27T00:09:34.860Z"
+}

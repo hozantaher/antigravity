@@ -1,0 +1,8 @@
+{
+  "version": "1",
+  "_comment": "Frozen baseline of Postgres schema from production. Regenerate via: curl http://localhost:8080/schema | jq '.' > schema-manifest.json. PR-only updates with reason in commit message. Used by /api/__schema-check to detect drift between this baseline and live Go /schema endpoint.",
+  "_baseline_generated_at": null,
+  "_baseline_generator": "TBD — pending S1 (Go /schema endpoint) deploy + manual snapshot",
+  "manifest_hash": "sha256:placeholder-regenerate-after-s1-deployed",
+  "tables": {}
+}

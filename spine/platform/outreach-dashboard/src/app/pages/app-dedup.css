@@ -1,0 +1,249 @@
+/* Ochrana proti duplicitám — scoped to .app-dedup, reads only --app-* tokens.
+   Light/dark parity is automatic via the token re-theme. Mirrors the
+   Upozorneni stat-cell idiom; shared primitives (.app-empty, .app-chip-toggle,
+   app-shimmer) come from app-shared.css. */
+
+.app-dedup { max-width: 1080px; }
+
+/* Visually-hidden labels (a11y for the numeric inputs). */
+.app-dedup__sr {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* Header */
+.app-dedup__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--app-space-4);
+  margin-bottom: var(--app-space-5);
+}
+.app-dedup__title {
+  font-family: var(--app-font-serif);
+  font-size: var(--app-text-hero);
+  font-weight: 500;
+  color: var(--app-text);
+  margin: 0;
+}
+.app-dedup__sub {
+  display: block;
+  margin-top: 2px;
+  font-size: var(--app-text-xs);
+  color: var(--app-text-soft);
+}
+.app-dedup__refresh {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  padding: 7px var(--app-space-3);
+  font: inherit;
+  font-size: var(--app-text-sm);
+  color: var(--app-text-muted);
+  background: var(--app-surface);
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius-sm);
+  cursor: pointer;
+  transition: border-color var(--app-fast), color var(--app-fast);
+}
+.app-dedup__refresh:hover:not(:disabled) { color: var(--app-text); border-color: var(--app-border-strong); }
+.app-dedup__refresh:disabled { opacity: 0.5; cursor: default; }
+
+/* Stat strip — mirrors .app-ustat from Upozorneni. */
+.app-dedup__stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--app-space-3);
+  margin-bottom: var(--app-space-6);
+}
+.app-dstat {
+  padding: var(--app-space-3) var(--app-pad-card);
+  background: var(--app-surface);
+  border: 1px solid var(--app-border-soft);
+  border-radius: var(--app-radius);
+}
+.app-dstat__n {
+  font-family: var(--app-font-serif);
+  font-size: var(--app-text-title);
+  font-weight: 500;
+  color: var(--app-text);
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+.app-dstat__l { margin-top: 3px; font-size: var(--app-text-xs); color: var(--app-text-soft); }
+.app-dstat--err .app-dstat__n { color: var(--app-negative); }
+.app-dstat--warn .app-dstat__n { color: var(--app-warning); }
+
+/* Two-column layout — collapses to one column on narrow viewports. */
+.app-dedup__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--app-space-5);
+  margin-bottom: var(--app-space-6);
+}
+.app-dedup__col { display: flex; flex-direction: column; gap: var(--app-space-3); min-width: 0; }
+@media (max-width: 880px) { .app-dedup__grid { grid-template-columns: 1fr; } }
+
+/* Section heads */
+.app-dedup__sectionhead {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--app-space-3); flex-wrap: wrap;
+}
+.app-dedup__sectiontitle {
+  font-family: var(--app-font-serif);
+  font-size: var(--app-text-title);
+  font-weight: 500;
+  color: var(--app-text);
+  margin: 0;
+}
+.app-dedup__windows { display: flex; gap: 2px; flex-wrap: wrap; }
+
+/* Card primitive */
+.app-dcard {
+  background: var(--app-surface);
+  border: 1px solid var(--app-border-soft);
+  border-radius: var(--app-radius);
+  padding: var(--app-space-4);
+}
+.app-dcard__title {
+  font-size: var(--app-text-sm);
+  font-weight: 600;
+  color: var(--app-text);
+  margin-bottom: var(--app-space-3);
+}
+
+/* Inline messages (error / empty card body) */
+.app-dedup__msg .app-dedup__msgbody { font-size: var(--app-text-sm); color: var(--app-negative); }
+.app-dedup__hint { font-size: var(--app-text-sm); color: var(--app-text-soft); }
+
+/* Block-axes grid */
+.app-daxes { display: grid; grid-template-columns: 1fr 1fr; gap: var(--app-space-2); }
+@media (max-width: 520px) { .app-daxes { grid-template-columns: 1fr; } }
+.app-daxis {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: var(--app-space-2);
+  align-items: start;
+  padding: var(--app-space-3);
+  background: var(--app-surface);
+  border: 1px solid var(--app-border-soft);
+  border-left: 3px solid var(--app-border);
+  border-radius: var(--app-radius);
+}
+.app-daxis__icon { padding-top: 1px; color: var(--app-text-soft); }
+.app-daxis__body { min-width: 0; }
+.app-daxis__label { font-size: var(--app-text-sm); font-weight: 600; color: var(--app-text); }
+.app-daxis__n {
+  font-family: var(--app-font-serif);
+  font-size: var(--app-text-title);
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--app-text);
+  font-variant-numeric: tabular-nums;
+  margin: 2px 0;
+}
+.app-daxis__desc { font-size: var(--app-text-xs); color: var(--app-text-soft); line-height: 1.35; }
+.app-daxis--crit { border-left-color: var(--app-negative); }
+.app-daxis--crit .app-daxis__icon, .app-daxis--crit .app-daxis__n { color: var(--app-negative); }
+.app-daxis--warn { border-left-color: var(--app-warning); }
+.app-daxis--warn .app-daxis__icon, .app-daxis--warn .app-daxis__n { color: var(--app-warning); }
+.app-daxis--ok .app-daxis__icon { color: var(--app-positive); }
+
+/* Inputs */
+.app-dedup__field {
+  appearance: none;
+  padding: 7px var(--app-space-3);
+  font: inherit;
+  font-size: var(--app-text-sm);
+  color: var(--app-text);
+  background: var(--app-surface-sunk);
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius-sm);
+}
+.app-dedup__field:focus-visible { outline: 2px solid var(--app-accent); outline-offset: 1px; }
+.app-dedup__field--wide { width: 100%; margin-bottom: var(--app-space-3); }
+
+/* Funnel waterfall */
+.app-dfunnel { display: flex; flex-direction: column; gap: var(--app-space-3); }
+.app-dfunnel__row { display: flex; flex-direction: column; gap: 4px; }
+.app-dfunnel__rowhead { display: flex; align-items: baseline; justify-content: space-between; gap: var(--app-space-2); }
+.app-dfunnel__label { font-size: var(--app-text-sm); color: var(--app-text); }
+.app-dfunnel__val { font-size: var(--app-text-sm); font-weight: 600; color: var(--app-text); font-variant-numeric: tabular-nums; }
+.app-dfunnel__drop { color: var(--app-warning); margin-left: 6px; }
+.app-dfunnel__bar { width: 100%; height: 8px; background: var(--app-surface-sunk); border-radius: var(--app-radius-pill); overflow: hidden; }
+.app-dfunnel__fill { height: 100%; border-radius: var(--app-radius-pill); transition: width var(--app-normal) var(--app-ease); }
+.app-dfunnel__fill--ok { background: var(--app-positive); }
+.app-dfunnel__fill--warn { background: var(--app-warning); }
+.app-dfunnel__fill--crit { background: var(--app-negative); }
+.app-dfunnel__foot {
+  margin-top: var(--app-space-2);
+  padding-top: var(--app-space-3);
+  border-top: 1px solid var(--app-border-soft);
+  font-size: var(--app-text-xs);
+  color: var(--app-text-soft);
+}
+
+/* Lookup */
+.app-dlookup__form { display: flex; gap: var(--app-space-2); margin-bottom: var(--app-space-3); }
+.app-dlookup__form .app-dedup__field { flex: 1; }
+.app-dlookup__btn {
+  display: inline-flex; align-items: center; gap: 5px; flex-shrink: 0;
+  padding: 7px var(--app-space-3);
+  font: inherit; font-size: var(--app-text-sm); font-weight: 600;
+  color: var(--app-on-accent); background: var(--app-accent);
+  border: 1px solid var(--app-accent); border-radius: var(--app-radius-sm);
+  cursor: pointer; transition: background var(--app-fast);
+}
+.app-dlookup__btn:hover:not(:disabled) { background: var(--app-accent-strong); border-color: var(--app-accent-strong); }
+.app-dlookup__btn:disabled { opacity: 0.55; cursor: default; }
+.app-dlookup__err { font-size: var(--app-text-xs); color: var(--app-negative); margin-bottom: var(--app-space-2); }
+.app-dlookup__who { font-size: var(--app-text-sm); font-weight: 600; color: var(--app-text); margin-bottom: var(--app-space-2); }
+.app-dlookup__group { margin-top: var(--app-space-3); }
+.app-dlookup__grouphead {
+  font-size: var(--app-text-xs); font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.04em; color: var(--app-text-soft); margin-bottom: 4px;
+}
+.app-dlookup__line {
+  display: flex; justify-content: space-between; gap: var(--app-space-2);
+  padding: 4px 0; border-bottom: 1px solid var(--app-border-soft);
+  font-size: var(--app-text-sm);
+}
+.app-dlookup__type { color: var(--app-accent-strong); font-weight: 600; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.app-dlookup__when { color: var(--app-text-soft); font-size: var(--app-text-xs); white-space: nowrap; flex-shrink: 0; }
+.app-dlookup__none { font-size: var(--app-text-sm); color: var(--app-text-soft); }
+
+/* Recent skips table */
+.app-dskips { padding: 0 var(--app-pad-card); }
+.app-dskips__row {
+  display: grid;
+  grid-template-columns: 72px 72px 1fr 90px;
+  gap: var(--app-space-3);
+  align-items: center;
+  padding: var(--app-space-2) 0;
+  border-bottom: 1px solid var(--app-border-soft);
+  font-size: var(--app-text-sm);
+}
+.app-dskips__row:last-child { border-bottom: none; }
+.app-dskips__row--head {
+  font-size: var(--app-text-xs);
+  font-weight: 600;
+  color: var(--app-text-soft);
+  padding-top: var(--app-space-3);
+}
+.app-dskips__t { text-align: right; }
+.app-dskips__mono { font-variant-numeric: tabular-nums; color: var(--app-text-soft); font-size: var(--app-text-xs); }
+.app-dskips__reason { color: var(--app-text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.app-dskips__when { color: var(--app-text-soft); font-size: var(--app-text-xs); }
+.app-dskips__msg { padding: var(--app-space-4) 0; text-align: center; color: var(--app-text-soft); font-size: var(--app-text-sm); }
+
+/* Skeletons — shimmer keyframe + reduced-motion guard live in app-shared.css. */
+.app-dskel {
+  background: linear-gradient(90deg, var(--app-surface-sunk) 25%, var(--app-surface-hover) 37%, var(--app-surface-sunk) 63%);
+  background-size: 200% 100%;
+  animation: app-shimmer 1.4s ease-in-out infinite;
+  border-radius: var(--app-radius);
+}
+.app-dskel--tile { height: 96px; }
+.app-dskel--block { height: 180px; }
+.app-dskel--row { height: 28px; margin: var(--app-space-2) 0; border-radius: var(--app-radius-sm); }

@@ -1,0 +1,27 @@
+/*
+ * chat-tokens.css — 3 shared tokens the Chatwoot-style chat-inbox view
+ * (/replies/chat) needs that the base Signal system doesn't define.
+ *
+ * NOTE: the dark --c-* palette is NOT here — it lives in tokens-claude.css
+ * (:root[data-theme="dark"], the single source of truth committed in the
+ * theme phase). This file only adds the 3 chat-specific surfaces
+ * (list-row hover/selected + composer bg) in BOTH themes, so the chat
+ * components reference --c-* only and never inline a hex.
+ *
+ * Memory rules: feedback_no_magic_thresholds T0 (colours live here, not in
+ * components); feedback_outreach_dashboard_local_only T0 (pure CSS).
+ */
+
+/* ── New shared LIGHT tokens (consumed by chat components) ───────────────── */
+:root {
+  --c-list-row-hover:    var(--c-surface-sunk);
+  --c-list-row-selected: color-mix(in oklch, var(--c-accent) 14%, transparent);
+  --c-composer-bg:       #F9F9FB;
+}
+
+/* ── Dark counterparts (the --c-* dark family itself is in tokens-claude.css) ── */
+:root[data-theme="dark"] {
+  --c-list-row-hover:    #24272E;
+  --c-list-row-selected: color-mix(in oklch, var(--c-accent) 22%, transparent);
+  --c-composer-bg:       #1B1D21;
+}

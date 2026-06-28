@@ -1,0 +1,233 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`API envelope snapshots — shape + types pinned per endpoint > GET /api/campaigns 1`] = `
+{
+  "body": [
+    {
+      "category_match": "prefix",
+      "category_paths": [],
+      "created_at": "<string>",
+      "description": null,
+      "id": "<string>",
+      "name": "Strojírenství — první kontakt",
+      "sequence_config": [
+        {
+          "delay_days": 0,
+          "step": 0,
+          "template": "intro_machinery",
+        },
+      ],
+      "stats": {},
+      "status": "paused",
+    },
+  ],
+  "contentType": "application/json",
+  "status": 200,
+}
+`;
+
+exports[`API envelope snapshots — shape + types pinned per endpoint > GET /api/campaigns/null (validation 404) 1`] = `
+{
+  "body": {
+    "error": "not found",
+  },
+  "contentType": "application/json",
+  "status": 404,
+}
+`;
+
+exports[`API envelope snapshots — shape + types pinned per endpoint > GET /api/companies/:ico (404 path) 1`] = `
+{
+  "body": {
+    "error": "not found",
+  },
+  "contentType": "application/json",
+  "status": 404,
+}
+`;
+
+exports[`API envelope snapshots — shape + types pinned per endpoint > GET /api/companies/:ico (404 path) 2`] = `
+{
+  "body": {
+    "error": "not found",
+  },
+  "contentType": "application/json",
+  "status": 404,
+}
+`;
+
+exports[`API envelope snapshots — shape + types pinned per endpoint > GET /api/companies/stats 1`] = `
+{
+  "body": {
+    "total": "<number>",
+  },
+  "contentType": "application/json",
+  "status": 200,
+}
+`;
+
+exports[`API envelope snapshots — shape + types pinned per endpoint > GET /api/companies?limit=2 1`] = `
+{
+  "body": {
+    "rows": [
+      {
+        "address_locality": "Švihov",
+        "best_targeting_score": "<number>",
+        "category_path": "Remesla-a-sluzby > Strojirenstvi",
+        "composite_score": "<object>",
+        "email": "info@zihos.eu",
+        "email_confidence": null,
+        "email_status": "valid",
+        "email_verified_at": "<string>",
+        "ico": "64830390",
+        "icp_score": "<number>",
+        "icp_tier": "ideal",
+        "last_contacted": "<object>",
+        "name": "ZIHOS",
+        "pravni_forma": "",
+        "region_normalized": "Plzeňský kraj",
+        "score_tier": null,
+        "scored_at": "<object>",
+        "sector_primary": "professional",
+        "telephone": "+420 376 360 211",
+        "velikost_firmy": "",
+        "website": "https://www.zihos.eu/",
+      },
+    ],
+    "total": "<number>",
+  },
+  "contentType": "application/json",
+  "status": 200,
+}
+`;
+
+exports[`API envelope snapshots — shape + types pinned per endpoint > GET /api/contacts?limit=2 1`] = `
+{
+  "body": {
+    "rows": [
+      {
+        "company_name": "Střední škola Podnikatelská akademie, s.r.o.",
+        "email": "skola@podnikakademie.cz",
+        "email_confidence": null,
+        "email_status": "unverified",
+        "email_verified_at": "<object>",
+        "first_name": "Střední",
+        "id": "<string>",
+        "last_contact_at": null,
+        "last_name": null,
+        "status": "valid",
+        "suppressed": false,
+        "total_sent": "<number>",
+      },
+    ],
+    "total": "<number>",
+  },
+  "contentType": "application/json",
+  "status": 200,
+}
+`;
+
+exports[`API envelope snapshots — shape + types pinned per endpoint > GET /api/mailboxes 1`] = `
+{
+  "body": [
+    {
+      "anti_trace_enabled": true,
+      "consecutive_bounces": "<number>",
+      "created_at": "<string>",
+      "daily_limit": 100,
+      "display_name": "test-nullpw-<ts>@test.internal",
+      "email": "test-nullpw-<ts>@test.internal",
+      "host": "smtp.test.internal",
+      "id": "<string>",
+      "imap_host": null,
+      "imap_port": null,
+      "imap_username": null,
+      "last_send_at": "<object>",
+      "locale": "cs-CZ",
+      "persona_slug": null,
+      "port": 587,
+      "proxy_url": null,
+      "smtp_username": "test@test.internal",
+      "status": "active",
+      "status_reason": null,
+      "total_bounced": "<string>",
+      "total_sent": "<string>",
+      "tz": "Europe/Prague",
+      "updated_at": "<string>",
+      "warmup_day": null,
+      "warmup_last_advanced": null,
+      "warmup_pause_reason": null,
+      "warmup_paused": null,
+      "warmup_plan": null,
+      "warmup_started_at": null,
+    },
+  ],
+  "contentType": "application/json",
+  "status": 200,
+}
+`;
+
+exports[`API envelope snapshots — shape + types pinned per endpoint > GET /api/replies?limit=2 1`] = `
+{
+  "body": {
+    "rows": [],
+    "total": "<number>",
+  },
+  "contentType": "application/json",
+  "status": 200,
+}
+`;
+
+exports[`API envelope snapshots — shape + types pinned per endpoint > GET /api/segments 1`] = `
+{
+  "body": [
+    {
+      "company_count": "<number>",
+      "created_at": "<string>",
+      "description": "asd",
+      "id": "<string>",
+      "name": "asd",
+      "query": {
+        "conditions": [],
+        "op": "AND",
+      },
+    },
+  ],
+  "contentType": "application/json",
+  "status": 200,
+}
+`;
+
+exports[`API envelope snapshots — shape + types pinned per endpoint > GET /api/templates 1`] = `
+{
+  "body": [
+    {
+      "body": "Toto je tělo e-mailu pro testovací šablonu <ts>.",
+      "created_at": "<string>",
+      "id": "<number>",
+      "name": "E2E šablona <ts>",
+      "subject": "Testovací předmět <ts>",
+    },
+  ],
+  "contentType": "application/json",
+  "status": 200,
+}
+`;
+
+exports[`Error envelope snapshots — error shape pinned > POST /api/templates {} — missing fields 1`] = `
+{
+  "body": {
+    "error": "null value in column "name" of relation "email_templates" violates not-null constraint",
+  },
+  "status": 500,
+}
+`;
+
+exports[`Error envelope snapshots — error shape pinned > POST /api/templates {invalid json} 1`] = `
+{
+  "body": {
+    "error": "invalid json",
+  },
+  "status": 400,
+}
+`;

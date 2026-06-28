@@ -1,0 +1,241 @@
+/* Segmenty — scoped to .app-segmenty, reads only --app-* tokens. Mirrors the
+   app-upozorneni idiom (head + stat strip + flat list with inline row actions).
+   The .app-empty / .app-empty__* primitives + the app-shimmer keyframe live in
+   app-shared.css (imported once by the shell) — reused, not redefined here. */
+
+.app-segmenty {
+  max-width: 920px;
+}
+
+/* ── Head ──────────────────────────────────────────────────────────────── */
+.app-segmenty__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--app-space-4);
+  margin-bottom: var(--app-space-5);
+}
+
+.app-segmenty__title {
+  font-family: var(--app-font-serif);
+  font-size: var(--app-text-hero);
+  font-weight: 500;
+  color: var(--app-text);
+  margin: 0;
+}
+
+.app-segmenty__sub {
+  display: block;
+  margin-top: 2px;
+  font-size: var(--app-text-xs);
+  color: var(--app-text-soft);
+}
+
+.app-segmenty__head-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--app-space-2);
+  flex-shrink: 0;
+}
+
+.app-segmenty__refresh {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px var(--app-space-3);
+  font: inherit;
+  font-size: var(--app-text-sm);
+  color: var(--app-text-muted);
+  background: var(--app-surface);
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius-sm);
+  cursor: pointer;
+  transition: border-color var(--app-fast), color var(--app-fast);
+}
+.app-segmenty__refresh:hover:not(:disabled) {
+  color: var(--app-text);
+  border-color: var(--app-border-strong);
+}
+.app-segmenty__refresh:disabled { opacity: 0.5; cursor: default; }
+
+.app-segmenty__new {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px var(--app-space-4);
+  font-size: var(--app-text-sm);
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--app-on-accent);
+  background: var(--app-accent);
+  border: 1px solid var(--app-accent);
+  border-radius: var(--app-radius-sm);
+  cursor: pointer;
+  transition: background var(--app-fast), border-color var(--app-fast);
+}
+.app-segmenty__new:hover {
+  background: var(--app-accent-strong);
+  border-color: var(--app-accent-strong);
+}
+
+/* ── Stat strip ────────────────────────────────────────────────────────── */
+.app-segmenty__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--app-space-3);
+  margin-bottom: var(--app-space-5);
+}
+.app-sstat {
+  padding: var(--app-space-3) var(--app-pad-card);
+  background: var(--app-surface);
+  border: 1px solid var(--app-border-soft);
+  border-radius: var(--app-radius);
+}
+.app-sstat__n {
+  font-family: var(--app-font-serif);
+  font-size: var(--app-text-title);
+  font-weight: 500;
+  color: var(--app-text);
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+.app-sstat__l {
+  margin-top: 3px;
+  font-size: var(--app-text-xs);
+  color: var(--app-text-soft);
+}
+.app-sstat--warn .app-sstat__n { color: var(--app-warning); }
+
+/* ── Segment list ──────────────────────────────────────────────────────── */
+.app-segmenty__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--app-space-2);
+}
+
+.app-seg {
+  display: grid;
+  grid-template-columns: 34px 1fr auto auto;
+  gap: var(--app-space-3);
+  align-items: center;
+  padding: var(--app-space-3) var(--app-pad-card);
+  background: var(--app-surface);
+  border: 1px solid var(--app-border-soft);
+  border-radius: var(--app-radius);
+  transition: border-color var(--app-fast);
+}
+.app-seg:hover { border-color: var(--app-border-strong); }
+
+.app-seg__icon {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--app-radius-sm);
+  background: var(--app-surface-sunk);
+  color: var(--app-text-soft);
+}
+
+.app-seg__body { min-width: 0; }
+.app-seg__name {
+  font-size: var(--app-text-lg);
+  font-weight: 600;
+  color: var(--app-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.app-seg__meta {
+  margin-top: 2px;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  font-size: var(--app-text-xs);
+  color: var(--app-text-soft);
+}
+
+.app-seg__count {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-right: var(--app-space-2);
+  white-space: nowrap;
+}
+.app-seg__count-n {
+  font-family: var(--app-font-serif);
+  font-size: var(--app-text-title);
+  font-weight: 500;
+  color: var(--app-text);
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+.app-seg__count-l {
+  font-size: var(--app-text-xs);
+  color: var(--app-text-soft);
+}
+
+.app-seg__actions {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+  align-items: center;
+}
+.app-seg__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  font: inherit;
+  font-size: var(--app-text-sm);
+  text-decoration: none;
+  color: var(--app-text-muted);
+  background: var(--app-surface-sunk);
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius-sm);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: border-color var(--app-fast), color var(--app-fast), background var(--app-fast);
+}
+.app-seg__btn:hover:not(:disabled) {
+  color: var(--app-text);
+  border-color: var(--app-border-strong);
+}
+.app-seg__btn:disabled { opacity: 0.55; cursor: default; }
+.app-seg__btn--primary {
+  color: var(--app-on-accent);
+  background: var(--app-accent);
+  border-color: var(--app-accent);
+}
+.app-seg__btn--primary:hover:not(:disabled) {
+  background: var(--app-accent-strong);
+  border-color: var(--app-accent-strong);
+  color: var(--app-on-accent);
+}
+.app-seg__btn--danger:hover:not(:disabled) {
+  color: var(--app-negative);
+  border-color: var(--app-negative);
+}
+
+/* Skeleton — "skel" substring opts into the shared reduced-motion guard. */
+.app-seg-skel {
+  height: 58px;
+  border-radius: var(--app-radius);
+  border: 1px solid var(--app-border-soft);
+  background: linear-gradient(90deg, var(--app-surface) 25%, var(--app-surface-hover) 37%, var(--app-surface) 63%);
+  background-size: 200% 100%;
+  animation: app-shimmer 1.4s ease-in-out infinite;
+}
+
+/* ── Responsive — stack the actions under the row on narrow viewports ────── */
+@media (max-width: 640px) {
+  .app-segmenty__stats { grid-template-columns: 1fr 1fr; }
+  .app-seg { grid-template-columns: 34px 1fr auto; }
+  .app-seg__actions {
+    grid-column: 1 / -1;
+    justify-content: flex-end;
+  }
+}

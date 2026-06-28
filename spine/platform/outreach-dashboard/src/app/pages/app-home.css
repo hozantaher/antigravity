@@ -1,0 +1,57 @@
+/* Přehled — calm live pipeline glance. Scoped under .app-home. */
+
+.app-home { max-width: 920px; }
+.app-home__eyebrow {
+  font-size: var(--app-text-sm); color: var(--app-accent-strong); font-weight: 600;
+  letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 var(--app-space-3);
+}
+.app-home__intro {
+  font-size: var(--app-text-lg); color: var(--app-text-muted); line-height: 1.55;
+  margin: var(--app-space-4) 0 var(--app-space-7); max-width: 620px;
+}
+
+.app-home__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--app-space-4);
+}
+
+.app-home-card {
+  display: block; text-decoration: none;
+  background: var(--app-surface); border: 1px solid var(--app-border);
+  border-radius: var(--app-radius-lg); padding: var(--app-pad-card);
+  box-shadow: var(--app-shadow-sm);
+  transition: box-shadow var(--app-normal) var(--app-ease), transform var(--app-fast) var(--app-ease);
+}
+.app-home-card:hover { box-shadow: var(--app-shadow); transform: translateY(-1px); }
+.app-home-card__head { display: flex; align-items: center; gap: var(--app-space-2); margin-bottom: var(--app-space-3); }
+.app-home-card__icon {
+  width: 30px; height: 30px; border-radius: var(--app-radius-sm);
+  background: var(--app-accent-soft); color: var(--app-accent-strong);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.app-home-card__title { font-weight: 600; font-size: var(--app-text-base); color: var(--app-text); flex: 1; }
+.app-home-card__arrow { color: var(--app-text-soft); }
+.app-home-card:hover .app-home-card__arrow { color: var(--app-accent-strong); }
+.app-home-card__body--load { opacity: 0.5; }
+
+.app-home-card__big { font-family: var(--app-font-serif); font-size: 34px; line-height: 1.05; color: var(--app-text); }
+.app-home-card__sub { font-size: var(--app-text-sm); color: var(--app-text-muted); margin: 2px 0 var(--app-space-3); }
+.app-home-card__chips { display: flex; flex-wrap: wrap; gap: 4px; }
+.app-home-chip {
+  font-size: var(--app-text-xs); font-weight: 600; padding: 2px 9px;
+  border-radius: var(--app-radius-pill); line-height: 1.5;
+  color: var(--app-text-muted); background: var(--app-surface-sunk);
+}
+.app-home-chip--pos { color: var(--app-positive); background: var(--app-positive-soft); }
+.app-home-card__aged { margin-top: var(--app-space-2); font-size: var(--app-text-xs); font-weight: 600; color: var(--app-warning); }
+
+/* Stale hot-lead escalation — calm but unmistakable: a warm accent edge + a
+   slightly stronger surface, never a loud red. Signals "this needs you" while
+   keeping the Claude restraint. */
+.app-home-card--urgent {
+  border-color: var(--app-accent);
+  box-shadow: inset 3px 0 0 var(--app-accent), var(--app-shadow-sm);
+}
+.app-home-card--urgent:hover { box-shadow: inset 3px 0 0 var(--app-accent), var(--app-shadow); }
+.app-home-card__aged--stale { color: var(--app-accent-strong); }

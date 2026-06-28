@@ -3,9 +3,9 @@ module.exports = {
     'npm run ag:audit -- --heal',
     'npm run ag:map',
     'node dist/index.js docs',
-    'git add docs/ARCHITECTURE.md docs/AUTODOCS.md **/vektor.json'
+    'git add docs/reference/topology-map.md docs/reference/autodocs.md **/vektor.json'
   ],
-  '**/*.{ts,vue}': () => [
+  '{src,spine}/**/*.{ts,vue}': () => [
     'npm run ag:audit -- --heal',
     'eslint --fix',
     'prettier --write',

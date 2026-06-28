@@ -1,0 +1,187 @@
+/*
+ * tokens-claude.css — AO (2026-05-18) repurposed for Signal Desktop aesthetic
+ * after operator rejected the Anthropic Claude.ai look from AN2/AN3. Variable
+ * names kept (--c-*) so the AN2 legacy bridge to --bg / --accent / etc. still
+ * works site-wide with zero touch on consumer components. Values rewritten to
+ * Signal Desktop palette (Signal blue + light gray inbound + cobalt outbound).
+ *
+ * Memory rules referenced:
+ *   feedback_no_magic_thresholds T0 — every threshold lives here, not inline.
+ *   feedback_outreach_dashboard_local_only T0 — fonts via Google Fonts in
+ *     index.html; no remote build pipeline.
+ *   feedback_claude_style_means_anthropic T0 — HISTORICAL. Operator pivoted
+ *     to Signal Desktop aesthetic 2026-05-18. Do not apply Anthropic palette.
+ *
+ * Aesthetic anchor: clinical near-white page bg, Signal cobalt-blue accent,
+ * light-gray inbound bubbles + solid blue outbound bubbles with white text,
+ * Inter / system sans throughout (zero serif), 18px chat-bubble radius, no
+ * editorial whitespace, no warm cream, no terracotta.
+ */
+
+:root {
+  /* === Signal Desktop palette === */
+  /* Surface — clinical near-white, NO warmth */
+  --c-bg:            #FFFFFF;
+  --c-surface:       #FFFFFF;
+  --c-surface-sunk:  #F0F1F4;
+  --c-surface-warm:  #E9EAEE;  /* INBOUND bubble fill */
+
+  /* Text — neutral cool gray, NOT warm brown */
+  --c-text:          #1B1B1B;
+  --c-text-secondary: #2C2C2E;
+  /* Rank 19 — WCAG AA compliance: darkened from #6E6E73 (~3.5:1) to #4A4A50
+     to achieve 4.5:1 contrast on white (#FFFFFF) for 11-13px body text.*/
+  --c-text-muted:    #4A4A50;
+  --c-text-soft:     #8E8E93;
+
+  /* Accent — Signal blue (cobalt) */
+  --c-accent:        #2C6BED;
+  --c-accent-strong: #1F58CC;
+  --c-accent-bg:     #2C6BED;   /* OUTBOUND bubble fill — solid blue */
+  --c-accent-text:   #FFFFFF;   /* text on accent-bg = white */
+
+  /* Semantic */
+  --c-positive:      #2BA64B;
+  --c-positive-bg:   #E7F6EB;
+  --c-negative:      #DC2626;
+  --c-negative-bg:   #FCE9E9;
+  --c-question:      #B58400;
+  --c-question-bg:   #FFF7DD;
+
+  /* Borders — cool light */
+  --c-border:        #E5E5EA;
+  --c-border-soft:   #F2F2F7;
+  --c-border-strong: #D1D1D6;
+
+  /* Typography — ONLY Inter / system sans. NO serif anywhere. */
+  --c-font-display: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --c-font-body:    'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  /* Type scale — kept from AN3 tightening (Signal is also dense) */
+  --c-text-page-title: 22px;   /* AO: was 26px serif → 22px sans bold */
+  --c-text-display:    18px;   /* sans, weight 600 */
+  --c-text-body:       14px;
+  --c-text-meta:       12px;
+  --c-text-micro:      11px;
+
+  /* Spacing — same AN3 tightening */
+  --c-pad-page:     32px;     /* AO: tightened further; Signal is denser still */
+  --c-pad-section:  20px;
+  --c-pad-card:     16px;
+  --c-pad-card-y:   12px;
+
+  /* Radius — bubbles bumped to Signal-style 18px */
+  --c-radius-card:   8px;      /* cards, panels */
+  --c-radius-bubble: 18px;     /* NEW — for MessageBubble */
+  --c-radius-chip:   6px;
+  --c-radius-tag:    4px;
+
+  /* Motion */
+  --c-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --c-fast:     120ms;
+  --c-normal:   180ms;
+
+  /* Shadows — Signal is mostly flat with subtle elevation on dropdowns */
+  --c-shadow-card:  none;
+  --c-shadow-hover: 0 1px 2px rgba(0,0,0,0.06);
+  --c-shadow-focus: 0 0 0 3px rgba(44,107,237,0.24);
+}
+
+/*
+ * Legacy-token bridge — re-point the Linear-port tokens that the rest of
+ * the app reads (`--bg`, `--surface`, `--text`, `--muted`, `--accent`,
+ * `--border`, `--font-display`, `--font-body`) to the Signal tokens so
+ * surfaces we don't rewrite inherit the Signal aesthetic.
+ *
+ * This bridge is intentional: AO retones /replies (inbox + detail) to
+ * Signal, and the bridge keeps the rest of the app coherent without
+ * touching every legacy site.
+ */
+:root {
+  --bg:            var(--c-bg);
+  --surface:       var(--c-surface);
+  --surface2:      var(--c-surface-sunk);
+  --surface3:      var(--c-surface-warm);
+  --border:        var(--c-border);
+  --border-soft:   var(--c-border-soft);
+  --text:          var(--c-text);
+  --muted:         var(--c-text-muted);
+  --muted-strong:  var(--c-text-secondary);
+  --accent:        var(--c-accent);
+  /* --accent-soft must be TRANSPARENT/light tint (used as nav-item.active bg,
+   * badge bg, etc.). Previous mapping to --c-accent-bg (#2C6BED) was solid,
+   * which made nav-item.active a solid blue box with same-color text+icon →
+   * invisible content. Compute soft tint from current --c-accent instead. */
+  --accent-soft:   color-mix(in oklch, var(--c-accent) 14%, transparent);
+  --accent-strong: var(--c-accent-strong);
+  --font-display:  var(--c-font-display);
+  --font-body:     var(--c-font-body);
+}
+
+/*
+ * Chat-redesign (2026-05-29) — DARK theme for the --c-* Signal family.
+ * The Layout topbar toggle already sets data-theme=dark + persists to
+ * localStorage, but the --c-* tokens (which drive EVERY surface: bubbles via
+ * MSG_STYLE, list, composer, sidebar, cards) were light-only — so dark mode
+ * left the whole Signal layer light. This block flips them to a Chatwoot-style
+ * charcoal/slate palette; the legacy bridge above (--bg/--surface/... =
+ * var(--c-*)) follows automatically. Values lifted for WCAG AA (≥4.5:1) on
+ * dark. :root[data-theme="dark"] outranks :root regardless of source order.
+ * No component hex — dark values live ONLY here.
+ */
+:root[data-theme="dark"] {
+  --c-bg:            #17181B;   /* charcoal page */
+  --c-surface:       #1F2125;   /* list column / cards */
+  --c-surface-sunk:  #16171A;   /* recessed subsections / thread floor */
+  --c-surface-warm:  #2A2D33;   /* INBOUND bubble fill (was light #E9EAEE) */
+
+  --c-text:          #F1F3F5;
+  --c-text-secondary:#DCDEE3;
+  --c-text-muted:    #A3A9B3;   /* lifted for ≥4.5:1 on dark surfaces */
+  --c-text-soft:     #8A9098;
+
+  --c-accent:        #4B7BE8;   /* Signal blue lifted for dark */
+  --c-accent-strong: #3D6AD0;
+  --c-accent-bg:     #4B7BE8;   /* OUTBOUND bubble fill — white text ≥4.5:1 */
+  --c-accent-text:   #FFFFFF;
+
+  --c-positive:      #4EC06E;
+  --c-positive-bg:   color-mix(in oklch, var(--c-positive) 18%, transparent);
+  --c-negative:      #F2555A;
+  --c-negative-bg:   color-mix(in oklch, var(--c-negative) 18%, transparent);
+  --c-question:      #E2B04A;
+  --c-question-bg:   color-mix(in oklch, var(--c-question) 18%, transparent);
+
+  --c-border:        #34353A;
+  --c-border-soft:   #232427;
+  --c-border-strong: #44464C;
+
+  --c-shadow-card:   none;
+  --c-shadow-hover:  0 1px 2px rgba(0,0,0,0.40);
+  --c-shadow-focus:  0 0 0 3px rgba(75,123,232,0.30);
+}
+
+/*
+ * Body baseline — clinical near-white page bg + Inter body. font-feature
+ * settings sharpen Inter numerals + lowercase letters. Applied via `body`
+ * so React StrictMode doesn't have to remount the root.
+ */
+body {
+  background: var(--c-bg);
+  color: var(--c-text);
+  font-family: var(--c-font-body);
+  font-feature-settings: 'tnum', 'cv01', 'cv11';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*
+ * Headings — Inter sans across the board (Signal has zero serif).
+ * Components that want different weights can override locally.
+ */
+h1, h2, h3, h4 {
+  font-family: var(--c-font-display);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--c-text);
+}
