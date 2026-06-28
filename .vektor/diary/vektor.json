@@ -1,0 +1,15 @@
+{
+  "id": "diary",
+  "story_axis": "meta",
+  "state": "met",
+  "facets": {
+    "log": [
+      "./diary.md"
+    ]
+  },
+  "edges": [],
+  "tags": [
+    "autonomous-diary",
+    "log"
+  ]
+}

@@ -10,9 +10,9 @@ Vzniká tak hybridní graf, který obchází striktní omezení stromových stru
 
 ---
 
-## ⚙️ Architektura (5 Pilířů)
+## ⚙️ Architektura (6 Pilířů)
 
-Antigravity Engine se skládá z 5 autonomních subsystémů:
+Antigravity Engine se skládá z 6 autonomních subsystémů:
 
 1. **Unified Vector Engine (Read & Context)**
    Algoritmicky prohledává strukturu do šířky (Graph BFS). Pokud AI agent potřebuje upravit uzel A, engine mu kromě uzlu A do kontextového okna automaticky přibalí i propojený uzel B (díky definovaným hranám). Také řeší "Rollup state" (šíření technologického dluhu ze spodních uzlů nahoru).
@@ -24,6 +24,8 @@ Antigravity Engine se skládá z 5 autonomních subsystémů:
    Zapomeňte na manuální tvorbu složek. Generátor z cesty odvodí byznys doménu (PC1), založí složky, vloží `vektor.json` s patřičným "pending" stavem a automaticky vygeneruje backendové šablony (tzv. Framework-pinned stubs) s připravenými reverzními linky.
 5. **Fuzzy Metadata Router (Search)**
    Nevíte přesné ID uzlu? Engine disponuje ultra-rychlým sémantickým vyhledávačem. Zadáním intentu (např. "faktury") prohledá tagy, PC1 a ID uzlů a vrátí pravděpodobnostní seznam shod bez nutnosti stahovat pomalé ML embedding modely.
+6. **Autonomous Diary Manager (Memory & Logging)**
+   Nativní vývojářský deník začleněný přímo do vektorového stromu (`.vektor/diary`). MCP Server a CLI automaticky zaznamenávají akce (scaffolding, refactoring, healing) s kontextem ovlivněných uzlů. Poskytuje tak trvalou operační paměť repozitáře.
 
 ---
 
@@ -80,6 +82,11 @@ node dist/index.js rename sale-settlement new-settlement sale/new-settlement
 **Spuštění MCP Serveru pro AI Agenta**
 ```bash
 node dist/index.js mcp
+```
+
+**Zápis záznamu do autonomního deníčku**
+```bash
+node dist/index.js diary log "Byl proveden zásadní refaktor platební brány pro lepší oddělení PC1."
 ```
 
 ---

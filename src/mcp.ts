@@ -3,12 +3,15 @@ import { CyberneticGovernor } from './governor';
 import { TransactionalRefactorEngine } from './refactor';
 import { ContextAwareScaffolder } from './scaffold';
 import { FuzzyVectorRouter } from './router';
+import { DiaryManager } from './diary';
 
 export class MCPServer {
   private rootDir: string;
+  private diary: DiaryManager;
 
   constructor(rootDir: string) {
     this.rootDir = rootDir;
+    this.diary = new DiaryManager(rootDir);
   }
 
   public listen() {
@@ -125,6 +128,9 @@ export class MCPServer {
         if (toolName === 'antigravity_audit_drift') {
           const governor = new CyberneticGovernor(this.rootDir, args.heal);
           const report = await governor.audit();
+          if (args.heal && report.length > 0) {
+            this.diary.logAction('AI', 'AUDIT_HEAL', `Proveden audit s auto-heal. Nalezeno a opraveno ${report.length} problémů.`);
+          }
           return {
             jsonrpc: '2.0',
             id: req.id,
@@ -138,6 +144,9 @@ export class MCPServer {
           const refactor = new TransactionalRefactorEngine(this.rootDir);
           const plan = await refactor.planRename(args.oldId, args.newId, args.newPath);
           await refactor.executeRename(args.oldId, args.newId, args.newPath);
+          
+          this.diary.logAction('AI', 'RENAME_NODE', `Přejmenován uzel z ${args.oldId} na ${args.newId}`, [args.newId]);
+          
           return {
             jsonrpc: '2.0',
             id: req.id,
@@ -150,6 +159,9 @@ export class MCPServer {
         if (toolName === 'antigravity_create_node') {
           const scaffolder = new ContextAwareScaffolder(this.rootDir);
           const report = scaffolder.generateNode(args.nodeId, args.pathHint);
+          
+          this.diary.logAction('AI', 'CREATE_NODE', `Vytvořen uzel ${args.nodeId} v cestě ${args.pathHint}`, [args.nodeId]);
+          
           return {
             jsonrpc: '2.0',
             id: req.id,

@@ -5,6 +5,7 @@ import { TransactionalRefactorEngine } from './refactor';
 import { MCPServer } from './mcp';
 import { ContextAwareScaffolder } from './scaffold';
 import { FuzzyVectorRouter } from './router';
+import { DiaryManager } from './diary';
 import path from 'path';
 
 const program = new Command();
@@ -103,6 +104,22 @@ program
       }
     } catch (e: any) {
       console.error(`Chyba při hledání: ${e.message}`);
+      process.exit(1);
+    }
+  });
+
+program
+  .command('diary <action> [message...]')
+  .description('Správa autonomního deníčku (např. log)')
+  .action((action: string, messageArgs: string[]) => {
+    const root = process.cwd();
+    const diary = new DiaryManager(root);
+    if (action === 'log') {
+      const message = messageArgs.join(' ');
+      diary.logAction('Human', 'MANUAL_LOG', message);
+      console.log('Záznam úspěšně zapsán do deníčku.');
+    } else {
+      console.error(`Neznámá akce '${action}'. Použijte např. "log".`);
       process.exit(1);
     }
   });
