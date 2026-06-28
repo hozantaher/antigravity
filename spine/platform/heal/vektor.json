@@ -1,0 +1,18 @@
+{
+  "id": "platform-heal",
+  "story_axis": "platform",
+  "state": "pending",
+  "origin": "frontier",
+  "legacy_metadata": {
+    "identita": "Heal — to, co dělá z botů smyčku: poznej, že se flow rozbil, a re-mapuj.",
+    "smysl": "Když portál změní UI, selhání kroku spustí re-discover místo tiché chyby.",
+    "role": "stage"
+  },
+  "tags": ["drift-detect", "re-map", "trust"],
+  "facets": {
+    "ui": [
+      "./platform-heal.vue"
+    ]
+  },
+  "edges": []
+}

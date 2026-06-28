@@ -20,8 +20,11 @@ export class FuzzyVectorRouter {
     const results: SearchResult[] = [];
     const q = query.toLowerCase();
 
-    const jsonFiles = await glob('**/vektor.json', { cwd: this.rootDir, ignore: 'node_modules/**' });
-    
+    const jsonFiles = await glob('**/vektor.json', {
+      cwd: this.rootDir,
+      ignore: 'node_modules/**',
+    });
+
     for (const file of jsonFiles) {
       const fullPath = path.join(this.rootDir, file);
       try {
@@ -42,7 +45,7 @@ export class FuzzyVectorRouter {
           results.push({
             nodeId: manifest.id,
             path: path.dirname(file),
-            score
+            score,
           });
         }
       } catch (e) {}

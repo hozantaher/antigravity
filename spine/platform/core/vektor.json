@@ -1,0 +1,18 @@
+{
+  "id": "platform-core",
+  "story_axis": "platform",
+  "state": "pending",
+  "origin": "frontier",
+  "legacy_metadata": {
+    "identita": "Platform — mantinely a infrastruktura bot platformy, ne fáze smyčky.",
+    "smysl": "Compliance, audit, credential-vault a egress drží celou smyčku v mezích práva a oprávnění.",
+    "role": "stage"
+  },
+  "tags": ["compliance", "audit", "credential-vault", "proxy-egress"],
+  "facets": {
+    "ui": [
+      "./platform-core.vue"
+    ]
+  },
+  "edges": []
+}

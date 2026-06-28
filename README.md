@@ -1,6 +1,17 @@
-# Antigravity Vector-Tree Engine
+# Antigravity Business Spine Monorepo
 
-Antigravity je revoluční architektura a CLI nástroj pro správu rozsáhlých repozitářů. Namísto tradičního technického dělení složek (MVC, FSD) převádí Antigravity vaši kódovou základnu do **fyzické vektorové databáze**. Samotná struktura adresářů funguje jako sémantický HNSW index optimalizovaný jak pro vývojáře, tak pro AI agenty (Octavius, Claude, Cursor).
+Toto je primární monorepo, postavené na architektuře **Antigravity Vector-Tree Engine**. Namísto tradičního technického dělení složek převádí Antigravity kódovou základnu do **fyzické vektorové databáze**, která sémanticky mapuje byznysové procesy (Velkou Pětku).
+
+## 🏢 Struktura Repozitáře
+
+Repozitář je striktně rozdělen pro udržení 100% architektonické čistoty:
+
+- **`/spine/` (Byznysová Páteř):** Srdce repozitáře. Zde sídlí 5 hlavních domén (`demand`, `supply`, `engine`, `sale`, `platform`). Kód je distribuován do logických uzlů, přičemž jeho historický původ (např. *Frontier*, *Auction24*) udržuje pole `"origin"` v manifestu.
+- **`/products/` (Karanténa / Legacy):** Zde sídlí surové sub-repozitáře a starý kód před tím, než je metodou "Lift & Shift" přenesen do byznysové páteře.
+- **`/src/` a `/scripts/` (Engine Tooling):** Zdrojové kódy samotného nástroje Antigravity CLI, který strom automaticky řídí.
+- **`/@server/`:** Automaticky generované backendové stuby napojené přes reverzní vazby.
+
+---
 
 ## 🚀 Hlavní myšlenka (The Concept)
 Základním stavebním kamenem je uzel (Node), který mapuje konkrétní byznysový děj (tzv. Story Axis / PC1 - např. `sale` nebo `supply`).
@@ -47,15 +58,26 @@ Repozitář už není mrtvý kód, ale živý organický systém, se kterým AI 
 ## 🛠 Instalace a Použití
 
 ### 🤖 Autonomní Agenti (Jules) a CI/CD Automatizace
-Projekt je plně připraven na spolupráci s asynchronními agenty (např. Google Jules).
-- **GitHub Actions (`.github/workflows/antigravity-audit.yml`)**: Zajišťuje striktní kontrolu architektonického driftu (Governer) při každém Pull Requestu.
-- **Pre-commit Hooks (Husky + lint-staged)**: Automatický self-healing (`audit --heal`) upraví driftované vektorové linky při commitu a zajistí aktualizaci `ARCHITECTURE.md`.
-- **`AI_INSTRUCTIONS.md`**: Obsahuje instrukce pro agenty, jak mají použít náš MCP server při modifikacích kódu. Pro delegování úkolů na Julese spusťte např.: `npx @google/jules new "Vaše zadání..."`.
+Projekt je plně připraven na spolupráci s asynchronními agenty (např. Google Jules) a disponuje moderní automatizační pipeline:
+
+1. **Lokální Git Hooks (Husky + lint-staged)**: 
+   - Kód je při každém commitu automaticky zformátován (Prettier) a zkontrolován linterem (ESLint).
+   - Zároveň běží automatický self-healing (`audit --heal`), který upraví driftované vektorové linky a překreslí `ARCHITECTURE.md`.
+2. **Railway CI/CD a Notifikace**: 
+   - Repozitář je nasazován přímo přes Railway platformu (GitHub Actions byly odstraněny pro úsporu minut).
+   - Railway běží v cyklu: `Testy (Vitest)` ➔ `Kompilace (TSC)` ➔ `Audit (Drift)` ➔ `Notifikace na Telegram`.
+3. **Automatické generování Verzování a Changelogu**:
+   - Spuštěním příkazu `npm run release` systém sám přečte `diary.md`, vygeneruje `CHANGELOG.md`, zvedne verzi projektu (Semantic Versioning) a commitne Git Tag.
 
 ```bash
-# Zkompilování
+# Instalace závislostí
 npm install
+
+# Zkompilování a ověření (Build & Audit)
 npm run build
+
+# Spuštění unit testů celého enginu
+npm run test
 ```
 
 ### CLI Příkazy
@@ -111,6 +133,7 @@ Příklad manifestu, který leží v každém uzlu:
   "id": "sale-settlement",
   "story_axis": "sale",
   "state": "pending",
+  "origin": "auction24",
   "tags": ["penize", "vyuctovani", "backend"],
   "facets": {
     "ui": ["./SettlementWizard.vue"]

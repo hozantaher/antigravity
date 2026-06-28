@@ -1,0 +1,18 @@
+{
+  "id": "engine-learn",
+  "story_axis": "engine",
+  "state": "pending",
+  "origin": "frontier",
+  "legacy_metadata": {
+    "identita": "Learn — z povrchu postav model toho, jak se aplikace ovládá (operation graph).",
+    "smysl": "LLM přečte DOM a síť a sestaví akce, vstupy a přechody stavů — z čeho replay flow.",
+    "role": "stage"
+  },
+  "tags": ["action-graph", "selectors", "replay-model"],
+  "facets": {
+    "ui": [
+      "./engine-learn.vue"
+    ]
+  },
+  "edges": []
+}

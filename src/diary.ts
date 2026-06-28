@@ -27,10 +27,10 @@ export class DiaryManager {
         story_axis: 'meta',
         state: 'met',
         facets: {
-          log: ['./diary.md']
+          log: ['./diary.md'],
         },
         edges: [],
-        tags: ['autonomous-diary', 'log']
+        tags: ['autonomous-diary', 'log'],
       };
       fs.writeFileSync(this.manifestPath, JSON.stringify(manifest, null, 2));
     }
@@ -41,7 +41,12 @@ export class DiaryManager {
     }
   }
 
-  public logAction(actor: 'AI' | 'Human', action: string, details: string, affectedNodes: string[] = []) {
+  public logAction(
+    actor: 'AI' | 'Human',
+    action: string,
+    details: string,
+    affectedNodes: string[] = []
+  ) {
     // 1. Zápis do Markdownu
     const timestamp = new Date().toISOString();
     const logEntry = `
@@ -60,7 +65,7 @@ export class DiaryManager {
         const manifest = JSON.parse(fs.readFileSync(this.manifestPath, 'utf8')) as VektorManifest;
         let edgesChanged = false;
         if (!manifest.edges) manifest.edges = [];
-        
+
         for (const node of affectedNodes) {
           if (!manifest.edges.includes(node) && node !== 'diary') {
             manifest.edges.push(node);

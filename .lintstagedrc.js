@@ -6,6 +6,8 @@ module.exports = {
   ],
   '**/*.{ts,vue}': () => [
     'npm run ag:audit -- --heal',
+    'eslint --fix',
+    'prettier --write',
     'git add **/vektor.json'
   ]
 }

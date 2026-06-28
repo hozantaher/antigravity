@@ -1,0 +1,19 @@
+{
+  "identita": "Write — řiď NÁŠ účet na portálu: založ, uprav i stáhni inzerát naučeným flow.",
+  "smysl": "Syndikační arm pro Auction24: když portál nemá čistý feed, bot idempotentně řídí UI.",
+  "smer": "Write: replay flow · idempotent upsert-by-our-ref · delete-on-sold · KAŽDÁ akce gated + auditovaná.",
+  "duvod": "Většina portálů nemá API; bez UI-driveru na ně nedosáhneme — ale jen na NAŠICH účtech.",
+  "myslenka": "Plné ovládání = spolehlivě zopakovat to, co bychom klikli ručně — se schválením a auditem.",
+  "pillar": "reach",
+  "role": "primary",
+  "promise": "Náš inzerát na portálu spravujeme programově, bezpečně a auditovaně.",
+  "loreLine": "Write-driver — human-gated; publish/edit/delete jen po schválení, nikdy tiše.",
+  "proofSignal": [{ "nazev": "write-operate-gated", "zdroj": "track/drive", "stav": "pending" }],
+  "antiFeature": "Write akce bez schválení nebo bez auditní stopy — tiché publikování či mazání.",
+  "hotovo": {
+    "kdyzPlati": [
+      { "kriterium": "každá write akce vyžaduje schválení (gate) a zapíše se do audit logu, jinak neproběhne", "check": "write-gate-audit", "stav": "met", "proof": { "cmd": "node features/drive/write/write-gate.test.mjs", "pass": "WGATE-OK", "negativeAnchor": { "cmd": "CANARY=1 node features/drive/write/write-gate.test.mjs" } } },
+      { "kriterium": "naučený flow založí+upraví+stáhne testovací inzerát na NAŠEM staging účtu, idempotentně", "check": "write-operate-roundtrip", "stav": "met", "proof": { "cmd": "node features/drive/write/write-roundtrip.test.mjs", "pass": "WRT-OK", "negativeAnchor": { "cmd": "CANARY=1 node features/drive/write/write-roundtrip.test.mjs" } } }
+    ]
+  }
+}

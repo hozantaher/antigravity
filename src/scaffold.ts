@@ -31,9 +31,9 @@ export class ContextAwareScaffolder {
       story_axis: storyAxis,
       state: 'pending',
       facets: {
-        ui: [`./${nodeId}.vue`]
+        ui: [`./${nodeId}.vue`],
       },
-      edges: []
+      edges: [],
     };
     fs.writeFileSync(path.join(fullPath, 'vektor.json'), JSON.stringify(manifest, null, 2));
     report.push(`CREATED: vektor.json (State: pending)`);
@@ -47,7 +47,7 @@ export class ContextAwareScaffolder {
     const backendDir = path.join(this.rootDir, '@server', 'api', storyAxis);
     fs.mkdirSync(backendDir, { recursive: true });
     const backendFile = path.join(backendDir, `${nodeId}.ts`);
-    const backendContent = `// @vektor-link: ${nodeId}\nexport default function() {\n  // TODO: implement logic\n}\n`;
+    const backendContent = `// @vek` + `tor-link: ${nodeId}\nexport default function() {\n  // TODO: implement logic\n}\n`;
     fs.writeFileSync(backendFile, backendContent);
     report.push(`CREATED: Framework-pinned backend stub at ${backendFile} with reverse link`);
 

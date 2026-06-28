@@ -7,11 +7,14 @@
     "antigravity": "./dist/index.js"
   },
   "scripts": {
-    "build": "tsc && npm run ag:audit",
+    "build": "npm run test && tsc && npm run ag:audit && npm run notify",
     "start": "ts-node src/index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "vitest run src",
     "ag:audit": "node dist/index.js audit",
     "ag:map": "node dist/index.js map",
+    "changelog": "ts-node scripts/changelog.ts",
+    "notify": "ts-node scripts/notify.ts",
+    "release": "standard-version",
     "prepare": "husky"
   },
   "keywords": [],
@@ -19,11 +22,19 @@
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@types/node": "^26.0.1",
+    "eslint": "^10.6.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.6",
     "husky": "^9.1.7",
     "lint-staged": "^17.0.8",
+    "prettier": "^3.9.1",
+    "standard-version": "^9.5.0",
     "ts-node": "^10.9.2",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.62.0",
+    "vitest": "^4.1.9"
   },
   "dependencies": {
     "commander": "^15.0.0",

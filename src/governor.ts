@@ -14,9 +14,12 @@ export class CyberneticGovernor {
 
   public async audit(): Promise<string[]> {
     const report: string[] = [];
-    const jsonFiles = await glob('**/vektor.json', { cwd: this.rootDir, ignore: 'node_modules/**' });
+    const jsonFiles = await glob('**/vektor.json', {
+      cwd: this.rootDir,
+      ignore: 'node_modules/**',
+    });
     const validNodes = new Set<string>();
-    
+
     // Pass 1: Collect nodes
     for (const file of jsonFiles) {
       const fullPath = path.join(this.rootDir, file);
@@ -59,21 +62,26 @@ export class CyberneticGovernor {
     }
 
     // Pass 3: Orphaned Magic Comments
-    const tsFiles = await glob('**/*.{ts,vue,js}', { cwd: this.rootDir, ignore: 'node_modules/**' });
+    const tsFiles = await glob('**/*.{ts,vue,js}', {
+      cwd: this.rootDir,
+      ignore: 'node_modules/**',
+    });
     for (const file of tsFiles) {
       const fullPath = path.join(this.rootDir, file);
       let content = fs.readFileSync(fullPath, 'utf8');
-      const match = content.match(/\/\/\s*@vektor-link:\s*([\w-]+)/);
-      if (match) {
+      const matches = content.matchAll(/\/\/\s*@vektor-link:\s*([\w-]+)/g);
+      for (const match of matches) {
         const targetId = match[1];
         if (!validNodes.has(targetId)) {
           report.push(`DETECTED: Orphaned link in ${file}: Node '${targetId}' does not exist`);
           if (this.autoHeal) {
             content = content.replace(match[0], '');
-            fs.writeFileSync(fullPath, content);
             report.push(`  -> HEALED: Stripped orphaned magic comment`);
           }
         }
+      }
+      if (this.autoHeal && report.length > 0) {
+        fs.writeFileSync(fullPath, content);
       }
     }
 

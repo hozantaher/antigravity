@@ -23,3 +23,7 @@ Připojte se k tomuto serveru a využijte tyto nástroje, než začnete psát ja
 - `antigravity_create_node`: Vytvoří bezpečně novou složku, vygeneruje `vektor.json` a patřičné frontendové/backendové soubory.
 - `antigravity_rename_node`: Bezpečně refaktoruje uzel a přepíše magické komentáře všude po projektu.
 - `antigravity_audit_drift`: Zjistí, jestli jste náhodou v repozitáři něco nerozbili. Spusťte po každé větší úpravě!
+
+## Testování a Nasazování
+- Pokud měníte logiku samotného enginu v adresáři `src/`, vždy ověřte integritu spuštěním `npm run test` (Vitest).
+- Při větších aktualizacích a dokončení features nezapomeňte aktualizovat changelog a verze. Dělá se to plně automaticky příkazem `npm run release` (Standard Version), který vše potřebné upraví, vydá a obstará Git Tagy.

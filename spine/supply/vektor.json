@@ -1,0 +1,11 @@
+{
+  "id": "supply",
+  "story_axis": "supply",
+  "state": "pending",
+  "facets": {
+    "ui": [
+      "./supply.vue"
+    ]
+  },
+  "edges": []
+}

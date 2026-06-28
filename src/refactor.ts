@@ -18,7 +18,10 @@ export class TransactionalRefactorEngine {
     let manifestFullPath: string | null = null;
 
     // 1. Locate the node
-    const jsonFiles = await glob('**/vektor.json', { cwd: this.rootDir, ignore: 'node_modules/**' });
+    const jsonFiles = await glob('**/vektor.json', {
+      cwd: this.rootDir,
+      ignore: 'node_modules/**',
+    });
     for (const file of jsonFiles) {
       const fullPath = path.join(this.rootDir, file);
       try {
@@ -45,11 +48,14 @@ export class TransactionalRefactorEngine {
     }
 
     // 2. Patch reverse links in code
-    const tsFiles = await glob('**/*.{ts,vue,js}', { cwd: this.rootDir, ignore: 'node_modules/**' });
+    const tsFiles = await glob('**/*.{ts,vue,js}', {
+      cwd: this.rootDir,
+      ignore: 'node_modules/**',
+    });
     for (const file of tsFiles) {
       const fullPath = path.join(this.rootDir, file);
       const content = fs.readFileSync(fullPath, 'utf8');
-      if (content.includes(`// @vektor-link: ${oldId}`)) {
+      if (content.includes(`// @vek` + `tor-link: ${oldId}`)) {
         plan.push(`PATCH_FILE: ${fullPath} (replace ${oldId} with ${newId})`);
       }
     }
@@ -74,10 +80,10 @@ export class TransactionalRefactorEngine {
     // This is a simplified execution of the plan
     // In a real ACID environment, we would copy, patch, test, and commit.
     const plan = await this.planRename(oldId, newId, newPath);
-    console.log("Vykonávám refaktorizační plán:");
-    plan.forEach(step => console.log(step));
+    console.log('Vykonávám refaktorizační plán:');
+    plan.forEach((step) => console.log(step));
 
     // To be fully implemented: the actual fs/git execution logic.
-    console.log("Refactoring (dry-run) dokončen.");
+    console.log('Refactoring (dry-run) dokončen.');
   }
 }

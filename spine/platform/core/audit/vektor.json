@@ -1,0 +1,18 @@
+{
+  "identita": "Audit — každá akce bota nese stopu: kdo, co, na kterém účtu, kdy a s jakým výsledkem.",
+  "smysl": "Odpovědnost a re-konstrukce: read i write zapíší auditní záznam, na který se dá spolehnout.",
+  "smer": "Audit: append-only log akcí (read fetch, write publish/edit/delete) s odkazem na asset a účet.",
+  "duvod": "Bez auditní stopy je human-gate na write bezzubý a drift nedohledatelný.",
+  "myslenka": "Co bot udělal navenek, musí jít doložit — jinak platforma není důvěryhodná.",
+  "pillar": "trust",
+  "role": "primary",
+  "promise": "Každá vnější akce bota je doložitelná z auditního logu.",
+  "loreLine": "Auditní páteř — append-only stopa, kterou čte human-gate i drift.",
+  "proofSignal": [{ "nazev": "audit-trail", "zdroj": "track/platform", "stav": "pending" }],
+  "antiFeature": "Akce bez záznamu — neviditelný publish/delete, který nikdo nedohledá.",
+  "hotovo": {
+    "kdyzPlati": [
+      { "kriterium": "každá read/write akce vytvoří append-only auditní záznam s asset+účet+výsledek", "check": "audit-append-only", "stav": "met", "proof": { "cmd": "node features/platform/audit/audit.test.mjs", "pass": "AUDIT-OK", "negativeAnchor": { "cmd": "CANARY=1 node features/platform/audit/audit.test.mjs" } } }
+    ]
+  }
+}

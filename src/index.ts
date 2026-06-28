@@ -23,13 +23,13 @@ program
     const root = process.cwd();
     const engine = new UnifiedVectorEngine(root);
     await engine.scan();
-    
+
     const context = engine.resolveContext(nodeId);
     if (!context) {
       console.error(`Uzel ${nodeId} nebyl nalezen.`);
       process.exit(1);
     }
-    
+
     console.log(JSON.stringify(context, null, 2));
   });
 
@@ -41,7 +41,7 @@ program
     const root = process.cwd();
     const governor = new CyberneticGovernor(root, options.heal);
     const report = await governor.audit();
-    
+
     if (report.length === 0) {
       console.log('Architektura je 100% čistá. Žádný drift nebyl detekován.');
     } else {
@@ -54,7 +54,9 @@ program
 
 program
   .command('rename <oldId> <newId> [newPath]')
-  .description('Přejmenuje a přesune uzel napříč celou architekturou včetně Gitu a reverzních vazeb')
+  .description(
+    'Přejmenuje a přesune uzel napříč celou architekturou včetně Gitu a reverzních vazeb'
+  )
   .action(async (oldId: string, newId: string, newPath?: string) => {
     const root = process.cwd();
     const refactor = new TransactionalRefactorEngine(root);
@@ -68,7 +70,9 @@ program
 
 program
   .command('mcp')
-  .description('Spustí Model Context Protocol (MCP) server na standardním vstupu/výstupu pro integraci s AI (Claude/Cursor)')
+  .description(
+    'Spustí Model Context Protocol (MCP) server na standardním vstupu/výstupu pro integraci s AI (Claude/Cursor)'
+  )
   .action(() => {
     const root = process.cwd();
     const mcpServer = new MCPServer(root);
@@ -77,7 +81,9 @@ program
 
 program
   .command('create <nodeId> <pathHint>')
-  .description('Vytvoří nový uzel stromu, odhadne kontext a vygeneruje boilerplate i reverzní linky')
+  .description(
+    'Vytvoří nový uzel stromu, odhadne kontext a vygeneruje boilerplate i reverzní linky'
+  )
   .action((nodeId: string, pathHint: string) => {
     const root = process.cwd();
     const scaffolder = new ContextAwareScaffolder(root);

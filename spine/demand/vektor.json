@@ -1,0 +1,11 @@
+{
+  "id": "demand",
+  "story_axis": "demand",
+  "state": "pending",
+  "facets": {
+    "ui": [
+      "./demand.vue"
+    ]
+  },
+  "edges": []
+}

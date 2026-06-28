@@ -5,6 +5,7 @@ export interface VektorManifest {
   facets?: Record<string, string[]>;
   edges?: string[];
   tags?: string[];
+  origin?: string;
 }
 
 export interface ResolvedNode {
@@ -12,8 +13,8 @@ export interface ResolvedNode {
   path: string;
   state: 'pending' | 'met';
   rollupState: 'pending' | 'met';
-  files: string[];          // All resolved files (dense + reverse links)
-  neighbors: string[];      // Expanded edges
+  files: string[]; // All resolved files (dense + reverse links)
+  neighbors: string[]; // Expanded edges
   manifest: VektorManifest;
 }
 
@@ -22,5 +23,3 @@ export interface EdgeDependency {
   targetId: string;
   implicit: boolean; // true if found via AST/imports but missing in edges
 }
-
-

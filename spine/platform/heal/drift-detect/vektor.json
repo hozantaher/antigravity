@@ -1,0 +1,18 @@
+{
+  "identita": "Drift-detect — poznej, že naučený flow přestal fungovat, místo tiché chyby.",
+  "smysl": "Změna UI portálu (chybí selektor, jiný krok) → karanténa driveru a re-map, ne false-success.",
+  "smer": "Drift-detect: očekávaný výsledek kroku vs. skutečný → drift → spustí re-map.",
+  "duvod": "Bez detekce driftu vrací rozbitý driver prázdno a tváří se, že je vše v pořádku.",
+  "myslenka": "Smyčka žije jen tehdy, když umí poznat, že přestala fungovat.",
+  "pillar": "trust",
+  "role": "primary",
+  "promise": "Rozbitý driver se nahlásí, ne tiše selže.",
+  "loreLine": "Uzávěr smyčky — drift → re-map → re-verify; tohle dělá ze skriptu loop.",
+  "proofSignal": [{ "nazev": "drift-detect", "zdroj": "track/heal", "stav": "pending" }],
+  "antiFeature": "Driver, který po změně portálu vrací prázdno a hlásí úspěch.",
+  "hotovo": {
+    "kdyzPlati": [
+      { "kriterium": "uměle rozbitý flow je detekován a označen, nevrací false-success", "check": "drift-detect-no-false-success", "stav": "met", "proof": { "cmd": "node features/heal/drift-detect/drift-detect.test.mjs", "pass": "DRIFT-OK", "negativeAnchor": { "cmd": "CANARY=1 node features/heal/drift-detect/drift-detect.test.mjs" } } }
+    ]
+  }
+}

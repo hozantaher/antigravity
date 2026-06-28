@@ -1,0 +1,18 @@
+{
+  "id": "engine-drive",
+  "story_axis": "engine",
+  "state": "pending",
+  "origin": "frontier",
+  "legacy_metadata": {
+    "identita": "Drive — proveď akce proti portálu: read (čti inzeráty) i write (řiď NAŠE účty).",
+    "smysl": "Naučený flow se vykoná: read sbírá data pro akvizici, write spravuje naše inzeráty pro prodej.",
+    "role": "stage"
+  },
+  "tags": ["session", "read", "write", "rate-policy"],
+  "facets": {
+    "ui": [
+      "./engine-drive.vue"
+    ]
+  },
+  "edges": []
+}

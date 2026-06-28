@@ -1,0 +1,11 @@
+{
+  "id": "sale",
+  "story_axis": "sale",
+  "state": "pending",
+  "facets": {
+    "ui": [
+      "./sale.vue"
+    ]
+  },
+  "edges": []
+}
