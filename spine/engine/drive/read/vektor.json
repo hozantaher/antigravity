@@ -1,23 +1,50 @@
 {
-  "identita": "Read — přečti cizí inzerát a převeď ho na kanonický asset-model záznam.",
-  "smysl": "Sourcing signál pro HozanTaher: z listingu vznikne záznam stroje, který krmí market-monitor a valuation.",
-  "smer": "Read: fetch listing → extract → asset-model záznam (povinná pole, typy, enum) → ven do supply.",
-  "duvod": "Bez čtení trhu nemá akvizice co oceňovat ani o čem rozhodovat.",
-  "myslenka": "Co přečteme z trhu, musí mít přesně tvar sdíleného záznamu — jinak šev nedrží.",
-  "pillar": "reach",
-  "role": "primary",
-  "promise": "Cizí inzerát se stane validním asset-model záznamem.",
-  "loreLine": "Read-driver — seed z dřímajících HozanTaher scraperů; PoC běží proti lokální fixture, ne živému portálu.",
-  "proofSignal": [{ "nazev": "read→asset-model", "zdroj": "track/drive", "stav": "pending" }],
-  "antiFeature": "Záznam, který tvar kontraktu nesplní a tiše projde dál do skladu.",
-  "hotovo": {
-    "kdyzPlati": [
+  "id": "engine-drive-read",
+  "story_axis": "engine",
+  "state": "pending",
+  "legacy_metadata": {
+    "identita": "Read — přečti cizí inzerát a převeď ho na kanonický asset-model záznam.",
+    "smysl": "Sourcing signál pro HozanTaher: z listingu vznikne záznam stroje, který krmí market-monitor a valuation.",
+    "smer": "Read: fetch listing → extract → asset-model záznam (povinná pole, typy, enum) → ven do supply.",
+    "duvod": "Bez čtení trhu nemá akvizice co oceňovat ani o čem rozhodovat.",
+    "myslenka": "Co přečteme z trhu, musí mít přesně tvar sdíleného záznamu — jinak šev nedrží.",
+    "pillar": "reach",
+    "role": "primary",
+    "promise": "Cizí inzerát se stane validním asset-model záznamem.",
+    "loreLine": "Read-driver — seed z dřímajících HozanTaher scraperů; PoC běží proti lokální fixture, ne živému portálu.",
+    "proofSignal": [
       {
-        "kriterium": "fixture inzerát → extract → záznam splňující asset-model kontrakt (povinná pole, typy, enum, žádný klíč navíc)",
-        "check": "read-asset-model-conformance",
-        "stav": "met",
-        "proof": { "cmd": "node features/drive/read/conformance.test.mjs", "pass": "ASSET-OK", "negativeAnchor": { "cmd": "node features/drive/read/conformance.test.mjs features/drive/read/fixtures/mascus-listing-broken.html" } }
+        "nazev": "read→asset-model",
+        "zdroj": "track/drive",
+        "stav": "pending"
       }
+    ],
+    "antiFeature": "Záznam, který tvar kontraktu nesplní a tiše projde dál do skladu.",
+    "hotovo": {
+      "kdyzPlati": [
+        {
+          "kriterium": "fixture inzerát → extract → záznam splňující asset-model kontrakt (povinná pole, typy, enum, žádný klíč navíc)",
+          "check": "read-asset-model-conformance",
+          "stav": "met",
+          "proof": {
+            "cmd": "node features/drive/read/conformance.test.mjs",
+            "pass": "ASSET-OK",
+            "negativeAnchor": {
+              "cmd": "node features/drive/read/conformance.test.mjs features/drive/read/fixtures/mascus-listing-broken.html"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "tags": [],
+  "facets": {
+    "logic": [
+      "./extract.mjs"
+    ],
+    "test": [
+      "./conformance.test.mjs"
     ]
-  }
+  },
+  "edges": []
 }

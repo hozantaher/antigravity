@@ -1,18 +1,50 @@
 {
-  "identita": "Crawl — projdi povrch portálu: stránky, formuláře, viditelné toky.",
-  "smysl": "Sebrat strukturu portálu jako vstup pro learn — co existuje a kam to vede.",
-  "smer": "Crawl: fetch povrchu (sitemap, navigace, formuláře) → katalog akcí a polí.",
-  "duvod": "Bez katalogu povrchu nemá learn z čeho stavět operation graph.",
-  "myslenka": "Mapa povrchu je surovina, ze které se rodí model ovládání.",
-  "pillar": "edge",
-  "role": "primary",
-  "promise": "Povrch portálu je zmapovaný a katalogizovaný.",
-  "loreLine": "Crawler povrchu — vstup do učící fáze, respektuje robots a rate-limit.",
-  "proofSignal": [{ "nazev": "crawl-surface", "zdroj": "track/discover", "stav": "pending" }],
-  "antiFeature": "Crawl, který ignoruje robots/ToS a tluče portál bez rate-limitu.",
-  "hotovo": {
-    "kdyzPlati": [
-      { "kriterium": "z portálu vznikne katalog stránek a formulářů respektující robots.txt", "check": "crawl-surface-catalog", "stav": "met", "proof": { "cmd": "node features/discover/crawl/crawl.test.mjs", "pass": "CRAWL-OK", "negativeAnchor": { "cmd": "CANARY=1 node features/discover/crawl/crawl.test.mjs" } } }
+  "id": "demand-discover-crawl",
+  "story_axis": "demand",
+  "state": "pending",
+  "legacy_metadata": {
+    "identita": "Crawl — projdi povrch portálu: stránky, formuláře, viditelné toky.",
+    "smysl": "Sebrat strukturu portálu jako vstup pro learn — co existuje a kam to vede.",
+    "smer": "Crawl: fetch povrchu (sitemap, navigace, formuláře) → katalog akcí a polí.",
+    "duvod": "Bez katalogu povrchu nemá learn z čeho stavět operation graph.",
+    "myslenka": "Mapa povrchu je surovina, ze které se rodí model ovládání.",
+    "pillar": "edge",
+    "role": "primary",
+    "promise": "Povrch portálu je zmapovaný a katalogizovaný.",
+    "loreLine": "Crawler povrchu — vstup do učící fáze, respektuje robots a rate-limit.",
+    "proofSignal": [
+      {
+        "nazev": "crawl-surface",
+        "zdroj": "track/discover",
+        "stav": "pending"
+      }
+    ],
+    "antiFeature": "Crawl, který ignoruje robots/ToS a tluče portál bez rate-limitu.",
+    "hotovo": {
+      "kdyzPlati": [
+        {
+          "kriterium": "z portálu vznikne katalog stránek a formulářů respektující robots.txt",
+          "check": "crawl-surface-catalog",
+          "stav": "met",
+          "proof": {
+            "cmd": "node features/discover/crawl/crawl.test.mjs",
+            "pass": "CRAWL-OK",
+            "negativeAnchor": {
+              "cmd": "CANARY=1 node features/discover/crawl/crawl.test.mjs"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "tags": [],
+  "facets": {
+    "logic": [
+      "./crawl.mjs"
+    ],
+    "test": [
+      "./crawl.test.mjs"
     ]
-  }
+  },
+  "edges": []
 }

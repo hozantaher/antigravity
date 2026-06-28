@@ -85,6 +85,49 @@ export class CyberneticGovernor {
       }
     }
 
+    // Pass 4: Detect Invalid Manifests
+    for (const file of jsonFiles) {
+      const fullPath = path.join(this.rootDir, file);
+      try {
+        const manifest = JSON.parse(fs.readFileSync(fullPath, 'utf8'));
+        if (!manifest.id || !manifest.story_axis) {
+          report.push(`DETECTED: Invalid legacy manifest format in ${file}`);
+        }
+      } catch (e) {
+        report.push(`DETECTED: Unparsable manifest in ${file}`);
+      }
+    }
+
+    // Pass 5: Orphaned Files in Spine (not linked in any manifest)
+    const allTrackedFiles = new Set<string>();
+    for (const file of jsonFiles) {
+      const fullPath = path.join(this.rootDir, file);
+      try {
+        const manifest = JSON.parse(fs.readFileSync(fullPath, 'utf8'));
+        const dir = path.dirname(file);
+        if (manifest.facets) {
+          for (const paths of Object.values(manifest.facets)) {
+             (paths as string[]).forEach(p => {
+               // Resolve to relative path from rootDir
+               const resolved = path.normalize(path.join(dir, p));
+               allTrackedFiles.add(resolved);
+             });
+          }
+        }
+      } catch (e) {}
+    }
+
+    const spineFiles = await glob('spine/**/*.{ts,vue,js,mjs}', {
+      cwd: this.rootDir,
+      ignore: 'node_modules/**',
+    });
+
+    for (const file of spineFiles) {
+       if (!allTrackedFiles.has(path.normalize(file))) {
+         report.push(`DETECTED: Unmapped file in spine: ${file} (not referenced in any facets)`);
+       }
+    }
+
     return report;
   }
 }

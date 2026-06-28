@@ -62,7 +62,7 @@ Projekt je plně připraven na spolupráci s asynchronními agenty (např. Googl
 
 1. **Lokální Git Hooks (Husky + lint-staged)**: 
    - Kód je při každém commitu automaticky zformátován (Prettier) a zkontrolován linterem (ESLint).
-   - Zároveň běží automatický self-healing (`audit --heal`), který upraví driftované vektorové linky a překreslí `ARCHITECTURE.md`.
+   - Zároveň běží extrémně přísný Cybernetic Governor (`audit --heal`). Ten odhalí nejen driftované linky, ale díky **Orphan Scanneru** okamžitě zablokuje commit, pokud objeví fyzické soubory ve `spine/`, které nejsou zmapované ve `vektor.json`, nebo zkopírované legacy složky. Architektonický drift je tímto natvrdo znemožněn a nutí vývojáře i AI agenty k použití CLI.
 2. **Railway CI/CD a Notifikace**: 
    - Repozitář je nasazován přímo přes Railway platformu (GitHub Actions byly odstraněny pro úsporu minut).
    - Railway běží v cyklu: `Testy (Vitest)` ➔ `Kompilace (TSC)` ➔ `Audit (Drift)` ➔ `Notifikace na Telegram`.

@@ -1,0 +1,52 @@
+{
+  "id": "platform-compliance",
+  "story_axis": "platform",
+  "state": "pending",
+  "facets": {
+    "ui": [
+      "./platform-compliance.vue"
+    ],
+    "logic": [
+      "./compliance.mjs"
+    ],
+    "test": [
+      "./compliance.test.mjs"
+    ]
+  },
+  "edges": [],
+  "legacy_metadata": {
+    "identita": "Compliance — mantinel celé platformy: jen NAŠE účty, jen v mezích ToS/robots/GDPR.",
+    "smysl": "Read sbírá veřejná data bez osobních údajů prodejců; write jede výhradně na našich dealer účtech.",
+    "smer": "Compliance jako mantinel: authorized-accounts-only · robots/ToS respekt · PII-drop · rate-limit.",
+    "duvod": "Plné ovládání aplikace je legitimní jen tam, kde máme oprávnění; jinak je to intel pod EU pravidly.",
+    "myslenka": "Ovládat naplno znamená automatizovat NAŠE oprávněné operace — ne obcházet cizí přístup.",
+    "pillar": "trust",
+    "role": "primary",
+    "promise": "Žádná akce, kterou bychom neudělali ručně s plným oprávněním.",
+    "loreLine": "Mantinel platformy — autorizace, robots/ToS, ochrana osobních údajů; gate ho rolluje jako každý slib.",
+    "proofSignal": [
+      {
+        "nazev": "guardrail",
+        "zdroj": "track/platform",
+        "stav": "pending"
+      }
+    ],
+    "antiFeature": "Bot, který obchází autentizaci nebo scrapuje proti výslovnému zákazu — to nestavíme.",
+    "hotovo": {
+      "kdyzPlati": [
+        {
+          "kriterium": "scrape dropne osobní údaje prodejce a respektuje robots.txt; write odmítne neautorizovaný účet",
+          "check": "compliance-pii-robots-authz",
+          "stav": "met",
+          "proof": {
+            "cmd": "node features/platform/compliance/compliance.test.mjs",
+            "pass": "COMPLY-OK",
+            "negativeAnchor": {
+              "cmd": "CANARY=1 node features/platform/compliance/compliance.test.mjs"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -6,6 +6,7 @@ import { MCPServer } from './mcp';
 import { ContextAwareScaffolder } from './scaffold';
 import { FuzzyVectorRouter } from './router';
 import { DiaryManager } from './diary';
+import { DocGenerator } from './docs';
 import path from 'path';
 import fs from 'fs';
 
@@ -139,9 +140,18 @@ program
     const engine = new UnifiedVectorEngine(root);
     await engine.scan();
     const md = engine.generateArchitectureMap();
-    const outPath = path.join(root, 'ARCHITECTURE.md');
+    const outPath = path.join(root, 'docs', 'ARCHITECTURE.md');
     fs.writeFileSync(outPath, md, 'utf8');
     console.log(`Mapa architektury úspěšně vygenerována do: ${outPath}`);
+  });
+
+program
+  .command('docs')
+  .description('Automaticky vygeneruje dokumentaci z vektorových manifestů (AUTODOCS.md)')
+  .action(async () => {
+    const root = process.cwd();
+    const generator = new DocGenerator(root);
+    await generator.generate();
   });
 
 program.parse(process.argv);

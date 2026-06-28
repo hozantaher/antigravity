@@ -1,0 +1,15 @@
+{
+  "id": "demand-search",
+  "story_axis": "spine",
+  "state": "pending",
+  "facets": {
+    "ui": [
+      "./demand-search.vue"
+    ],
+    "logic": [
+      "./searchService.js",
+      "./searchController.js"
+    ]
+  },
+  "edges": []
+}
