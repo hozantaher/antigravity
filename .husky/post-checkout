@@ -1,0 +1,8 @@
+
+
+echo "=========================================="
+echo "⚡ Antigravity: Post-Checkout Drift Audit"
+echo "=========================================="
+# Pouze auditujeme, neopravujeme automaticky při checkoutu, abychom nezměnili historii, 
+# ale chceme vývojáře varovat, pokud právě načetl driftovanou session.
+npm run ag:audit || echo "⚠️ POZOR: Tato větev obsahuje architektonický drift vůči vektorové síti!"

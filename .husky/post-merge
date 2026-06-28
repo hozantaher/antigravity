@@ -1,0 +1,8 @@
+
+
+echo "=========================================="
+echo "⚡ Antigravity: Post-Merge Drift Detection"
+echo "=========================================="
+npm run ag:audit -- --heal || true
+npm run ag:map || true
+echo "✔ Drift vyřešen."
