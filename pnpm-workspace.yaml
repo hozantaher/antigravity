@@ -1,6 +1,7 @@
 packages:
   - 'spine/**'
   - 'apps/**'
+  - 'frontiers/**'
 
 onlyBuiltDependencies:
   - '@firebase/util'

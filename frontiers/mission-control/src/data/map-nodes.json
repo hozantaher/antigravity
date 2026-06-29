@@ -1,0 +1,618 @@
+[
+  {
+    "id": "supply",
+    "position": {
+      "x": 100,
+      "y": 300
+    },
+    "data": {
+      "label": "supply",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "sale",
+    "position": {
+      "x": 700,
+      "y": 300
+    },
+    "data": {
+      "label": "sale",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "platform",
+    "position": {
+      "x": 700,
+      "y": 420
+    },
+    "data": {
+      "label": "platform",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "engine",
+    "position": {
+      "x": 100,
+      "y": 420
+    },
+    "data": {
+      "label": "engine",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "demand",
+    "position": {
+      "x": 100,
+      "y": 540
+    },
+    "data": {
+      "label": "demand",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "scraper-mobile-de",
+    "position": {
+      "x": 100,
+      "y": 660
+    },
+    "data": {
+      "label": "scraper-mobile-de",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "scraper-mascus",
+    "position": {
+      "x": 100,
+      "y": 780
+    },
+    "data": {
+      "label": "scraper-mascus",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "scraper-judikaty",
+    "position": {
+      "x": 100,
+      "y": 900
+    },
+    "data": {
+      "label": "scraper-judikaty",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "scraper-firmy",
+    "position": {
+      "x": 100,
+      "y": 1020
+    },
+    "data": {
+      "label": "scraper-firmy",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "scraper-esbirka",
+    "position": {
+      "x": 100,
+      "y": 1140
+    },
+    "data": {
+      "label": "scraper-esbirka",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "scraper-autoline",
+    "position": {
+      "x": 100,
+      "y": 1260
+    },
+    "data": {
+      "label": "scraper-autoline",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "operator-console",
+    "position": {
+      "x": 100,
+      "y": 1380
+    },
+    "data": {
+      "label": "operator-console",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "marketplace-web",
+    "position": {
+      "x": 100,
+      "y": 1500
+    },
+    "data": {
+      "label": "marketplace-web",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "platform-compliance",
+    "position": {
+      "x": 400,
+      "y": 600
+    },
+    "data": {
+      "label": "platform-compliance",
+      "layer": "CORE",
+      "color": "#4B5563",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "auth",
+    "position": {
+      "x": 700,
+      "y": 540
+    },
+    "data": {
+      "label": "auth",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "account",
+    "position": {
+      "x": 700,
+      "y": 660
+    },
+    "data": {
+      "label": "account",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "platform-audit",
+    "position": {
+      "x": 400,
+      "y": 720
+    },
+    "data": {
+      "label": "platform-audit",
+      "layer": "CORE",
+      "color": "#4B5563",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "engine-learn",
+    "position": {
+      "x": 400,
+      "y": null
+    },
+    "data": {
+      "label": "engine-learn",
+      "layer": "FEET",
+      "color": "#4B5563",
+      "description": "Learn — z povrchu postav model toho, jak se aplikace ovládá (operation graph)."
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "engine-drive",
+    "position": {
+      "x": 700,
+      "y": 780
+    },
+    "data": {
+      "label": "engine-drive",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": "Drive — proveď akce proti portálu: read (čti inzeráty) i write (řiď NAŠE účty)."
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "send",
+    "position": {
+      "x": 100,
+      "y": 1620
+    },
+    "data": {
+      "label": "send",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "core-types",
+    "position": {
+      "x": 400,
+      "y": 840
+    },
+    "data": {
+      "label": "core-types",
+      "layer": "CORE",
+      "color": "#4B5563",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "dashboard-core",
+    "position": {
+      "x": 700,
+      "y": 900
+    },
+    "data": {
+      "label": "dashboard-core",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "privacy-gateway",
+    "position": {
+      "x": 700,
+      "y": 1020
+    },
+    "data": {
+      "label": "privacy-gateway",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "relay",
+    "position": {
+      "x": 400,
+      "y": 100
+    },
+    "data": {
+      "label": "relay",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "deep-research",
+    "position": {
+      "x": 400,
+      "y": 960
+    },
+    "data": {
+      "label": "deep-research",
+      "layer": "CORE",
+      "color": "#4B5563",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "parser-compiler",
+    "position": {
+      "x": 400,
+      "y": 220
+    },
+    "data": {
+      "label": "parser-compiler",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "arbitrage-miner",
+    "position": {
+      "x": 400,
+      "y": 340
+    },
+    "data": {
+      "label": "arbitrage-miner",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "shadow-broker",
+    "position": {
+      "x": 700,
+      "y": 1140
+    },
+    "data": {
+      "label": "shadow-broker",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "worker",
+    "position": {
+      "x": 400,
+      "y": 460
+    },
+    "data": {
+      "label": "worker",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "symphony-queue",
+    "position": {
+      "x": 400,
+      "y": 580
+    },
+    "data": {
+      "label": "symphony-queue",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "rule-registry",
+    "position": {
+      "x": 400,
+      "y": 700
+    },
+    "data": {
+      "label": "rule-registry",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "engine-acquisition-mobile-de",
+    "position": {
+      "x": 400,
+      "y": 820
+    },
+    "data": {
+      "label": "engine-acquisition-mobile-de",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "engine-acquisition-mascus",
+    "position": {
+      "x": 400,
+      "y": 940
+    },
+    "data": {
+      "label": "engine-acquisition-mascus",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "engine-acquisition-judikaty",
+    "position": {
+      "x": 400,
+      "y": 1060
+    },
+    "data": {
+      "label": "engine-acquisition-judikaty",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "engine-acquisition-firmy",
+    "position": {
+      "x": 400,
+      "y": 1180
+    },
+    "data": {
+      "label": "engine-acquisition-firmy",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "engine-acquisition-esbirka",
+    "position": {
+      "x": 400,
+      "y": 1300
+    },
+    "data": {
+      "label": "engine-acquisition-esbirka",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "engine-acquisition-autoline",
+    "position": {
+      "x": 400,
+      "y": 1420
+    },
+    "data": {
+      "label": "engine-acquisition-autoline",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "inbox-orchestrator",
+    "position": {
+      "x": 400,
+      "y": 1540
+    },
+    "data": {
+      "label": "inbox-orchestrator",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "deep-inventory",
+    "position": {
+      "x": 400,
+      "y": 1660
+    },
+    "data": {
+      "label": "deep-inventory",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "cross-border-arbitrage",
+    "position": {
+      "x": 400,
+      "y": 1780
+    },
+    "data": {
+      "label": "cross-border-arbitrage",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "stale-reaper",
+    "position": {
+      "x": 400,
+      "y": 1900
+    },
+    "data": {
+      "label": "stale-reaper",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "sitemap-watcher",
+    "position": {
+      "x": 400,
+      "y": 2020
+    },
+    "data": {
+      "label": "sitemap-watcher",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "network-interceptor",
+    "position": {
+      "x": 400,
+      "y": 2140
+    },
+    "data": {
+      "label": "network-interceptor",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "b2b-miner",
+    "position": {
+      "x": 400,
+      "y": 2260
+    },
+    "data": {
+      "label": "b2b-miner",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  }
+]

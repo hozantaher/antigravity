@@ -10,6 +10,24 @@ export const RawListingSchema = z.object({
   model: z.string().optional(),
   mileage: z.number().optional(),
   year: z.number().optional(),
+  description: z.string().optional(),
 });
 
 export type RawListing = z.infer<typeof RawListingSchema>;
+
+export const ResearchResultSchema = z.object({
+  desperationScore: z.number().min(0).max(100),
+  riskScore: z.number().min(0).max(100),
+  hiddenFlaws: z.array(z.string()),
+  isArbitrage: z.boolean(),
+  reasoning: z.string().optional()
+});
+
+export type ResearchResult = z.infer<typeof ResearchResultSchema>;
+
+export const EnrichedListingSchema = RawListingSchema.extend({
+  research: ResearchResultSchema,
+  numericArbitrageScore: z.number().optional()
+});
+
+export type EnrichedListing = z.infer<typeof EnrichedListingSchema>;

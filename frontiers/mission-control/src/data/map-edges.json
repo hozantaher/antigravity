@@ -1,0 +1,62 @@
+[
+  {
+    "id": "e-arbitrage-miner-symphony-queue",
+    "source": "arbitrage-miner",
+    "target": "symphony-queue",
+    "animated": true,
+    "style": {
+      "stroke": "#8B5CF6",
+      "strokeWidth": 2
+    }
+  },
+  {
+    "id": "e-arbitrage-miner-deep-inventory",
+    "source": "arbitrage-miner",
+    "target": "deep-inventory",
+    "animated": true,
+    "style": {
+      "stroke": "#8B5CF6",
+      "strokeWidth": 2
+    }
+  },
+  {
+    "id": "e-arbitrage-miner-core-types",
+    "source": "arbitrage-miner",
+    "target": "core-types",
+    "animated": true,
+    "style": {
+      "stroke": "#8B5CF6",
+      "strokeWidth": 2
+    }
+  },
+  {
+    "id": "e-shadow-broker-symphony-queue",
+    "source": "shadow-broker",
+    "target": "symphony-queue",
+    "animated": true,
+    "style": {
+      "stroke": "#EF4444",
+      "strokeWidth": 2
+    }
+  },
+  {
+    "id": "e-shadow-broker-marketplace-web",
+    "source": "shadow-broker",
+    "target": "marketplace-web",
+    "animated": true,
+    "style": {
+      "stroke": "#EF4444",
+      "strokeWidth": 2
+    }
+  },
+  {
+    "id": "e-shadow-broker-core-types",
+    "source": "shadow-broker",
+    "target": "core-types",
+    "animated": true,
+    "style": {
+      "stroke": "#EF4444",
+      "strokeWidth": 2
+    }
+  }
+]

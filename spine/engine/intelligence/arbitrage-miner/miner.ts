@@ -27,15 +27,32 @@ export class ArbitrageMiner {
     const isArbitrage = this.evaluateV10(market, item);
     
     if (isArbitrage) {
-      console.log(`[ArbitrageMiner] 🏆 ARBITRÁŽ NALEZENA: ${item.title} za ${item.price} CZK`);
+      console.log(`[ArbitrageMiner] 🏆 NUMERICKÁ ARBITRÁŽ NALEZENA: ${item.title} za ${item.price} CZK`);
       
-      // Odeslání k exekuci do levé hemisféry (ShadowBroker)
-      await SymphonyQueue.enqueue({
-        id: `arb_${item.id}`,
-        assetId: item.id,
-        expectedProfit: Math.round(item.price * 0.15), // Hrubý odhad
-        metadata: { title: item.title, price: item.price, url: item.sourceUrl, make, model }
-      });
+      // Odeslání do Deep Research vrstvy (Phase 3 integrace)
+      const { deepResearchMiner } = await import('../deep-research/index');
+      const researchResult = await deepResearchMiner.analyzeListing(item);
+
+      if (researchResult.isArbitrage && researchResult.riskScore < 50) {
+        console.log(`[ArbitrageMiner] 🎯 DEEP RESEARCH POTVRDIL ARBITRÁŽ. Odesílám do ShadowBroker.`);
+        // Odeslání k exekuci do levé hemisféry (ShadowBroker)
+        await SymphonyQueue.enqueue({
+          id: `arb_${item.id}`,
+          assetId: item.id,
+          expectedProfit: Math.round(item.price * 0.15), // Hrubý odhad
+          metadata: { 
+            title: item.title, 
+            price: item.price, 
+            url: item.sourceUrl, 
+            make, 
+            model,
+            desperationScore: researchResult.desperationScore,
+            hiddenFlaws: researchResult.hiddenFlaws
+          }
+        });
+      } else {
+        console.log(`[ArbitrageMiner] 🛑 ZAMÍTNUTO DEEP RESEARCH UZLEM. Příliš vysoké riziko nebo false positive.`);
+      }
     } else {
       console.log(`[ArbitrageMiner] 🛑 Auto ${item.title} nezapadá do arbitrážní matice (Běžná cena nebo vrak).`);
     }

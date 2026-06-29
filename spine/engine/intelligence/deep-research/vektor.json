@@ -1,0 +1,15 @@
+{
+  "id": "deep-research",
+  "story_axis": "spine",
+  "state": "pending",
+  "facets": {
+    "ui": [
+      "./deep-research.vue"
+    ],
+    "logic": [
+      "./strategies.ts",
+      "./index.ts"
+    ]
+  },
+  "edges": []
+}
