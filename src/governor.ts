@@ -43,13 +43,20 @@ export class CyberneticGovernor {
         const manifest = JSON.parse(fs.readFileSync(fullPath, 'utf8')) as VektorManifest;
         validNodes.add(manifest.id);
         nodePaths.set(path.dirname(fullPath), manifest.id);
-      } catch (e) {}
+      } catch (e: any) {
+        report.push(`DETECTED: Neplatný JSON ve vektor.json: ${file} (${e.message})`);
+      }
     }
 
     // Pass 2: Missing Files (Dead links in JSON)
     for (const file of jsonFiles) {
       const fullPath = path.join(this.rootDir, file);
-      const manifest = JSON.parse(fs.readFileSync(fullPath, 'utf8')) as VektorManifest;
+      let manifest: VektorManifest;
+      try {
+        manifest = JSON.parse(fs.readFileSync(fullPath, 'utf8')) as VektorManifest;
+      } catch (e) {
+        continue;
+      }
       const dir = path.dirname(fullPath);
       let changed = false;
 
@@ -208,9 +215,15 @@ export class CyberneticGovernor {
       const matches = content.matchAll(importRegex);
       for (const match of matches) {
          const importPath = match[1];
+         let resolvedTarget = '';
+         
          if (importPath.startsWith('.')) {
-            const resolvedTarget = path.normalize(path.join(dir, importPath));
-            
+            resolvedTarget = path.normalize(path.join(dir, importPath));
+         } else if (importPath.startsWith('@/') || importPath.startsWith('~/')) {
+            resolvedTarget = path.normalize(path.join(this.rootDir, importPath.substring(2)));
+         }
+         
+         if (resolvedTarget) {
             for (const [nodeDir, nodeId] of nodePaths.entries()) {
                if (nodeDir.includes('spine') && resolvedTarget.startsWith(nodeDir) && !fullPath.startsWith(nodeDir)) {
                   const isPublicContract = (resolvedTarget === nodeDir) || (resolvedTarget === path.join(nodeDir, 'index')) || (resolvedTarget === path.join(nodeDir, 'index.ts'));

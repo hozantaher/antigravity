@@ -5,7 +5,8 @@
   "facets": {
     "ui": [
       "./demand.vue"
-    ]
+    ],
+    "logic": []
   },
   "edges": []
 }
