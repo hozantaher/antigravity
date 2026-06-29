@@ -1,4 +1,0 @@
-// @vektor-link: renamed-invoicing
-export default function() {
-  // TODO: implement logic
-}

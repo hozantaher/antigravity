@@ -30,10 +30,10 @@ const NAV_SECTIONS = [
   {
     key: 'main',
     items: [
-      { to: '/', end: true, icon: BarChart3, label: 'Přehled' },
-      { to: '/odpovedi', icon: Inbox, label: 'Odpovědi', badge: 'unread' },
-      { to: '/vozidla', icon: Truck, label: 'Vozidla' },
-      { to: '/kampane', icon: Megaphone, label: 'Kampaně' },
+      { to: '/', end: true, icon: BarChart3, label: 'Přehled', kbd: '1' },
+      { to: '/odpovedi', icon: Inbox, label: 'Odpovědi', badge: 'unread', kbd: '2' },
+      { to: '/vozidla', icon: Truck, label: 'Vozidla', kbd: '3' },
+      { to: '/kampane', icon: Megaphone, label: 'Kampaně', kbd: '4' },
     ],
   },
   {
@@ -76,8 +76,9 @@ const SIDEBAR_COLLAPSE_KEY = 'uiSidebarCollapsed'
 // `collapsed` (icon-rail) drops the label + centers the icon and shows the
 // unread count as a dot instead of a number.
 function NavItem({ item, unhandled, collapsed }) {
-  const { to, end, icon: Icon, label, badge } = item
+  const { to, end, icon: Icon, label, badge, kbd } = item
   const showBadge = badge === 'unread' && unhandled > 0
+  const isMac = typeof navigator !== 'undefined' && /Mac/i.test(navigator.platform)
   return (
     <NavLink
       to={to}
@@ -96,6 +97,11 @@ function NavItem({ item, unhandled, collapsed }) {
     >
       <Icon size={18} strokeWidth={2} />
       {!collapsed && <span>{label}</span>}
+      {!collapsed && kbd && (
+        <span className="app-nav-kbd">
+          {isMac ? '⌘' : 'Ctrl'}{kbd}
+        </span>
+      )}
       {showBadge && collapsed ? (
         <span
           data-testid="app-nav-unread-dot"
@@ -222,12 +228,11 @@ export default function AppShell() {
           {!sidebarCollapsed && (
             <div style={{
               fontFamily: 'var(--app-font-serif)', fontSize: 'var(--app-text-lg)', fontWeight: 500,
-              color: 'var(--app-text)', display: 'flex', alignItems: 'baseline', gap: 7,
+              color: 'var(--app-text)', display: 'flex', alignItems: 'center', gap: 8,
             }}>
-              {/* ⚗ alembic — the alchemist's still; the laboratory's mark. */}
-              <span aria-hidden="true" style={{ fontSize: 18, color: 'var(--app-accent)', lineHeight: 1, transform: 'translateY(1px)' }}>⚗</span>
-              <span style={{ letterSpacing: '0.01em' }}>Hozan</span>
-              <span style={{ fontFamily: 'var(--app-font-sans)', fontSize: 'var(--app-text-xs)', color: 'var(--app-text-soft)', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase' }}>lab</span>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 24, height: 24, borderRadius: 6, background: 'var(--app-accent-strong)', color: '#fff', fontSize: 11, fontFamily: 'var(--app-font-sans)', fontWeight: 800, letterSpacing: '0.05em' }}>HT</div>
+              <span style={{ letterSpacing: '0.01em', transform: 'translateY(-1px)' }}>Hozan</span>
+              <span style={{ fontFamily: 'var(--app-font-sans)', fontSize: 'var(--app-text-xs)', color: 'var(--app-text-soft)', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', transform: 'translateY(-1px)' }}>lab</span>
             </div>
           )}
           <button
@@ -247,6 +252,13 @@ export default function AppShell() {
             {sidebarCollapsed ? <PanelLeftOpen size={16} /> : <PanelLeftClose size={16} />}
           </button>
         </div>
+
+        {!sidebarCollapsed && (
+          <button className="app-cta-new" onClick={() => navigate('/kampane/nova')} style={{ margin: '0 var(--app-space-3) var(--app-space-2)' }}>
+            <Megaphone size={16} />
+            <span>Nová kampaň</span>
+          </button>
+        )}
 
         <nav style={{ display: 'flex', flexDirection: 'column', gap: 'var(--app-space-2)', flex: '1 1 auto', minHeight: 0, overflowY: 'auto' }} aria-label="Hlavní navigace">
           {NAV_SECTIONS.map((section) => {

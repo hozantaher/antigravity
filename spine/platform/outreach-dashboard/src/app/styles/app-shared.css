@@ -140,3 +140,84 @@
 }
 .app-pause-all:hover:not(:disabled) { background: var(--app-negative); color: var(--app-on-accent); }
 .app-pause-all:disabled { opacity: 0.5; cursor: default; }
+
+/* ── Sidebar Sprint Enhancements ────────────────────────────────────────── */
+
+/* Active nav item gradient & hover animation */
+.app-nav-item.active {
+  background: linear-gradient(90deg, var(--app-accent-soft) 0%, transparent 100%) !important;
+  border-left: 3px solid var(--app-accent-strong);
+}
+
+/* Slide-in background on hover */
+.app-nav-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--app-surface-hover);
+  border-radius: var(--app-radius-sm);
+  z-index: -1;
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 0.3s var(--app-ease);
+}
+.app-nav-item:hover::before {
+  clip-path: inset(0 0 0 0);
+}
+
+/* Keyboard hint styling (appears on hover) */
+.app-nav-kbd {
+  margin-left: auto;
+  font-size: 10px;
+  font-family: monospace;
+  font-weight: 700;
+  color: var(--app-text-soft);
+  background: var(--app-surface-sunk);
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid var(--app-border);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.app-nav-item:hover .app-nav-kbd {
+  opacity: 1;
+}
+
+/* CTA "Nová kampaň" */
+.app-cta-new {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px;
+  background: var(--app-accent-strong);
+  color: #fff;
+  border: none;
+  border-radius: var(--app-radius);
+  font-weight: 600;
+  font-size: var(--app-text-sm);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 12px color-mix(in oklch, var(--app-accent-strong) 40%, transparent);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.app-cta-new:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px color-mix(in oklch, var(--app-accent-strong) 60%, transparent);
+}
+.app-cta-new::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transform: skewX(-20deg);
+}
+.app-cta-new:hover::after {
+  animation: shimmer 1.5s infinite;
+}
+@keyframes shimmer {
+  100% { left: 200%; }
+}

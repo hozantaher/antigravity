@@ -2,7 +2,7 @@
   "id": "outreach-dashboard",
   "story_axis": "platform",
   "origin": "hozan-taher/features/platform",
-  "state": "pending",
+  "state": "met",
   "facets": {
     "ui": [
       "./outreach-dashboard.vue"

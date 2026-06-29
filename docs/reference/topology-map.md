@@ -7,21 +7,19 @@ Tento soubor byl automaticky vygenerován pro poskytnutí maximálního kontextu
 ```mermaid
 graph TD
   supply["supply (supply)"]
-  style supply stroke:#ff9900,stroke-width:2px
+  style supply stroke:#00cc66,stroke-width:1px
   sale["sale (sale)"]
   style sale stroke:#ff9900,stroke-width:2px
   demand["demand (demand)"]
   style demand stroke:#ff9900,stroke-width:2px
   engine["engine (engine)"]
   style engine stroke:#ff9900,stroke-width:2px
-  legacy-invoice["legacy-invoice (spine)"]
-  style legacy-invoice stroke:#ff9900,stroke-width:2px
   platform["platform (platform)"]
   style platform stroke:#00cc66,stroke-width:1px
+  outreach-dashboard["outreach-dashboard (platform)"]
+  style outreach-dashboard stroke:#00cc66,stroke-width:1px
   auth["auth (platform)"]
   style auth stroke:#00cc66,stroke-width:1px
-  outreach-dashboard["outreach-dashboard (platform)"]
-  style outreach-dashboard stroke:#ff9900,stroke-width:2px
   account["account (spine)"]
   style account stroke:#ff9900,stroke-width:2px
   demand-search["demand-search (spine)"]
@@ -30,10 +28,6 @@ graph TD
   style engine-learn stroke:#3399ff,stroke-width:3px,fill:#cce5ff,color:#333
   engine-drive["engine-drive (engine)"]
   style engine-drive stroke:#3399ff,stroke-width:3px,fill:#cce5ff,color:#333
-  renamed-invoicing["renamed-invoicing (sale)"]
-  style renamed-invoicing stroke:#ff9900,stroke-width:2px
-  demo-invoicing["demo-invoicing (sale)"]
-  style demo-invoicing stroke:#ff9900,stroke-width:2px
 ```
 
 ## 🗂️ Seznam Uzlů
@@ -41,7 +35,7 @@ graph TD
 ### `supply`
 - **Cesta:** `spine/supply`
 - **Osa příběhu (Story Axis):** supply
-- **Stav:** pending
+- **Stav:** met
 
 ### `sale`
 - **Cesta:** `spine/sale`
@@ -58,26 +52,21 @@ graph TD
 - **Osa příběhu (Story Axis):** engine
 - **Stav:** pending
 
-### `legacy-invoice`
-- **Cesta:** `spine/supply/legacy-invoice`
-- **Osa příběhu (Story Axis):** spine
-- **Stav:** pending
-
 ### `platform`
 - **Cesta:** `spine/platform/platform`
-- **Osa příběhu (Story Axis):** platform
-- **Stav:** met
-
-### `auth`
-- **Cesta:** `spine/platform/auth`
 - **Osa příběhu (Story Axis):** platform
 - **Stav:** met
 
 ### `outreach-dashboard`
 - **Cesta:** `spine/platform/outreach-dashboard`
 - **Osa příběhu (Story Axis):** platform
-- **Stav:** pending
+- **Stav:** met
 - **Původ (Origin):** hozan-taher/features/platform
+
+### `auth`
+- **Cesta:** `spine/platform/auth`
+- **Osa příběhu (Story Axis):** platform
+- **Stav:** met
 
 ### `account`
 - **Cesta:** `spine/platform/account`
@@ -102,14 +91,4 @@ graph TD
 - **Stav:** met
 - **Původ (Origin):** frontier
 - **Tagy:** session, read, write, rate-policy
-
-### `renamed-invoicing`
-- **Cesta:** `spine/sale/money/renamed-invoicing`
-- **Osa příběhu (Story Axis):** sale
-- **Stav:** pending
-
-### `demo-invoicing`
-- **Cesta:** `spine/sale/money/demo-invoicing`
-- **Osa příběhu (Story Axis):** sale
-- **Stav:** pending
 
