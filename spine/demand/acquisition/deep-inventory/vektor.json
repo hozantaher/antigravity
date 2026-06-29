@@ -1,13 +1,18 @@
 {
   "id": "deep-inventory",
   "story_axis": "spine",
-  "state": "pending",
+  "state": "met",
+  "tags": ["crawler", "queue", "delta-engine", "automation"],
   "facets": {
     "ui": [
       "./deep-inventory.vue"
     ],
     "logic": [
-      "./scraper.ts"
+      "./scraper.ts",
+      "./worker.ts",
+      "./scheduler.ts",
+      "./delta-engine.ts",
+      "./queue.ts"
     ],
     "public": [
       "./index.ts"

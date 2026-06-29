@@ -1,7 +1,7 @@
 {
   "id": "engine-learn",
   "story_axis": "engine",
-  "state": "pending",
+  "state": "met",
   "origin": "frontier",
   "legacy_metadata": {
     "identita": "Learn — z povrchu postav model toho, jak se aplikace ovládá (operation graph).",
@@ -12,6 +12,12 @@
   "facets": {
     "ui": [
       "./engine-learn.vue"
+    ],
+    "logic": [
+      "./self-healing.ts"
+    ],
+    "public": [
+      "./index.ts"
     ]
   },
   "edges": []

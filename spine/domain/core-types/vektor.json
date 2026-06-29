@@ -12,6 +12,7 @@
   "facets": {
     "logic": [
       "./schemas.ts",
+      "./listing.dto.ts",
       "./index.ts"
     ]
   }
