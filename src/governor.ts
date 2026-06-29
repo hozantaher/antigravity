@@ -85,9 +85,13 @@ export class CyberneticGovernor {
       }
     }
 
-    // Pass 3: Orphaned Magic Comments & In-Degree Tracking
+    // Pass 3: Orphaned Magic Comments, In-Degree Tracking & Cycle Detection
     const inDegree = new Map<string, number>();
-    for (const node of validNodes) inDegree.set(node, 0);
+    const graph = new Map<string, Set<string>>();
+    for (const node of validNodes) {
+      inDegree.set(node, 0);
+      graph.set(node, new Set<string>());
+    }
 
     const tsFiles = await glob('**/*.{ts,vue,js}', {
       cwd: this.rootDir,
@@ -97,10 +101,24 @@ export class CyberneticGovernor {
       const fullPath = path.join(this.rootDir, file);
       let content = fs.readFileSync(fullPath, 'utf8');
       const matches = content.matchAll(/\/\/\s*@vektor-link:\s*([\w-]+)/g);
+      let closestNodeDir = '';
+      let closestNodeId = '';
+      for (const [nodeDir, nodeId] of nodePaths.entries()) {
+         if (fullPath.startsWith(nodeDir)) {
+            if (nodeDir.length > closestNodeDir.length) {
+               closestNodeDir = nodeDir;
+               closestNodeId = nodeId;
+            }
+         }
+      }
+      
       for (const match of matches) {
         const targetId = match[1];
         if (inDegree.has(targetId)) {
           inDegree.set(targetId, inDegree.get(targetId)! + 1);
+          if (closestNodeId && closestNodeId !== targetId) {
+            graph.get(closestNodeId)?.add(targetId);
+          }
         }
         if (!validNodes.has(targetId)) {
           report.push(`DETECTED: Orphaned link in ${file}: Node '${targetId}' does not exist`);
@@ -131,6 +149,36 @@ export class CyberneticGovernor {
         fs.writeFileSync(fullPath, content);
       }
     }
+
+    // Pass 3b: Cycle Detection (DFS)
+    const visited = new Set<string>();
+    const recStack = new Set<string>();
+
+    const detectCycle = (node: string, pathNodes: string[]): boolean => {
+      if (!visited.has(node)) {
+        visited.add(node);
+        recStack.add(node);
+
+        const edges = graph.get(node) || new Set<string>();
+        for (const neighbor of edges) {
+          if (!visited.has(neighbor)) {
+            if (detectCycle(neighbor, [...pathNodes, neighbor])) return true;
+          } else if (recStack.has(neighbor)) {
+            report.push(`DETECTED: Circular Dependency v architektuře! Cyklus: ${pathNodes.join(' -> ')} -> ${neighbor}`);
+            return true;
+          }
+        }
+      }
+      recStack.delete(node);
+      return false;
+    };
+
+    for (const node of validNodes) {
+      if (!visited.has(node)) {
+        detectCycle(node, [node]);
+      }
+    }
+
 
     // Pass 4: Detect Invalid Manifests
     for (const file of jsonFiles) {
