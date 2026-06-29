@@ -1,10 +1,16 @@
 {
   "id": "supply",
   "story_axis": "supply",
-  "state": "pending",
+  "state": "active",
   "facets": {
     "ui": [
       "./supply.vue"
+    ],
+    "logic": [
+      "./logic.ts"
+    ],
+    "tests": [
+      "./logic.test.ts"
     ]
   },
   "edges": []

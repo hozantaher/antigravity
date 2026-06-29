@@ -308,7 +308,8 @@ export class CyberneticGovernor {
         }
       }
       if (orphansFound === 0) {
-        report.push(`SWEEP OK: Ve spine nebyly nalezeny žádné osiřelé uzly.`);
+        // Zpráva se nepíše do reportu, aby nezpůsobila selhání CI (exit code 1)
+        console.log(`SWEEP OK: Ve spine nebyly nalezeny žádné osiřelé uzly.`);
       }
     }
 

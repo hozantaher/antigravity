@@ -10,6 +10,7 @@ import { DocGenerator } from './docs';
 import { BatchMigrator } from './migrate';
 import path from 'path';
 import fs from 'fs';
+import { AutoHealer } from './healer';
 
 const program = new Command();
 
@@ -182,6 +183,14 @@ program
     const root = process.cwd();
     const migrator = new BatchMigrator(root);
     await migrator.migrateAllLegacy();
+  });
+
+program
+  .command('heal')
+  .description('Automaticky opraví Contract Drift a sémantické defekty')
+  .action(() => {
+    const healer = new AutoHealer();
+    healer.heal();
   });
 
 program.parse(process.argv);
