@@ -6,9 +6,9 @@ Toto je primární monorepo, postavené na architektuře **Antigravity Vector-Tr
 
 Repozitář je striktně rozdělen pro udržení 100% architektonické čistoty:
 
-- **`/spine/` (Byznysová Páteř):** Srdce repozitáře. Zde sídlí 5 hlavních domén (`demand`, `supply`, `engine`, `sale`, `platform`). Veškerý kód je 100% zkonsolidován do logických uzlů bez kompromisů (žádná karanténa).
-- **`/src/` a `/scripts/` (Engine Tooling):** Zdrojové kódy samotného nástroje Antigravity CLI, který strom automaticky řídí.
-- **`/@server/`:** Automaticky generované backendové stuby napojené přes reverzní vazby.
+- **`/src/` (Kognitivní Mozek & Engine):** Autonomní orchestrace obou hemisfér (Arbitrage Miner, Shadow Broker) a zdrojové kódy Antigravity CLI.
+- **`/spine/` (Byznysová Páteř):** Srdce repozitáře. Zde sídlí 100 % sdílené byznysové logiky (`demand`, `supply`, `acquisition`, `outreach`, `sale`, `compliance`, `platform`). Žádná izolace.
+- **`/frontiers/` (Hranice / Aplikace):** Tenké klientské a backendové brány (marketplace-web, operator-console, daemoni), které do sebe natahují logiku ze Spine, ale samy žádnou neobsahují.
 
 ---
 

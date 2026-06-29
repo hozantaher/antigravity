@@ -62,5 +62,11 @@ All notable changes to this project will be documented in this file. See [standa
 
 Automaticky vygenerováno z Antigravity deníku.
 
+### 2026-06-29 - DEEP INVENTORY SESSION
+- **Konsolidace Monorepa:** Dokončena integrace aplikací Auction24 a HozanTaher do společné byznysové páteře (`spine/`).
+- **Nová architektura Frontiers:** Zavedeno striktní dělení mezi `spine/` (100% byznys logiky) a `frontiers/` (0% logiky, pouze prezentační vrstva a proxy daemoni). Dokumentováno v `docs/reference/architecture.md`.
+- **Governor Auto-Healing:** `ag:audit --heal` byl zupgradován tak, aby on-the-fly regeneroval chybějící meta-data v legacy `vektor.json` manifestech z původních repozitářů.
+- **100% Clean Architecture:** Eliminován veškerý architektonický drift. Test suite svítí zeleně, Vector-Tree grafy a slovníky byly kompletně přegenerovány.
+
 ### 2026-06-28 - MANUAL_LOG
 -  Toto je testovací záznam pro ověření funkce autonomního deníčku.
