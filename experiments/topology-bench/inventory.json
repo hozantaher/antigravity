@@ -1,0 +1,584 @@
+[
+  {
+    "id": "demand",
+    "path": "spine/demand",
+    "story_axis": "demand",
+    "edges": [],
+    "reverseLinks": [
+      "@server/api/demand/demand.ts"
+    ],
+    "files": [
+      "spine/demand/.DS_Store",
+      "spine/demand/README.md",
+      "spine/demand/acquisition/.DS_Store",
+      "spine/demand/demand.vue",
+      "spine/demand/vektor.json"
+    ]
+  },
+  {
+    "id": "deep-inventory",
+    "path": "spine/demand/acquisition/deep-inventory",
+    "story_axis": "spine",
+    "edges": [],
+    "reverseLinks": [
+      "@server/api/spine/deep-inventory.ts"
+    ],
+    "files": [
+      "spine/demand/acquisition/deep-inventory/README.md",
+      "spine/demand/acquisition/deep-inventory/deep-inventory.vue",
+      "spine/demand/acquisition/deep-inventory/vektor.json"
+    ]
+  },
+  {
+    "id": "firmy-cz",
+    "path": "spine/demand/acquisition/firmy-cz",
+    "story_axis": "spine",
+    "edges": [],
+    "reverseLinks": [
+      "@server/api/spine/firmy-cz.ts"
+    ],
+    "files": [
+      "spine/demand/acquisition/firmy-cz/README.md",
+      "spine/demand/acquisition/firmy-cz/firmy-cz.vue",
+      "spine/demand/acquisition/firmy-cz/logic.ts",
+      "spine/demand/acquisition/firmy-cz/vektor.json"
+    ]
+  },
+  {
+    "id": "inbox-orchestrator",
+    "path": "spine/demand/inbound/inbox-orchestrator",
+    "story_axis": "spine",
+    "edges": [],
+    "reverseLinks": [
+      "@server/api/spine/inbox-orchestrator.ts"
+    ],
+    "files": [
+      "spine/demand/inbound/inbox-orchestrator/README.md",
+      "spine/demand/inbound/inbox-orchestrator/inbox-orchestrator.vue",
+      "spine/demand/inbound/inbox-orchestrator/logic.ts",
+      "spine/demand/inbound/inbox-orchestrator/vektor.json"
+    ]
+  },
+  {
+    "id": "demand-search",
+    "path": "spine/demand/search",
+    "story_axis": "spine",
+    "edges": [],
+    "reverseLinks": [
+      "@server/api/spine/demand-search.ts"
+    ],
+    "files": [
+      "spine/demand/search/README.md",
+      "spine/demand/search/demand-search.vue",
+      "spine/demand/search/searchController.js",
+      "spine/demand/search/searchController.test.js",
+      "spine/demand/search/searchService.js",
+      "spine/demand/search/searchService.test.js",
+      "spine/demand/search/vektor.json"
+    ]
+  },
+  {
+    "id": "favorites",
+    "path": "spine/demand/user/favorites",
+    "story_axis": "spine",
+    "edges": [],
+    "reverseLinks": [
+      "@server/api/spine/favorites.ts"
+    ],
+    "files": [
+      "spine/demand/user/favorites/README.md",
+      "spine/demand/user/favorites/favorites.vue",
+      "spine/demand/user/favorites/logic.ts",
+      "spine/demand/user/favorites/vektor.json"
+    ]
+  },
+  {
+    "id": "saved-search",
+    "path": "spine/demand/user/saved-search",
+    "story_axis": "spine",
+    "edges": [],
+    "reverseLinks": [
+      "@server/api/spine/saved-search.ts"
+    ],
+    "files": [
+      "spine/demand/user/saved-search/README.md",
+      "spine/demand/user/saved-search/logic.ts",
+      "spine/demand/user/saved-search/saved-search.vue",
+      "spine/demand/user/saved-search/vektor.json"
+    ]
+  },
+  {
+    "id": "engine",
+    "path": "spine/engine",
+    "story_axis": "engine",
+    "edges": [],
+    "reverseLinks": [
+      "@server/api/engine/engine.ts"
+    ],
+    "files": [
+      "spine/engine/.DS_Store",
+      "spine/engine/README.md",
+      "spine/engine/engine.vue",
+      "spine/engine/vektor.json"
+    ]
+  },
+  {
+    "id": "symphony-queue",
+    "path": "spine/engine/automation/symphony-queue",
+    "story_axis": "spine",
+    "edges": [],
+    "reverseLinks": [
+      "@server/api/spine/symphony-queue.ts",
+      "spine/engine/drive/shadow-broker/broker.ts",
+      "spine/engine/intelligence/arbitrage-miner/miner.ts"
+    ],
+    "files": [
+      "spine/engine/automation/symphony-queue/README.md",
+      "spine/engine/automation/symphony-queue/index.ts",
+      "spine/engine/automation/symphony-queue/logic.ts",
+      "spine/engine/automation/symphony-queue/symphony-queue.vue",
+      "spine/engine/automation/symphony-queue/vektor.json"
+    ]
+  },
+  {
+    "id": "worker",
+    "path": "spine/engine/automation/worker",
+    "story_axis": "spine",
+    "edges": [],
+    "reverseLinks": [
+      "@server/api/spine/worker.ts"
+    ],
+    "files": [
+      "spine/engine/automation/worker/README.md",
+      "spine/engine/automation/worker/logic.ts",
+      "spine/engine/automation/worker/vektor.json",
+      "spine/engine/automation/worker/worker.vue"
+    ]
+  },
+  {
+    "id": "engine-drive",
+    "path": "spine/engine/drive",
+    "story_axis": "engine",
+    "edges": [],
+    "reverseLinks": [
+      "@server/api/engine/engine-drive.ts"
+    ],
+    "files": [
+      "spine/engine/drive/.DS_Store",
+      "spine/engine/drive/README.md",
+      "spine/engine/drive/engine-drive.vue",
+      "spine/engine/drive/vektor.json"
+    ]
+  },
+  {
+    "id": "shadow-broker",
+    "path": "spine/engine/drive/shadow-broker",
+    "story_axis": "spine",
+    "edges": [],
+    "reverseLinks": [
+      "@server/api/spine/shadow-broker.ts"
+    ],
+    "files": [
+      "spine/engine/drive/shadow-broker/README.md",
+      "spine/engine/drive/shadow-broker/broker.ts",
+      "spine/engine/drive/shadow-broker/shadow-broker.vue",
+      "spine/engine/drive/shadow-broker/vektor.json"
+    ]
+  },
+  {
+    "id": "arbitrage-miner",
+    "path": "spine/engine/intelligence/arbitrage-miner",
+    "story_axis": "spine",
+    "edges": [],
+    "reverseLinks": [
+      "@server/api/spine/arbitrage-miner.ts"
+    ],
+    "files": [
+      "spine/engine/intelligence/arbitrage-miner/README.md",
+      "spine/engine/intelligence/arbitrage-miner/arbitrage-miner.vue",
+      "spine/engine/intelligence/arbitrage-miner/miner.ts",
+      "spine/engine/intelligence/arbitrage-miner/vektor.json"
+    ]
+  },
+  {
+    "id": "relay",
+    "path": "spine/engine/intelligence/relay",
+    "story_axis": "spine",
+    "edges": [],
+    "reverseLinks": [
+      "@server/api/spine/relay.ts"
+    ],
+    "files": [
+      "spine/engine/intelligence/relay/README.md",
+      "spine/engine/intelligence/relay/logic.ts",
+      "spine/engine/intelligence/relay/relay.vue",
+      "spine/engine/intelligence/relay/vektor.json"
+    ]
+  },
+  {
+    "id": "engine-learn",
+    "path": "spine/engine/learn",
+    "story_axis": "engine",
+    "edges": [],
+    "reverseLinks": [
+      "@server/api/engine/engine-learn.ts"
+    ],
+    "files": [
+      "spine/engine/learn/.DS_Store",
+      "spine/engine/learn/README.md",
+      "spine/engine/learn/engine-learn.vue",
+      "spine/engine/learn/vektor.json"
+    ]
+  },
+  {
+    "id": "account",
+    "path": "spine/platform/account",
+    "story_axis": "spine",
+    "edges": [],
+    "reverseLinks": [
+      "@server/api/spine/account.ts"
+    ],
+    "files": [
+      "spine/platform/account/README.md",
+      "spine/platform/account/account.vue",
+      "spine/platform/account/ui/LettersAvatar.vue",
+      "spine/platform/account/ui/ProfileAddressEdit.vue",
+      "spine/platform/account/ui/ProfileEmailEdit.vue",
+      "spine/platform/account/ui/ProfileLanguageEdit.vue",
+      "spine/platform/account/ui/ProfileTextValueEdit.vue",
+      "spine/platform/account/ui/UserMenuAvatar.vue",
+      "spine/platform/account/vektor.json"
+    ]
+  },
+  {
+    "id": "auth",
+    "path": "spine/platform/auth",
+    "story_axis": "platform",
+    "edges": [],
+    "reverseLinks": [
+      "@server/api/spine/auth-account.ts"
+    ],
+    "files": [
+      "spine/platform/auth/README.md",
+      "spine/platform/auth/authHeader.test.ts",
+      "spine/platform/auth/contract.ts",
+      "spine/platform/auth/firebaseClient.test.ts",
+      "spine/platform/auth/logic/authHeader.ts",
+      "spine/platform/auth/logic/firebaseClient.ts",
+      "spine/platform/auth/logic/state.ts",
+      "spine/platform/auth/logic/useUser.ts",
+      "spine/platform/auth/state.test.ts",
+      "spine/platform/auth/useUser.test.ts",
+      "spine/platform/auth/vektor.json"
+    ]
+  },
+  {
+    "id": "dsr",
+    "path": "spine/platform/compliance/dsr",
+    "story_axis": "spine",
+    "edges": [],
+    "reverseLinks": [
+      "@server/api/spine/dsr.ts"
+    ],
+    "files": [
+      "spine/platform/compliance/dsr/README.md",
+      "spine/platform/compliance/dsr/dsr.vue",
+      "spine/platform/compliance/dsr/logic.ts",
+      "spine/platform/compliance/dsr/vektor.json"
+    ]
+  },
+  {
+    "id": "suppression",
+    "path": "spine/platform/compliance/suppression",
+    "story_axis": "spine",
+    "edges": [],
+    "reverseLinks": [
+      "@server/api/spine/suppression.ts"
+    ],
+    "files": [
+      "spine/platform/compliance/suppression/README.md",
+      "spine/platform/compliance/suppression/logic.ts",
+      "spine/platform/compliance/suppression/suppression.vue",
+      "spine/platform/compliance/suppression/vektor.json"
+    ]
+  },
+  {
+    "id": "outreach-dashboard",
+    "path": "spine/platform/outreach-dashboard",
+    "story_axis": "platform",
+    "edges": [],
+    "reverseLinks": [
+      "@server/api/platform/outreach-dashboard.ts"
+    ],
+    "files": [
+      "spine/platform/outreach-dashboard/.DS_Store",
+      "spine/platform/outreach-dashboard/CLAUDE.md",
+      "spine/platform/outreach-dashboard/README.md",
+      "spine/platform/outreach-dashboard/SIDEBAR-SPRINT-PLAN.md",
+      "spine/platform/outreach-dashboard/TESTING.md",
+      "spine/platform/outreach-dashboard/apphosting.yaml",
+      "spine/platform/outreach-dashboard/authCache.js",
+      "spine/platform/outreach-dashboard/campaign-send-batch.mjs",
+      "spine/platform/outreach-dashboard/campaignPreflight.js",
+      "spine/platform/outreach-dashboard/configDrift.js",
+      "spine/platform/outreach-dashboard/dry-run.mjs",
+      "spine/platform/outreach-dashboard/e2e/fixtures/jobs.ts",
+      "spine/platform/outreach-dashboard/e2e/visual.spec.ts-snapshots/analytics-desktop-chromium-darwin.png",
+      "spine/platform/outreach-dashboard/e2e/visual.spec.ts-snapshots/analytics-mobile-chromium-darwin.png",
+      "spine/platform/outreach-dashboard/e2e/visual.spec.ts-snapshots/campaigns-desktop-chromium-darwin.png",
+      "spine/platform/outreach-dashboard/e2e/visual.spec.ts-snapshots/campaigns-mobile-chromium-darwin.png",
+      "spine/platform/outreach-dashboard/e2e/visual.spec.ts-snapshots/companies-desktop-chromium-darwin.png",
+      "spine/platform/outreach-dashboard/e2e/visual.spec.ts-snapshots/companies-mobile-chromium-darwin.png",
+      "spine/platform/outreach-dashboard/e2e/visual.spec.ts-snapshots/healing-desktop-chromium-darwin.png",
+      "spine/platform/outreach-dashboard/e2e/visual.spec.ts-snapshots/healing-mobile-chromium-darwin.png"
+    ]
+  },
+  {
+    "id": "platform",
+    "path": "spine/platform/platform",
+    "story_axis": "platform",
+    "edges": [],
+    "reverseLinks": [],
+    "files": [
+      "spine/platform/platform/.DS_Store",
+      "spine/platform/platform/README.md",
+      "spine/platform/platform/common/CLAUDE.md",
+      "spine/platform/platform/common/alert/webhook.go",
+      "spine/platform/platform/common/alert/webhook_test.go",
+      "spine/platform/platform/common/audit/channel.go",
+      "spine/platform/platform/common/audit/channel_test.go",
+      "spine/platform/platform/common/audit/email.go",
+      "spine/platform/platform/common/audit/email_property_test.go",
+      "spine/platform/platform/common/audit/email_test.go",
+      "spine/platform/platform/common/audit/entry.go",
+      "spine/platform/platform/common/audit/log.go",
+      "spine/platform/platform/common/audit/log_sqlmock_test.go",
+      "spine/platform/platform/common/audit/log_test.go",
+      "spine/platform/platform/common/audit/sentinel_compare_audit_test.go",
+      "spine/platform/platform/common/auditbuild/slogop/scanner.go",
+      "spine/platform/platform/common/auditbuild/slogop/scanner_test.go",
+      "spine/platform/platform/common/auditbuild/sqlcols/extract_go.go",
+      "spine/platform/platform/common/auditbuild/sqlcols/extract_javascript.go",
+      "spine/platform/platform/common/auditbuild/sqlcols/migration_ratchet_regression_test.go"
+    ]
+  },
+  {
+    "id": "api-tokens",
+    "path": "spine/platform/security/api-tokens",
+    "story_axis": "spine",
+    "edges": [],
+    "reverseLinks": [
+      "@server/api/spine/api-tokens.ts"
+    ],
+    "files": [
+      "spine/platform/security/api-tokens/README.md",
+      "spine/platform/security/api-tokens/api-tokens.vue",
+      "spine/platform/security/api-tokens/logic.test.ts",
+      "spine/platform/security/api-tokens/logic.ts",
+      "spine/platform/security/api-tokens/vektor.json"
+    ]
+  },
+  {
+    "id": "privacy-gateway",
+    "path": "spine/platform/security/privacy-gateway",
+    "story_axis": "spine",
+    "edges": [],
+    "reverseLinks": [
+      "@server/api/spine/privacy-gateway.ts"
+    ],
+    "files": [
+      "spine/platform/security/privacy-gateway/README.md",
+      "spine/platform/security/privacy-gateway/logic.ts",
+      "spine/platform/security/privacy-gateway/privacy-gateway.vue",
+      "spine/platform/security/privacy-gateway/vektor.json"
+    ]
+  },
+  {
+    "id": "dashboard-bff",
+    "path": "spine/platform/ui/dashboard-bff",
+    "story_axis": "spine",
+    "edges": [],
+    "reverseLinks": [
+      "@server/api/spine/dashboard-bff.ts"
+    ],
+    "files": [
+      "spine/platform/ui/dashboard-bff/README.md",
+      "spine/platform/ui/dashboard-bff/dashboard-bff.vue",
+      "spine/platform/ui/dashboard-bff/vektor.json"
+    ]
+  },
+  {
+    "id": "dashboard-core",
+    "path": "spine/platform/ui/dashboard-core",
+    "story_axis": "spine",
+    "edges": [],
+    "reverseLinks": [
+      "@server/api/spine/dashboard-core.ts"
+    ],
+    "files": [
+      "spine/platform/ui/dashboard-core/README.md",
+      "spine/platform/ui/dashboard-core/dashboard-core.vue",
+      "spine/platform/ui/dashboard-core/vektor.json"
+    ]
+  },
+  {
+    "id": "design-system",
+    "path": "spine/platform/ui/design-system",
+    "story_axis": "spine",
+    "edges": [],
+    "reverseLinks": [
+      "@server/api/spine/design-system.ts"
+    ],
+    "files": [
+      "spine/platform/ui/design-system/README.md",
+      "spine/platform/ui/design-system/design-system.vue",
+      "spine/platform/ui/design-system/tokens.css",
+      "spine/platform/ui/design-system/vektor.json"
+    ]
+  },
+  {
+    "id": "sale",
+    "path": "spine/sale",
+    "story_axis": "sale",
+    "edges": [],
+    "reverseLinks": [
+      "@server/api/sale/sale.ts",
+      "scripts/inverted-fault-harness.ts"
+    ],
+    "files": [
+      "spine/sale/.DS_Store",
+      "spine/sale/README.md",
+      "spine/sale/sale.vue",
+      "spine/sale/vektor.json"
+    ]
+  },
+  {
+    "id": "deposit-billing",
+    "path": "spine/sale/checkout/deposit-billing",
+    "story_axis": "spine",
+    "edges": [],
+    "reverseLinks": [
+      "@server/api/spine/deposit-billing.ts"
+    ],
+    "files": [
+      "spine/sale/checkout/deposit-billing/README.md",
+      "spine/sale/checkout/deposit-billing/deposit-billing.vue",
+      "spine/sale/checkout/deposit-billing/vektor.json"
+    ]
+  },
+  {
+    "id": "invoicing",
+    "path": "spine/sale/checkout/invoicing",
+    "story_axis": "spine",
+    "edges": [],
+    "reverseLinks": [
+      "@server/api/spine/invoicing.ts"
+    ],
+    "files": [
+      "spine/sale/checkout/invoicing/README.md",
+      "spine/sale/checkout/invoicing/invoicing.vue",
+      "spine/sale/checkout/invoicing/vektor.json"
+    ]
+  },
+  {
+    "id": "sale-settlement",
+    "path": "spine/sale/settlement/sale-settlement",
+    "story_axis": "spine",
+    "edges": [],
+    "reverseLinks": [
+      "@server/api/spine/sale-settlement.ts"
+    ],
+    "files": [
+      "spine/sale/settlement/sale-settlement/README.md",
+      "spine/sale/settlement/sale-settlement/sale-settlement.vue",
+      "spine/sale/settlement/sale-settlement/vektor.json"
+    ]
+  },
+  {
+    "id": "disputes-complaints",
+    "path": "spine/sale/support/disputes-complaints",
+    "story_axis": "spine",
+    "edges": [],
+    "reverseLinks": [
+      "@server/api/spine/disputes-complaints.ts"
+    ],
+    "files": [
+      "spine/sale/support/disputes-complaints/README.md",
+      "spine/sale/support/disputes-complaints/disputes-complaints.vue",
+      "spine/sale/support/disputes-complaints/vektor.json"
+    ]
+  },
+  {
+    "id": "supply",
+    "path": "spine/supply",
+    "story_axis": "supply",
+    "edges": [],
+    "reverseLinks": [
+      "@server/api/supply/supply.ts",
+      "scripts/inverted-fault-harness.ts"
+    ],
+    "files": [
+      "spine/supply/README.md",
+      "spine/supply/logic.test.ts",
+      "spine/supply/logic.ts",
+      "spine/supply/supply.vue",
+      "spine/supply/vektor.json"
+    ]
+  },
+  {
+    "id": "media-upload",
+    "path": "spine/supply/asset/media-upload",
+    "story_axis": "spine",
+    "edges": [],
+    "reverseLinks": [
+      "@server/api/spine/media-upload.ts"
+    ],
+    "files": [
+      "spine/supply/asset/media-upload/README.md",
+      "spine/supply/asset/media-upload/media-upload.vue",
+      "spine/supply/asset/media-upload/vektor.json"
+    ]
+  },
+  {
+    "id": "vehicle-vin",
+    "path": "spine/supply/asset/vehicle-vin",
+    "story_axis": "spine",
+    "edges": [],
+    "reverseLinks": [
+      "@server/api/spine/vehicle-vin.ts"
+    ],
+    "files": [
+      "spine/supply/asset/vehicle-vin/README.md",
+      "spine/supply/asset/vehicle-vin/vehicle-vin.vue",
+      "spine/supply/asset/vehicle-vin/vektor.json"
+    ]
+  },
+  {
+    "id": "auction-items",
+    "path": "spine/supply/market/auction-items",
+    "story_axis": "spine",
+    "edges": [],
+    "reverseLinks": [
+      "@server/api/spine/auction-items.ts"
+    ],
+    "files": [
+      "spine/supply/market/auction-items/README.md",
+      "spine/supply/market/auction-items/auction-items.vue",
+      "spine/supply/market/auction-items/vektor.json"
+    ]
+  },
+  {
+    "id": "bidding",
+    "path": "spine/supply/market/bidding",
+    "story_axis": "spine",
+    "edges": [],
+    "reverseLinks": [
+      "@server/api/spine/bidding.ts"
+    ],
+    "files": [
+      "spine/supply/market/bidding/README.md",
+      "spine/supply/market/bidding/bidding.vue",
+      "spine/supply/market/bidding/vektor.json"
+    ]
+  }
+]
