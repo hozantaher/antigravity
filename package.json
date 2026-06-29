@@ -13,7 +13,7 @@
     "ag:audit": "node dist/index.js audit",
     "ag:heal": "node dist/index.js heal",
     "ag:jules": "node dist/index.js jules",
-    "ag:map": "node dist/index.js map",
+    "ag:map": "node dist/index.js map && node dist/index.js map --gravity",
     "changelog": "ts-node scripts/changelog.ts",
     "notify": "ts-node scripts/notify.ts",
     "release": "standard-version",

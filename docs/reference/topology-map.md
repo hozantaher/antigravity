@@ -10,22 +10,22 @@ graph TD
   style supply stroke:#00cc66,stroke-width:1px
   sale["sale (sale)"]
   style sale stroke:#ff9900,stroke-width:2px
-  demand["demand (demand)"]
-  style demand stroke:#ff9900,stroke-width:2px
   engine["engine (engine)"]
   style engine stroke:#ff9900,stroke-width:2px
+  demand["demand (demand)"]
+  style demand stroke:#ff9900,stroke-width:2px
   platform["platform (platform)"]
   style platform stroke:#00cc66,stroke-width:1px
-  outreach-dashboard["outreach-dashboard (platform)"]
-  style outreach-dashboard stroke:#00cc66,stroke-width:1px
   auth["auth (platform)"]
   style auth stroke:#00cc66,stroke-width:1px
+  outreach-dashboard["outreach-dashboard (platform)"]
+  style outreach-dashboard stroke:#00cc66,stroke-width:1px
+  engine-learn["engine-learn (engine)"]
+  style engine-learn stroke:#3399ff,stroke-width:3px,fill:#cce5ff,color:#333
   account["account (spine)"]
   style account stroke:#ff9900,stroke-width:2px
   demand-search["demand-search (spine)"]
   style demand-search stroke:#ff9900,stroke-width:2px
-  engine-learn["engine-learn (engine)"]
-  style engine-learn stroke:#3399ff,stroke-width:3px,fill:#cce5ff,color:#333
   engine-drive["engine-drive (engine)"]
   style engine-drive stroke:#3399ff,stroke-width:3px,fill:#cce5ff,color:#333
 ```
@@ -42,18 +42,23 @@ graph TD
 - **Osa příběhu (Story Axis):** sale
 - **Stav:** pending
 
-### `demand`
-- **Cesta:** `spine/demand`
-- **Osa příběhu (Story Axis):** demand
-- **Stav:** pending
-
 ### `engine`
 - **Cesta:** `spine/engine`
 - **Osa příběhu (Story Axis):** engine
 - **Stav:** pending
 
+### `demand`
+- **Cesta:** `spine/demand`
+- **Osa příběhu (Story Axis):** demand
+- **Stav:** pending
+
 ### `platform`
 - **Cesta:** `spine/platform/platform`
+- **Osa příběhu (Story Axis):** platform
+- **Stav:** met
+
+### `auth`
+- **Cesta:** `spine/platform/auth`
 - **Osa příběhu (Story Axis):** platform
 - **Stav:** met
 
@@ -63,10 +68,12 @@ graph TD
 - **Stav:** met
 - **Původ (Origin):** hozan-taher/features/platform
 
-### `auth`
-- **Cesta:** `spine/platform/auth`
-- **Osa příběhu (Story Axis):** platform
-- **Stav:** met
+### `engine-learn`
+- **Cesta:** `spine/engine/learn`
+- **Osa příběhu (Story Axis):** engine
+- **Stav:** pending
+- **Původ (Origin):** frontier
+- **Tagy:** action-graph, selectors, replay-model
 
 ### `account`
 - **Cesta:** `spine/platform/account`
@@ -77,13 +84,6 @@ graph TD
 - **Cesta:** `spine/demand/search`
 - **Osa příběhu (Story Axis):** spine
 - **Stav:** pending
-
-### `engine-learn`
-- **Cesta:** `spine/engine/learn`
-- **Osa příběhu (Story Axis):** engine
-- **Stav:** pending
-- **Původ (Origin):** frontier
-- **Tagy:** action-graph, selectors, replay-model
 
 ### `engine-drive`
 - **Cesta:** `spine/engine/drive`

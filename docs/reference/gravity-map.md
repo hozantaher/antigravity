@@ -12,26 +12,20 @@ graph TD
   style engine stroke:#ff9900,stroke-width:2px,fill:default
   demand["demand (Links: 1)"]
   style demand stroke:#ff9900,stroke-width:2px,fill:default
-  legacy-invoice["legacy-invoice (Links: 1)"]
-  style legacy-invoice stroke:#ff9900,stroke-width:2px,fill:default
   platform["platform (Links: 0)"]
   style platform stroke:#3399ff,stroke-width:1px,fill:default
   auth["auth (Links: 1)"]
   style auth stroke:#3399ff,stroke-width:2px,fill:default
   outreach-dashboard["outreach-dashboard (Links: 1)"]
-  style outreach-dashboard stroke:#ff9900,stroke-width:2px,fill:default
-  account["account (Links: 1)"]
-  style account stroke:#ff9900,stroke-width:2px,fill:default
+  style outreach-dashboard stroke:#3399ff,stroke-width:2px,fill:default
   engine-learn["engine-learn (Links: 1)"]
   style engine-learn stroke:#ff9900,stroke-width:2px,fill:default
   engine-drive["engine-drive (Links: 1)"]
   style engine-drive stroke:#3399ff,stroke-width:2px,fill:default
+  account["account (Links: 1)"]
+  style account stroke:#ff9900,stroke-width:2px,fill:default
   demand-search["demand-search (Links: 1)"]
   style demand-search stroke:#ff9900,stroke-width:2px,fill:default
-  renamed-invoicing["renamed-invoicing (Links: 1)"]
-  style renamed-invoicing stroke:#ff9900,stroke-width:2px,fill:default
-  demo-invoicing["demo-invoicing (Links: 0)"]
-  style demo-invoicing stroke:#ff9900,stroke-width:1px,fill:default
 ```
 
 ## 📈 Top Gravitačních Hubů
@@ -40,9 +34,9 @@ graph TD
 2. **sale** (2 zpětných vazeb)
 3. **engine** (1 zpětných vazeb)
 4. **demand** (1 zpětných vazeb)
-5. **legacy-invoice** (1 zpětných vazeb)
-6. **auth** (1 zpětných vazeb)
-7. **outreach-dashboard** (1 zpětných vazeb)
-8. **account** (1 zpětných vazeb)
-9. **engine-learn** (1 zpětných vazeb)
-10. **engine-drive** (1 zpětných vazeb)
+5. **auth** (1 zpětných vazeb)
+6. **outreach-dashboard** (1 zpětných vazeb)
+7. **engine-learn** (1 zpětných vazeb)
+8. **engine-drive** (1 zpětných vazeb)
+9. **account** (1 zpětných vazeb)
+10. **demand-search** (1 zpětných vazeb)
