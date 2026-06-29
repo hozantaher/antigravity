@@ -1,5 +1,0 @@
-blank_issues_enabled: false
-contact_links:
-  - name: Initiative discussion
-    url: https://github.com/messingdev/hozan-taher/tree/main/docs/initiatives
-    about: Multi-sprint plánování patří do docs/initiatives/, ne do issues.

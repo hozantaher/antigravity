@@ -1,3 +1,0 @@
-mail._domainkey.gmail.lab	gmail.lab:mail:/tmp/docker-mailserver/opendkim/keys/gmail.lab/mail.private
-mail._domainkey.outlook.lab	outlook.lab:mail:/tmp/docker-mailserver/opendkim/keys/outlook.lab/mail.private
-mail._domainkey.seznam.lab	seznam.lab:mail:/tmp/docker-mailserver/opendkim/keys/seznam.lab/mail.private
