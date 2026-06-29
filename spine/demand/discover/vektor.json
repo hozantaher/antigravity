@@ -8,14 +8,17 @@
     "smysl": "Než portál umíme ovládat, musíme vědět, co na něm jde udělat a jak je chráněný.",
     "role": "stage"
   },
-  "tags": ["crawl", "fingerprint", "bot", "discovery"],
+  "tags": [
+    "crawl",
+    "fingerprint",
+    "bot",
+    "discovery"
+  ],
   "facets": {
     "ui": [
       "./demand-discover.vue"
     ],
-    "logic": [
-      "./crawl"
-    ]
+    "logic": []
   },
   "edges": []
 }

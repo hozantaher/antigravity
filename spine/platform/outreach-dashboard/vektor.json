@@ -25,7 +25,6 @@
       "./playwright.config.js",
       "./outreach-dashboard.vue",
       "./mailboxBounceThrottle.js",
-      "./eslint.config.js",
       "./dry-run.mjs",
       "./configDrift.js",
       "./campaignPreflight.js",

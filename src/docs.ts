@@ -105,7 +105,7 @@ export class DocGenerator {
         if (fs.existsSync(readmePath)) {
           // Update existing README
           let content = fs.readFileSync(readmePath, 'utf8');
-          const badgeRegex = /!\[Version\]\(https:\/\/img\.shields\.io\/badge\/version-[v\d\.]+-blue\)/;
+          const badgeRegex = /!\[Version\]\(https:\/\/img\.shields\.io\/badge\/version-[v\d.]+-blue\)/;
           if (badgeRegex.test(content)) {
              content = content.replace(badgeRegex, versionBadge);
           } else {

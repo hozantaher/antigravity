@@ -100,3 +100,10 @@ Tento log je automaticky spravován systémem Antigravity.
 - **Affected Nodes:** None
 - **Details:** Fáze 6 dokončena: Aktualizován generátor dokumentace. CLI příkaz 'docs --readme' nyní propočítává SemVer verzi izolovaného uzlu přímo z historie Git logu a vkládá ji jako badge do README.
 
+
+## [2026-06-29T00:50:52.411Z] MANUAL_LOG
+
+- **Actor:** Human
+- **Affected Nodes:** None
+- **Details:** Završeno plné vyčištění systému (Dead Code Elimination). 48 osiřelých modulů bylo bezpečně detekováno a smazáno. Aktualizována globální dokumentace.
+

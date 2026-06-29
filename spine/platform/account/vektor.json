@@ -4,9 +4,7 @@
   "state": "pending",
   "facets": {
     "ui": [
-      "./account.vue"
-    ],
-    "legacy_unmapped": [
+      "./account.vue",
       "./ui/UserMenuAvatar.vue",
       "./ui/ProfileTextValueEdit.vue",
       "./ui/ProfileLanguageEdit.vue",

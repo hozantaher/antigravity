@@ -19,8 +19,10 @@
   "id": "auth",
   "story_axis": "platform",
   "facets": {
-    "legacy_unmapped": [
-      "./contract.ts",
+    "contract": [
+      "./contract.ts"
+    ],
+    "logic": [
       "./logic/useUser.ts",
       "./logic/state.ts",
       "./logic/firebaseClient.ts",
