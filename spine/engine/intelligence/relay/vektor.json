@@ -12,5 +12,6 @@
     ],
     "tests": []
   },
-  "edges": []
+  "edges": [],
+  "semantic_layer": "BRAIN"
 }

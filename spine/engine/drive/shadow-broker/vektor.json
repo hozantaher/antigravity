@@ -21,5 +21,6 @@
     "symphony-queue",
     "marketplace-web",
     "core-types"
-  ]
+  ],
+  "semantic_layer": "HANDS"
 }

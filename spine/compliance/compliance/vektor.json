@@ -17,5 +17,6 @@
   ],
   "antiFeature": "Compliance jako jeden blok — díra v suppression nebo ztracený audit se schová v zeleném celku a vyplave až jako stížnost u ÚOOÚ.",
   "id": "compliance",
-  "story_axis": "compliance"
+  "story_axis": "compliance",
+  "semantic_layer": "HANDS"
 }

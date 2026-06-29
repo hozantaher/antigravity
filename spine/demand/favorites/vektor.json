@@ -26,5 +26,6 @@
     ]
   },
   "id": "favorites",
-  "story_axis": "spine/demand/favorites"
+  "story_axis": "spine/demand/favorites",
+  "semantic_layer": "BODY"
 }

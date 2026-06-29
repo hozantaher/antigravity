@@ -9,5 +9,6 @@
     "logic": [
       "./sitemap-watcher.ts"
     ]
-  }
+  },
+  "semantic_layer": "BRAIN"
 }

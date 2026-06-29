@@ -18,6 +18,29 @@ Každý uzel je tvořen složkou obsahující soubor `vektor.json`. Tento manife
 
 Vzniká tak hybridní graf, který obchází striktní omezení stromových struktur (boundary misses) a umožňuje bezpečně mapovat "many-to-many" závislosti.
 
+## 🧠 Sémantický Strom (The Ultimate View)
+Celá architektura funguje jako jeden živý organismus rozdělený do sémantických vrstev. Každá vrstva vyžaduje vlastní přístup a specifickou testovací metodiku:
+
+```text
+Antigravity Vector-Tree [The Ultimate View]
+├── 📚 LORE (Dokumentace a Znalostní Báze)
+│   └── docs/                          [ Reference, AI instrukce, ADR a plány migrace ]
+├── 🏛️ CORE (Zákon a Ochrana)
+│   └── spine/domain/core-types [ Zod Runtime Validátory ]
+├── 🌍 BODY (I/O a Tržiště)
+│   ├── [ Network Mocks ] ── frontiers (Sběrače z cizích webů)
+│   ├── [ Vitest Mocks  ] ── spine/supply & spine/demand (Katalog a Poptávka)
+│   └── [ Playwright    ] ── apps/marketplace-web (Fronta pro kupce)
+├── 🧠 BRAIN (Abstrakce, Učení a Rozhodování)
+│   ├── [ VCR Kazety ] ───── spine/engine/learn (LLM kompilátory HTML)
+│   ├── [ Redis Mocks ] ──── spine/engine/automation (Symphony fronta a Workeři)
+│   └── [ Data Heuristika ]  spine/engine/intelligence (Arbitrage Miner)
+└── 🦾 HANDS (Exekuce, Zápis a Peníze)
+    ├── [ Webhook Mocks ] ── spine/sale (Stripe billing a settlement)
+    ├── [ SMTP Sandboxy ] ── spine/outreach (Automatizovaný cold-mailing)
+    └── [ Unit Testy ] ───── spine/engine/drive (Shadow Broker — automatické dealy)
+```
+
 ---
 
 ## ⚙️ Architektura (6 Pilířů)

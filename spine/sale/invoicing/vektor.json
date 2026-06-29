@@ -26,5 +26,6 @@
     ]
   },
   "id": "invoicing",
-  "story_axis": "spine/sale/invoicing"
+  "story_axis": "spine/sale/invoicing",
+  "semantic_layer": "HANDS"
 }

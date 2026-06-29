@@ -28,5 +28,6 @@
     ]
   },
   "id": "supply",
-  "story_axis": "spine/supply"
+  "story_axis": "spine/supply",
+  "semantic_layer": "BODY"
 }

@@ -7,5 +7,6 @@
       "./scraper-judikaty.vue"
     ]
   },
-  "edges": []
+  "edges": [],
+  "semantic_layer": "BODY"
 }

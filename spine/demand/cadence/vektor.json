@@ -30,5 +30,6 @@
     "vektorGate": "all-met"
   },
   "id": "cadence",
-  "story_axis": "demand"
+  "story_axis": "demand",
+  "semantic_layer": "BODY"
 }

@@ -17,5 +17,6 @@
   ],
   "antiFeature": "Nábor jako jeden neprůhledný import — neověřené adresy a špatné zařazení se schovají v zeleném celku a vyplavou až jako bounce.",
   "id": "acquisition",
-  "story_axis": "acquisition"
+  "story_axis": "acquisition",
+  "semantic_layer": "BRAIN"
 }

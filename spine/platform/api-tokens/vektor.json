@@ -30,5 +30,6 @@
     ]
   },
   "id": "api-tokens",
-  "story_axis": "spine/platform/api-tokens"
+  "story_axis": "spine/platform/api-tokens",
+  "semantic_layer": "HANDS"
 }

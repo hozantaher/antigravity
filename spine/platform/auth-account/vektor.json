@@ -34,5 +34,6 @@
     ]
   },
   "id": "auth-account",
-  "story_axis": "spine/platform/auth-account"
+  "story_axis": "spine/platform/auth-account",
+  "semantic_layer": "HANDS"
 }

@@ -28,5 +28,6 @@
     ]
   },
   "id": "vehicle-vin",
-  "story_axis": "spine/supply/vehicle-vin"
+  "story_axis": "spine/supply/vehicle-vin",
+  "semantic_layer": "BODY"
 }

@@ -31,5 +31,6 @@
     ]
   },
   "id": "media-upload",
-  "story_axis": "spine/supply/media-upload"
+  "story_axis": "spine/supply/media-upload",
+  "semantic_layer": "BODY"
 }

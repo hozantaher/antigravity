@@ -65,5 +65,6 @@
     ]
   },
   "id": "mcp",
-  "story_axis": "spine/platform/mcp"
+  "story_axis": "spine/platform/mcp",
+  "semantic_layer": "HANDS"
 }

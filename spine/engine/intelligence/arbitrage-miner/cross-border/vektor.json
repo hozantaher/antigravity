@@ -9,5 +9,6 @@
     "logic": [
       "./scanner.ts"
     ]
-  }
+  },
+  "semantic_layer": "BRAIN"
 }

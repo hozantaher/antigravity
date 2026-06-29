@@ -1,6 +1,7 @@
 export interface VektorManifest {
   id: string;
   story_axis?: string;
+  semantic_layer?: "CORE" | "BODY" | "BRAIN" | "HANDS";
   state?: 'pending' | 'met';
   facets?: Record<string, string[]>;
   edges?: string[];

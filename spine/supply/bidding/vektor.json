@@ -31,5 +31,6 @@
     ]
   },
   "id": "bidding",
-  "story_axis": "spine/supply/bidding"
+  "story_axis": "spine/supply/bidding",
+  "semantic_layer": "BODY"
 }

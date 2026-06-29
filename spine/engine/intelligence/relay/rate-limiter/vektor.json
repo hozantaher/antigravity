@@ -5,5 +5,6 @@
   "loreLine": "Záchranná brzda rozpočtu — chrání peněženku před nekonečnou smyčkou.",
   "promise": "Žádný agent nám nespálí budget za 10 minut.",
   "antiFeature": "Neanalyzuje obsah promptu, jen počítá tokeny a blokuje zneužití.",
-  "edges": []
+  "edges": [],
+  "semantic_layer": "BRAIN"
 }

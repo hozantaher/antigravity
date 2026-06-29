@@ -17,23 +17,24 @@ export class DocGenerator {
     output +=
       'Tento dokument je plně generován automaticky na základě fyzických uzlů a jejich sémantických manifestů (`vektor.json`).\n\n';
 
-    // Seskupit uzly podle osy (story axis)
-    const axes: Record<string, any[]> = {};
+    // Seskupit uzly podle sémantické vrstvy (Ultimate View)
+    const layers: Record<string, any[]> = { "CORE": [], "BODY": [], "BRAIN": [], "HANDS": [] };
 
     for (const file of jsonFiles) {
       const fullPath = path.join(this.rootDir, file);
       try {
         const manifest = JSON.parse(fs.readFileSync(fullPath, 'utf8'));
-        const axis = manifest.story_axis || 'unknown';
-        if (!axes[axis]) axes[axis] = [];
-        axes[axis].push(manifest);
+        const layer = manifest.semantic_layer || 'BODY';
+        if (!layers[layer]) layers[layer] = [];
+        layers[layer].push(manifest);
       } catch (e) {
         console.warn(`Could not parse ${file}`);
       }
     }
 
-    for (const [axis, nodes] of Object.entries(axes)) {
-      output += `## 🪐 Osa: ${axis.toUpperCase()}\n\n`;
+    for (const [layer, nodes] of Object.entries(layers)) {
+      if (nodes.length === 0) continue;
+      output += `## 🪐 Sémantická vrstva: ${layer.toUpperCase()}\n\n`;
       for (const node of nodes) {
         output += `### Uzel: \`${node.id}\`\n`;
         output += `- **Stav:** ${node.state}\n`;
@@ -122,6 +123,16 @@ export class DocGenerator {
           // Create new README
           let md = `# 📦 Uzel: ${manifest.id}\n\n`;
           md += `${versionBadge}\n\n`;
+          
+          if (manifest.semantic_layer === "BRAIN") {
+             md += `> 🧠 **Upozornění pro Agenty:** Tento uzel je kognitivní vrstva (BRAIN). Dodržujte VCR kazety a chraňte API budget.\n\n`;
+          } else if (manifest.semantic_layer === "HANDS") {
+             md += `> 🦾 **Upozornění pro Agenty:** Toto je exekuční vrstva (HANDS). Pozor na idempotenci, transakce zasahují vnější svět.\n\n`;
+          } else if (manifest.semantic_layer === "CORE") {
+             md += `> 🏛️ **Upozornění pro Agenty:** Zde leží definice (CORE). Úpravy schémat mohou rozbít celý systém.\n\n`;
+          }
+
+          md += `> **Sémantická vrstva:** ${manifest.semantic_layer || 'BODY'}\n`;
           md += `> **Osa (Story Axis):** ${manifest.story_axis || 'Neznámá'}\n`;
           md += `> **Stav:** ${manifest.state || 'Neznámý'}\n\n`;
           

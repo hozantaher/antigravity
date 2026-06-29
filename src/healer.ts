@@ -12,6 +12,7 @@ export class AutoHealer {
 
   public heal() {
     console.log('🩹 Spouštím Auto-Healer pro opravu Contract Driftu...');
+    this.healSemanticLayers();
     
     // Nejprve potřebujeme získat výstup auditu (aby Governor nezabil proces, musíme zachytit výjimku)
     let governorOutput = '';
@@ -91,5 +92,36 @@ export class AutoHealer {
     } else {
       console.log('Nepodařilo se automaticky opravit žádný drift (možná jde o komplexní zacyklení).');
     }
+  }
+
+  private healSemanticLayers() {
+    console.log('🧠 Injektuji chybějící sémantické vrstvy do vektorů (The Ultimate View)...');
+    let injected = 0;
+    const manifests = execSync(`find spine apps frontiers -name "vektor.json" 2>/dev/null || true`, { cwd: this.rootDir, encoding: 'utf8' }).split('\n').filter(x => x);
+    
+    for (const m of manifests) {
+      const fullPath = path.join(this.rootDir, m);
+      try {
+        const manifest = JSON.parse(fs.readFileSync(fullPath, 'utf8'));
+        if (!manifest.semantic_layer) {
+          let layer = "BODY"; // Default pro frontiers a GUI
+          const dirPath = path.dirname(m);
+          
+          if (dirPath.includes('domain/core-types')) {
+             layer = "CORE";
+          } else if (dirPath.includes('engine/learn') || dirPath.includes('intelligence') || dirPath.includes('inbound') || dirPath.includes('acquisition') || dirPath.includes('engine/automation')) {
+             layer = "BRAIN";
+          } else if (dirPath.includes('engine/drive') || dirPath.includes('sale') || dirPath.includes('outreach') || dirPath.includes('compliance') || dirPath.includes('platform')) {
+             layer = "HANDS";
+          }
+
+          manifest.semantic_layer = layer;
+          fs.writeFileSync(fullPath, JSON.stringify(manifest, null, 2), 'utf8');
+          injected++;
+          console.log(` -> INJECTED: Uzel ${manifest.id} dostal vrstvu ${layer}`);
+        }
+      } catch (e) {}
+    }
+    if (injected > 0) console.log(`✅ Úspěšně upraveno ${injected} uzlů (Sémantická Ochrana Aktivní).`);
   }
 }

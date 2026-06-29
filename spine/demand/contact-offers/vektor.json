@@ -22,5 +22,6 @@
     ]
   },
   "id": "contact-offers",
-  "story_axis": "spine/demand/contact-offers"
+  "story_axis": "spine/demand/contact-offers",
+  "semantic_layer": "BODY"
 }

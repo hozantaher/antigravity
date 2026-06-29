@@ -38,5 +38,6 @@
     ]
   },
   "id": "suppression",
-  "story_axis": "spine/compliance/suppression"
+  "story_axis": "spine/compliance/suppression",
+  "semantic_layer": "HANDS"
 }

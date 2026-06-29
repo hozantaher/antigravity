@@ -38,5 +38,6 @@
     ]
   },
   "id": "dsr",
-  "story_axis": "spine/compliance/dsr"
+  "story_axis": "spine/compliance/dsr",
+  "semantic_layer": "HANDS"
 }

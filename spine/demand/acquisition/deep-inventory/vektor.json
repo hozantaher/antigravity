@@ -23,5 +23,6 @@
       "./delta-engine.ts",
       "./queue.ts"
     ]
-  }
+  },
+  "semantic_layer": "BRAIN"
 }

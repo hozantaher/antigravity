@@ -36,5 +36,6 @@
     "logic": [],
     "ui": [],
     "tests": []
-  }
+  },
+  "semantic_layer": "HANDS"
 }

@@ -368,7 +368,7 @@ app.use((req, res, next) => {
 
 // CORS: allow only the configured frontend origin (falls back to localhost
 // Vite dev port). Accepting comma-separated list for multi-env setups.
-const CORS_ALLOWED = (process.env.CORS_ORIGIN || 'http://localhost:18175')
+const CORS_ALLOWED = (process.env.CORS_ORIGIN || 'http://localhost:18180')
   .split(',').map(s => s.trim()).filter(Boolean)
 app.use(cors({
   origin(origin, cb) {

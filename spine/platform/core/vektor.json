@@ -30,5 +30,6 @@
     ]
   },
   "id": "core",
-  "story_axis": "spine/platform/core"
+  "story_axis": "spine/platform/core",
+  "semantic_layer": "HANDS"
 }

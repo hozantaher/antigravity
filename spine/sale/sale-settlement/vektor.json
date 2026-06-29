@@ -36,5 +36,6 @@
     ]
   },
   "id": "sale-settlement",
-  "story_axis": "spine/sale/sale-settlement"
+  "story_axis": "spine/sale/sale-settlement",
+  "semantic_layer": "HANDS"
 }

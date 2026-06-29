@@ -15,5 +15,6 @@
       "./listing.dto.ts",
       "./index.ts"
     ]
-  }
+  },
+  "semantic_layer": "CORE"
 }

@@ -30,5 +30,6 @@
     ]
   },
   "id": "reference-data",
-  "story_axis": "spine/platform/reference-data"
+  "story_axis": "spine/platform/reference-data",
+  "semantic_layer": "HANDS"
 }

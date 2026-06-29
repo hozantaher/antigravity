@@ -34,5 +34,6 @@
     ]
   },
   "id": "search",
-  "story_axis": "spine/demand/search"
+  "story_axis": "spine/demand/search",
+  "semantic_layer": "BODY"
 }

@@ -9,5 +9,6 @@
     "logic": [
       "./interceptor.ts"
     ]
-  }
+  },
+  "semantic_layer": "BRAIN"
 }

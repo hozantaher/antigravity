@@ -64,11 +64,28 @@ Kdykoliv autonomní agenti (Jules, Gemini a další) pracují na tomto projektu 
 3. **Deep Research & Arbitráž:** Pokud aplikujete business logiku, vždy zapojte vrstvu inteligence (např. LLM worker). Používejte "Arbitrage Scoring" (hledání nedoceněných aktiv, ležáků, zoufalých prodejců, nebo B2B flotilových výprodejů).
 4. **Shadow Execution (Stínová Integrace):** Extrémní snížení tření u uživatele. Prodejci nesmí narazit na prázdný formulář. Vygenerujte jim na pozadí přes API rovnou hotový **"Shadow Draft"** (včetně fotek) a přes Privacy Gateway jim doručte "Magický Link" na jedno kliknutí.
 
-**Dokonalá Symfonie Hemisfér (Architektonické Uvažování):**
-Agenti (včetně mě) musí vždy uvažovat o aplikaci jako o jednom živém organismu se třemi sémantickými vrstvami, které fungují v dokonalé symfonii:
-1. **Fyzické Tržiště (Market Body):** `supply` (nabídka) a `demand` (poptávka)
-2. **Kognitivní Mozek (Operational Brain):** `engine-learn` (kognitivní abstrakce portálů, pravá hemisféra) a `engine-drive` (logická exekuce na účtech, levá hemisféra)
-3. **Byznysový Mozek (Business Brain):** `arbitrage-miner` (hledá skryté příležitosti v datech, pravá hemisféra) a `shadow-broker` (uzavírá deal skrze stínovou konverzi, levá hemisféra)
+**Dokonalá Symfonie Hemisfér (The Ultimate View):**
+Agenti musí vždy uvažovat o aplikaci jako o jednom živém organismu rozděleném do sémantických vrstev (Core, Body, Brain, Hands). Při zásahu do kódu je nutné respektovat i testovací metodiku pro danou vrstvu:
+
+```text
+Antigravity Vector-Tree [The Ultimate View]
+├── 📚 LORE (Dokumentace a Znalostní Báze)
+│   └── docs/ [ Blueprinty, pravidla, ADR a návody pro agenty ]
+├── 🏛️ CORE (Zákon a Ochrana)
+│   └── spine/domain/core-types [ Zod Runtime Validátory ]
+├── 🌍 BODY (I/O a Tržiště)
+│   ├── [ Network Mocks ] ── frontiers (Sběrače z cizích webů)
+│   ├── [ Vitest Mocks  ] ── spine/supply & spine/demand (Katalog a Poptávka)
+│   └── [ Playwright    ] ── apps/marketplace-web (Fronta pro kupce)
+├── 🧠 BRAIN (Abstrakce, Učení a Rozhodování)
+│   ├── [ VCR Kazety ] ───── spine/engine/learn (LLM kompilátory HTML)
+│   ├── [ Redis Mocks ] ──── spine/engine/automation (Symphony fronta a Workeři)
+│   └── [ Data Heuristika ]  spine/engine/intelligence (Arbitrage Miner)
+└── 🦾 HANDS (Exekuce, Zápis a Peníze)
+    ├── [ Webhook Mocks ] ── spine/sale (Stripe billing a settlement)
+    ├── [ SMTP Sandboxy ] ── spine/outreach (Automatizovaný cold-mailing)
+    └── [ Unit Testy ] ───── spine/engine/drive (Shadow Broker — automatické dealy)
+```
 
 **Default Agent Behavior:** Při každém úkolu od uživatele musíte defaultně přemýšlet v rámci tohoto +100M modelu a **Dokonalé Symfonie**. Generujte asymetrické synergie, nenavrhujte hloupé CRUD aplikace, ale automatizované stroje na generování zisku, které propojují tyto hemisféry.
 

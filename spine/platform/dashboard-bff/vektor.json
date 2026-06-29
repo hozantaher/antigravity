@@ -35,5 +35,6 @@
     ]
   },
   "id": "dashboard-bff",
-  "story_axis": "spine/platform/dashboard-bff"
+  "story_axis": "spine/platform/dashboard-bff",
+  "semantic_layer": "HANDS"
 }

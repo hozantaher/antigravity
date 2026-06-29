@@ -31,5 +31,6 @@
     "vektorGate": "all-met"
   },
   "id": "resolution",
-  "story_axis": "sale"
+  "story_axis": "sale",
+  "semantic_layer": "HANDS"
 }

@@ -22,5 +22,6 @@
     ]
   },
   "id": "sale",
-  "story_axis": "spine/sale"
+  "story_axis": "spine/sale",
+  "semantic_layer": "HANDS"
 }

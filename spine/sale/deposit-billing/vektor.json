@@ -35,5 +35,6 @@
     ]
   },
   "id": "deposit-billing",
-  "story_axis": "spine/sale/deposit-billing"
+  "story_axis": "spine/sale/deposit-billing",
+  "semantic_layer": "HANDS"
 }

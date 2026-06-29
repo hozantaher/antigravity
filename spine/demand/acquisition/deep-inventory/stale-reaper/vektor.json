@@ -9,5 +9,6 @@
     "logic": [
       "./reaper.ts"
     ]
-  }
+  },
+  "semantic_layer": "BRAIN"
 }

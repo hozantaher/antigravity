@@ -27,5 +27,6 @@
     ]
   },
   "id": "notifications",
-  "story_axis": "spine/platform/notifications"
+  "story_axis": "spine/platform/notifications",
+  "semantic_layer": "HANDS"
 }

@@ -27,5 +27,6 @@
     "vektorGate": "all-met"
   },
   "id": "specs-before-bid",
-  "story_axis": "supply"
+  "story_axis": "supply",
+  "semantic_layer": "BODY"
 }

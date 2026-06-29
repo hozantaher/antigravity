@@ -39,7 +39,7 @@ const Anonymita = lazy(() => import('./app/pages/Anonymita'))
 const Analytika = lazy(() => import('./app/pages/Analytika'))
 const Nastaveni = lazy(() => import('./app/pages/Nastaveni'))
 const Schranky = lazy(() => import('./app/pages/Schranky'))
-
+const MissionControl = lazy(() => import('./MissionControl'))
 // Param- + query-preserving redirect for legacy deep links (e.g. /campaigns/:id).
 function ParamRedirect({ to }) {
   const params = useParams()
@@ -93,6 +93,7 @@ createRoot(document.getElementById('root')).render(
                 <Route path="analytika" element={<RouteErrorBoundary><Analytika /></RouteErrorBoundary>} />
                 <Route path="nastaveni" element={<RouteErrorBoundary><Nastaveni /></RouteErrorBoundary>} />
                 <Route path="schranky" element={<RouteErrorBoundary><Schranky /></RouteErrorBoundary>} />
+                <Route path="mission-control" element={<RouteErrorBoundary><MissionControl /></RouteErrorBoundary>} />
               </Route>
 
               {/* Legacy deep-link redirects (old route names → current surfaces). */}

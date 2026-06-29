@@ -2,7 +2,14 @@
 
 Tento dokument je plně generován automaticky na základě fyzických uzlů a jejich sémantických manifestů (`vektor.json`).
 
-## 🪐 Osa: SPINE/SUPPLY
+## 🪐 Sémantická vrstva: CORE
+
+### Uzel: `core-types`
+- **Stav:** met
+- **Fyzické soubory:**
+  - *logic*: ./schemas.ts, ./listing.dto.ts, ./index.ts
+
+## 🪐 Sémantická vrstva: BODY
 
 ### Uzel: `supply`
 - **Stav:** undefined
@@ -11,92 +18,16 @@ Tento dokument je plně generován automaticky na základě fyzických uzlů a j
   - *logic*: ./logic.ts
   - *tests*: ./logic.test.ts
 
-## 🪐 Osa: SPINE/SALE
-
-### Uzel: `sale`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *ui*: ./sale.vue
-
-## 🪐 Osa: SPINE/OUTREACH
-
-### Uzel: `outreach`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/PLATFORM
-
-### Uzel: `platform`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: ./worker/vitest.config.ts, ./worker/worker/web-search.ts, ./worker/worker/sentry.ts, ./worker/worker/queue.ts, ./worker/worker/prompts.ts, ./worker/worker/pdf.ts, ./worker/worker/index.ts, ./worker/worker/generate-odpor.ts, ./worker/worker/firebase.ts, ./worker/worker/email.ts, ./worker/lib/logger.ts, ./worker/lib/health.ts, ./worker/scripts/lib/mcp-client.ts, ./worker/scripts/lib/docx-writer.ts
-  - *tests*: ./worker/worker/web-search.test.ts, ./worker/worker/shutdown.unit.test.ts, ./worker/worker/queue.test.ts, ./worker/worker/pdf.test.ts, ./worker/worker/index.test.ts, ./worker/worker/generate-odpor.timeout.test.ts, ./worker/worker/generate-odpor.test.ts, ./worker/worker/firebase.test.ts, ./worker/worker/firebase.collision.test.ts, ./worker/worker/email.test.ts, ./worker/lib/health.test.ts, ./worker/scripts/lib/docx-writer.test.ts
-  - *legacy_unmapped*: ./dashboard-core/src/sentryInit.js, ./dashboard-core/src/index.js, ./dashboard-core/src/lib/tokens.js, ./dashboard-core/src/lib/sentryCapture.js, ./dashboard-core/src/lib/scoring.js, ./dashboard-core/src/lib/fetchWithSentry.js, ./dashboard-core/src/lib/emailVerify.js
-
-## 🪐 Osa: SPINE/INBOUND
-
-### Uzel: `inbound`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: ENGINE
-
 ### Uzel: `engine`
 - **Stav:** pending
 - **Fyzické soubory:**
   - *ui*: ./engine.vue
-
-### Uzel: `engine-learn`
-- **Stav:** met
-- **Identita:** Learn — z povrchu postav model toho, jak se aplikace ovládá (operation graph).
-- **Fyzické soubory:**
-  - *ui*: ./engine-learn.vue
-  - *logic*: ./self-healing.ts
-  - *public*: ./index.ts
-
-### Uzel: `engine-drive`
-- **Stav:** met
-- **Identita:** Drive — proveď akce proti portálu: read (čti inzeráty) i write (řiď NAŠE účty).
-- **Fyzické soubory:**
-  - *ui*: ./engine-drive.vue
-
-### Uzel: `cross-border-arbitrage`
-- **Stav:** met
-- **Fyzické soubory:**
-  - *logic*: ./scanner.ts
-
-## 🪐 Osa: SPINE/DEMAND
+  - *logic*: ./acquisition/shared/utils.ts, ./acquisition/shared/types.ts, ./acquisition/shared/sitemap.ts, ./acquisition/shared/fetch.ts, ./acquisition/shared/daemon.ts, ./acquisition/shared/cache.ts, ./acquisition/shared/block-detector.ts
 
 ### Uzel: `demand`
 - **Stav:** undefined
 - **Fyzické soubory:**
   - *ui*: ./demand.vue
-
-## 🪐 Osa: SPINE/COMPLIANCE
-
-### Uzel: `compliance`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/ACQUISITION
-
-### Uzel: `acquisition`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/SUPPLY/VEHICLE-VIN
 
 ### Uzel: `vehicle-vin`
 - **Stav:** undefined
@@ -104,21 +35,31 @@ Tento dokument je plně generován automaticky na základě fyzických uzlů a j
   - *ui*: ./vehicle-vin.vue, ./ui/ItemVehicle.vue
   - *logic*: ./contract.ts, ./logic/vin.ts, ./logic/vehicleStructuredData.ts
 
-## 🪐 Osa: SUPPLY
-
 ### Uzel: `specs-before-bid`
+- **Stav:** undefined
+
+### Uzel: `media-upload`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *ui*: ./media-upload.vue, ./ui/Pano.vue, ./ui/ItemLightbox.vue, ./ui/ItemGallery.vue
+  - *logic*: ./contract.ts, ./logic/useImageUpload.ts, ./logic/useImageProcessing.ts, ./logic/galleryNav.ts
+
+### Uzel: `pano-360`
 - **Stav:** undefined
 
 ### Uzel: `soft-close`
 - **Stav:** undefined
 
-### Uzel: `pano-360`
+### Uzel: `eligibility`
 - **Stav:** undefined
 
 ### Uzel: `empty-state`
 - **Stav:** undefined
 
-### Uzel: `eligibility`
+### Uzel: `concurrency`
+- **Stav:** undefined
+
+### Uzel: `completeness`
 - **Stav:** undefined
 
 ### Uzel: `detail-order`
@@ -127,24 +68,8 @@ Tento dokument je plně generován automaticky na základě fyzických uzlů a j
 ### Uzel: `decode-cache`
 - **Stav:** undefined
 
-### Uzel: `concurrency`
-- **Stav:** undefined
-
 ### Uzel: `card-order`
 - **Stav:** undefined
-
-### Uzel: `completeness`
-- **Stav:** undefined
-
-## 🪐 Osa: SPINE/SUPPLY/MEDIA-UPLOAD
-
-### Uzel: `media-upload`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *ui*: ./media-upload.vue, ./ui/Pano.vue, ./ui/ItemLightbox.vue, ./ui/ItemGallery.vue
-  - *logic*: ./contract.ts, ./logic/useImageUpload.ts, ./logic/useImageProcessing.ts, ./logic/galleryNav.ts
-
-## 🪐 Osa: SPINE/SUPPLY/BIDDING
 
 ### Uzel: `bidding`
 - **Stav:** undefined
@@ -152,519 +77,19 @@ Tento dokument je plně generován automaticky na základě fyzických uzlů a j
   - *logic*: ./contract.ts, ./logic/useLiveItems.ts, ./logic/useItemBids.ts
   - *ui*: ./bidding.vue, ./ui/PriceStatus.vue, ./ui/ItemBids.vue, ./ui/ItemBid.vue, ./ui/BidRow.vue
 
-## 🪐 Osa: SPINE/SUPPLY/AUCTION-ITEMS
-
 ### Uzel: `auction-items`
 - **Stav:** undefined
 - **Fyzické soubory:**
   - *logic*: ./contract.ts, ./logic/usePagedItems.ts, ./logic/useLiveItemStatus.ts, ./logic/useItemDetail.ts, ./logic/cardView.ts
   - *ui*: ./auction-items.vue, ./ui/StaticMap.vue, ./ui/NoItems.vue, ./ui/ItemsListing.vue, ./ui/ItemsGridSkeletor.vue, ./ui/ItemsGrid.vue, ./ui/ItemStatus.vue, ./ui/ItemSharing.vue, ./ui/ItemLocation.vue, ./ui/ItemInfo.vue, ./ui/ItemDetailSkeletor.vue, ./ui/ItemDescription.vue, ./ui/ItemContact.vue, ./ui/ItemCard.vue
 
-## 🪐 Osa: SPINE/SALE/SALE-SETTLEMENT
-
-### Uzel: `sale-settlement`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *ui*: ./sale-settlement.vue, ./ui/settlement/SettlementWizard.vue, ./ui/settlement/SettlementStepper.vue, ./ui/settlement/SettlementStepVerifying.vue, ./ui/settlement/SettlementStepSummary.vue, ./ui/settlement/SettlementStepSuccess.vue, ./ui/settlement/SettlementStepPayment.vue, ./ui/settlement/SettlementStepMethod.vue, ./ui/settlement/SettlementStepCard.vue, ./ui/settlement/SettlementStepBilling.vue, ./ui/settlement/SettlementCard.vue
-  - *logic*: ./contract.ts, ./logic/useSettlement.ts
-
-## 🪐 Osa: SALE
-
-### Uzel: `resolution`
-- **Stav:** undefined
-
-### Uzel: `reconcile`
-- **Stav:** undefined
-
-### Uzel: `framing`
-- **Stav:** undefined
-
-### Uzel: `invoice-list`
-- **Stav:** undefined
-
-### Uzel: `fio-match`
-- **Stav:** undefined
-
-### Uzel: `fakturoid-sync`
-- **Stav:** undefined
-
-### Uzel: `completion`
-- **Stav:** undefined
-
-### Uzel: `charge-once`
-- **Stav:** undefined
-
-### Uzel: `case-open`
-- **Stav:** undefined
-
-### Uzel: `billing-capture`
-- **Stav:** undefined
-
-### Uzel: `amount-due`
-- **Stav:** undefined
-
-## 🪐 Osa: SPINE/SALE/INVOICING
-
-### Uzel: `invoicing`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *ui*: ./invoicing.vue, ./ui/Invoices.vue
-  - *logic*: ./logic/useInvoices.ts
-
-## 🪐 Osa: SPINE/SALE/DISPUTES-COMPLAINTS
-
-### Uzel: `disputes-complaints`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *ui*: ./disputes-complaints.vue
-
-## 🪐 Osa: SPINE/SALE/DEPOSIT-BILLING
-
-### Uzel: `deposit-billing`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *ui*: ./deposit-billing.vue, ./ui/deposit/DepositWizard.vue, ./ui/deposit/DepositStepper.vue, ./ui/deposit/DepositStepVerifying.vue, ./ui/deposit/DepositStepSuccess.vue, ./ui/deposit/DepositStepPayment.vue, ./ui/deposit/DepositStepMethod.vue, ./ui/deposit/DepositStepCurrency.vue, ./ui/deposit/DepositStepCard.vue, ./ui/deposit/DepositStepBilling.vue, ./ui/deposit/DepositCard.vue
-  - *logic*: ./contract.ts, ./logic/useDeposit.ts
-
-## 🪐 Osa: SPINE/OUTREACH/WARMUP
-
-### Uzel: `warmup`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/OUTREACH/SEND-WINDOW
-
-### Uzel: `send-window`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/OUTREACH/SEND-DEDUP
-
-### Uzel: `send-dedup`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: OUTREACH
-
-### Uzel: `sanitize`
-- **Stav:** undefined
-
-### Uzel: `metadata-min`
-- **Stav:** undefined
-
-### Uzel: `outreach`
-- **Stav:** undefined
-
-### Uzel: `egress`
-- **Stav:** undefined
-
-### Uzel: `content-enc`
-- **Stav:** undefined
-
-## 🪐 Osa: SPINE/OUTREACH/MAILBOX-RELIABILITY
-
-### Uzel: `mailbox-reliability`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/OUTREACH/CONTENT-RENDER
-
-### Uzel: `content-render`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/OUTREACH/CAMPAIGN-SCHEDULER
-
-### Uzel: `campaign-scheduler`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-### Uzel: `campaign-scheduler-time-zone-mapper`
-- **Stav:** undefined
-
-### Uzel: `campaign-scheduler-send-throttler`
-- **Stav:** undefined
-
-## 🪐 Osa: SPINE/OUTREACH/ANTI-TRACE
-
-### Uzel: `anti-trace`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/PLATFORM/WORKER-PDF
-
-### Uzel: `worker-pdf`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: PLATFORM
-
-### Uzel: `token-lifecycle`
-- **Stav:** undefined
-
-### Uzel: `token-hash`
-- **Stav:** undefined
-
-### Uzel: `spec-validity`
-- **Stav:** undefined
-
-### Uzel: `sitemap`
-- **Stav:** undefined
-
-### Uzel: `rtl-parity`
-- **Stav:** undefined
-
-### Uzel: `save-success`
-- **Stav:** undefined
-
-### Uzel: `registration`
-- **Stav:** undefined
-
-### Uzel: `read-state`
-- **Stav:** undefined
-
-### Uzel: `platform`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: ./worker/vitest.config.ts, ./worker/worker/web-search.ts, ./worker/worker/sentry.ts, ./worker/worker/queue.ts, ./worker/worker/prompts.ts, ./worker/worker/pdf.ts, ./worker/worker/index.ts, ./worker/worker/generate-odpor.ts, ./worker/worker/firebase.ts, ./worker/worker/email.ts, ./worker/lib/logger.ts, ./worker/lib/health.ts, ./dashboard-core/src/sentryInit.js, ./dashboard-core/src/index.js, ./worker/scripts/lib/mcp-client.ts, ./worker/scripts/lib/docx-writer.ts, ./dashboard-core/src/lib/tokens.js, ./dashboard-core/src/lib/sentryCapture.js, ./dashboard-core/src/lib/scoring.js, ./dashboard-core/src/lib/fetchWithSentry.js, ./dashboard-core/src/lib/emailVerify.js
-  - *tests*: ./worker/worker/web-search.test.ts, ./worker/worker/shutdown.unit.test.ts, ./worker/worker/queue.test.ts, ./worker/worker/pdf.test.ts, ./worker/worker/index.test.ts, ./worker/worker/generate-odpor.timeout.test.ts, ./worker/worker/generate-odpor.test.ts, ./worker/worker/firebase.test.ts, ./worker/worker/firebase.collision.test.ts, ./worker/worker/email.test.ts, ./worker/lib/health.test.ts, ./worker/scripts/lib/docx-writer.test.ts
-
-### Uzel: `password-reset`
-- **Stav:** undefined
-
-### Uzel: `list-latency`
-- **Stav:** undefined
-
-### Uzel: `lcp`
-- **Stav:** undefined
-
-### Uzel: `key-events`
-- **Stav:** undefined
-
-### Uzel: `key-completeness`
-- **Stav:** undefined
-
-### Uzel: `ingest`
-- **Stav:** undefined
-
-### Uzel: `guards`
-- **Stav:** undefined
-
-### Uzel: `country-resolution`
-- **Stav:** undefined
-
-### Uzel: `contract-drift`
-- **Stav:** undefined
-
-### Uzel: `consent-gate`
-- **Stav:** undefined
-
-### Uzel: `category-coverage`
-- **Stav:** undefined
-
-### Uzel: `brand-parity`
-- **Stav:** undefined
-
-### Uzel: `auth`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *contract*: ./contract.ts
-  - *logic*: ./logic/useUser.ts, ./logic/state.ts, ./logic/firebaseClient.ts, ./logic/authHeader.ts
-  - *tests*: ./useUser.test.ts, ./state.test.ts, ./firebaseClient.test.ts, ./authHeader.test.ts
-
-### Uzel: `a11y`
-- **Stav:** undefined
-
-## 🪐 Osa: SPINE/PLATFORM/REFERENCE-DATA
-
-### Uzel: `reference-data`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: ./contract.ts, ./logic/useLanguages.ts, ./logic/useCurrencies.ts, ./logic/useCountries.ts, ./logic/useCategories.ts
-  - *ui*: ./ui/FlagBadge.vue, ./ui/CategoriesGrid.vue
-
-## 🪐 Osa: SPINE/PLATFORM/PROTECTIONS
-
-### Uzel: `protections`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/PLATFORM/NOTIFICATIONS
-
-### Uzel: `notifications`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *ui*: ./ui/NotificationItem.vue, ./ui/NotificationFeed.vue, ./ui/NotificationBell.vue
-  - *logic*: ./logic/useNotifications.ts
-
-## 🪐 Osa: SPINE/PLATFORM/MCP
-
-### Uzel: `mcp`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: ./vitest.config.ts, ./mcp-server/version.ts, ./mcp-server/tools.ts, ./mcp-server/test-utils.ts, ./mcp-server/sentry.ts, ./mcp-server/index.ts, ./mcp-server/http.ts, ./mcp-server/db.ts, ./mcp-server/auth.ts, ./lib/utils.ts, ./lib/types.ts, ./lib/meilisearch.ts, ./lib/logger.ts, ./lib/fetch.ts, ./lib/db-prefix.ts, ./lib/cache.ts, ./scripts/lib/mcp-client.ts
-  - *tests*: ./mcp-server/version.test.ts, ./mcp-server/tools.test.ts, ./mcp-server/http.test.ts, ./mcp-server/e2e.test.ts, ./mcp-server/db.test.ts, ./mcp-server/auth.unit.test.ts, ./mcp-server/auth.test.ts, ./e2e/mcp-tools.test.ts, ./lib/utils.test.ts, ./lib/fetch.test.ts, ./lib/cache.test.ts, ./scripts/lib/mcp-client.test.ts
-
-## 🪐 Osa: SPINE/PLATFORM/I18N
-
-### Uzel: `i18n`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *ui*: ./ui/Language.vue
-
-## 🪐 Osa: SPINE/PLATFORM/DESIGN-SYSTEM
-
-### Uzel: `design-system`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *ui*: ./design-system.vue, ./ui/TableBodySkeletor.vue, ./ui/Loading.vue, ./ui/BaseTransition.vue, ./ui/BaseTextarea.vue, ./ui/BaseSelect.vue, ./ui/BaseRadio.vue, ./ui/BasePagination.vue, ./ui/BaseModal.vue, ./ui/BaseInput.vue, ./ui/BaseGeoInput.vue, ./ui/BaseForm.vue, ./ui/BaseEditingArea.vue, ./ui/BaseDrawer.vue, ./ui/BaseConfirmation.vue, ./ui/BaseCheckbox.vue, ./ui/BaseCallout.vue, ./ui/BaseBreadcrumb.vue, ./ui/playground/Swatch.vue, ./ui/playground/Specimen.vue, ./ui/playground/Section.vue, ./ui/playground/Overlays.vue, ./ui/playground/HeadlessUi.vue, ./ui/playground/Foundations.vue, ./ui/playground/Forms.vue, ./ui/playground/Domain.vue, ./ui/playground/Deposit.vue, ./ui/playground/DataDisplay.vue, ./ui/playground/Controls.vue, ./ui/playground/Chrome.vue
-  - *logic*: ./contract.ts, ./logic/useValidators.ts, ./logic/useScrollArrows.ts, ./logic/usePointerKind.ts, ./logic/usePlayground.ts, ./ui/playground/fixtures.ts
-
-## 🪐 Osa: SPINE/PLATFORM/DASHBOARD-BFF
-
-### Uzel: `dashboard-bff`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *ui*: ./dashboard-bff.vue
-
-## 🪐 Osa: SPINE/PLATFORM/CORE
-
-### Uzel: `core`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *ui*: ./ui/HowItWorks.vue, ./ui/Header.vue, ./ui/Footer.vue
-  - *logic*: ./logic/useSharedNow.ts, ./logic/useSeo.ts, ./logic/useItemListLd.ts, ./logic/useInit.ts
-
-## 🪐 Osa: SPINE/PLATFORM/CONSENT-TRACKING
-
-### Uzel: `consent-tracking`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *ui*: ./ui/CookiesBar.vue
-  - *logic*: ./logic/useTracking.ts, ./logic/useDetailTracking.ts, ./logic/useCookieConsent.ts
-
-## 🪐 Osa: SPINE/PLATFORM/AUTH-ACCOUNT
-
-### Uzel: `auth-account`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: ./contract.ts, ./logic/useUser.ts, ./logic/state.ts, ./logic/firebaseClient.ts, ./logic/authHeader.ts
-  - *ui*: ./ui/UserMenuAvatar.vue, ./ui/ProfileTextValueEdit.vue, ./ui/ProfileLanguageEdit.vue, ./ui/ProfileEmailEdit.vue, ./ui/ProfileAddressEdit.vue, ./ui/LettersAvatar.vue
-
-## 🪐 Osa: SPINE/PLATFORM/API-TOKENS
-
-### Uzel: `api-tokens`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: ./logic.ts, ./logic/useApiTokens.ts
-  - *tests*: ./logic.test.ts
-  - *ui*: ./api-tokens.vue, ./ui/ApiTokenCreateDialog.vue
-
-## 🪐 Osa: SPINE/PLATFORM/API-DOCS
-
-### Uzel: `api-docs`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/PLATFORM/ADMIN
-
-### Uzel: `admin`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *ui*: ./ui/LocaleTabs.vue, ./ui/ItemDetailVehicle.vue, ./ui/ItemDetailQuestions.vue, ./ui/ItemDetailImages.vue, ./ui/ItemDetailHighlights.vue, ./ui/ItemDetailGeneral.vue, ./ui/ItemDetailDescription.vue, ./ui/ItemDetailBids.vue, ./ui/ItemDetail.vue, ./ui/highlights/HighlightInput.vue
-  - *logic*: ./logic/useUserList.ts, ./logic/useUserDetail.ts, ./logic/useReconList.ts, ./logic/useRatingList.ts, ./logic/useQuestionQueue.ts, ./logic/useItemList.ts, ./logic/useExternalTranslate.ts, ./logic/useAdminSearch.ts, ./logic/useAdminPagedResource.ts, ./logic/useAdminPagedList.ts, ./logic/useAdminItemVinDecode.ts, ./logic/useAdminItem.ts, ./logic/useAdminCategoryLabel.ts
-
-## 🪐 Osa: SPINE
-
-### Uzel: `account`
-- **Stav:** pending
-- **Fyzické soubory:**
-  - *ui*: ./account.vue, ./ui/UserMenuAvatar.vue, ./ui/ProfileTextValueEdit.vue, ./ui/ProfileLanguageEdit.vue, ./ui/ProfileEmailEdit.vue, ./ui/ProfileAddressEdit.vue, ./ui/LettersAvatar.vue
-
-### Uzel: `legacy-scrapers`
-- **Stav:** pending
-- **Fyzické soubory:**
-  - *logic*: ./src/queue/scrape-queue.ts, ./scrapers/mobile-de/scraper.ts, ./scrapers/mascus-cz/scraper.ts, ./scrapers/autoline/scraper.ts, ./scrapers/firmy-cz/scraper.ts, ./scrapers/esbirka/scraper.ts, ./scrapers/judikaty/sources/justice/scraper.ts, ./vitest.config.ts, ./src/index.ts, ./scripts/sqlite-to-postgres.ts, ./scripts/optimize-db.ts, ./scripts/migrate.ts, ./scripts/mcp-benchmark.ts, ./scripts/index-meilisearch.ts, ./scripts/generate-terms.ts, ./scripts/extract-makes-models.ts, ./scripts/extract-categories.ts, ./scripts/e2e-worker-run.ts, ./scripts/e2e-worker-prompt.ts, ./scripts/compress-raw.ts, ./lib/utils.ts, ./lib/types.ts, ./lib/sitemap.ts, ./lib/meilisearch.ts, ./lib/logger.ts, ./lib/health.ts, ./lib/fetch.ts, ./lib/db-prefix.ts, ./lib/cache.ts, ./lib/block-detector.ts, ./src/util/rate-limiter.ts, ./scrapers/mobile-de/types.ts, ./scrapers/mobile-de/search.ts, ./scrapers/mobile-de/index.ts, ./scrapers/mobile-de/db.ts, ./scrapers/mobile-de/browser.ts, ./scrapers/mascus-cz/types.ts, ./scrapers/mascus-cz/sitemap.ts, ./scrapers/mascus-cz/index.ts, ./scrapers/mascus-cz/db.ts, ./scripts/lib/mcp-client.ts, ./scripts/lib/docx-writer.ts, ./scrapers/firmy-cz/types.ts, ./scrapers/firmy-cz/sitemap.ts, ./scrapers/firmy-cz/index.ts, ./scrapers/firmy-cz/db.ts, ./scrapers/firmy-cz/cron.ts, ./scrapers/esbirka/types.ts, ./scrapers/esbirka/index.ts, ./scrapers/esbirka/discovery.ts, ./scrapers/esbirka/db.ts, ./scrapers/esbirka/api.ts, ./scrapers/autoline/types.ts, ./scrapers/autoline/sitemap.ts, ./scrapers/autoline/index.ts, ./scrapers/autoline/db.ts, ./scrapers/judikaty/utils.ts, ./scrapers/judikaty/types.ts, ./scrapers/judikaty/logger.ts, ./scrapers/judikaty/index.ts, ./scrapers/judikaty/detail-runner.ts, ./scrapers/judikaty/db.ts, ./scrapers/judikaty/sources/usoud/scraper.ts, ./scrapers/judikaty/sources/usoud/discovery.ts, ./scrapers/judikaty/sources/nssoud/scraper.ts, ./scrapers/judikaty/sources/nssoud/discovery.ts, ./scrapers/judikaty/sources/nsoud/scraper.ts, ./scrapers/judikaty/sources/nsoud/discovery.ts, ./scrapers/judikaty/sources/justice/discovery.ts, ./scrapers/judikaty/sources/justice/api.ts
-  - *tests*: ./scrapers/mobile-de/scraper.test.ts, ./src/util/rate-limiter.test.ts, ./lib/utils.test.ts, ./lib/meilisearch.test.ts, ./lib/logger.test.ts, ./lib/health.test.ts, ./lib/fetch.test.ts, ./lib/db-prefix.test.ts, ./lib/block-detector.test.ts, ./scrapers/mobile-de/search.test.ts, ./scrapers/mobile-de/db.test.ts, ./scrapers/mobile-de/browser.test.ts, ./scrapers/mascus-cz/sitemap.test.ts, ./scrapers/mascus-cz/scraper.test.ts, ./scrapers/mascus-cz/db.test.ts, ./scripts/lib/mcp-client.timeout.test.ts, ./scripts/lib/docx-writer.test.ts, ./scrapers/firmy-cz/sitemap.test.ts, ./scrapers/firmy-cz/scraper.test.ts, ./scrapers/firmy-cz/db.test.ts, ./scrapers/firmy-cz/cron.test.ts, ./scrapers/esbirka/scraper.test.ts, ./scrapers/esbirka/discovery.test.ts, ./scrapers/esbirka/db.test.ts, ./scrapers/esbirka/api.test.ts, ./scrapers/autoline/sitemap.test.ts, ./scrapers/autoline/scraper.test.ts, ./scrapers/autoline/db.test.ts, ./scrapers/judikaty/utils.test.ts, ./scrapers/judikaty/logger.test.ts, ./scrapers/judikaty/detail-runner.test.ts, ./scrapers/judikaty/db.test.ts, ./scrapers/judikaty/sources/usoud/scraper.test.ts, ./scrapers/judikaty/sources/usoud/discovery.test.ts, ./scrapers/judikaty/sources/nssoud/scraper.test.ts, ./scrapers/judikaty/sources/nssoud/discovery.test.ts, ./scrapers/judikaty/sources/nsoud/scraper.test.ts, ./scrapers/judikaty/sources/nsoud/discovery.test.ts, ./scrapers/judikaty/sources/justice/scraper.test.ts, ./scrapers/judikaty/sources/justice/discovery.test.ts, ./scrapers/judikaty/sources/justice/api.test.ts
-  - *legacy_unmapped*: ./eslint.config.js
-
-### Uzel: `dashboard-core`
-- **Stav:** pending
-- **Fyzické soubory:**
-  - *ui*: ./dashboard-core.vue
-
-### Uzel: `privacy-gateway`
-- **Stav:** met
-- **Fyzické soubory:**
-  - *ui*: ./privacy-gateway.vue
-  - *logic*: ./logic.ts
-  - *public*: ./index.ts
-  - *tests*: ./logic.test.ts
-
-### Uzel: `relay`
-- **Stav:** met
-- **Fyzické soubory:**
-  - *ui*: ./relay.vue
-  - *logic*: 
-  - *public*: ./index.ts
-  - *tests*: 
-
-### Uzel: `arbitrage-miner`
-- **Stav:** met
-- **Fyzické soubory:**
-  - *ui*: ./arbitrage-miner.vue
-  - *logic*: ./miner.ts
-  - *tests*: ./miner.test.ts
-
-### Uzel: `worker`
-- **Stav:** met
-- **Fyzické soubory:**
-  - *ui*: ./worker.vue
-  - *logic*: ./logic.ts
-
-### Uzel: `symphony-queue`
-- **Stav:** met
-- **Fyzické soubory:**
-  - *ui*: ./symphony-queue.vue
-  - *logic*: ./logic.ts
-  - *contract*: ./index.ts
-  - *tests*: ./logic.test.ts
-
-### Uzel: `shadow-broker`
-- **Stav:** met
-- **Fyzické soubory:**
-  - *ui*: ./shadow-broker.vue
-  - *logic*: ./broker.ts
-  - *tests*: ./broker.test.ts
-
-### Uzel: `inbox-orchestrator`
-- **Stav:** met
-- **Fyzické soubory:**
-  - *ui*: ./inbox-orchestrator.vue
-  - *logic*: ./logic.ts
-
-### Uzel: `deep-inventory`
-- **Stav:** pending
-- **Fyzické soubory:**
-  - *ui*: ./deep-inventory.vue
-  - *logic*: ./scraper.ts, ./worker.ts, ./scheduler.ts, ./delta-engine.ts, ./queue.ts, ./browser.ts
-  - *public*: ./index.ts
-  - *tests*: ./scraper.test.ts
-
-### Uzel: `relay-rate-limiter`
-- **Stav:** undefined
-
-### Uzel: `relay-provider-router`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: ./logic.ts
-  - *tests*: ./logic.test.ts
-
-### Uzel: `inbox-orchestrator-intent-classifier`
-- **Stav:** undefined
-
-### Uzel: `inbox-orchestrator-auto-responder`
-- **Stav:** undefined
-
-## 🪐 Osa: SPINE/INBOUND/THREAD-MATCH
-
-### Uzel: `thread-match`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/INBOUND/REPLY-CLASSIFY
-
-### Uzel: `reply-classify`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: INBOUND
-
-### Uzel: `inbound`
-- **Stav:** undefined
-
-## 🪐 Osa: SPINE/INBOUND/BOUNCE-HANDLE
-
-### Uzel: `bounce-handle`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/INBOUND/BOUNCE-DETECT
-
-### Uzel: `bounce-detect`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/INBOUND/IMAP-POLL
-
-### Uzel: `imap-poll`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: DOMAIN
-
-### Uzel: `core-types`
-- **Stav:** met
-- **Fyzické soubory:**
-  - *logic*: ./schemas.ts, ./listing.dto.ts, ./index.ts
-
-## 🪐 Osa: DEMAND
-
 ### Uzel: `url-state`
-- **Stav:** undefined
-
-### Uzel: `unsubscribe`
 - **Stav:** undefined
 
 ### Uzel: `toggle-roundtrip`
 - **Stav:** undefined
 
-### Uzel: `send`
+### Uzel: `unsubscribe`
 - **Stav:** undefined
 
 ### Uzel: `spam-hidden`
@@ -673,11 +98,40 @@ Tento dokument je plně generován automaticky na základě fyzických uzlů a j
 ### Uzel: `seller-visible`
 - **Stav:** undefined
 
+### Uzel: `send`
+- **Stav:** undefined
+
 ### Uzel: `return-path`
 - **Stav:** undefined
 
+### Uzel: `saved-search`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *ui*: ./saved-search.vue, ./ui/SavedSearches.vue, ./ui/SavedSearchCard.vue, ./ui/SaveSearchButton.vue
+  - *logic*: ./logic.ts, ./contract.ts, ./logic/useSavedSearches.ts, ./logic/useSaveCurrentSearch.ts
+
 ### Uzel: `relevance`
 - **Stav:** undefined
+
+### Uzel: `ratings-reviews`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `recommendation`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: ./contract.ts
+  - *ui*: ./ui/SimilarItems.vue, ./ui/RecommendedItems.vue, ./ui/ItemsRail.vue
+
+### Uzel: `search`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *legacy_unmapped*: ./searchService.test.js, ./searchService.js, ./searchController.test.js, ./searchController.js
+  - *ui*: ./demand-search.vue, ./ui/SearchResults.vue, ./ui/SearchFilters.vue
+  - *logic*: ./contract.ts, ./logic/useSearchFilters.ts
 
 ### Uzel: `rail-to-bid`
 - **Stav:** undefined
@@ -688,46 +142,73 @@ Tento dokument je plně generován automaticky na základě fyzických uzlů a j
 ### Uzel: `published-only`
 - **Stav:** undefined
 
-### Uzel: `post-sale`
-- **Stav:** undefined
-
 ### Uzel: `owner-scoped`
-- **Stav:** undefined
-
-### Uzel: `pagination`
 - **Stav:** undefined
 
 ### Uzel: `ordering`
 - **Stav:** undefined
 
-### Uzel: `non-empty`
+### Uzel: `pagination`
 - **Stav:** undefined
 
 ### Uzel: `no-duplicate`
 - **Stav:** undefined
 
+### Uzel: `newsletter-email`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `non-empty`
+- **Stav:** undefined
+
 ### Uzel: `inquiry-roundtrip`
+- **Stav:** undefined
+
+### Uzel: `favorites`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: ./logic.ts, ./logic/useFavorites.ts
+  - *ui*: ./favorites.vue
+
+### Uzel: `messaging`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: ./contract.ts, ./logic/useItemQuestions.ts, ./logic/useAdminQuestions.ts
+  - *ui*: ./ui/QuestionThread.vue, ./ui/QuestionRow.vue, ./ui/QuestionForm.vue
+
+### Uzel: `diacritics`
 - **Stav:** undefined
 
 ### Uzel: `facet-filter`
 - **Stav:** undefined
 
-### Uzel: `diacritics`
+### Uzel: `compare-set`
 - **Stav:** undefined
 
 ### Uzel: `ctr`
 - **Stav:** undefined
 
+### Uzel: `contact-offers`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *ui*: ./ui/ContactForm.vue
+
 ### Uzel: `create`
 - **Stav:** undefined
 
-### Uzel: `compare-set`
+### Uzel: `auto-publish`
 - **Stav:** undefined
+
+### Uzel: `compare`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *ui*: ./ui/CompareDock.vue
+  - *logic*: ./logic/useCompare.ts
 
 ### Uzel: `cadence`
-- **Stav:** undefined
-
-### Uzel: `auto-publish`
 - **Stav:** undefined
 
 ### Uzel: `ask`
@@ -735,6 +216,499 @@ Tento dokument je plně generován automaticky na základě fyzických uzlů a j
 
 ### Uzel: `answer`
 - **Stav:** undefined
+
+### Uzel: `specs-before-bid`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `decode-cache`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `completeness`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `pano-360`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `completeness`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `soft-close`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `eligibility`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `concurrency`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `empty-state`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `detail-order`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `card-order`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `send`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `unsubscribe`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `no-duplicate`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `seller-visible`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `owner-scoped`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `create`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `rail-to-bid`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `url-state`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `non-empty`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `ctr`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `relevance`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `query-roundtrip`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `ordering`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `pagination`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `facet-filter`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `cadence`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `return-path`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `toggle-roundtrip`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `diacritics`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `spam-hidden`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `auto-publish`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `ask`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `published-only`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `answer`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `inquiry-roundtrip`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `compare-set`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+## 🪐 Sémantická vrstva: BRAIN
+
+### Uzel: `acquisition`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `inbound`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `legacy-scrapers`
+- **Stav:** pending
+- **Fyzické soubory:**
+  - *logic*: ./src/queue/scrape-queue.ts, ./scrapers/mobile-de/scraper.ts, ./scrapers/mascus-cz/scraper.ts, ./scrapers/autoline/scraper.ts, ./scrapers/firmy-cz/scraper.ts, ./scrapers/esbirka/scraper.ts, ./scrapers/judikaty/sources/justice/scraper.ts, ./vitest.config.ts, ./src/index.ts, ./scripts/sqlite-to-postgres.ts, ./scripts/optimize-db.ts, ./scripts/migrate.ts, ./scripts/mcp-benchmark.ts, ./scripts/index-meilisearch.ts, ./scripts/generate-terms.ts, ./scripts/extract-makes-models.ts, ./scripts/extract-categories.ts, ./scripts/e2e-worker-run.ts, ./scripts/e2e-worker-prompt.ts, ./scripts/compress-raw.ts, ./lib/utils.ts, ./lib/types.ts, ./lib/sitemap.ts, ./lib/meilisearch.ts, ./lib/logger.ts, ./lib/health.ts, ./lib/fetch.ts, ./lib/db-prefix.ts, ./lib/cache.ts, ./lib/block-detector.ts, ./src/util/rate-limiter.ts, ./scrapers/mobile-de/types.ts, ./scrapers/mobile-de/search.ts, ./scrapers/mobile-de/index.ts, ./scrapers/mobile-de/db.ts, ./scrapers/mobile-de/browser.ts, ./scrapers/mascus-cz/types.ts, ./scrapers/mascus-cz/sitemap.ts, ./scrapers/mascus-cz/index.ts, ./scrapers/mascus-cz/db.ts, ./scripts/lib/mcp-client.ts, ./scripts/lib/docx-writer.ts, ./scrapers/firmy-cz/types.ts, ./scrapers/firmy-cz/sitemap.ts, ./scrapers/firmy-cz/index.ts, ./scrapers/firmy-cz/db.ts, ./scrapers/firmy-cz/cron.ts, ./scrapers/esbirka/types.ts, ./scrapers/esbirka/index.ts, ./scrapers/esbirka/discovery.ts, ./scrapers/esbirka/db.ts, ./scrapers/esbirka/api.ts, ./scrapers/autoline/types.ts, ./scrapers/autoline/sitemap.ts, ./scrapers/autoline/index.ts, ./scrapers/autoline/db.ts, ./scrapers/judikaty/utils.ts, ./scrapers/judikaty/types.ts, ./scrapers/judikaty/logger.ts, ./scrapers/judikaty/index.ts, ./scrapers/judikaty/detail-runner.ts, ./scrapers/judikaty/db.ts, ./scrapers/judikaty/sources/usoud/scraper.ts, ./scrapers/judikaty/sources/usoud/discovery.ts, ./scrapers/judikaty/sources/nssoud/scraper.ts, ./scrapers/judikaty/sources/nssoud/discovery.ts, ./scrapers/judikaty/sources/nsoud/scraper.ts, ./scrapers/judikaty/sources/nsoud/discovery.ts, ./scrapers/judikaty/sources/justice/discovery.ts, ./scrapers/judikaty/sources/justice/api.ts
+  - *tests*: ./scrapers/mobile-de/scraper.test.ts, ./src/util/rate-limiter.test.ts, ./lib/utils.test.ts, ./lib/meilisearch.test.ts, ./lib/logger.test.ts, ./lib/health.test.ts, ./lib/fetch.test.ts, ./lib/db-prefix.test.ts, ./lib/block-detector.test.ts, ./scrapers/mobile-de/search.test.ts, ./scrapers/mobile-de/db.test.ts, ./scrapers/mobile-de/browser.test.ts, ./scrapers/mascus-cz/sitemap.test.ts, ./scrapers/mascus-cz/scraper.test.ts, ./scrapers/mascus-cz/db.test.ts, ./scripts/lib/mcp-client.timeout.test.ts, ./scripts/lib/docx-writer.test.ts, ./scrapers/firmy-cz/sitemap.test.ts, ./scrapers/firmy-cz/scraper.test.ts, ./scrapers/firmy-cz/db.test.ts, ./scrapers/firmy-cz/cron.test.ts, ./scrapers/esbirka/scraper.test.ts, ./scrapers/esbirka/discovery.test.ts, ./scrapers/esbirka/db.test.ts, ./scrapers/esbirka/api.test.ts, ./scrapers/autoline/sitemap.test.ts, ./scrapers/autoline/scraper.test.ts, ./scrapers/autoline/db.test.ts, ./scrapers/judikaty/utils.test.ts, ./scrapers/judikaty/logger.test.ts, ./scrapers/judikaty/detail-runner.test.ts, ./scrapers/judikaty/db.test.ts, ./scrapers/judikaty/sources/usoud/scraper.test.ts, ./scrapers/judikaty/sources/usoud/discovery.test.ts, ./scrapers/judikaty/sources/nssoud/scraper.test.ts, ./scrapers/judikaty/sources/nssoud/discovery.test.ts, ./scrapers/judikaty/sources/nsoud/scraper.test.ts, ./scrapers/judikaty/sources/nsoud/discovery.test.ts, ./scrapers/judikaty/sources/justice/scraper.test.ts, ./scrapers/judikaty/sources/justice/discovery.test.ts, ./scrapers/judikaty/sources/justice/api.test.ts
+  - *legacy_unmapped*: ./eslint.config.js
+
+### Uzel: `email-validation`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `firmy-cz`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: ./logic.ts
+  - *ui*: ./firmy-cz.vue
+
+### Uzel: `classify-icp`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `ares-source`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `thread-match`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `acquisition`
+- **Stav:** undefined
+
+### Uzel: `reply-classify`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `imap-poll`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `bounce-detect`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `inbound`
+- **Stav:** undefined
+
+### Uzel: `bounce-handle`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `learn-zod-guard`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `learn-llm-connector`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `learn-html-cleaner`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `worker`
+- **Stav:** met
+- **Fyzické soubory:**
+  - *ui*: ./worker.vue
+  - *logic*: ./logic.ts
+
+### Uzel: `rule-registry`
+- **Stav:** met
+- **Fyzické soubory:**
+  - *logic*: ./index.ts, ./cache.ts
+
+### Uzel: `relay`
+- **Stav:** met
+- **Fyzické soubory:**
+  - *ui*: ./relay.vue
+  - *logic*: 
+  - *public*: ./index.ts
+  - *tests*: 
+
+### Uzel: `parser-compiler`
+- **Stav:** met
+- **Fyzické soubory:**
+  - *logic*: ./index.ts, ./compiler.ts
+
+### Uzel: `arbitrage-miner`
+- **Stav:** met
+- **Fyzické soubory:**
+  - *ui*: ./arbitrage-miner.vue
+  - *logic*: ./index.ts, ./miner.ts
+  - *tests*: ./miner.test.ts
+
+### Uzel: `symphony-queue`
+- **Stav:** met
+- **Fyzické soubory:**
+  - *ui*: ./symphony-queue.vue
+  - *logic*: ./logic.ts
+  - *contract*: ./index.ts
+  - *tests*: ./logic.test.ts
+
+### Uzel: `engine-acquisition-mobile-de`
+- **Stav:** pending
+- **Fyzické soubory:**
+  - *ui*: ./engine-acquisition-mobile-de.vue
+  - *logic*: ./types.ts, ./search.ts, ./scraper.ts, ./db.ts, ./browser.ts
+
+### Uzel: `engine-acquisition-mascus`
+- **Stav:** pending
+- **Fyzické soubory:**
+  - *ui*: ./engine-acquisition-mascus.vue
+  - *logic*: ./types.ts, ./sitemap.ts, ./scraper.ts, ./db.ts
+
+### Uzel: `engine-acquisition-autoline`
+- **Stav:** pending
+- **Fyzické soubory:**
+  - *ui*: ./engine-acquisition-autoline.vue
+  - *logic*: ./types.ts, ./sitemap.ts, ./scraper.ts, ./db.ts
+
+### Uzel: `engine-acquisition-firmy`
+- **Stav:** pending
+- **Fyzické soubory:**
+  - *ui*: ./engine-acquisition-firmy.vue
+  - *logic*: ./types.ts, ./sitemap.ts, ./scraper.ts, ./db.ts, ./cron.ts
+
+### Uzel: `engine-acquisition-esbirka`
+- **Stav:** pending
+- **Fyzické soubory:**
+  - *ui*: ./engine-acquisition-esbirka.vue
+  - *logic*: ./types.ts, ./scraper.ts, ./discovery.ts, ./db.ts, ./api.ts
+
+### Uzel: `engine-acquisition-judikaty`
+- **Stav:** pending
+- **Fyzické soubory:**
+  - *ui*: ./engine-acquisition-judikaty.vue
+  - *logic*: ./utils.ts, ./types.ts, ./logger.ts, ./detail-runner.ts, ./db.ts, ./sources/usoud/scraper.ts, ./sources/usoud/discovery.ts, ./sources/nssoud/scraper.ts, ./sources/nssoud/discovery.ts, ./sources/nsoud/scraper.ts, ./sources/nsoud/discovery.ts, ./sources/justice/scraper.ts, ./sources/justice/discovery.ts, ./sources/justice/api.ts
+  - *tests*: ./sources/usoud/scraper.test.ts, ./sources/usoud/discovery.test.ts, ./sources/nssoud/scraper.test.ts, ./sources/nssoud/discovery.test.ts, ./sources/nsoud/scraper.test.ts, ./sources/nsoud/discovery.test.ts, ./sources/justice/scraper.test.ts, ./sources/justice/discovery.test.ts, ./sources/justice/api.test.ts
+
+### Uzel: `inbox-orchestrator`
+- **Stav:** met
+- **Fyzické soubory:**
+  - *ui*: ./inbox-orchestrator.vue
+  - *logic*: ./logic.ts
+
+### Uzel: `deep-inventory`
+- **Stav:** met
+- **Fyzické soubory:**
+  - *ui*: ./deep-inventory.vue
+  - *logic*: ./index.ts, ./worker.ts, ./scheduler.ts, ./crawler.ts, ./fast-extractor.ts, ./delta-engine.ts, ./queue.ts
+
+### Uzel: `firmy-cz`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `classify-icp`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `relay-rate-limiter`
+- **Stav:** undefined
+
+### Uzel: `relay-provider-router`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: ./logic.ts
+  - *tests*: ./logic.test.ts
+
+### Uzel: `inbox-orchestrator-auto-responder`
+- **Stav:** undefined
+
+### Uzel: `inbox-orchestrator-intent-classifier`
+- **Stav:** undefined
+
+### Uzel: `cross-border-arbitrage`
+- **Stav:** met
+- **Fyzické soubory:**
+  - *logic*: ./scanner.ts
 
 ### Uzel: `stale-reaper`
 - **Stav:** met
@@ -756,81 +730,162 @@ Tento dokument je plně generován automaticky na základě fyzických uzlů a j
 - **Fyzické soubory:**
   - *logic*: ./interceptor.ts
 
-## 🪐 Osa: SPINE/DEMAND/SEARCH
+## 🪐 Sémantická vrstva: HANDS
 
-### Uzel: `search`
+### Uzel: `sale`
 - **Stav:** undefined
 - **Fyzické soubory:**
-  - *legacy_unmapped*: ./searchService.test.js, ./searchService.js, ./searchController.test.js, ./searchController.js
-  - *ui*: ./demand-search.vue, ./ui/SearchResults.vue, ./ui/SearchFilters.vue
-  - *logic*: ./contract.ts, ./logic/useSearchFilters.ts
+  - *ui*: ./sale.vue
 
-## 🪐 Osa: SPINE/DEMAND/SAVED-SEARCH
-
-### Uzel: `saved-search`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *ui*: ./saved-search.vue, ./ui/SavedSearches.vue, ./ui/SavedSearchCard.vue, ./ui/SaveSearchButton.vue
-  - *logic*: ./logic.ts, ./contract.ts, ./logic/useSavedSearches.ts, ./logic/useSaveCurrentSearch.ts
-
-## 🪐 Osa: SPINE/DEMAND/RECOMMENDATION
-
-### Uzel: `recommendation`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: ./contract.ts
-  - *ui*: ./ui/SimilarItems.vue, ./ui/RecommendedItems.vue, ./ui/ItemsRail.vue
-
-## 🪐 Osa: SPINE/DEMAND/RATINGS-REVIEWS
-
-### Uzel: `ratings-reviews`
+### Uzel: `outreach`
 - **Stav:** undefined
 - **Fyzické soubory:**
   - *logic*: 
   - *ui*: 
   - *tests*: 
 
-## 🪐 Osa: SPINE/DEMAND/NEWSLETTER-EMAIL
-
-### Uzel: `newsletter-email`
+### Uzel: `compliance`
 - **Stav:** undefined
 - **Fyzické soubory:**
   - *logic*: 
   - *ui*: 
   - *tests*: 
 
-## 🪐 Osa: SPINE/DEMAND/MESSAGING
-
-### Uzel: `messaging`
+### Uzel: `platform`
 - **Stav:** undefined
 - **Fyzické soubory:**
-  - *logic*: ./contract.ts, ./logic/useItemQuestions.ts, ./logic/useAdminQuestions.ts
-  - *ui*: ./ui/QuestionThread.vue, ./ui/QuestionRow.vue, ./ui/QuestionForm.vue
+  - *logic*: ./worker/vitest.config.ts, ./worker/worker/web-search.ts, ./worker/worker/sentry.ts, ./worker/worker/queue.ts, ./worker/worker/prompts.ts, ./worker/worker/pdf.ts, ./worker/worker/index.ts, ./worker/worker/generate-odpor.ts, ./worker/worker/firebase.ts, ./worker/worker/email.ts, ./worker/lib/logger.ts, ./worker/lib/health.ts, ./worker/scripts/lib/mcp-client.ts, ./worker/scripts/lib/docx-writer.ts
+  - *tests*: ./worker/worker/web-search.test.ts, ./worker/worker/shutdown.unit.test.ts, ./worker/worker/queue.test.ts, ./worker/worker/pdf.test.ts, ./worker/worker/index.test.ts, ./worker/worker/generate-odpor.timeout.test.ts, ./worker/worker/generate-odpor.test.ts, ./worker/worker/firebase.test.ts, ./worker/worker/firebase.collision.test.ts, ./worker/worker/email.test.ts, ./worker/lib/health.test.ts, ./worker/scripts/lib/docx-writer.test.ts
+  - *legacy_unmapped*: ./dashboard-core/src/sentryInit.js, ./dashboard-core/src/index.js, ./dashboard-core/src/lib/tokens.js, ./dashboard-core/src/lib/sentryCapture.js, ./dashboard-core/src/lib/scoring.js, ./dashboard-core/src/lib/fetchWithSentry.js, ./dashboard-core/src/lib/emailVerify.js
 
-## 🪐 Osa: SPINE/DEMAND/FAVORITES
+### Uzel: `resolution`
+- **Stav:** undefined
 
-### Uzel: `favorites`
+### Uzel: `reconcile`
+- **Stav:** undefined
+
+### Uzel: `invoice-list`
+- **Stav:** undefined
+
+### Uzel: `sale-settlement`
 - **Stav:** undefined
 - **Fyzické soubory:**
-  - *logic*: ./logic.ts, ./logic/useFavorites.ts
-  - *ui*: ./favorites.vue
+  - *ui*: ./sale-settlement.vue, ./ui/settlement/SettlementWizard.vue, ./ui/settlement/SettlementStepVerifying.vue, ./ui/settlement/SettlementStepSummary.vue, ./ui/settlement/SettlementStepSuccess.vue, ./ui/settlement/SettlementStepPayment.vue, ./ui/settlement/SettlementStepMethod.vue, ./ui/settlement/SettlementStepCard.vue, ./ui/settlement/SettlementStepBilling.vue, ./ui/settlement/SettlementCard.vue
+  - *logic*: ./contract.ts, ./logic/useSettlement.ts
 
-## 🪐 Osa: SPINE/DEMAND/CONTACT-OFFERS
+### Uzel: `framing`
+- **Stav:** undefined
 
-### Uzel: `contact-offers`
+### Uzel: `fio-match`
+- **Stav:** undefined
+
+### Uzel: `invoicing`
 - **Stav:** undefined
 - **Fyzické soubory:**
-  - *ui*: ./ui/ContactForm.vue
+  - *ui*: ./invoicing.vue, ./ui/Invoices.vue
+  - *logic*: ./logic/useInvoices.ts
 
-## 🪐 Osa: SPINE/DEMAND/COMPARE
+### Uzel: `fakturoid-sync`
+- **Stav:** undefined
 
-### Uzel: `compare`
+### Uzel: `disputes-complaints`
 - **Stav:** undefined
 - **Fyzické soubory:**
-  - *ui*: ./ui/CompareDock.vue
-  - *logic*: ./logic/useCompare.ts
+  - *ui*: ./disputes-complaints.vue
 
-## 🪐 Osa: SPINE/COMPLIANCE/UNSUB-TOKEN
+### Uzel: `deposit-billing`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *ui*: ./deposit-billing.vue, ./ui/deposit/DepositWizard.vue, ./ui/deposit/DepositStepVerifying.vue, ./ui/deposit/DepositStepSuccess.vue, ./ui/deposit/DepositStepPayment.vue, ./ui/deposit/DepositStepMethod.vue, ./ui/deposit/DepositStepCurrency.vue, ./ui/deposit/DepositStepCard.vue, ./ui/deposit/DepositStepBilling.vue, ./ui/deposit/DepositCard.vue
+  - *logic*: ./contract.ts, ./logic/useDeposit.ts
+
+### Uzel: `completion`
+- **Stav:** undefined
+
+### Uzel: `billing-capture`
+- **Stav:** undefined
+
+### Uzel: `case-open`
+- **Stav:** undefined
+
+### Uzel: `amount-due`
+- **Stav:** undefined
+
+### Uzel: `charge-once`
+- **Stav:** undefined
+
+### Uzel: `send-window`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `warmup`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `send-dedup`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `metadata-min`
+- **Stav:** undefined
+
+### Uzel: `outreach`
+- **Stav:** undefined
+
+### Uzel: `sanitize`
+- **Stav:** undefined
+
+### Uzel: `egress`
+- **Stav:** undefined
+
+### Uzel: `mailbox-reliability`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `content-render`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `content-enc`
+- **Stav:** undefined
+
+### Uzel: `campaign-scheduler`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `anti-trace`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `engine-drive`
+- **Stav:** met
+- **Identita:** Drive — proveď akce proti portálu: read (čti inzeráty) i write (řiď NAŠE účty).
+- **Fyzické soubory:**
+  - *ui*: ./engine-drive.vue
+
+### Uzel: `post-sale`
+- **Stav:** undefined
 
 ### Uzel: `unsub-token`
 - **Stav:** undefined
@@ -839,15 +894,11 @@ Tento dokument je plně generován automaticky na základě fyzických uzlů a j
   - *ui*: 
   - *tests*: 
 
-## 🪐 Osa: SPINE/COMPLIANCE/SUPPRESSION
-
-### Uzel: `suppression`
+### Uzel: `dsr`
 - **Stav:** undefined
 - **Fyzické soubory:**
-  - *ui*: ./suppression.vue
   - *logic*: ./logic.ts
-
-## 🪐 Osa: SPINE/COMPLIANCE/GDPR-FOOTER
+  - *ui*: ./dsr.vue
 
 ### Uzel: `gdpr-footer`
 - **Stav:** undefined
@@ -856,15 +907,11 @@ Tento dokument je plně generován automaticky na základě fyzických uzlů a j
   - *ui*: 
   - *tests*: 
 
-## 🪐 Osa: SPINE/COMPLIANCE/DSR
-
-### Uzel: `dsr`
+### Uzel: `suppression`
 - **Stav:** undefined
 - **Fyzické soubory:**
+  - *ui*: ./suppression.vue
   - *logic*: ./logic.ts
-  - *ui*: ./dsr.vue
-
-## 🪐 Osa: SPINE/COMPLIANCE/AUDIT-LOG
 
 ### Uzel: `audit-log`
 - **Stav:** undefined
@@ -873,151 +920,169 @@ Tento dokument je plně generován automaticky na základě fyzických uzlů a j
   - *ui*: 
   - *tests*: 
 
-## 🪐 Osa: COMPLIANCE
-
 ### Uzel: `compliance`
 - **Stav:** undefined
 
-## 🪐 Osa: SPINE/ACQUISITION/FIRMY-CZ
-
-### Uzel: `firmy-cz`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: ./logic.ts
-  - *ui*: ./firmy-cz.vue
-
-## 🪐 Osa: SPINE/ACQUISITION/EMAIL-VALIDATION
-
-### Uzel: `email-validation`
+### Uzel: `worker-pdf`
 - **Stav:** undefined
 - **Fyzické soubory:**
   - *logic*: 
   - *ui*: 
   - *tests*: 
 
-## 🪐 Osa: SPINE/ACQUISITION/ARES-SOURCE
+### Uzel: `token-lifecycle`
+- **Stav:** undefined
 
-### Uzel: `ares-source`
+### Uzel: `spec-validity`
+- **Stav:** undefined
+
+### Uzel: `sitemap`
+- **Stav:** undefined
+
+### Uzel: `token-hash`
+- **Stav:** undefined
+
+### Uzel: `rtl-parity`
+- **Stav:** undefined
+
+### Uzel: `save-success`
+- **Stav:** undefined
+
+### Uzel: `registration`
+- **Stav:** undefined
+
+### Uzel: `protections`
 - **Stav:** undefined
 - **Fyzické soubory:**
   - *logic*: 
   - *ui*: 
   - *tests*: 
 
-## 🪐 Osa: SPINE/ACQUISITION/CLASSIFY-ICP
+### Uzel: `read-state`
+- **Stav:** undefined
 
-### Uzel: `classify-icp`
+### Uzel: `reference-data`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: ./contract.ts, ./logic/useLanguages.ts, ./logic/useCurrencies.ts, ./logic/useCountries.ts, ./logic/useCategories.ts
+  - *ui*: ./ui/FlagBadge.vue, ./ui/CategoriesGrid.vue
+
+### Uzel: `password-reset`
+- **Stav:** undefined
+
+### Uzel: `notifications`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *ui*: ./ui/NotificationItem.vue, ./ui/NotificationFeed.vue, ./ui/NotificationBell.vue
+  - *logic*: ./logic/useNotifications.ts
+
+### Uzel: `list-latency`
+- **Stav:** undefined
+
+### Uzel: `lcp`
+- **Stav:** undefined
+
+### Uzel: `key-events`
+- **Stav:** undefined
+
+### Uzel: `key-completeness`
+- **Stav:** undefined
+
+### Uzel: `ingest`
+- **Stav:** undefined
+
+### Uzel: `mcp`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: ./vitest.config.ts, ./mcp-server/version.ts, ./mcp-server/tools.ts, ./mcp-server/test-utils.ts, ./mcp-server/sentry.ts, ./mcp-server/index.ts, ./mcp-server/http.ts, ./mcp-server/db.ts, ./mcp-server/auth.ts, ./lib/utils.ts, ./lib/types.ts, ./lib/meilisearch.ts, ./lib/logger.ts, ./lib/fetch.ts, ./lib/db-prefix.ts, ./lib/cache.ts, ./scripts/lib/mcp-client.ts
+  - *tests*: ./mcp-server/version.test.ts, ./mcp-server/tools.test.ts, ./mcp-server/http.test.ts, ./mcp-server/e2e.test.ts, ./mcp-server/db.test.ts, ./mcp-server/auth.unit.test.ts, ./mcp-server/auth.test.ts, ./e2e/mcp-tools.test.ts, ./lib/utils.test.ts, ./lib/fetch.test.ts, ./lib/cache.test.ts, ./scripts/lib/mcp-client.test.ts
+
+### Uzel: `i18n`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *ui*: ./ui/Language.vue
+
+### Uzel: `guards`
+- **Stav:** undefined
+
+### Uzel: `design-system`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *ui*: ./design-system.vue, ./ui/TableBodySkeletor.vue, ./ui/Loading.vue, ./ui/BaseTransition.vue, ./ui/BaseTextarea.vue, ./ui/BaseStepper.vue, ./ui/BaseSelect.vue, ./ui/BaseRadio.vue, ./ui/BasePagination.vue, ./ui/BaseModal.vue, ./ui/BaseInput.vue, ./ui/BaseGeoInput.vue, ./ui/BaseForm.vue, ./ui/BaseEditingArea.vue, ./ui/BaseDrawer.vue, ./ui/BaseConfirmation.vue, ./ui/BaseCheckbox.vue, ./ui/BaseCallout.vue, ./ui/BaseBreadcrumb.vue, ./ui/playground/Swatch.vue, ./ui/playground/Specimen.vue, ./ui/playground/Section.vue, ./ui/playground/Overlays.vue, ./ui/playground/HeadlessUi.vue, ./ui/playground/Foundations.vue, ./ui/playground/Forms.vue, ./ui/playground/Domain.vue, ./ui/playground/Deposit.vue, ./ui/playground/DataDisplay.vue, ./ui/playground/Controls.vue, ./ui/playground/Chrome.vue
+  - *logic*: ./contract.ts, ./logic/useValidators.ts, ./logic/useScrollArrows.ts, ./logic/usePointerKind.ts, ./logic/usePlayground.ts, ./ui/playground/fixtures.ts
+
+### Uzel: `dashboard-bff`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *ui*: ./dashboard-bff.vue
+
+### Uzel: `country-resolution`
+- **Stav:** undefined
+
+### Uzel: `core`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *ui*: ./ui/HowItWorks.vue, ./ui/Header.vue, ./ui/Footer.vue
+  - *logic*: ./logic/useSharedNow.ts, ./logic/useSeo.ts, ./logic/useItemListLd.ts, ./logic/useInit.ts
+
+### Uzel: `contract-drift`
+- **Stav:** undefined
+
+### Uzel: `consent-gate`
+- **Stav:** undefined
+
+### Uzel: `consent-tracking`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *ui*: ./ui/CookiesBar.vue
+  - *logic*: ./logic/useTracking.ts, ./logic/useDetailTracking.ts, ./logic/useCookieConsent.ts
+
+### Uzel: `brand-parity`
+- **Stav:** undefined
+
+### Uzel: `category-coverage`
+- **Stav:** undefined
+
+### Uzel: `auth-account`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: ./contract.ts, ./logic/useUser.ts, ./logic/state.ts, ./logic/firebaseClient.ts, ./logic/authHeader.ts
+  - *ui*: ./ui/UserMenuAvatar.vue, ./ui/ProfileTextValueEdit.vue, ./ui/ProfileLanguageEdit.vue, ./ui/ProfileEmailEdit.vue, ./ui/ProfileAddressEdit.vue, ./ui/LettersAvatar.vue
+
+### Uzel: `auth`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *contract*: ./contract.ts
+  - *logic*: ./logic/useUser.ts, ./logic/state.ts, ./logic/firebaseClient.ts, ./logic/authHeader.ts
+  - *tests*: ./useUser.test.ts, ./state.test.ts, ./firebaseClient.test.ts, ./authHeader.test.ts
+
+### Uzel: `api-tokens`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: ./logic.ts, ./logic/useApiTokens.ts
+  - *tests*: ./logic.test.ts
+  - *ui*: ./api-tokens.vue, ./ui/ApiTokenCreateDialog.vue
+
+### Uzel: `admin`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *ui*: ./ui/LocaleTabs.vue, ./ui/ItemDetailVehicle.vue, ./ui/ItemDetailQuestions.vue, ./ui/ItemDetailImages.vue, ./ui/ItemDetailHighlights.vue, ./ui/ItemDetailGeneral.vue, ./ui/ItemDetailDescription.vue, ./ui/ItemDetailBids.vue, ./ui/ItemDetail.vue, ./ui/highlights/HighlightInput.vue
+  - *logic*: ./logic/useUserList.ts, ./logic/useUserDetail.ts, ./logic/useReconList.ts, ./logic/useRatingList.ts, ./logic/useQuestionQueue.ts, ./logic/useItemList.ts, ./logic/useExternalTranslate.ts, ./logic/useAdminSearch.ts, ./logic/useAdminPagedResource.ts, ./logic/useAdminPagedList.ts, ./logic/useAdminItemVinDecode.ts, ./logic/useAdminItem.ts, ./logic/useAdminCategoryLabel.ts
+
+### Uzel: `account`
+- **Stav:** pending
+- **Fyzické soubory:**
+  - *ui*: ./account.vue, ./ui/UserMenuAvatar.vue, ./ui/ProfileTextValueEdit.vue, ./ui/ProfileLanguageEdit.vue, ./ui/ProfileEmailEdit.vue, ./ui/ProfileAddressEdit.vue, ./ui/LettersAvatar.vue
+
+### Uzel: `a11y`
+- **Stav:** undefined
+
+### Uzel: `api-docs`
 - **Stav:** undefined
 - **Fyzické soubory:**
   - *logic*: 
   - *ui*: 
   - *tests*: 
-
-## 🪐 Osa: ACQUISITION
-
-### Uzel: `acquisition`
-- **Stav:** undefined
-
-## 🪐 Osa: SPINE/SUPPLY/VEHICLE-VIN/SPECS-BEFORE-BID
-
-### Uzel: `specs-before-bid`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/SUPPLY/VEHICLE-VIN/DECODE-CACHE
-
-### Uzel: `decode-cache`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/SUPPLY/VEHICLE-VIN/COMPLETENESS
-
-### Uzel: `completeness`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/SUPPLY/MEDIA-UPLOAD/PANO-360
-
-### Uzel: `pano-360`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/SUPPLY/MEDIA-UPLOAD/COMPLETENESS
-
-### Uzel: `completeness`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/SUPPLY/BIDDING/SOFT-CLOSE
-
-### Uzel: `soft-close`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/SUPPLY/BIDDING/ELIGIBILITY
-
-### Uzel: `eligibility`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/SUPPLY/BIDDING/CONCURRENCY
-
-### Uzel: `concurrency`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/SUPPLY/AUCTION-ITEMS/EMPTY-STATE
-
-### Uzel: `empty-state`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/SUPPLY/AUCTION-ITEMS/DETAIL-ORDER
-
-### Uzel: `detail-order`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/SUPPLY/AUCTION-ITEMS/CARD-ORDER
-
-### Uzel: `card-order`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/SALE/SALE-SETTLEMENT/COMPLETION
 
 ### Uzel: `completion`
 - **Stav:** undefined
@@ -1026,16 +1091,12 @@ Tento dokument je plně generován automaticky na základě fyzických uzlů a j
   - *ui*: 
   - *tests*: 
 
-## 🪐 Osa: SPINE/SALE/SALE-SETTLEMENT/CHARGE-ONCE
-
 ### Uzel: `charge-once`
 - **Stav:** undefined
 - **Fyzické soubory:**
   - *logic*: 
   - *ui*: 
   - *tests*: 
-
-## 🪐 Osa: SPINE/SALE/SALE-SETTLEMENT/BILLING-CAPTURE
 
 ### Uzel: `billing-capture`
 - **Stav:** undefined
@@ -1044,16 +1105,12 @@ Tento dokument je plně generován automaticky na základě fyzických uzlů a j
   - *ui*: 
   - *tests*: 
 
-## 🪐 Osa: SPINE/SALE/SALE-SETTLEMENT/AMOUNT-DUE
-
 ### Uzel: `amount-due`
 - **Stav:** undefined
 - **Fyzické soubory:**
   - *logic*: 
   - *ui*: 
   - *tests*: 
-
-## 🪐 Osa: SPINE/SALE/INVOICING/INVOICE-LIST
 
 ### Uzel: `invoice-list`
 - **Stav:** undefined
@@ -1062,25 +1119,12 @@ Tento dokument je plně generován automaticky na základě fyzických uzlů a j
   - *ui*: 
   - *tests*: 
 
-## 🪐 Osa: SPINE/SALE/INVOICING/FAKTUROID-SYNC
-
 ### Uzel: `fakturoid-sync`
 - **Stav:** undefined
 - **Fyzické soubory:**
   - *logic*: 
   - *ui*: 
   - *tests*: 
-
-## 🪐 Osa: SPINE/SALE/DISPUTES-COMPLAINTS/CASE-OPEN
-
-### Uzel: `case-open`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/SALE/DISPUTES-COMPLAINTS/RESOLUTION
 
 ### Uzel: `resolution`
 - **Stav:** undefined
@@ -1089,7 +1133,12 @@ Tento dokument je plně generován automaticky na základě fyzických uzlů a j
   - *ui*: 
   - *tests*: 
 
-## 🪐 Osa: SPINE/SALE/DEPOSIT-BILLING/RECONCILE
+### Uzel: `case-open`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
 
 ### Uzel: `reconcile`
 - **Stav:** undefined
@@ -1098,16 +1147,12 @@ Tento dokument je plně generován automaticky na základě fyzických uzlů a j
   - *ui*: 
   - *tests*: 
 
-## 🪐 Osa: SPINE/SALE/DEPOSIT-BILLING/FRAMING
-
 ### Uzel: `framing`
 - **Stav:** undefined
 - **Fyzické soubory:**
   - *logic*: 
   - *ui*: 
   - *tests*: 
-
-## 🪐 Osa: SPINE/SALE/DEPOSIT-BILLING/FIO-MATCH
 
 ### Uzel: `fio-match`
 - **Stav:** undefined
@@ -1116,8 +1161,6 @@ Tento dokument je plně generován automaticky na základě fyzických uzlů a j
   - *ui*: 
   - *tests*: 
 
-## 🪐 Osa: SPINE/OUTREACH/ANTI-TRACE/SANITIZE
-
 ### Uzel: `sanitize`
 - **Stav:** undefined
 - **Fyzické soubory:**
@@ -1125,7 +1168,11 @@ Tento dokument je plně generován automaticky na základě fyzických uzlů a j
   - *ui*: 
   - *tests*: 
 
-## 🪐 Osa: SPINE/OUTREACH/ANTI-TRACE/METADATA-MIN
+### Uzel: `campaign-scheduler-send-throttler`
+- **Stav:** undefined
+
+### Uzel: `campaign-scheduler-time-zone-mapper`
+- **Stav:** undefined
 
 ### Uzel: `metadata-min`
 - **Stav:** undefined
@@ -1134,7 +1181,12 @@ Tento dokument je plně generován automaticky na základě fyzických uzlů a j
   - *ui*: 
   - *tests*: 
 
-## 🪐 Osa: SPINE/OUTREACH/ANTI-TRACE/EGRESS
+### Uzel: `content-enc`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
 
 ### Uzel: `egress`
 - **Stav:** undefined
@@ -1143,376 +1195,12 @@ Tento dokument je plně generován automaticky na základě fyzických uzlů a j
   - *ui*: 
   - *tests*: 
 
-## 🪐 Osa: SPINE/OUTREACH/ANTI-TRACE/CONTENT-ENC
-
-### Uzel: `content-enc`
-- **Stav:** undefined
+### Uzel: `shadow-broker`
+- **Stav:** met
 - **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/PLATFORM/REFERENCE-DATA/COUNTRY-RESOLUTION
-
-### Uzel: `country-resolution`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/PLATFORM/REFERENCE-DATA/CATEGORY-COVERAGE
-
-### Uzel: `category-coverage`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/PLATFORM/NOTIFICATIONS/READ-STATE
-
-### Uzel: `read-state`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/PLATFORM/NOTIFICATIONS/KEY-EVENTS
-
-### Uzel: `key-events`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/PLATFORM/I18N/RTL-PARITY
-
-### Uzel: `rtl-parity`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/PLATFORM/I18N/KEY-COMPLETENESS
-
-### Uzel: `key-completeness`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/PLATFORM/DESIGN-SYSTEM/BRAND-PARITY
-
-### Uzel: `brand-parity`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/PLATFORM/DESIGN-SYSTEM/A11Y
-
-### Uzel: `a11y`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/PLATFORM/CORE/SITEMAP
-
-### Uzel: `sitemap`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/PLATFORM/CORE/LCP
-
-### Uzel: `lcp`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/PLATFORM/CONSENT-TRACKING/INGEST
-
-### Uzel: `ingest`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/PLATFORM/CONSENT-TRACKING/CONSENT-GATE
-
-### Uzel: `consent-gate`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/PLATFORM/AUTH-ACCOUNT/PASSWORD-RESET
-
-### Uzel: `password-reset`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/PLATFORM/AUTH-ACCOUNT/REGISTRATION
-
-### Uzel: `registration`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/PLATFORM/AUTH-ACCOUNT/GUARDS
-
-### Uzel: `guards`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/PLATFORM/API-TOKENS/TOKEN-LIFECYCLE
-
-### Uzel: `token-lifecycle`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/PLATFORM/API-TOKENS/TOKEN-HASH
-
-### Uzel: `token-hash`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/PLATFORM/API-DOCS/SPEC-VALIDITY
-
-### Uzel: `spec-validity`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/PLATFORM/API-DOCS/CONTRACT-DRIFT
-
-### Uzel: `contract-drift`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/PLATFORM/ADMIN/SAVE-SUCCESS
-
-### Uzel: `save-success`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/PLATFORM/ADMIN/LIST-LATENCY
-
-### Uzel: `list-latency`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/ENGINE/LEARN/ZOD-GUARD
-
-### Uzel: `learn-zod-guard`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/ENGINE/LEARN/LLM-CONNECTOR
-
-### Uzel: `learn-llm-connector`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/ENGINE/LEARN/HTML-CLEANER
-
-### Uzel: `learn-html-cleaner`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/DEMAND/SEARCH/URL-STATE
-
-### Uzel: `url-state`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/DEMAND/SEARCH/QUERY-ROUNDTRIP
-
-### Uzel: `query-roundtrip`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/DEMAND/SEARCH/RELEVANCE
-
-### Uzel: `relevance`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/DEMAND/SEARCH/PAGINATION
-
-### Uzel: `pagination`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/DEMAND/SEARCH/ORDERING
-
-### Uzel: `ordering`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/DEMAND/SEARCH/FACET-FILTER
-
-### Uzel: `facet-filter`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/DEMAND/SEARCH/DIACRITICS
-
-### Uzel: `diacritics`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/DEMAND/SAVED-SEARCH/UNSUBSCRIBE
-
-### Uzel: `unsubscribe`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/DEMAND/SAVED-SEARCH/SEND
-
-### Uzel: `send`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/DEMAND/SAVED-SEARCH/OWNER-SCOPED
-
-### Uzel: `owner-scoped`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/DEMAND/SAVED-SEARCH/NO-DUPLICATE
-
-### Uzel: `no-duplicate`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/DEMAND/SAVED-SEARCH/CREATE
-
-### Uzel: `create`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/DEMAND/RECOMMENDATION/RAIL-TO-BID
-
-### Uzel: `rail-to-bid`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/DEMAND/RECOMMENDATION/NON-EMPTY
-
-### Uzel: `non-empty`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/DEMAND/RECOMMENDATION/CTR
-
-### Uzel: `ctr`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/DEMAND/RATINGS-REVIEWS/SELLER-VISIBLE
-
-### Uzel: `seller-visible`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/DEMAND/RATINGS-REVIEWS/POST-SALE
+  - *ui*: ./shadow-broker.vue
+  - *logic*: ./broker.ts, ./garaaage-adapter.ts
+  - *tests*: ./broker.test.ts
 
 ### Uzel: `post-sale`
 - **Stav:** undefined
@@ -1521,106 +1209,12 @@ Tento dokument je plně generován automaticky na základě fyzických uzlů a j
   - *ui*: 
   - *tests*: 
 
-## 🪐 Osa: SPINE/DEMAND/NEWSLETTER-EMAIL/RETURN-PATH
-
-### Uzel: `return-path`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/DEMAND/NEWSLETTER-EMAIL/CADENCE
-
-### Uzel: `cadence`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/DEMAND/MESSAGING/SPAM-HIDDEN
-
-### Uzel: `spam-hidden`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/DEMAND/MESSAGING/PUBLISHED-ONLY
-
-### Uzel: `published-only`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/DEMAND/MESSAGING/AUTO-PUBLISH
-
-### Uzel: `auto-publish`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/DEMAND/MESSAGING/ASK
-
-### Uzel: `ask`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/DEMAND/MESSAGING/ANSWER
-
-### Uzel: `answer`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/DEMAND/FAVORITES/TOGGLE-ROUNDTRIP
-
-### Uzel: `toggle-roundtrip`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/DEMAND/CONTACT-OFFERS/INQUIRY-ROUNDTRIP
-
-### Uzel: `inquiry-roundtrip`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/DEMAND/COMPARE/COMPARE-SET
-
-### Uzel: `compare-set`
-- **Stav:** undefined
-- **Fyzické soubory:**
-  - *logic*: 
-  - *ui*: 
-  - *tests*: 
-
-## 🪐 Osa: SPINE/COMPLIANCE/COMPLIANCE/SUPPRESSION
-
 ### Uzel: `suppression`
 - **Stav:** undefined
 - **Fyzické soubory:**
   - *logic*: 
   - *ui*: 
   - *tests*: 
-
-## 🪐 Osa: SPINE/COMPLIANCE/COMPLIANCE/DSR
 
 ### Uzel: `dsr`
 - **Stav:** undefined
@@ -1629,21 +1223,173 @@ Tento dokument je plně generován automaticky na základě fyzických uzlů a j
   - *ui*: 
   - *tests*: 
 
-## 🪐 Osa: SPINE/ACQUISITION/ACQUISITION/FIRMY-CZ
+### Uzel: `privacy-gateway`
+- **Stav:** met
+- **Fyzické soubory:**
+  - *ui*: ./privacy-gateway.vue
+  - *logic*: ./logic.ts
+  - *public*: ./index.ts
+  - *tests*: ./logic.test.ts
 
-### Uzel: `firmy-cz`
+### Uzel: `dashboard-core`
+- **Stav:** pending
+- **Fyzické soubory:**
+  - *ui*: ./dashboard-core.vue
+
+### Uzel: `country-resolution`
 - **Stav:** undefined
 - **Fyzické soubory:**
   - *logic*: 
   - *ui*: 
   - *tests*: 
 
-## 🪐 Osa: SPINE/ACQUISITION/ACQUISITION/CLASSIFY-ICP
-
-### Uzel: `classify-icp`
+### Uzel: `category-coverage`
 - **Stav:** undefined
 - **Fyzické soubory:**
   - *logic*: 
   - *ui*: 
   - *tests*: 
+
+### Uzel: `read-state`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `key-events`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `rtl-parity`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `brand-parity`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `key-completeness`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `a11y`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `sitemap`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `lcp`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `ingest`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `consent-gate`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `registration`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `guards`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `password-reset`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `token-lifecycle`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `token-hash`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `list-latency`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `save-success`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `spec-validity`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+### Uzel: `contract-drift`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *logic*: 
+  - *ui*: 
+  - *tests*: 
+
+## 🪐 Sémantická vrstva: FEET
+
+### Uzel: `engine-learn`
+- **Stav:** met
+- **Identita:** Learn — z povrchu postav model toho, jak se aplikace ovládá (operation graph).
+- **Fyzické soubory:**
+  - *ui*: ./engine-learn.vue
+  - *logic*: ./self-healing.ts
+  - *public*: ./index.ts
 

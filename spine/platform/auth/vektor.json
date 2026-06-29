@@ -34,5 +34,6 @@
       "./firebaseClient.test.ts",
       "./authHeader.test.ts"
     ]
-  }
+  },
+  "semantic_layer": "HANDS"
 }

@@ -135,5 +135,6 @@
     "legacy_unmapped": [
       "./eslint.config.js"
     ]
-  }
+  },
+  "semantic_layer": "BRAIN"
 }

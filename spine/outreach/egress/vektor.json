@@ -38,5 +38,6 @@
     "vektorGate": "all-met"
   },
   "id": "egress",
-  "story_axis": "outreach"
+  "story_axis": "outreach",
+  "semantic_layer": "HANDS"
 }

@@ -9,5 +9,6 @@
     "logic": [
       "./miner.ts"
     ]
-  }
+  },
+  "semantic_layer": "BRAIN"
 }

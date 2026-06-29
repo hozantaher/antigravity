@@ -15,5 +15,6 @@
       "./index.ts",
       "./compiler.ts"
     ]
-  }
+  },
+  "semantic_layer": "BRAIN"
 }

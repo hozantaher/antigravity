@@ -25,5 +25,6 @@
     ]
   },
   "id": "compare",
-  "story_axis": "spine/demand/compare"
+  "story_axis": "spine/demand/compare",
+  "semantic_layer": "BODY"
 }

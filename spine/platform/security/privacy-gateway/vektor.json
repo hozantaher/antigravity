@@ -16,5 +16,6 @@
       "./logic.test.ts"
     ]
   },
-  "edges": []
+  "edges": [],
+  "semantic_layer": "HANDS"
 }

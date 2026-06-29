@@ -16,5 +16,6 @@
       "./acquisition/shared/block-detector.ts"
     ]
   },
-  "edges": []
+  "edges": [],
+  "semantic_layer": "BODY"
 }

@@ -27,5 +27,6 @@
     "vektorGate": "all-met"
   },
   "id": "pano-360",
-  "story_axis": "supply"
+  "story_axis": "supply",
+  "semantic_layer": "BODY"
 }

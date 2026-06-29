@@ -22,5 +22,6 @@
     ]
   },
   "id": "disputes-complaints",
-  "story_axis": "spine/sale/disputes-complaints"
+  "story_axis": "spine/sale/disputes-complaints",
+  "semantic_layer": "HANDS"
 }

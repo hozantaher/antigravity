@@ -22,5 +22,6 @@
     "logic": [],
     "ui": [],
     "tests": []
-  }
+  },
+  "semantic_layer": "BRAIN"
 }

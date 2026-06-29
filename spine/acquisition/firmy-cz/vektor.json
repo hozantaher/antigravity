@@ -38,5 +38,6 @@
     ]
   },
   "id": "firmy-cz",
-  "story_axis": "spine/acquisition/firmy-cz"
+  "story_axis": "spine/acquisition/firmy-cz",
+  "semantic_layer": "BRAIN"
 }

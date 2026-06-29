@@ -27,5 +27,6 @@
     "vektorGate": "all-met"
   },
   "id": "framing",
-  "story_axis": "sale"
+  "story_axis": "sale",
+  "semantic_layer": "HANDS"
 }

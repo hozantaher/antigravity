@@ -17,5 +17,6 @@
   ],
   "antiFeature": "Inbound jako jeden blok — tiše spadlý poller nebo přehlédnutý bounce se schová v zeleném celku a leady mizí.",
   "id": "inbound",
-  "story_axis": "inbound"
+  "story_axis": "inbound",
+  "semantic_layer": "BRAIN"
 }

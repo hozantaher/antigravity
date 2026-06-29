@@ -22,5 +22,6 @@
     ]
   },
   "id": "i18n",
-  "story_axis": "spine/platform/i18n"
+  "story_axis": "spine/platform/i18n",
+  "semantic_layer": "HANDS"
 }

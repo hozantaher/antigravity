@@ -13,5 +13,6 @@
     "tests": [
       "./logic.test.ts"
     ]
-  }
+  },
+  "semantic_layer": "BRAIN"
 }

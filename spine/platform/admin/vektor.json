@@ -46,5 +46,6 @@
     ]
   },
   "id": "admin",
-  "story_axis": "spine/platform/admin"
+  "story_axis": "spine/platform/admin",
+  "semantic_layer": "HANDS"
 }

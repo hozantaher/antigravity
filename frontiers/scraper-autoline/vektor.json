@@ -7,5 +7,6 @@
       "./scraper-autoline.vue"
     ]
   },
-  "edges": []
+  "edges": [],
+  "semantic_layer": "BODY"
 }

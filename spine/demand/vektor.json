@@ -22,5 +22,6 @@
     ]
   },
   "id": "demand",
-  "story_axis": "spine/demand"
+  "story_axis": "spine/demand",
+  "semantic_layer": "BODY"
 }

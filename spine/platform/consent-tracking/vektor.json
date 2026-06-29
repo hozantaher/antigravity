@@ -27,5 +27,6 @@
     ]
   },
   "id": "consent-tracking",
-  "story_axis": "spine/platform/consent-tracking"
+  "story_axis": "spine/platform/consent-tracking",
+  "semantic_layer": "HANDS"
 }

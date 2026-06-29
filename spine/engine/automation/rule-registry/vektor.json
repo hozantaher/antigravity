@@ -15,5 +15,6 @@
       "./index.ts",
       "./cache.ts"
     ]
-  }
+  },
+  "semantic_layer": "BRAIN"
 }

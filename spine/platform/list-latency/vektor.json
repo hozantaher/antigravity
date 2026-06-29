@@ -27,5 +27,6 @@
     "vektorGate": "all-met"
   },
   "id": "list-latency",
-  "story_axis": "platform"
+  "story_axis": "platform",
+  "semantic_layer": "HANDS"
 }

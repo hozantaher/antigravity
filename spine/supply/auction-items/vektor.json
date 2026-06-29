@@ -42,5 +42,6 @@
     ]
   },
   "id": "auction-items",
-  "story_axis": "spine/supply/auction-items"
+  "story_axis": "spine/supply/auction-items",
+  "semantic_layer": "BODY"
 }

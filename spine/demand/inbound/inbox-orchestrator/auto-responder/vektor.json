@@ -5,5 +5,6 @@
   "loreLine": "Levá mozková hemisféra — exekuuje připravené odpovědi na rutinu.",
   "promise": "Rutinní dotazy jsou vyřešeny do 5 vteřin bez lidského zásahu.",
   "antiFeature": "Nereaguje na komplexní zprávy, které vyžadují lidský úsudek.",
-  "edges": []
+  "edges": [],
+  "semantic_layer": "BRAIN"
 }

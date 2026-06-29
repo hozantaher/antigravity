@@ -115,7 +115,7 @@ export default defineConfig(({ mode }) => {
       'import.meta.env.VITE_GIT_SHA': JSON.stringify(gitSha),
     },
     server: {
-      port: 18175,
+      port: 18180,
       strictPort: true,
       proxy: {
         '/api': {

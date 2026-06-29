@@ -10,5 +10,6 @@
       "./logic.ts"
     ]
   },
-  "edges": []
+  "edges": [],
+  "semantic_layer": "BRAIN"
 }

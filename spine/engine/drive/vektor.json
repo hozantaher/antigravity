@@ -8,11 +8,17 @@
     "smysl": "Naučený flow se vykoná: read sbírá data pro akvizici, write spravuje naše inzeráty pro prodej.",
     "role": "stage"
   },
-  "tags": ["session", "read", "write", "rate-policy"],
+  "tags": [
+    "session",
+    "read",
+    "write",
+    "rate-policy"
+  ],
   "facets": {
     "ui": [
       "./engine-drive.vue"
     ]
   },
-  "edges": []
+  "edges": [],
+  "semantic_layer": "HANDS"
 }

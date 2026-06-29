@@ -5,5 +5,6 @@
   "loreLine": "Empatický doručovatel — posílá maily, když lidé bdí.",
   "promise": "Příjemce dostane mail v 9 ráno jeho času, nikdy o půlnoci.",
   "antiFeature": "Nedbá na to, jaký je obsah mailu, řeší pouze časové razítko.",
-  "edges": []
+  "edges": [],
+  "semantic_layer": "HANDS"
 }

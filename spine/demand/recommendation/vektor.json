@@ -27,5 +27,6 @@
     ]
   },
   "id": "recommendation",
-  "story_axis": "spine/demand/recommendation"
+  "story_axis": "spine/demand/recommendation",
+  "semantic_layer": "BODY"
 }

@@ -27,5 +27,6 @@
     "vektorGate": "all-met"
   },
   "id": "ctr",
-  "story_axis": "demand"
+  "story_axis": "demand",
+  "semantic_layer": "BODY"
 }

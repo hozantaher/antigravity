@@ -58,5 +58,6 @@
     ]
   },
   "id": "platform",
-  "story_axis": "spine/platform"
+  "story_axis": "spine/platform",
+  "semantic_layer": "HANDS"
 }

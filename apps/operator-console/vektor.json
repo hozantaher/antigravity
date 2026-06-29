@@ -324,5 +324,6 @@
       "./src/crons/runCampaignContactPriorityCron.js"
     ]
   },
-  "edges": []
+  "edges": [],
+  "semantic_layer": "BODY"
 }

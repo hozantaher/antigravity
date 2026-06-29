@@ -31,5 +31,6 @@
     "vektorGate": "all-met"
   },
   "id": "no-duplicate",
-  "story_axis": "demand"
+  "story_axis": "demand",
+  "semantic_layer": "BODY"
 }

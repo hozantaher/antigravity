@@ -30,5 +30,6 @@
     "vektorGate": "all-met"
   },
   "id": "consent-gate",
-  "story_axis": "platform"
+  "story_axis": "platform",
+  "semantic_layer": "HANDS"
 }

@@ -8,7 +8,11 @@
     "smysl": "LLM přečte DOM a síť a sestaví akce, vstupy a přechody stavů — z čeho replay flow.",
     "role": "stage"
   },
-  "tags": ["action-graph", "selectors", "replay-model"],
+  "tags": [
+    "action-graph",
+    "selectors",
+    "replay-model"
+  ],
   "facets": {
     "ui": [
       "./engine-learn.vue"
@@ -20,5 +24,6 @@
       "./index.ts"
     ]
   },
-  "edges": []
+  "edges": [],
+  "semantic_layer": "FEET"
 }

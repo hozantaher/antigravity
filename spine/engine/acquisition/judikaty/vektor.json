@@ -34,5 +34,6 @@
       "./sources/justice/api.test.ts"
     ]
   },
-  "edges": []
+  "edges": [],
+  "semantic_layer": "BRAIN"
 }

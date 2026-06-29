@@ -29,5 +29,6 @@
     ]
   },
   "id": "messaging",
-  "story_axis": "spine/demand/messaging"
+  "story_axis": "spine/demand/messaging",
+  "semantic_layer": "BODY"
 }

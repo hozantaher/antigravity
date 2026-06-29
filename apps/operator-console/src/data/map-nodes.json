@@ -1,0 +1,3656 @@
+[
+  {
+    "id": "supply",
+    "position": {
+      "x": 100,
+      "y": 300
+    },
+    "data": {
+      "label": "supply",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "sale",
+    "position": {
+      "x": 700,
+      "y": 300
+    },
+    "data": {
+      "label": "sale",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "platform",
+    "position": {
+      "x": 700,
+      "y": 420
+    },
+    "data": {
+      "label": "platform",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "outreach",
+    "position": {
+      "x": 700,
+      "y": 540
+    },
+    "data": {
+      "label": "outreach",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "inbound",
+    "position": {
+      "x": 400,
+      "y": 100
+    },
+    "data": {
+      "label": "inbound",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "engine",
+    "position": {
+      "x": 100,
+      "y": 420
+    },
+    "data": {
+      "label": "engine",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "demand",
+    "position": {
+      "x": 100,
+      "y": 540
+    },
+    "data": {
+      "label": "demand",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "compliance",
+    "position": {
+      "x": 700,
+      "y": 660
+    },
+    "data": {
+      "label": "compliance",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "acquisition",
+    "position": {
+      "x": 400,
+      "y": 220
+    },
+    "data": {
+      "label": "acquisition",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "scraper-mobile-de",
+    "position": {
+      "x": 100,
+      "y": 660
+    },
+    "data": {
+      "label": "scraper-mobile-de",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "scraper-mascus",
+    "position": {
+      "x": 100,
+      "y": 780
+    },
+    "data": {
+      "label": "scraper-mascus",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "scraper-judikaty",
+    "position": {
+      "x": 100,
+      "y": 900
+    },
+    "data": {
+      "label": "scraper-judikaty",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "scraper-firmy",
+    "position": {
+      "x": 100,
+      "y": 1020
+    },
+    "data": {
+      "label": "scraper-firmy",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "scraper-esbirka",
+    "position": {
+      "x": 100,
+      "y": 1140
+    },
+    "data": {
+      "label": "scraper-esbirka",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "scraper-autoline",
+    "position": {
+      "x": 100,
+      "y": 1260
+    },
+    "data": {
+      "label": "scraper-autoline",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "operator-console",
+    "position": {
+      "x": 100,
+      "y": 1380
+    },
+    "data": {
+      "label": "operator-console",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "marketplace-web",
+    "position": {
+      "x": 100,
+      "y": 1500
+    },
+    "data": {
+      "label": "marketplace-web",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "vehicle-vin",
+    "position": {
+      "x": 100,
+      "y": 1620
+    },
+    "data": {
+      "label": "vehicle-vin",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "specs-before-bid",
+    "position": {
+      "x": 100,
+      "y": 1740
+    },
+    "data": {
+      "label": "specs-before-bid",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "soft-close",
+    "position": {
+      "x": 100,
+      "y": 1860
+    },
+    "data": {
+      "label": "soft-close",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "pano-360",
+    "position": {
+      "x": 100,
+      "y": 1980
+    },
+    "data": {
+      "label": "pano-360",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "media-upload",
+    "position": {
+      "x": 100,
+      "y": 2100
+    },
+    "data": {
+      "label": "media-upload",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "empty-state",
+    "position": {
+      "x": 100,
+      "y": 2220
+    },
+    "data": {
+      "label": "empty-state",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "eligibility",
+    "position": {
+      "x": 100,
+      "y": 2340
+    },
+    "data": {
+      "label": "eligibility",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "detail-order",
+    "position": {
+      "x": 100,
+      "y": 2460
+    },
+    "data": {
+      "label": "detail-order",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "decode-cache",
+    "position": {
+      "x": 100,
+      "y": 2580
+    },
+    "data": {
+      "label": "decode-cache",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "concurrency",
+    "position": {
+      "x": 100,
+      "y": 2700
+    },
+    "data": {
+      "label": "concurrency",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "completeness",
+    "position": {
+      "x": 100,
+      "y": 2820
+    },
+    "data": {
+      "label": "completeness",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "card-order",
+    "position": {
+      "x": 100,
+      "y": 2940
+    },
+    "data": {
+      "label": "card-order",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "bidding",
+    "position": {
+      "x": 100,
+      "y": 3060
+    },
+    "data": {
+      "label": "bidding",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "auction-items",
+    "position": {
+      "x": 100,
+      "y": 3180
+    },
+    "data": {
+      "label": "auction-items",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "sale-settlement",
+    "position": {
+      "x": 700,
+      "y": 780
+    },
+    "data": {
+      "label": "sale-settlement",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "resolution",
+    "position": {
+      "x": 700,
+      "y": 900
+    },
+    "data": {
+      "label": "resolution",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "reconcile",
+    "position": {
+      "x": 700,
+      "y": 1020
+    },
+    "data": {
+      "label": "reconcile",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "invoicing",
+    "position": {
+      "x": 700,
+      "y": 1140
+    },
+    "data": {
+      "label": "invoicing",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "invoice-list",
+    "position": {
+      "x": 700,
+      "y": 1260
+    },
+    "data": {
+      "label": "invoice-list",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "framing",
+    "position": {
+      "x": 700,
+      "y": 1380
+    },
+    "data": {
+      "label": "framing",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "fio-match",
+    "position": {
+      "x": 700,
+      "y": 1500
+    },
+    "data": {
+      "label": "fio-match",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "fakturoid-sync",
+    "position": {
+      "x": 700,
+      "y": 1620
+    },
+    "data": {
+      "label": "fakturoid-sync",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "disputes-complaints",
+    "position": {
+      "x": 700,
+      "y": 1740
+    },
+    "data": {
+      "label": "disputes-complaints",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "deposit-billing",
+    "position": {
+      "x": 700,
+      "y": 1860
+    },
+    "data": {
+      "label": "deposit-billing",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "completion",
+    "position": {
+      "x": 700,
+      "y": 1980
+    },
+    "data": {
+      "label": "completion",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "charge-once",
+    "position": {
+      "x": 700,
+      "y": 2100
+    },
+    "data": {
+      "label": "charge-once",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "case-open",
+    "position": {
+      "x": 700,
+      "y": 2220
+    },
+    "data": {
+      "label": "case-open",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "billing-capture",
+    "position": {
+      "x": 700,
+      "y": 2340
+    },
+    "data": {
+      "label": "billing-capture",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "amount-due",
+    "position": {
+      "x": 700,
+      "y": 2460
+    },
+    "data": {
+      "label": "amount-due",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "worker-pdf",
+    "position": {
+      "x": 700,
+      "y": 2580
+    },
+    "data": {
+      "label": "worker-pdf",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "token-lifecycle",
+    "position": {
+      "x": 700,
+      "y": 2700
+    },
+    "data": {
+      "label": "token-lifecycle",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "token-hash",
+    "position": {
+      "x": 700,
+      "y": 2820
+    },
+    "data": {
+      "label": "token-hash",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "spec-validity",
+    "position": {
+      "x": 700,
+      "y": 2940
+    },
+    "data": {
+      "label": "spec-validity",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "sitemap",
+    "position": {
+      "x": 700,
+      "y": 3060
+    },
+    "data": {
+      "label": "sitemap",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "save-success",
+    "position": {
+      "x": 700,
+      "y": 3180
+    },
+    "data": {
+      "label": "save-success",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "rtl-parity",
+    "position": {
+      "x": 700,
+      "y": 3300
+    },
+    "data": {
+      "label": "rtl-parity",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "registration",
+    "position": {
+      "x": 700,
+      "y": 3420
+    },
+    "data": {
+      "label": "registration",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "reference-data",
+    "position": {
+      "x": 700,
+      "y": 3540
+    },
+    "data": {
+      "label": "reference-data",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "read-state",
+    "position": {
+      "x": 700,
+      "y": 3660
+    },
+    "data": {
+      "label": "read-state",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "protections",
+    "position": {
+      "x": 700,
+      "y": 3780
+    },
+    "data": {
+      "label": "protections",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "password-reset",
+    "position": {
+      "x": 700,
+      "y": 3900
+    },
+    "data": {
+      "label": "password-reset",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "notifications",
+    "position": {
+      "x": 700,
+      "y": 4020
+    },
+    "data": {
+      "label": "notifications",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "mcp",
+    "position": {
+      "x": 700,
+      "y": 4140
+    },
+    "data": {
+      "label": "mcp",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "list-latency",
+    "position": {
+      "x": 700,
+      "y": 4260
+    },
+    "data": {
+      "label": "list-latency",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "lcp",
+    "position": {
+      "x": 700,
+      "y": 4380
+    },
+    "data": {
+      "label": "lcp",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "key-events",
+    "position": {
+      "x": 700,
+      "y": 4500
+    },
+    "data": {
+      "label": "key-events",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "key-completeness",
+    "position": {
+      "x": 700,
+      "y": 4620
+    },
+    "data": {
+      "label": "key-completeness",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "ingest",
+    "position": {
+      "x": 700,
+      "y": 4740
+    },
+    "data": {
+      "label": "ingest",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "i18n",
+    "position": {
+      "x": 700,
+      "y": 4860
+    },
+    "data": {
+      "label": "i18n",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "guards",
+    "position": {
+      "x": 700,
+      "y": 4980
+    },
+    "data": {
+      "label": "guards",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "design-system",
+    "position": {
+      "x": 700,
+      "y": 5100
+    },
+    "data": {
+      "label": "design-system",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "dashboard-bff",
+    "position": {
+      "x": 700,
+      "y": 5220
+    },
+    "data": {
+      "label": "dashboard-bff",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "country-resolution",
+    "position": {
+      "x": 700,
+      "y": 5340
+    },
+    "data": {
+      "label": "country-resolution",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "core",
+    "position": {
+      "x": 700,
+      "y": 5460
+    },
+    "data": {
+      "label": "core",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "contract-drift",
+    "position": {
+      "x": 700,
+      "y": 5580
+    },
+    "data": {
+      "label": "contract-drift",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "consent-tracking",
+    "position": {
+      "x": 700,
+      "y": 5700
+    },
+    "data": {
+      "label": "consent-tracking",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "consent-gate",
+    "position": {
+      "x": 700,
+      "y": 5820
+    },
+    "data": {
+      "label": "consent-gate",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "category-coverage",
+    "position": {
+      "x": 700,
+      "y": 5940
+    },
+    "data": {
+      "label": "category-coverage",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "brand-parity",
+    "position": {
+      "x": 700,
+      "y": 6060
+    },
+    "data": {
+      "label": "brand-parity",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "auth-account",
+    "position": {
+      "x": 700,
+      "y": 6180
+    },
+    "data": {
+      "label": "auth-account",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "auth",
+    "position": {
+      "x": 700,
+      "y": 6300
+    },
+    "data": {
+      "label": "auth",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "api-tokens",
+    "position": {
+      "x": 700,
+      "y": 6420
+    },
+    "data": {
+      "label": "api-tokens",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "api-docs",
+    "position": {
+      "x": 700,
+      "y": 6540
+    },
+    "data": {
+      "label": "api-docs",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "admin",
+    "position": {
+      "x": 700,
+      "y": 6660
+    },
+    "data": {
+      "label": "admin",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "account",
+    "position": {
+      "x": 700,
+      "y": 6780
+    },
+    "data": {
+      "label": "account",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "a11y",
+    "position": {
+      "x": 700,
+      "y": 6900
+    },
+    "data": {
+      "label": "a11y",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "warmup",
+    "position": {
+      "x": 700,
+      "y": 7020
+    },
+    "data": {
+      "label": "warmup",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "send-window",
+    "position": {
+      "x": 700,
+      "y": 7140
+    },
+    "data": {
+      "label": "send-window",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "send-dedup",
+    "position": {
+      "x": 700,
+      "y": 7260
+    },
+    "data": {
+      "label": "send-dedup",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "sanitize",
+    "position": {
+      "x": 700,
+      "y": 7380
+    },
+    "data": {
+      "label": "sanitize",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "outreach",
+    "position": {
+      "x": 700,
+      "y": 7500
+    },
+    "data": {
+      "label": "outreach",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "metadata-min",
+    "position": {
+      "x": 700,
+      "y": 7620
+    },
+    "data": {
+      "label": "metadata-min",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "mailbox-reliability",
+    "position": {
+      "x": 700,
+      "y": 7740
+    },
+    "data": {
+      "label": "mailbox-reliability",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "egress",
+    "position": {
+      "x": 700,
+      "y": 7860
+    },
+    "data": {
+      "label": "egress",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "content-render",
+    "position": {
+      "x": 700,
+      "y": 7980
+    },
+    "data": {
+      "label": "content-render",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "content-enc",
+    "position": {
+      "x": 700,
+      "y": 8100
+    },
+    "data": {
+      "label": "content-enc",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "campaign-scheduler",
+    "position": {
+      "x": 700,
+      "y": 8220
+    },
+    "data": {
+      "label": "campaign-scheduler",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "anti-trace",
+    "position": {
+      "x": 700,
+      "y": 8340
+    },
+    "data": {
+      "label": "anti-trace",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "thread-match",
+    "position": {
+      "x": 400,
+      "y": 340
+    },
+    "data": {
+      "label": "thread-match",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "reply-classify",
+    "position": {
+      "x": 400,
+      "y": 460
+    },
+    "data": {
+      "label": "reply-classify",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "inbound",
+    "position": {
+      "x": 400,
+      "y": 580
+    },
+    "data": {
+      "label": "inbound",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "imap-poll",
+    "position": {
+      "x": 400,
+      "y": 700
+    },
+    "data": {
+      "label": "imap-poll",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "bounce-handle",
+    "position": {
+      "x": 400,
+      "y": 820
+    },
+    "data": {
+      "label": "bounce-handle",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "bounce-detect",
+    "position": {
+      "x": 400,
+      "y": 940
+    },
+    "data": {
+      "label": "bounce-detect",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "engine-learn",
+    "position": {
+      "x": 400,
+      "y": null
+    },
+    "data": {
+      "label": "engine-learn",
+      "layer": "FEET",
+      "color": "#4B5563",
+      "description": "Learn — z povrchu postav model toho, jak se aplikace ovládá (operation graph)."
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "engine-drive",
+    "position": {
+      "x": 700,
+      "y": 8460
+    },
+    "data": {
+      "label": "engine-drive",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": "Drive — proveď akce proti portálu: read (čti inzeráty) i write (řiď NAŠE účty)."
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "core-types",
+    "position": {
+      "x": 400,
+      "y": 600
+    },
+    "data": {
+      "label": "core-types",
+      "layer": "CORE",
+      "color": "#4B5563",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "unsub-token",
+    "position": {
+      "x": 700,
+      "y": 8580
+    },
+    "data": {
+      "label": "unsub-token",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "suppression",
+    "position": {
+      "x": 700,
+      "y": 8700
+    },
+    "data": {
+      "label": "suppression",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "gdpr-footer",
+    "position": {
+      "x": 700,
+      "y": 8820
+    },
+    "data": {
+      "label": "gdpr-footer",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "dsr",
+    "position": {
+      "x": 700,
+      "y": 8940
+    },
+    "data": {
+      "label": "dsr",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "compliance",
+    "position": {
+      "x": 700,
+      "y": 9060
+    },
+    "data": {
+      "label": "compliance",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "audit-log",
+    "position": {
+      "x": 700,
+      "y": 9180
+    },
+    "data": {
+      "label": "audit-log",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "url-state",
+    "position": {
+      "x": 100,
+      "y": 3300
+    },
+    "data": {
+      "label": "url-state",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "unsubscribe",
+    "position": {
+      "x": 100,
+      "y": 3420
+    },
+    "data": {
+      "label": "unsubscribe",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "toggle-roundtrip",
+    "position": {
+      "x": 100,
+      "y": 3540
+    },
+    "data": {
+      "label": "toggle-roundtrip",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "spam-hidden",
+    "position": {
+      "x": 100,
+      "y": 3660
+    },
+    "data": {
+      "label": "spam-hidden",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "send",
+    "position": {
+      "x": 100,
+      "y": 3780
+    },
+    "data": {
+      "label": "send",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "seller-visible",
+    "position": {
+      "x": 100,
+      "y": 3900
+    },
+    "data": {
+      "label": "seller-visible",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "search",
+    "position": {
+      "x": 100,
+      "y": 4020
+    },
+    "data": {
+      "label": "search",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "saved-search",
+    "position": {
+      "x": 100,
+      "y": 4140
+    },
+    "data": {
+      "label": "saved-search",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "return-path",
+    "position": {
+      "x": 100,
+      "y": 4260
+    },
+    "data": {
+      "label": "return-path",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "relevance",
+    "position": {
+      "x": 100,
+      "y": 4380
+    },
+    "data": {
+      "label": "relevance",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "recommendation",
+    "position": {
+      "x": 100,
+      "y": 4500
+    },
+    "data": {
+      "label": "recommendation",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "ratings-reviews",
+    "position": {
+      "x": 100,
+      "y": 4620
+    },
+    "data": {
+      "label": "ratings-reviews",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "rail-to-bid",
+    "position": {
+      "x": 100,
+      "y": 4740
+    },
+    "data": {
+      "label": "rail-to-bid",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "query-roundtrip",
+    "position": {
+      "x": 100,
+      "y": 4860
+    },
+    "data": {
+      "label": "query-roundtrip",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "published-only",
+    "position": {
+      "x": 100,
+      "y": 4980
+    },
+    "data": {
+      "label": "published-only",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "post-sale",
+    "position": {
+      "x": 700,
+      "y": 9300
+    },
+    "data": {
+      "label": "post-sale",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "pagination",
+    "position": {
+      "x": 100,
+      "y": 5100
+    },
+    "data": {
+      "label": "pagination",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "owner-scoped",
+    "position": {
+      "x": 100,
+      "y": 5220
+    },
+    "data": {
+      "label": "owner-scoped",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "ordering",
+    "position": {
+      "x": 100,
+      "y": 5340
+    },
+    "data": {
+      "label": "ordering",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "non-empty",
+    "position": {
+      "x": 100,
+      "y": 5460
+    },
+    "data": {
+      "label": "non-empty",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "no-duplicate",
+    "position": {
+      "x": 100,
+      "y": 5580
+    },
+    "data": {
+      "label": "no-duplicate",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "newsletter-email",
+    "position": {
+      "x": 100,
+      "y": 5700
+    },
+    "data": {
+      "label": "newsletter-email",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "messaging",
+    "position": {
+      "x": 100,
+      "y": 5820
+    },
+    "data": {
+      "label": "messaging",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "inquiry-roundtrip",
+    "position": {
+      "x": 100,
+      "y": 5940
+    },
+    "data": {
+      "label": "inquiry-roundtrip",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "favorites",
+    "position": {
+      "x": 100,
+      "y": 6060
+    },
+    "data": {
+      "label": "favorites",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "facet-filter",
+    "position": {
+      "x": 100,
+      "y": 6180
+    },
+    "data": {
+      "label": "facet-filter",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "diacritics",
+    "position": {
+      "x": 100,
+      "y": 6300
+    },
+    "data": {
+      "label": "diacritics",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "ctr",
+    "position": {
+      "x": 100,
+      "y": 6420
+    },
+    "data": {
+      "label": "ctr",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "create",
+    "position": {
+      "x": 100,
+      "y": 6540
+    },
+    "data": {
+      "label": "create",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "contact-offers",
+    "position": {
+      "x": 100,
+      "y": 6660
+    },
+    "data": {
+      "label": "contact-offers",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "compare-set",
+    "position": {
+      "x": 100,
+      "y": 6780
+    },
+    "data": {
+      "label": "compare-set",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "compare",
+    "position": {
+      "x": 100,
+      "y": 6900
+    },
+    "data": {
+      "label": "compare",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "cadence",
+    "position": {
+      "x": 100,
+      "y": 7020
+    },
+    "data": {
+      "label": "cadence",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "auto-publish",
+    "position": {
+      "x": 100,
+      "y": 7140
+    },
+    "data": {
+      "label": "auto-publish",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "ask",
+    "position": {
+      "x": 100,
+      "y": 7260
+    },
+    "data": {
+      "label": "ask",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "answer",
+    "position": {
+      "x": 100,
+      "y": 7380
+    },
+    "data": {
+      "label": "answer",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "legacy-scrapers",
+    "position": {
+      "x": 400,
+      "y": 1060
+    },
+    "data": {
+      "label": "legacy-scrapers",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "firmy-cz",
+    "position": {
+      "x": 400,
+      "y": 1180
+    },
+    "data": {
+      "label": "firmy-cz",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "email-validation",
+    "position": {
+      "x": 400,
+      "y": 1300
+    },
+    "data": {
+      "label": "email-validation",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "classify-icp",
+    "position": {
+      "x": 400,
+      "y": 1420
+    },
+    "data": {
+      "label": "classify-icp",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "ares-source",
+    "position": {
+      "x": 400,
+      "y": 1540
+    },
+    "data": {
+      "label": "ares-source",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "acquisition",
+    "position": {
+      "x": 400,
+      "y": 1660
+    },
+    "data": {
+      "label": "acquisition",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "specs-before-bid",
+    "position": {
+      "x": 100,
+      "y": 7500
+    },
+    "data": {
+      "label": "specs-before-bid",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "decode-cache",
+    "position": {
+      "x": 100,
+      "y": 7620
+    },
+    "data": {
+      "label": "decode-cache",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "completeness",
+    "position": {
+      "x": 100,
+      "y": 7740
+    },
+    "data": {
+      "label": "completeness",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "pano-360",
+    "position": {
+      "x": 100,
+      "y": 7860
+    },
+    "data": {
+      "label": "pano-360",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "completeness",
+    "position": {
+      "x": 100,
+      "y": 7980
+    },
+    "data": {
+      "label": "completeness",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "soft-close",
+    "position": {
+      "x": 100,
+      "y": 8100
+    },
+    "data": {
+      "label": "soft-close",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "eligibility",
+    "position": {
+      "x": 100,
+      "y": 8220
+    },
+    "data": {
+      "label": "eligibility",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "concurrency",
+    "position": {
+      "x": 100,
+      "y": 8340
+    },
+    "data": {
+      "label": "concurrency",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "empty-state",
+    "position": {
+      "x": 100,
+      "y": 8460
+    },
+    "data": {
+      "label": "empty-state",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "detail-order",
+    "position": {
+      "x": 100,
+      "y": 8580
+    },
+    "data": {
+      "label": "detail-order",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "card-order",
+    "position": {
+      "x": 100,
+      "y": 8700
+    },
+    "data": {
+      "label": "card-order",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "completion",
+    "position": {
+      "x": 700,
+      "y": 9420
+    },
+    "data": {
+      "label": "completion",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "charge-once",
+    "position": {
+      "x": 700,
+      "y": 9540
+    },
+    "data": {
+      "label": "charge-once",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "billing-capture",
+    "position": {
+      "x": 700,
+      "y": 9660
+    },
+    "data": {
+      "label": "billing-capture",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "amount-due",
+    "position": {
+      "x": 700,
+      "y": 9780
+    },
+    "data": {
+      "label": "amount-due",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "invoice-list",
+    "position": {
+      "x": 700,
+      "y": 9900
+    },
+    "data": {
+      "label": "invoice-list",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "fakturoid-sync",
+    "position": {
+      "x": 700,
+      "y": 10020
+    },
+    "data": {
+      "label": "fakturoid-sync",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "resolution",
+    "position": {
+      "x": 700,
+      "y": 10140
+    },
+    "data": {
+      "label": "resolution",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "case-open",
+    "position": {
+      "x": 700,
+      "y": 10260
+    },
+    "data": {
+      "label": "case-open",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "reconcile",
+    "position": {
+      "x": 700,
+      "y": 10380
+    },
+    "data": {
+      "label": "reconcile",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "framing",
+    "position": {
+      "x": 700,
+      "y": 10500
+    },
+    "data": {
+      "label": "framing",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "fio-match",
+    "position": {
+      "x": 700,
+      "y": 10620
+    },
+    "data": {
+      "label": "fio-match",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "dashboard-core",
+    "position": {
+      "x": 700,
+      "y": 10740
+    },
+    "data": {
+      "label": "dashboard-core",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "privacy-gateway",
+    "position": {
+      "x": 700,
+      "y": 10860
+    },
+    "data": {
+      "label": "privacy-gateway",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "country-resolution",
+    "position": {
+      "x": 700,
+      "y": 10980
+    },
+    "data": {
+      "label": "country-resolution",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "category-coverage",
+    "position": {
+      "x": 700,
+      "y": 11100
+    },
+    "data": {
+      "label": "category-coverage",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "read-state",
+    "position": {
+      "x": 700,
+      "y": 11220
+    },
+    "data": {
+      "label": "read-state",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "key-events",
+    "position": {
+      "x": 700,
+      "y": 11340
+    },
+    "data": {
+      "label": "key-events",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "rtl-parity",
+    "position": {
+      "x": 700,
+      "y": 11460
+    },
+    "data": {
+      "label": "rtl-parity",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "key-completeness",
+    "position": {
+      "x": 700,
+      "y": 11580
+    },
+    "data": {
+      "label": "key-completeness",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "brand-parity",
+    "position": {
+      "x": 700,
+      "y": 11700
+    },
+    "data": {
+      "label": "brand-parity",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "a11y",
+    "position": {
+      "x": 700,
+      "y": 11820
+    },
+    "data": {
+      "label": "a11y",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "sitemap",
+    "position": {
+      "x": 700,
+      "y": 11940
+    },
+    "data": {
+      "label": "sitemap",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "lcp",
+    "position": {
+      "x": 700,
+      "y": 12060
+    },
+    "data": {
+      "label": "lcp",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "ingest",
+    "position": {
+      "x": 700,
+      "y": 12180
+    },
+    "data": {
+      "label": "ingest",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "consent-gate",
+    "position": {
+      "x": 700,
+      "y": 12300
+    },
+    "data": {
+      "label": "consent-gate",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "registration",
+    "position": {
+      "x": 700,
+      "y": 12420
+    },
+    "data": {
+      "label": "registration",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "password-reset",
+    "position": {
+      "x": 700,
+      "y": 12540
+    },
+    "data": {
+      "label": "password-reset",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "guards",
+    "position": {
+      "x": 700,
+      "y": 12660
+    },
+    "data": {
+      "label": "guards",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "token-lifecycle",
+    "position": {
+      "x": 700,
+      "y": 12780
+    },
+    "data": {
+      "label": "token-lifecycle",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "token-hash",
+    "position": {
+      "x": 700,
+      "y": 12900
+    },
+    "data": {
+      "label": "token-hash",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "spec-validity",
+    "position": {
+      "x": 700,
+      "y": 13020
+    },
+    "data": {
+      "label": "spec-validity",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "contract-drift",
+    "position": {
+      "x": 700,
+      "y": 13140
+    },
+    "data": {
+      "label": "contract-drift",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "save-success",
+    "position": {
+      "x": 700,
+      "y": 13260
+    },
+    "data": {
+      "label": "save-success",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "list-latency",
+    "position": {
+      "x": 700,
+      "y": 13380
+    },
+    "data": {
+      "label": "list-latency",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "campaign-scheduler-time-zone-mapper",
+    "position": {
+      "x": 700,
+      "y": 13500
+    },
+    "data": {
+      "label": "campaign-scheduler-time-zone-mapper",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "campaign-scheduler-send-throttler",
+    "position": {
+      "x": 700,
+      "y": 13620
+    },
+    "data": {
+      "label": "campaign-scheduler-send-throttler",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "sanitize",
+    "position": {
+      "x": 700,
+      "y": 13740
+    },
+    "data": {
+      "label": "sanitize",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "metadata-min",
+    "position": {
+      "x": 700,
+      "y": 13860
+    },
+    "data": {
+      "label": "metadata-min",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "egress",
+    "position": {
+      "x": 700,
+      "y": 13980
+    },
+    "data": {
+      "label": "egress",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "content-enc",
+    "position": {
+      "x": 700,
+      "y": 14100
+    },
+    "data": {
+      "label": "content-enc",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "learn-zod-guard",
+    "position": {
+      "x": 400,
+      "y": 1780
+    },
+    "data": {
+      "label": "learn-zod-guard",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "learn-llm-connector",
+    "position": {
+      "x": 400,
+      "y": 1900
+    },
+    "data": {
+      "label": "learn-llm-connector",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "learn-html-cleaner",
+    "position": {
+      "x": 400,
+      "y": 2020
+    },
+    "data": {
+      "label": "learn-html-cleaner",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "relay",
+    "position": {
+      "x": 400,
+      "y": 2140
+    },
+    "data": {
+      "label": "relay",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "parser-compiler",
+    "position": {
+      "x": 400,
+      "y": 2260
+    },
+    "data": {
+      "label": "parser-compiler",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "arbitrage-miner",
+    "position": {
+      "x": 400,
+      "y": 2380
+    },
+    "data": {
+      "label": "arbitrage-miner",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "worker",
+    "position": {
+      "x": 400,
+      "y": 2500
+    },
+    "data": {
+      "label": "worker",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "symphony-queue",
+    "position": {
+      "x": 400,
+      "y": 2620
+    },
+    "data": {
+      "label": "symphony-queue",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "rule-registry",
+    "position": {
+      "x": 400,
+      "y": 2740
+    },
+    "data": {
+      "label": "rule-registry",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "shadow-broker",
+    "position": {
+      "x": 700,
+      "y": 14220
+    },
+    "data": {
+      "label": "shadow-broker",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "engine-acquisition-mobile-de",
+    "position": {
+      "x": 400,
+      "y": 2860
+    },
+    "data": {
+      "label": "engine-acquisition-mobile-de",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "engine-acquisition-mascus",
+    "position": {
+      "x": 400,
+      "y": 2980
+    },
+    "data": {
+      "label": "engine-acquisition-mascus",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "engine-acquisition-judikaty",
+    "position": {
+      "x": 400,
+      "y": 3100
+    },
+    "data": {
+      "label": "engine-acquisition-judikaty",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "engine-acquisition-firmy",
+    "position": {
+      "x": 400,
+      "y": 3220
+    },
+    "data": {
+      "label": "engine-acquisition-firmy",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "engine-acquisition-esbirka",
+    "position": {
+      "x": 400,
+      "y": 3340
+    },
+    "data": {
+      "label": "engine-acquisition-esbirka",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "engine-acquisition-autoline",
+    "position": {
+      "x": 400,
+      "y": 3460
+    },
+    "data": {
+      "label": "engine-acquisition-autoline",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "suppression",
+    "position": {
+      "x": 700,
+      "y": 14340
+    },
+    "data": {
+      "label": "suppression",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "dsr",
+    "position": {
+      "x": 700,
+      "y": 14460
+    },
+    "data": {
+      "label": "dsr",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "url-state",
+    "position": {
+      "x": 100,
+      "y": 8820
+    },
+    "data": {
+      "label": "url-state",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "relevance",
+    "position": {
+      "x": 100,
+      "y": 8940
+    },
+    "data": {
+      "label": "relevance",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "query-roundtrip",
+    "position": {
+      "x": 100,
+      "y": 9060
+    },
+    "data": {
+      "label": "query-roundtrip",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "pagination",
+    "position": {
+      "x": 100,
+      "y": 9180
+    },
+    "data": {
+      "label": "pagination",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "ordering",
+    "position": {
+      "x": 100,
+      "y": 9300
+    },
+    "data": {
+      "label": "ordering",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "facet-filter",
+    "position": {
+      "x": 100,
+      "y": 9420
+    },
+    "data": {
+      "label": "facet-filter",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "diacritics",
+    "position": {
+      "x": 100,
+      "y": 9540
+    },
+    "data": {
+      "label": "diacritics",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "seller-visible",
+    "position": {
+      "x": 100,
+      "y": 9660
+    },
+    "data": {
+      "label": "seller-visible",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "post-sale",
+    "position": {
+      "x": 700,
+      "y": 14580
+    },
+    "data": {
+      "label": "post-sale",
+      "layer": "HANDS",
+      "color": "#EF4444",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "rail-to-bid",
+    "position": {
+      "x": 100,
+      "y": 9780
+    },
+    "data": {
+      "label": "rail-to-bid",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "non-empty",
+    "position": {
+      "x": 100,
+      "y": 9900
+    },
+    "data": {
+      "label": "non-empty",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "ctr",
+    "position": {
+      "x": 100,
+      "y": 10020
+    },
+    "data": {
+      "label": "ctr",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "unsubscribe",
+    "position": {
+      "x": 100,
+      "y": 10140
+    },
+    "data": {
+      "label": "unsubscribe",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "send",
+    "position": {
+      "x": 100,
+      "y": 10260
+    },
+    "data": {
+      "label": "send",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "owner-scoped",
+    "position": {
+      "x": 100,
+      "y": 10380
+    },
+    "data": {
+      "label": "owner-scoped",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "no-duplicate",
+    "position": {
+      "x": 100,
+      "y": 10500
+    },
+    "data": {
+      "label": "no-duplicate",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "create",
+    "position": {
+      "x": 100,
+      "y": 10620
+    },
+    "data": {
+      "label": "create",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "return-path",
+    "position": {
+      "x": 100,
+      "y": 10740
+    },
+    "data": {
+      "label": "return-path",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "cadence",
+    "position": {
+      "x": 100,
+      "y": 10860
+    },
+    "data": {
+      "label": "cadence",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "inbox-orchestrator",
+    "position": {
+      "x": 400,
+      "y": 3580
+    },
+    "data": {
+      "label": "inbox-orchestrator",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "spam-hidden",
+    "position": {
+      "x": 100,
+      "y": 10980
+    },
+    "data": {
+      "label": "spam-hidden",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "published-only",
+    "position": {
+      "x": 100,
+      "y": 11100
+    },
+    "data": {
+      "label": "published-only",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "auto-publish",
+    "position": {
+      "x": 100,
+      "y": 11220
+    },
+    "data": {
+      "label": "auto-publish",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "ask",
+    "position": {
+      "x": 100,
+      "y": 11340
+    },
+    "data": {
+      "label": "ask",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "answer",
+    "position": {
+      "x": 100,
+      "y": 11460
+    },
+    "data": {
+      "label": "answer",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "inquiry-roundtrip",
+    "position": {
+      "x": 100,
+      "y": 11580
+    },
+    "data": {
+      "label": "inquiry-roundtrip",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "compare-set",
+    "position": {
+      "x": 100,
+      "y": 11700
+    },
+    "data": {
+      "label": "compare-set",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "deep-inventory",
+    "position": {
+      "x": 400,
+      "y": 3700
+    },
+    "data": {
+      "label": "deep-inventory",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "toggle-roundtrip",
+    "position": {
+      "x": 100,
+      "y": 11820
+    },
+    "data": {
+      "label": "toggle-roundtrip",
+      "layer": "BODY",
+      "color": "#3B82F6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "firmy-cz",
+    "position": {
+      "x": 400,
+      "y": 3820
+    },
+    "data": {
+      "label": "firmy-cz",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "classify-icp",
+    "position": {
+      "x": 400,
+      "y": 3940
+    },
+    "data": {
+      "label": "classify-icp",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "relay-rate-limiter",
+    "position": {
+      "x": 400,
+      "y": 4060
+    },
+    "data": {
+      "label": "relay-rate-limiter",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "relay-provider-router",
+    "position": {
+      "x": 400,
+      "y": 4180
+    },
+    "data": {
+      "label": "relay-provider-router",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "cross-border-arbitrage",
+    "position": {
+      "x": 400,
+      "y": 4300
+    },
+    "data": {
+      "label": "cross-border-arbitrage",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "inbox-orchestrator-intent-classifier",
+    "position": {
+      "x": 400,
+      "y": 4420
+    },
+    "data": {
+      "label": "inbox-orchestrator-intent-classifier",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "inbox-orchestrator-auto-responder",
+    "position": {
+      "x": 400,
+      "y": 4540
+    },
+    "data": {
+      "label": "inbox-orchestrator-auto-responder",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "stale-reaper",
+    "position": {
+      "x": 400,
+      "y": 4660
+    },
+    "data": {
+      "label": "stale-reaper",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "sitemap-watcher",
+    "position": {
+      "x": 400,
+      "y": 4780
+    },
+    "data": {
+      "label": "sitemap-watcher",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "network-interceptor",
+    "position": {
+      "x": 400,
+      "y": 4900
+    },
+    "data": {
+      "label": "network-interceptor",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  },
+  {
+    "id": "b2b-miner",
+    "position": {
+      "x": 400,
+      "y": 5020
+    },
+    "data": {
+      "label": "b2b-miner",
+      "layer": "BRAIN",
+      "color": "#8B5CF6",
+      "description": ""
+    },
+    "type": "antigravityNode"
+  }
+]

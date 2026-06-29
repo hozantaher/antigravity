@@ -60,5 +60,6 @@
     ]
   },
   "id": "design-system",
-  "story_axis": "spine/platform/design-system"
+  "story_axis": "spine/platform/design-system",
+  "semantic_layer": "HANDS"
 }

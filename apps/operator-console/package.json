@@ -5,8 +5,8 @@
   "type": "module",
   "packageManager": "pnpm@10.9.0",
   "scripts": {
-    "dev": "vite --port 18175",
-    "dev:full": "concurrently \"vite --port 18175\" \"node --watch --env-file-if-exists=.env server.js\"",
+    "dev": "vite --port 18180",
+    "dev:full": "concurrently \"vite --port 18180\" \"node --watch --env-file-if-exists=.env server.js\"",
     "dev:bff": "node --watch --env-file-if-exists=.env server.js",
     "start": "node server.js",
     "build": "vite build",

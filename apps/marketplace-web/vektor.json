@@ -505,5 +505,6 @@
       "./tests/server/api/account.test.ts"
     ]
   },
-  "edges": []
+  "edges": [],
+  "semantic_layer": "BODY"
 }

@@ -7,5 +7,6 @@
       "./scraper-esbirka.vue"
     ]
   },
-  "edges": []
+  "edges": [],
+  "semantic_layer": "BODY"
 }
