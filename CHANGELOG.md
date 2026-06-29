@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/hozantaher/antigravity/compare/v1.3.0...v1.4.0) (2026-06-29)
+
+
+### Features
+
+* implement 100M Scale Deep Inventory, Arbitrage Miner, and Shadow Broker ([e96881e](https://github.com/hozantaher/antigravity/commit/e96881e6e558596ed3324052dcea8e55b722dea3))
+* migrate and initialize phase 1-4 nodes via engine, update topology ([caed0c9](https://github.com/hozantaher/antigravity/commit/caed0c99d83da26e557ce84e95599acca0fad932))
+
 ## [1.3.0](https://github.com/hozantaher/antigravity/compare/v1.2.0...v1.3.0) (2026-06-29)
 
 
