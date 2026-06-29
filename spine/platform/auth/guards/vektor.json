@@ -1,0 +1,34 @@
+{
+  "identita": "Anonymní gate — chráněná data nikdy neuniknou divákovi.",
+  "smysl": "Bez ověřené identity neuvidíš nic, co patří jen vážným účastníkům.",
+  "smer": "SSR zůstává anonymní, route guardy běží client-side a počkají na ověření.",
+  "duvod": "Kdyby SSR vyrenderoval chráněná data, obejde se přihlášení a serious-community se rozpadne.",
+  "myslenka": "Identita se ověřuje na klientu, ne předpokládá na serveru.",
+  "pillar": "serious-community",
+  "role": "supporting",
+  "promise": "Žádný anonymní šum se nedostane k chráněným datům.",
+  "loreLine": "Anonymní SSR plus client-side guard — divák vidí jen veřejnou výlohu.",
+  "proofSignal": [
+    {
+      "nazev": "0 anonymous leak",
+      "zdroj": "test/authGuards",
+      "stav": "live"
+    }
+  ],
+  "antiFeature": "Guard jen ve šabloně — SSR prosákne chráněná data nepřihlášenému.",
+  "hotovo": {
+    "kdyzPlati": [
+      {
+        "kriterium": "Žádný anonymní leak chráněných dat (SSR anonymní, guardy client-side)",
+        "check": "test:authGuards",
+        "stav": "met",
+        "proof": {
+          "cmd": "pnpm exec vitest run --project server tests/server/sessionGuards.test.ts"
+        }
+      }
+    ],
+    "vektorGate": "all-met"
+  },
+  "id": "guards",
+  "story_axis": "platform"
+}

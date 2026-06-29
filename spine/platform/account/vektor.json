@@ -1,0 +1,19 @@
+{
+  "id": "account",
+  "story_axis": "spine",
+  "state": "pending",
+  "facets": {
+    "ui": [
+      "./account.vue"
+    ],
+    "legacy_unmapped": [
+      "./ui/UserMenuAvatar.vue",
+      "./ui/ProfileTextValueEdit.vue",
+      "./ui/ProfileLanguageEdit.vue",
+      "./ui/ProfileEmailEdit.vue",
+      "./ui/ProfileAddressEdit.vue",
+      "./ui/LettersAvatar.vue"
+    ]
+  },
+  "edges": []
+}

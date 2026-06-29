@@ -177,4 +177,60 @@ export class UnifiedVectorEngine {
 
     return md;
   }
+
+  /**
+   * Generates a gravitational map highlighting node coupling (reverse links).
+   */
+  public generateGravityMap(): string {
+    let md = '# 🌌 Antigravity Gravitational Map\n\n';
+    md += 'Tento graf ukazuje "gravitaci" (důležitost) jednotlivých uzlů na základě počtu zpětných odkazů (reverse links). Čím silnější ohraničení, tím více závislostí směřuje do daného uzlu.\n\n';
+    md += '```mermaid\n';
+    md += 'graph TD\n';
+    
+    // Build graph nodes with dynamic stroke-width based on gravity
+    for (const [id, node] of this.nodes.entries()) {
+      const linksCount = this.reverseLinks.has(id) ? this.reverseLinks.get(id)!.length : 0;
+      const isCore = node.manifest.story_axis === 'platform' || node.manifest.story_axis === 'engine';
+      
+      const weight = 1 + Math.min(linksCount, 10);
+      
+      let color = isCore ? '#3399ff' : '#00cc66';
+      if (node.manifest.state === 'pending') {
+        color = '#ff9900';
+      }
+      
+      const style = `stroke:${color},stroke-width:${weight}px,fill:${linksCount > 5 ? '#f0f0f0' : 'default'}`;
+      
+      md += `  ${id}["${id} (Links: ${linksCount})"]\n`;
+      md += `  style ${id} ${style}\n`;
+    }
+    
+    // Build graph edges
+    for (const [id, node] of this.nodes.entries()) {
+      if (node.manifest.edges) {
+        for (const edge of node.manifest.edges) {
+          if (this.nodes.has(edge)) {
+            md += `  ${id} --> ${edge}\n`;
+          }
+        }
+      }
+    }
+    
+    md += '```\n\n';
+    md += '## 📈 Top Gravitačních Hubů\n\n';
+    
+    const sortedNodes = Array.from(this.nodes.keys()).sort((a, b) => {
+      const countA = this.reverseLinks.has(a) ? this.reverseLinks.get(a)!.length : 0;
+      const countB = this.reverseLinks.has(b) ? this.reverseLinks.get(b)!.length : 0;
+      return countB - countA;
+    });
+    
+    for (let i = 0; i < Math.min(10, sortedNodes.length); i++) {
+      const id = sortedNodes[i];
+      const count = this.reverseLinks.has(id) ? this.reverseLinks.get(id)!.length : 0;
+      md += `${i + 1}. **${id}** (${count} zpětných vazeb)\n`;
+    }
+    
+    return md;
+  }
 }

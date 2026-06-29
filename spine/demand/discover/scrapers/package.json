@@ -1,0 +1,73 @@
+{
+  "name": "@hozan/scrapers",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "scrape:mascus": "tsx scrapers/mascus-cz/index.ts --",
+    "scrape:autoline": "tsx scrapers/autoline/index.ts --",
+    "scrape:mobile-de": "tsx scrapers/mobile-de/index.ts --",
+    "scrape:judikaty": "tsx scrapers/judikaty/index.ts --",
+    "scrape:esbirka": "tsx scrapers/esbirka/index.ts --",
+    "scrape:firmy-cz": "tsx scrapers/firmy-cz/index.ts --",
+    "scrape:judikaty:log": "tsx scrapers/judikaty/index.ts -- --log-file=data/judikaty.log",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "mcp": "tsx mcp-server/index.ts",
+    "mcp:remote": "tsx mcp-server/index.ts --mode=http",
+    "generate:terms": "tsx scripts/generate-terms.ts",
+    "benchmark:mcp": "tsx scripts/mcp-benchmark.ts",
+    "optimize:db": "tsx scripts/optimize-db.ts",
+    "compress:raw": "tsx scripts/compress-raw.ts",
+    "migrate:postgres": "tsx scripts/sqlite-to-postgres.ts",
+    "index:meili": "tsx scripts/index-meilisearch.ts",
+    "extract:categories": "tsx scripts/extract-categories.ts",
+    "extract:makes": "tsx scripts/extract-makes-models.ts",
+    "start:worker": "tsx src/index.ts",
+    "db:migrate": "tsx scripts/migrate.ts"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.78.0",
+    "better-sqlite3": "^11.7.0",
+    "bullmq": "^5.71.1",
+    "cheerio": "^1.2.0",
+    "docx": "^9.6.1",
+    "dotenv": "^17.3.1",
+    "fast-xml-parser": "^5.5.6",
+    "ioredis": "^5.10.1",
+    "pg": "^8.20.0",
+    "pino": "^10.3.1",
+    "pino-loki": "^3.0.0",
+    "playwright": "^1.49.1",
+    "typesense": "^3.0.4",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/better-sqlite3": "^7.6.12",
+    "@types/node": "^22.10.2",
+    "@types/pg": "^8.20.0",
+    "@vitest/coverage-v8": "^4.0.18",
+    "eslint": "^10.0.2",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.5",
+    "jszip": "^3.10.1",
+    "pino-pretty": "^13.1.3",
+    "prettier": "^3.8.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.56.1",
+    "vitest": "^4.0.18"
+  },
+  "pnpm": {
+    "overrides": {
+      "undici": ">=7.24.0"
+    },
+    "onlyBuiltDependencies": [
+      "better-sqlite3"
+    ]
+  }
+}

@@ -1,7 +1,7 @@
 {
   "id": "engine-drive",
   "story_axis": "engine",
-  "state": "pending",
+  "state": "met",
   "origin": "frontier",
   "legacy_metadata": {
     "identita": "Drive — proveď akce proti portálu: read (čti inzeráty) i write (řiď NAŠE účty).",

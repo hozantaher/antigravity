@@ -44,3 +44,24 @@ Tento log je automaticky spravován systémem Antigravity.
 - **Affected Nodes:** None
 - **Details:** Hromadná oprava 136 zkorumpovaných legacy manifestů ve složce products. Architektura je nyní na 100% čistá bez warningů.
 
+
+## [2026-06-29T00:33:59.507Z] MANUAL_LOG
+
+- **Actor:** Human
+- **Affected Nodes:** None
+- **Details:** Fáze 2: Implementace engine-drive dokončena, uzel byl povýšen na met.
+
+
+## [2026-06-29T00:35:36.313Z] MANUAL_LOG
+
+- **Actor:** Human
+- **Affected Nodes:** None
+- **Details:** Fáze 3: Lift & Shift scrapers do spine s auto-heal dokončen.
+
+
+## [2026-06-29T00:36:42.436Z] MANUAL_LOG
+
+- **Actor:** Human
+- **Affected Nodes:** None
+- **Details:** Fáze 4: Optimalizace hubu auth-account (rozšípení na auth a account) dokončena.
+

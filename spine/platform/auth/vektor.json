@@ -1,0 +1,30 @@
+{
+  "identita": "Brána do dražby — registrace, přihlášení a účet účastníka.",
+  "smysl": "Od diváka k vážnému účastníkovi přes ověřenou identitu — dva dílčí sliby pod jednou střechou.",
+  "smer": "Auth jako skupina: guards (0 anonymního úniku) a registration (tok bez slepé uličky) — každý uzel se svým vlastním důkazem.",
+  "duvod": "Brána do ringu není jeden test, ale dva oddělené sliby; rozdělené uzly je drží poctivě každý zvlášť.",
+  "myslenka": "Skupina je bezpečná jen tehdy, když platí oba její dílčí sliby.",
+  "pillar": "serious-community",
+  "role": "primary",
+  "promise": "Bezpečný účet, žádný anonymní šum.",
+  "loreLine": "Vstup do dražby začíná tady — ověřená identita je první krok od diváka k vážnému účastníkovi.",
+  "proofSignal": [
+    {
+      "nazev": "brána do dražby — všechny dílčí sliby live",
+      "zdroj": "track/auth",
+      "stav": "pending"
+    }
+  ],
+  "antiFeature": "Auth jako jeden neprůhledný blok — dílčí selhání (prosáklý guard) se schová v zeleném celku.",
+  "id": "auth",
+  "story_axis": "platform",
+  "facets": {
+    "legacy_unmapped": [
+      "./contract.ts",
+      "./logic/useUser.ts",
+      "./logic/state.ts",
+      "./logic/firebaseClient.ts",
+      "./logic/authHeader.ts"
+    ]
+  }
+}

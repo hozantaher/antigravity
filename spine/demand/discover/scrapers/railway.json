@@ -1,0 +1,9 @@
+{
+  "build": {
+    "dockerfilePath": "Dockerfile"
+  },
+  "deploy": {
+    "startCommand": "npx tsx scripts/index-meilisearch.ts",
+    "restartPolicyType": "NEVER"
+  }
+}

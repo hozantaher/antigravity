@@ -77,13 +77,46 @@ export class TransactionalRefactorEngine {
   }
 
   public async executeRename(oldId: string, newId: string, newPath?: string): Promise<void> {
-    // This is a simplified execution of the plan
-    // In a real ACID environment, we would copy, patch, test, and commit.
     const plan = await this.planRename(oldId, newId, newPath);
     console.log('Vykonávám refaktorizační plán:');
-    plan.forEach((step) => console.log(step));
+    
+    for (const step of plan) {
+      console.log(step);
+      if (step.startsWith('UPDATE_JSON:')) {
+        const file = step.split(' ')[1];
+        const manifest = JSON.parse(fs.readFileSync(file, 'utf8'));
+        manifest.id = newId;
+        // Změna story_axis pokud se přesouvá do nové domény
+        if (newPath) {
+           const parts = newPath.split('/');
+           if (parts.length > 0 && ['demand', 'supply', 'sale', 'engine', 'platform'].includes(parts[0])) {
+             manifest.story_axis = parts[0];
+           } else if (parts.length > 1 && parts[0] === 'spine') {
+             manifest.story_axis = parts[1];
+           }
+        }
+        fs.writeFileSync(file, JSON.stringify(manifest, null, 2) + '\n', 'utf8');
+      } else if (step.startsWith('GIT_MV:')) {
+        const parts = step.split(' ');
+        const oldDir = parts[1];
+        const newDir = parts[3];
+        fs.mkdirSync(path.dirname(newDir), { recursive: true });
+        fs.renameSync(oldDir, newDir);
+      } else if (step.startsWith('PATCH_FILE:')) {
+        const file = step.split(' ')[1];
+        let content = fs.readFileSync(file, 'utf8');
+        content = content.replace(new RegExp(`// @vektor-link: ${oldId}`, 'g'), `// @vektor-link: ${newId}`);
+        fs.writeFileSync(file, content, 'utf8');
+      } else if (step.startsWith('PATCH_EDGE:')) {
+        const file = step.split(' ')[1];
+        const manifest = JSON.parse(fs.readFileSync(file, 'utf8'));
+        if (manifest.edges) {
+          manifest.edges = manifest.edges.map((e: string) => e === oldId ? newId : e);
+        }
+        fs.writeFileSync(file, JSON.stringify(manifest, null, 2) + '\n', 'utf8');
+      }
+    }
 
-    // To be fully implemented: the actual fs/git execution logic.
-    console.log('Refactoring (dry-run) dokončen.');
+    console.log('Refactoring dokončen.');
   }
 }

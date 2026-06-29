@@ -155,6 +155,34 @@ export class CyberneticGovernor {
     for (const file of spineFiles) {
       if (!allTrackedFiles.has(path.normalize(file))) {
         report.push(`DETECTED: Unmapped file in spine: ${file} (not referenced in any facets)`);
+        
+        if (this.autoHeal) {
+          // Find closest vektor.json
+          let currentDir = path.dirname(path.join(this.rootDir, file));
+          let foundManifest = false;
+          while (currentDir !== this.rootDir && currentDir.includes('spine')) {
+            const manifestPath = path.join(currentDir, 'vektor.json');
+            if (fs.existsSync(manifestPath)) {
+              try {
+                const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+                if (!manifest.facets) manifest.facets = {};
+                if (!manifest.facets.legacy_unmapped) manifest.facets.legacy_unmapped = [];
+                
+                // Calculate relative path from manifest dir to file
+                const relPath = './' + path.relative(currentDir, path.join(this.rootDir, file));
+                
+                if (!manifest.facets.legacy_unmapped.includes(relPath)) {
+                  manifest.facets.legacy_unmapped.push(relPath);
+                  fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2) + '\n', 'utf8');
+                  report.push(`  -> HEALED: Added to legacy_unmapped facet in ${manifest.id}`);
+                }
+                foundManifest = true;
+                break;
+              } catch (e) {}
+            }
+            currentDir = path.dirname(currentDir);
+          }
+        }
       }
     }
 

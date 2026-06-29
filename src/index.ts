@@ -137,14 +137,23 @@ program
   .description(
     'Vygeneruje docs/reference/topology-map.md s mapou vektorového stromu (Mermaid graf) pro AI agenty'
   )
-  .action(async () => {
+  .option('--gravity', 'Vygeneruje speciální gravitační mapu založenou na reverse links (docs/reference/gravity-map.md)')
+  .action(async (options) => {
     const root = process.cwd();
     const engine = new UnifiedVectorEngine(root);
     await engine.scan();
-    const md = engine.generateArchitectureMap();
-    const outPath = path.join(root, 'docs', 'reference', 'topology-map.md');
-    fs.writeFileSync(outPath, md, 'utf8');
-    console.log(`SUCCESS: Architecture map generated at docs/reference/topology-map.md`);
+    
+    if (options.gravity) {
+      const md = engine.generateGravityMap();
+      const outPath = path.join(root, 'docs', 'reference', 'gravity-map.md');
+      fs.writeFileSync(outPath, md, 'utf8');
+      console.log(`SUCCESS: Gravitational map generated at docs/reference/gravity-map.md`);
+    } else {
+      const md = engine.generateArchitectureMap();
+      const outPath = path.join(root, 'docs', 'reference', 'topology-map.md');
+      fs.writeFileSync(outPath, md, 'utf8');
+      console.log(`SUCCESS: Architecture map generated at docs/reference/topology-map.md`);
+    }
   });
 
 program
