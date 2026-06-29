@@ -1,0 +1,11 @@
+{
+  "id": "auction-items",
+  "story_axis": "spine",
+  "state": "pending",
+  "facets": {
+    "ui": [
+      "./auction-items.vue"
+    ]
+  },
+  "edges": []
+}

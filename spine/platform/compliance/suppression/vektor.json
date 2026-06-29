@@ -1,0 +1,14 @@
+{
+  "id": "suppression",
+  "story_axis": "spine",
+  "state": "met",
+  "facets": {
+    "ui": [
+      "./suppression.vue"
+    ],
+    "logic": [
+      "./logic.ts"
+    ]
+  },
+  "edges": []
+}

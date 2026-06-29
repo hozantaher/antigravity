@@ -1,0 +1,14 @@
+{
+  "id": "dsr",
+  "story_axis": "spine",
+  "state": "met",
+  "facets": {
+    "ui": [
+      "./dsr.vue"
+    ],
+    "logic": [
+      "./logic.ts"
+    ]
+  },
+  "edges": []
+}

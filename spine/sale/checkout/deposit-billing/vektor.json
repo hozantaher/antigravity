@@ -1,0 +1,11 @@
+{
+  "id": "deposit-billing",
+  "story_axis": "spine",
+  "state": "pending",
+  "facets": {
+    "ui": [
+      "./deposit-billing.vue"
+    ]
+  },
+  "edges": []
+}

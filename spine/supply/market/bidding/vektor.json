@@ -1,0 +1,11 @@
+{
+  "id": "bidding",
+  "story_axis": "spine",
+  "state": "pending",
+  "facets": {
+    "ui": [
+      "./bidding.vue"
+    ]
+  },
+  "edges": []
+}

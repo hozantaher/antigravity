@@ -1,0 +1,14 @@
+{
+  "id": "favorites",
+  "story_axis": "spine",
+  "state": "met",
+  "facets": {
+    "ui": [
+      "./favorites.vue"
+    ],
+    "logic": [
+      "./logic.ts"
+    ]
+  },
+  "edges": []
+}

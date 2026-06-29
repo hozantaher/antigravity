@@ -1,0 +1,14 @@
+{
+  "id": "inbox-orchestrator",
+  "story_axis": "spine",
+  "state": "met",
+  "facets": {
+    "ui": [
+      "./inbox-orchestrator.vue"
+    ],
+    "logic": [
+      "./logic.ts"
+    ]
+  },
+  "edges": []
+}

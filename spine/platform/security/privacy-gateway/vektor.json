@@ -1,0 +1,14 @@
+{
+  "id": "privacy-gateway",
+  "story_axis": "spine",
+  "state": "met",
+  "facets": {
+    "ui": [
+      "./privacy-gateway.vue"
+    ],
+    "logic": [
+      "./logic.ts"
+    ]
+  },
+  "edges": []
+}

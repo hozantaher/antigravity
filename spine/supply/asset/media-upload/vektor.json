@@ -1,0 +1,11 @@
+{
+  "id": "media-upload",
+  "story_axis": "spine",
+  "state": "pending",
+  "facets": {
+    "ui": [
+      "./media-upload.vue"
+    ]
+  },
+  "edges": []
+}

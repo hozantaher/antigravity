@@ -1,0 +1,11 @@
+{
+  "id": "sale-settlement",
+  "story_axis": "spine",
+  "state": "pending",
+  "facets": {
+    "ui": [
+      "./sale-settlement.vue"
+    ]
+  },
+  "edges": []
+}

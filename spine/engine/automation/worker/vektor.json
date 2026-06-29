@@ -1,0 +1,14 @@
+{
+  "id": "worker",
+  "story_axis": "spine",
+  "state": "met",
+  "facets": {
+    "ui": [
+      "./worker.vue"
+    ],
+    "logic": [
+      "./logic.ts"
+    ]
+  },
+  "edges": []
+}

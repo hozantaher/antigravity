@@ -1,0 +1,14 @@
+{
+  "id": "relay",
+  "story_axis": "spine",
+  "state": "met",
+  "facets": {
+    "ui": [
+      "./relay.vue"
+    ],
+    "logic": [
+      "./logic.ts"
+    ]
+  },
+  "edges": []
+}

@@ -1,0 +1,12 @@
+{
+  "id": "design-system",
+  "story_axis": "spine",
+  "state": "met",
+  "facets": {
+    "ui": [
+      "./design-system.vue",
+      "./tokens.css"
+    ]
+  },
+  "edges": []
+}

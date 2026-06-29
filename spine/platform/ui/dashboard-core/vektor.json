@@ -1,0 +1,11 @@
+{
+  "id": "dashboard-core",
+  "story_axis": "spine",
+  "state": "pending",
+  "facets": {
+    "ui": [
+      "./dashboard-core.vue"
+    ]
+  },
+  "edges": []
+}

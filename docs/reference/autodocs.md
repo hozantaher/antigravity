@@ -11,14 +11,6 @@ Tento dokument je plně generován automaticky na základě fyzických uzlů a j
   - *logic*: ./logic.ts
   - *tests*: ./logic.test.ts
 
-## 🪐 Osa: SALE
-
-### Uzel: `sale`
-- **Stav:** pending
-- **Fyzické soubory:**
-  - *ui*: ./sale.vue
-  - *legacy_unmapped*: 
-
 ## 🪐 Osa: ENGINE
 
 ### Uzel: `engine`
@@ -37,6 +29,14 @@ Tento dokument je plně generován automaticky na základě fyzických uzlů a j
 - **Identita:** Drive — proveď akce proti portálu: read (čti inzeráty) i write (řiď NAŠE účty).
 - **Fyzické soubory:**
   - *ui*: ./engine-drive.vue
+
+## 🪐 Osa: SALE
+
+### Uzel: `sale`
+- **Stav:** pending
+- **Fyzické soubory:**
+  - *ui*: ./sale.vue
+  - *legacy_unmapped*: 
 
 ## 🪐 Osa: DEMAND
 

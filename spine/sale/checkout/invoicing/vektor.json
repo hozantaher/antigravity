@@ -1,0 +1,11 @@
+{
+  "id": "invoicing",
+  "story_axis": "spine",
+  "state": "pending",
+  "facets": {
+    "ui": [
+      "./invoicing.vue"
+    ]
+  },
+  "edges": []
+}

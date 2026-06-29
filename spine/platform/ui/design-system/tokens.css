@@ -1,0 +1,6 @@
+/* Design System Tokens */
+:root {
+  --color-primary: #007bff;
+  --color-secondary: #6c757d;
+  --spacing-unit: 8px;
+}

@@ -1,0 +1,17 @@
+{
+  "id": "api-tokens",
+  "story_axis": "spine",
+  "state": "met",
+  "facets": {
+    "ui": [
+      "./api-tokens.vue"
+    ],
+    "logic": [
+      "./logic.ts"
+    ],
+    "tests": [
+      "./logic.test.ts"
+    ]
+  },
+  "edges": []
+}

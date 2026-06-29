@@ -1,0 +1,14 @@
+{
+  "id": "saved-search",
+  "story_axis": "spine",
+  "state": "met",
+  "facets": {
+    "ui": [
+      "./saved-search.vue"
+    ],
+    "logic": [
+      "./logic.ts"
+    ]
+  },
+  "edges": []
+}
