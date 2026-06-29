@@ -41,16 +41,6 @@ const queryQueue: QueryOutcome[] = []
 vi.mock('pg', () => {
   class Pool {
     async query(_sql: string, _params?: unknown[]) {
-      // RC1c — the smtp-check route calls checkOpRateLimit (AP3 per-op limiter,
-      // src/lib/mailboxOpRateLimit.js) which runs FOR UPDATE + count + INSERT
-      // against mailbox_op_rate_log inside a pool.connect() txn. This file does
-      // NOT test the limiter, so short-circuit it to the ALLOWED path WITHOUT
-      // consuming the business queryQueue (otherwise the FOR UPDATE eats the
-      // queued MAILBOX_ROW and the count's rows[0] is undefined → 500).
-      const s = typeof _sql === 'string' ? _sql : ''
-      if (/FROM outreach_mailboxes WHERE id=\$1 FOR UPDATE/i.test(s)) return { rows: [{ ok: 1 }], rowCount: 1 }
-      if (/FROM mailbox_op_rate_log/i.test(s)) return { rows: [{ used: 0, oldest_in_window: null }], rowCount: 1 }
-      if (/INSERT INTO mailbox_op_rate_log/i.test(s)) return { rows: [], rowCount: 1 }
       if (!queryQueue.length) return { rows: [], rowCount: 0 }
       const next = queryQueue.shift()!
       if (next instanceof Error) throw next

@@ -1,0 +1,100 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Načíst stdin jednou, procesovat dvakrát
+PUSH_STDIN=$(cat)
+
+# Guard: blokovat přímý push na protected branches
+while read -r local_ref local_sha remote_ref remote_sha; do
+  if [[ "$remote_ref" == "refs/heads/main" || "$remote_ref" == "refs/heads/develop" ]]; then
+    branch="${remote_ref##refs/heads/}"
+    echo "[pre-push] BLOCKED: přímý push na '${branch}' zakázán."
+    echo "[pre-push] Vytvoř PR z messingtomas/ht-development → ${branch}."
+    exit 1
+  fi
+done <<< "$PUSH_STDIN"
+
+ROOT="$(git rev-parse --show-toplevel)"
+DASH_REL="apps/outreach-dashboard"
+DASH_DIR="$ROOT/$DASH_REL"
+
+if [[ ! -d "$DASH_DIR" ]]; then
+  echo "[pre-push] Dashboard path not found: $DASH_DIR"
+  exit 0
+fi
+
+is_zero_sha() {
+  [[ "${1:-}" =~ ^0+$ ]]
+}
+
+declare -a ranges=()
+while read -r local_ref local_sha remote_ref remote_sha; do
+  [[ -z "${local_sha:-}" ]] && continue
+  if is_zero_sha "$local_sha"; then
+    continue
+  fi
+
+  if is_zero_sha "${remote_sha:-}"; then
+    base=""
+    if git show-ref --verify --quiet refs/remotes/origin/main; then
+      base="$(git merge-base "$local_sha" refs/remotes/origin/main || true)"
+    fi
+    if [[ -z "$base" ]]; then
+      base="$(git rev-list --max-parents=0 "$local_sha" | tail -n1)"
+    fi
+    ranges+=("${base}..${local_sha}")
+  else
+    ranges+=("${remote_sha}..${local_sha}")
+  fi
+done <<< "$PUSH_STDIN"
+
+if [[ ${#ranges[@]} -eq 0 ]]; then
+  echo "[pre-push] No refs to evaluate."
+  exit 0
+fi
+
+declare -a changed_repo_paths=()
+for range in "${ranges[@]}"; do
+  while IFS= read -r file; do
+    [[ -n "$file" ]] && changed_repo_paths+=("$file")
+  done < <(git diff --name-only "$range" -- "$DASH_REL")
+done
+
+if [[ ${#changed_repo_paths[@]} -eq 0 ]]; then
+  echo "[pre-push] No dashboard changes in pushed commits, skipping dashboard tests."
+  exit 0
+fi
+
+declare -a unique_repo_paths=()
+while IFS= read -r file; do
+  [[ -n "$file" ]] && unique_repo_paths+=("$file")
+done < <(printf '%s\n' "${changed_repo_paths[@]}" | awk '!seen[$0]++')
+
+declare -a changed_dashboard_paths=()
+for file in "${unique_repo_paths[@]}"; do
+  if [[ "$file" == "$DASH_REL/"* ]]; then
+    changed_dashboard_paths+=("${file#"$DASH_REL/"}")
+  fi
+done
+
+if [[ ${#changed_dashboard_paths[@]} -eq 0 ]]; then
+  echo "[pre-push] No dashboard-local file changes after normalization, skipping."
+  exit 0
+fi
+
+changed_csv="$(IFS=,; echo "${changed_dashboard_paths[*]}")"
+
+cd "$DASH_DIR"
+if [[ "${IMPACT_HOOK_DRY_RUN:-0}" == "1" ]]; then
+  echo "[pre-push] IMPACT_HOOK_DRY_RUN=1 -> printing impacted plan only"
+  node ./scripts/run-impact-tests.mjs --print --changed "$changed_csv"
+  exit 0
+fi
+
+if [[ "${IMPACT_WITH_E2E:-0}" == "1" ]]; then
+  echo "[pre-push] Running dashboard impact checks with E2E"
+  pnpm run test:impact:e2e -- --changed "$changed_csv"
+else
+  echo "[pre-push] Running dashboard impact checks (no E2E)"
+  pnpm run test:impact -- --changed "$changed_csv"
+fi

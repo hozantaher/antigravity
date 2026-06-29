@@ -22,7 +22,7 @@ export class FuzzyVectorRouter {
 
     const jsonFiles = await glob('**/vektor.json', {
       cwd: this.rootDir,
-      ignore: 'node_modules/**',
+      ignore: '**/node_modules/**',
     });
 
     for (const file of jsonFiles) {

@@ -19,24 +19,8 @@ const queryQueue: QueryOutcome[] = []
 const calls: Array<{ sql: string; params?: unknown[] }> = []
 
 vi.mock('pg', () => {
-  // POST /api/mailboxes takes an advisory lock before the pool-capacity
-  // pre-flight SELECT. Short-circuit the advisory WITHOUT consuming queryQueue
-  // so the queued `pinned` count is read by preFlightPoolCapacity. The capacity
-  // SELECT itself is only short-circuited when no pool is configured
-  // (WIREPROXY_POOL_CONFIG unset) — the pool-gate tests below SET it and feed
-  // the pinned count themselves, so it must shift normally there.
-  function infraShortCircuit(sql: unknown): { rows: unknown[]; rowCount: number } | null {
-    const s = typeof sql === 'string' ? sql : ''
-    if (/pg_advisory(_xact)?_lock|pg_advisory_unlock/i.test(s)) return { rows: [], rowCount: 0 }
-    if (/pinned_endpoint_label IS NOT NULL/i.test(s) && !process.env.WIREPROXY_POOL_CONFIG) {
-      return { rows: [{ pinned: 0 }], rowCount: 1 }
-    }
-    return null
-  }
   class Pool {
     async query(sql: string, params?: unknown[]) {
-      const infra = infraShortCircuit(sql)
-      if (infra) return infra
       calls.push({ sql, params })
       if (!queryQueue.length) return { rows: [] }
       const next = queryQueue.shift()!
@@ -46,10 +30,7 @@ vi.mock('pg', () => {
     async connect() {
       const self = this
       return {
-        query: async (sql: string, params?: unknown[]) => {
-          if (/^\s*(BEGIN|COMMIT|ROLLBACK|SAVEPOINT|RELEASE)/i.test(typeof sql === 'string' ? sql : '')) return { rows: [], rowCount: 0 }
-          return self.query(sql, params)
-        },
+        query: async (sql: string, params?: unknown[]) => self.query(sql, params),
         release: () => {},
       }
     }
@@ -227,7 +208,8 @@ describe('POST /api/mailboxes pool gate (AS3)', () => {
 
   it('skips gate when WIREPROXY_POOL_CONFIG unset (pool_size=0)', async () => {
     delete process.env.WIREPROXY_POOL_CONFIG
-    // pool_size=0 → preFlightPoolCapacity is a no-op (no capacity SELECT row to feed).
+    // capacity check: 0 pinned of 0
+    queueRows([{ pinned: 0 }])
     // INSERT RETURNING row
     queueRows([{
       id: 100, email: 'nopool@test.cz', display_name: 'NoPool', host: 'smtp.cz',

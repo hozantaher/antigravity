@@ -59,8 +59,7 @@ afterAll(async () => {
 })
 
 describe('GET /api/templates/preview', () => {
-  // QUARANTINED pending owner decision — see docs/handoff/ci-remediation-residual.md
-  it.skip('1: returns ok=true with default template when no ?template= param', async () => {
+  it('1: returns ok=true with default template when no ?template= param', async () => {
     const res = await fetch(`${baseUrl}/api/templates/preview`)
     expect(res.status).toBe(200)
     const body = await res.json() as { ok: boolean; template: string; templates: string[] }
@@ -80,16 +79,14 @@ describe('GET /api/templates/preview', () => {
     expect(body.body.length).toBeGreaterThan(0)
   })
 
-  // QUARANTINED pending owner decision — see docs/handoff/ci-remediation-residual.md
-  it.skip('3: body has NO {{.UnsubURL}} placeholder (HARD RULE feedback_no_unsub_url_in_body)', async () => {
+  it('3: body has NO {{.UnsubURL}} placeholder (HARD RULE feedback_no_unsub_url_in_body)', async () => {
     const res = await fetch(`${baseUrl}/api/templates/preview?template=initial`)
     const body = await res.json() as { body: string }
     expect(body.body).not.toContain('{{.UnsubURL}}')
     expect(body.body).not.toMatch(/\/unsubscribe\b/)
   })
 
-  // QUARANTINED pending owner decision — see docs/handoff/ci-remediation-residual.md
-  it.skip('4: keeps GDPR footer phrases (controller, PIB, legal basis)', async () => {
+  it('4: keeps GDPR footer phrases (controller, PIB, legal basis)', async () => {
     const res = await fetch(`${baseUrl}/api/templates/preview?template=initial`)
     const body = await res.json() as { body: string }
     expect(body.body).toContain('BALKAN MOTORS INT DOO')
@@ -106,8 +103,7 @@ describe('GET /api/templates/preview', () => {
     expect(body.body).not.toMatch(/\{\{\/\*\s*subject:/)
   })
 
-  // QUARANTINED pending owner decision — see docs/handoff/ci-remediation-residual.md
-  it.skip('6: lists all available templates', async () => {
+  it('6: lists all available templates', async () => {
     const res = await fetch(`${baseUrl}/api/templates/preview`)
     const body = await res.json() as { templates: string[] }
     expect(body.templates).toContain('initial')
@@ -134,8 +130,7 @@ describe('GET /api/templates/preview', () => {
     expect(body.note).toMatch(/UKÁZKA|preview|zástupn/i)
   })
 
-  // QUARANTINED pending owner decision — see docs/handoff/ci-remediation-residual.md
-  it.skip('10: response includes the template name being previewed', async () => {
+  it('10: response includes the template name being previewed', async () => {
     const res = await fetch(`${baseUrl}/api/templates/preview?template=followup1`)
     const body = await res.json() as { template: string }
     expect(body.template).toBe('followup1')

@@ -1,0 +1,21 @@
+{
+  "identita": "RTL parita — arabština nerozbije layout.",
+  "smysl": "Plocha čte zprava doleva stejně dobře jako zleva; nic se nerozsype.",
+  "smer": "RTL parita (ar) bez rozbití layoutu; zrcadlené rozložení drží.",
+  "duvod": "Rozbitý RTL layout vyloučí arabsky mluvící trh → borderless slib zůstane neprokázaný.",
+  "myslenka": "Směr čtení je součást dosahu, ne výjimka.",
+  "pillar": "borderless",
+  "role": "supporting",
+  "promise": "Arabsky to drží stejně jako latinkou.",
+  "loreLine": "RTL bez trhlin — zrcadlené rozložení drží od Dubaje po Damašek.",
+  "proofSignal": [
+    { "nazev": "RTL parity", "zdroj": "test/rtl", "stav": "pending" }
+  ],
+  "antiFeature": "Rozbitý RTL — arabský layout se rozsype a trh odpadne.",
+  "hotovo": {
+    "kdyzPlati": [
+      { "kriterium": "RTL parita (ar) bez rozbití layoutu", "check": "test:rtl", "stav": "met" }
+    ],
+    "vektorGate": "all-met"
+  }
+}

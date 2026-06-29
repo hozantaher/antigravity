@@ -171,6 +171,11 @@ import {
   PROSPECT_SCORE_CRON_INTERVAL_MS,
 } from './src/crons/runProspectScoringCron.js'
 import { mountProspectsRoutes } from './src/server-routes/prospects.js'
+// 2026-06-26 — machinery-priority sync cron (drift guard for migration 178).
+import {
+  runCampaignContactPriorityCron as _runCampaignContactPriorityCron,
+  PRIORITY_SYNC_CRON_INTERVAL_MS,
+} from './src/crons/runCampaignContactPriorityCron.js'
 import {
   getRelayBase,
   relaySmtpCheck,
@@ -4690,6 +4695,12 @@ function runProspectScoringCron() {
   return _runProspectScoringCron(pool)
 }
 
+// Machinery-priority sync — keeps campaign_contacts.priority on the canonical
+// 0-1 compute_machinery_score scale (drift guard, see migration 178).
+function runCampaignContactPriorityCron() {
+  return _runCampaignContactPriorityCron(pool)
+}
+
 // ── AV-F9: Zombie in_flight reclaim cron ─────────────────────────────
 // Reclaims campaign_contacts.status='in_flight' rows whose updated_at
 // is older than 1 hour back to 'pending' so the next sender tick can
@@ -5210,6 +5221,9 @@ function startCronEngine() {
   // recomputes contacts.prospect_score every 6h with a 24h re-compute window
   // so newly imported contacts get scored within hours of arrival.
   scheduleCron('runProspectScoringCron', PROSPECT_SCORE_CRON_INTERVAL_MS, timed('runProspectScoringCron', runProspectScoringCron))
+  // 2026-06-26 — keep campaign_contacts.priority synced to the machinery score
+  // so new enrollments (inserted at DEFAULT 0) and any future drift self-heal.
+  scheduleCron('runCampaignContactPriorityCron', PRIORITY_SYNC_CRON_INTERVAL_MS, timed('runCampaignContactPriorityCron', runCampaignContactPriorityCron))
   // AV-F9 — Zombie in_flight reclaim every 10 min. Releases campaign_contacts
   // stuck in 'in_flight' for >1h back to 'pending' so the sender pool stays
   // healthy after daemon crashes / OOMs / Railway redeploys. Safety net

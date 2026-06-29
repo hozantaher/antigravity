@@ -1,0 +1,10 @@
+STATUS: 403
+HEADER: Server: cloudflare
+HEADER: Cf-Ray: 8a9c4d2e1f0b3a72-PRG
+HEADER: Cf-Mitigated: challenge
+HEADER: Content-Type: text/html; charset=UTF-8
+HEADER: Cache-Control: private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+EXPECT: cloudflare
+NOTE: Cloudflare managed challenge — real header set as observed on Seznam-fronted endpoints when CZ free-pool exit gets graylisted. cf-mitigated wins regardless of body.
+---
+<!DOCTYPE html><html lang="en-US"><head><title>Just a moment...</title><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body class="no-js"><div class="main-wrapper" role="main"><div class="main-content"><h1 class="zone-name-title h1"><img class="heading-favicon" src="/favicon.ico" onerror="this.onerror=null;this.parentNode.removeChild(this)">www.firmy.cz</h1><h2 class="h2" id="challenge-running">Checking your browser before accessing the site.</h2></div></div></body></html>

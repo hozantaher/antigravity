@@ -1,0 +1,78 @@
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*~
+
+# Go binaries
+modules/outreach/outreach
+modules/outreach/classify-bulk
+
+# Go test artifacts
+*.out
+modules/outreach/cover.out
+modules/outreach/cov_valid.out
+# Root-level Go test binaries from `go test -c` (e.g. bridge.test, fragment.test).
+# Pattern is anchored to root so it does NOT capture services/privacy-gateway/.env.*.test
+# config templates, which use the .test suffix for test-environment env files.
+/*.test
+
+# Environment and secrets (never commit)
+*.local
+secrets
+.env
+.env.*
+!.env.example
+!.env*.example
+!*.example
+
+# Node.js
+node_modules/
+dist/
+*.tsbuildinfo
+*.sqlite
+*.sqlite3
+coverage/
+playwright-report/
+test-results/
+.pnpm-store/
+
+# Dashboard build artifacts
+apps/outreach-dashboard/.output/
+apps/outreach-dashboard/.nuxt/
+
+# Test/build caches
+**/.stryker-tmp/
+**/.vite/
+**/reports/
+integration.test
+
+# Local sandbox VM images (multi-GB qcow2/iso blobs — never commit)
+infra/sandbox/vm/
+
+# Claude Code local state (user-machine specific)
+.claude/settings.local.json
+.claude/scheduled_tasks.lock
+.claude/worktrees/
+
+# Mail Lab runtime (api logs)
+.mail-lab-logs/
+
+# Launch snapshots — captured by scripts/launch/snapshot.sh at operator runtime
+docs/audits/2026-05-05-launch-pre.json
+docs/audits/2026-05-05-launch-post-*.json
+
+# secret hygiene (net-wide hardening 2026-06-03)
+*.key
+*.pem
+*.private
+*.p12
+*.pfx
+
+# root-level compiled binary (build artifact; was tracked by mistake — .gitignore only
+# covered the nested modules/outreach/outreach path, not this root copy)
+/outreach
+/screenshots/

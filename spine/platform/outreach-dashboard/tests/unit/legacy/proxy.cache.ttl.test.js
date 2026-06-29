@@ -152,8 +152,7 @@ describe('buildProxyCacheManager', () => {
 // ── UI polling interval constant ──────────────────────────────────────────────
 
 describe('Mailboxes UI HEALTH_REFRESH_MS', () => {
-  // QUARANTINED pending owner decision — see docs/handoff/ci-remediation-residual.md
-  test.skip('constant value in mailboxes/helpers.js is 15 000 ms', async () => {
+  test('constant value in mailboxes/helpers.js is 15 000 ms', async () => {
     // Read the source file and extract the constant to catch accidental regressions.
     // Relocated from Mailboxes.jsx to components/mailboxes/helpers.js (Mailboxes.jsx
     // now imports it); read it from its canonical home.

@@ -1,12 +1,19 @@
 {
-  "id": "demand",
-  "story_axis": "demand",
-  "state": "pending",
-  "facets": {
-    "ui": [
-      "./demand.vue"
-    ],
-    "logic": []
-  },
-  "edges": []
+  "identita": "Poptávka — osa páteře: kdo platí a jak najde hodnotu.",
+  "smysl": "Sdružuje domény, které vytvářejí a obsluhují poptávku po inzerátech (discovery, retence, komunikace).",
+  "smer": "Najít kupce a dovést ho k hodnotě na první stránce.",
+  "duvod": "Bez poptávky se inventář neprodá — osa měří, jestli kupce najdeme.",
+  "myslenka": "Poptávka je osa, ne náhoda.",
+  "pillar": "cross",
+  "role": "stage",
+  "promise": "Co trh poptává, to najde.",
+  "loreLine": "Osa poptávky — discovery, retence a komunikace mezi kupcem a inzerátem; gate se rolluje z dětí.",
+  "proofSignal": [
+    {
+      "nazev": "demand-axis-rollup",
+      "zdroj": "vektor-tree",
+      "stav": "pending"
+    }
+  ],
+  "antiFeature": "Osa, která sdružuje domény bez společného poptávkového smyslu."
 }

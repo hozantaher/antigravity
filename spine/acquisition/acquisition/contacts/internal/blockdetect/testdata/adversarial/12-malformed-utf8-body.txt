@@ -1,0 +1,6 @@
+STATUS: 200
+HEADER: Content-Type: text/html
+EXPECT: none
+NOTE: Body contains invalid UTF-8 byte sequences (0xff 0xfe 0xfd). Substring search (bytes.Contains) is byte-safe so no panic / no false-positive against latin-1 or mojibake content.
+---
+<html><body>Invalid UTF8: ÿþý ÝÆØ Č Š Ž stránka v cp1250 možná?</body></html>

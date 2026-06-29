@@ -1,0 +1,6 @@
+STATUS: 401
+HEADER: WWW-Authenticate: Basic realm="api"
+EXPECT: forbidden
+NOTE: 401 Unauthorized — credential / API key fail. Classified as forbidden so the recovery path same as 403. Operator dashboard groups them.
+---
+{"error":"unauthorized","message":"Missing or invalid X-API-Key"}

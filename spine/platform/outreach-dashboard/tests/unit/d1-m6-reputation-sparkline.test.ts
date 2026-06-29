@@ -82,23 +82,16 @@ async function fetchReputationSparkline(
   }
 }
 
-// Reputation history is a rolling window relative to "now". Build fixture
-// dates relative to the current date so the sample never ages out of the
-// `days` window (the previously hardcoded 2026-04/05 dates silently fell
-// outside the cutoff once the calendar moved past them → 0 points).
-const daysAgo = (n: number): string =>
-  new Date(Date.now() - n * 24 * 60 * 60 * 1000).toISOString().split('T')[0]
-
 describe('M6: Reputation Sparkline', () => {
   it('happy path: 30-day fetch → 7 points', async () => {
     const data = [
-      { date: daysAgo(28), score: 85 },
-      { date: daysAgo(24), score: 87 },
-      { date: daysAgo(20), score: 90 },
-      { date: daysAgo(16), score: 92 },
-      { date: daysAgo(8), score: 88 },
-      { date: daysAgo(4), score: 89 },
-      { date: daysAgo(1), score: 91 },
+      { date: '2026-04-13', score: 85 },
+      { date: '2026-04-20', score: 87 },
+      { date: '2026-04-27', score: 90 },
+      { date: '2026-05-04', score: 92 },
+      { date: '2026-05-11', score: 88 },
+      { date: '2026-05-12', score: 89 },
+      { date: '2026-05-13', score: 91 },
     ]
 
     const result = await fetchReputationSparkline(
@@ -112,7 +105,7 @@ describe('M6: Reputation Sparkline', () => {
   })
 
   it('boundary: days=1 (single point) → renders', async () => {
-    const data = [{ date: daysAgo(0), score: 88 }]
+    const data = [{ date: '2026-05-13', score: 88 }]
 
     const result = await fetchReputationSparkline(
       { mailboxId: 1, days: 1 },
@@ -126,9 +119,9 @@ describe('M6: Reputation Sparkline', () => {
 
   it('boundary: days=90 + sparse data (3 real points) → interpolates midpoints', async () => {
     const data = [
-      { date: daysAgo(89), score: 80 },
-      { date: daysAgo(58), score: 85 }, // 31 days gap
-      { date: daysAgo(0), score: 92 },  // 58 days gap
+      { date: '2026-02-12', score: 80 },
+      { date: '2026-03-15', score: 85 }, // 31 days gap
+      { date: '2026-05-13', score: 92 }, // 59 days gap
     ]
 
     const result = await fetchReputationSparkline(
@@ -159,9 +152,9 @@ describe('M6: Reputation Sparkline', () => {
 
   it('trend detection: upward', async () => {
     const data = [
-      { date: daysAgo(20), score: 70 },
-      { date: daysAgo(17), score: 75 },
-      { date: daysAgo(13), score: 90 },
+      { date: '2026-05-06', score: 70 },
+      { date: '2026-05-09', score: 75 },
+      { date: '2026-05-13', score: 90 },
     ]
 
     const result = await fetchReputationSparkline(
@@ -174,9 +167,9 @@ describe('M6: Reputation Sparkline', () => {
 
   it('trend detection: downward', async () => {
     const data = [
-      { date: daysAgo(20), score: 90 },
-      { date: daysAgo(17), score: 85 },
-      { date: daysAgo(13), score: 70 },
+      { date: '2026-05-06', score: 90 },
+      { date: '2026-05-09', score: 85 },
+      { date: '2026-05-13', score: 70 },
     ]
 
     const result = await fetchReputationSparkline(
@@ -189,9 +182,9 @@ describe('M6: Reputation Sparkline', () => {
 
   it('trend detection: stable (small fluctuation)', async () => {
     const data = [
-      { date: daysAgo(20), score: 85 },
-      { date: daysAgo(17), score: 86 },
-      { date: daysAgo(13), score: 87 },
+      { date: '2026-05-06', score: 85 },
+      { date: '2026-05-09', score: 86 },
+      { date: '2026-05-13', score: 87 },
     ]
 
     const result = await fetchReputationSparkline(

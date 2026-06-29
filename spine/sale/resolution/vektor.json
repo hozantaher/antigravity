@@ -1,0 +1,35 @@
+{
+  "identita": "Rozhodnutí — případ dojde k závěru s doložením.",
+  "smysl": "Případ dojde k rozhodnutí ops s doložením a viditelným výsledkem.",
+  "smer": "Ops rozhodnutí s odůvodněním a podklady; stav resolved + výsledek stranám.",
+  "duvod": "Spor, který se neuzavře, je horší než žádný — důvěru rozloží nadobro.",
+  "myslenka": "Co se otevře, musí se i zavřít.",
+  "pillar": "fair-price",
+  "role": "supporting",
+  "promise": "Tvůj spor dojde k jasnému rozhodnutí.",
+  "loreLine": "Doložení, rozhodnutí, výsledek — spor s tečkou na konci.",
+  "proofSignal": [
+    {
+      "nazev": "resolution with evidence",
+      "zdroj": "vektor-tree",
+      "stav": "pending"
+    }
+  ],
+  "antiFeature": "Případ, který zůstane věčně otevřený — spravedlnost, jež nikdy nepřijde.",
+  "hotovo": {
+    "kdyzPlati": [
+      {
+        "kriterium": "Případ dojde k rozhodnutí ops s doložením",
+        "check": "test:dispute-resolution",
+        "stav": "met",
+        "proof": {
+          "cmd": "docker compose -f docker-compose.test.yml up -d --wait >/dev/null 2>&1 && POSTGRES_URL=postgresql://test:test@localhost:5434/test POSTGRES_SSL=disable pnpm exec vitest run --project integration tests/integration/disputeRepo.test.ts -t \"state machine\" 2>&1 | grep -qE \"Test Files +1 passed\"",
+          "timeout": 180000
+        }
+      }
+    ],
+    "vektorGate": "all-met"
+  },
+  "id": "resolution",
+  "story_axis": "sale"
+}

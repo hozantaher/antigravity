@@ -200,10 +200,6 @@ describe('response envelope — error shape (4xx)', () => {
     expect([200, 204, 404]).toContain(r.status)
   })
   it('PATCH /api/mailboxes/1 with {} yields 400', async () => {
-    // PATCH opens a txn and pre-SELECTs the current row for audit before the
-    // nothing_to_update check (mailboxes.js:306); without an existence row the
-    // handler 404s. Queue it so the empty body reaches the 400 branch.
-    queueRows([{ id: 1, status: 'active' }])
     const r = await req('PATCH', '/api/mailboxes/1', {})
     expect(r.status).toBe(400)
   })

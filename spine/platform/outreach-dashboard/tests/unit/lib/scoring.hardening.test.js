@@ -137,14 +137,11 @@ describe('SH-C: axes_raw invariants', () => {
     }
   })
 
-  it('SH-016: components.penalties totals to a number >= 0', () => {
+  it('SH-016: components.penalties is a number >= 0', () => {
     const { components } = computeCompositeScore({
       icp_tier: 'ideal', email_confidence: 80, total_bounced: 3, total_sent: 10,
     })
-    // penalties is a structured object (bounce/unsub/inactive/free_webmail/fatigue);
-    // the invariant is that the total penalty magnitude is non-negative.
-    const totalPenalties = Object.values(components.penalties).reduce((a, b) => a + b, 0)
-    expect(totalPenalties).toBeGreaterThanOrEqual(0)
+    expect(components.penalties).toBeGreaterThanOrEqual(0)
   })
 
   it('SH-017: components has icp, penalties, and axes_raw keys', () => {

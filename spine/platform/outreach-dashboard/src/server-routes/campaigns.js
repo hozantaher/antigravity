@@ -2437,6 +2437,58 @@ export function mountCampaignsRoutes(app, deps) {
     } catch (e) { capture500(res, e, safeError) }
   })
 
+  // POST /api/campaigns/:id/rescore-priority
+  //
+  // Operator-triggered re-score: sets campaign_contacts.priority =
+  // compute_machinery_score(contacts.category_path) for the campaign, restoring
+  // the canonical 0-1 machinery-fit scale that drives the send-batch
+  // ORDER BY priority DESC. Idempotent (IS DISTINCT FROM → only drifted rows
+  // written). This is the UX/UI-first, audit-logged replacement for the
+  // migration-178 incident-triage SQL. Reprice ONLY — it never changes status
+  // (skipping E-tier is a separate, explicit destructive action). The
+  // background drift-sync is runCampaignContactPriorityCron; this is the
+  // on-demand path the operator clicks on CampaignDetail.
+  app.post('/api/campaigns/:id/rescore-priority', async (req, res) => {
+    if (!/^\d+$/.test(req.params.id)) {
+      return res.status(400).json({ error: 'invalid campaign id' })
+    }
+    const id = Number(req.params.id)
+    const client = await pool.connect()
+    try {
+      await client.query('BEGIN')
+      const { rows: campRows } = await client.query(`SELECT id FROM campaigns WHERE id=$1`, [id])
+      if (!campRows.length) {
+        await client.query('ROLLBACK')
+        return res.status(404).json({ error: 'campaign not found' })
+      }
+      const { rowCount: updated } = await client.query(
+        `UPDATE campaign_contacts cc
+            SET priority = s.m, updated_at = NOW()
+           FROM (
+             SELECT cc2.id AS cc_id, compute_machinery_score(c.category_path) AS m
+               FROM campaign_contacts cc2
+               JOIN contacts c ON c.id = cc2.contact_id
+              WHERE cc2.campaign_id = $1
+           ) s
+          WHERE cc.id = s.cc_id
+            AND cc.priority IS DISTINCT FROM s.m`,
+        [id],
+      )
+      await client.query(
+        `INSERT INTO operator_audit_log (action, actor, entity_type, entity_id, details)
+         VALUES ('campaign_priority_rescored', 'dashboard_user', 'campaign', $1, $2::jsonb)`,
+        [String(id), JSON.stringify({ updated, source: 'rescore_priority_endpoint' })],
+      )
+      await client.query('COMMIT')
+      res.json({ ok: true, campaign_id: id, updated })
+    } catch (e) {
+      try { await client.query('ROLLBACK') } catch { /* ignored */ }
+      capture500(res, e, safeError)
+    } finally {
+      client.release()
+    }
+  })
+
   // ── POST /api/campaigns/:id/filter-tier ─────────────────────────────────
   //
   // UX-1 (2026-05-14) — Operator-driven pre-launch tier filter. Flips

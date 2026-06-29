@@ -41,13 +41,7 @@ function makePool(...results) {
 const TOTAL_ROW    = { rows: [{ count: '150' }] }
 const BREAKDOWN    = { rows: [{ valid: '100', invalid: '20', risky: '15', null: '15' }] }
 const DOMAIN_ROWS  = { rows: [{ unique_domains: '40', max_per_domain: '8', top_domains: [{ domain: 'firma.cz', count: 8 }, { domain: 'acme.cz', count: 5 }] }] }
-// K1 perf (#1319, segmentPreview.js:142-151): the standalone total COUNT was
-// folded INTO the breakdown query. The handler's FIRST query now returns
-// { total, valid, invalid, risky, null } — there is no separate count query.
-const BREAKDOWN_WITH_TOTAL = { rows: [{ total: '150', valid: '100', invalid: '20', risky: '15', null: '15' }] }
-// Dedup query (segmentPreview.js:204-218) returns population/sampled/skipped;
-// skipped_dedup = round(skipped / sampled * population) = round(30/150*150) = 30.
-const DEDUP_SAMPLE = { rows: [{ population: '150', sampled: '150', skipped: '30' }] }
+const DEDUP_SAMPLE = { rows: [{ skipped: '30' }] }
 
 // ── Shape tests ───────────────────────────────────────────────────────────────
 
@@ -63,15 +57,14 @@ describe('GET /api/segments/preview — response shape', () => {
   })
 
   it('total_matching is a number', async () => {
-    // New order: query 1 = breakdown (total folded in), query 2 = domain coverage.
-    const pool = makePool(BREAKDOWN_WITH_TOTAL, DOMAIN_ROWS)
+    const pool = makePool(TOTAL_ROW, BREAKDOWN, DOMAIN_ROWS)
     const res = await request(makeApp(pool)).get('/api/segments/preview')
     expect(typeof res.body.total_matching).toBe('number')
     expect(res.body.total_matching).toBe(150)
   })
 
   it('breakdown_by_email_status has valid/invalid/risky/null keys', async () => {
-    const pool = makePool(BREAKDOWN_WITH_TOTAL, DOMAIN_ROWS)
+    const pool = makePool(TOTAL_ROW, BREAKDOWN, DOMAIN_ROWS)
     const res = await request(makeApp(pool)).get('/api/segments/preview')
     const b = res.body.breakdown_by_email_status
     expect(b).toHaveProperty('valid', 100)
@@ -81,7 +74,7 @@ describe('GET /api/segments/preview — response shape', () => {
   })
 
   it('domain_coverage has unique_domains, max_per_domain, top_domains', async () => {
-    const pool = makePool(BREAKDOWN_WITH_TOTAL, DOMAIN_ROWS)
+    const pool = makePool(TOTAL_ROW, BREAKDOWN, DOMAIN_ROWS)
     const res = await request(makeApp(pool)).get('/api/segments/preview')
     const d = res.body.domain_coverage
     expect(d).toHaveProperty('unique_domains', 40)
@@ -102,8 +95,7 @@ describe('GET /api/segments/preview — response shape', () => {
 
 describe('GET /api/segments/preview?dedup=on', () => {
   it('returns estimated skipped_dedup when dedup=on', async () => {
-    // dedup=on → 3 queries: breakdown, domain, dedup (population/sampled/skipped).
-    const pool = makePool(BREAKDOWN_WITH_TOTAL, DOMAIN_ROWS, DEDUP_SAMPLE)
+    const pool = makePool(TOTAL_ROW, BREAKDOWN, DOMAIN_ROWS, DEDUP_SAMPLE)
     const res = await request(makeApp(pool)).get('/api/segments/preview?dedup=on')
     expect(res.status).toBe(200)
     // 30 skipped out of min(200, 150)=150 sampled → scaled to 150 total

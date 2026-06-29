@@ -1,0 +1,5 @@
+.env.fastmail.local
+.env.record-only.local
+artifacts/
+cover.out
+data*/

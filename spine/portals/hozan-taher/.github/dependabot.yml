@@ -1,0 +1,86 @@
+version: 2
+updates:
+  # Go modules — monorepo go.work workspace
+  - package-ecosystem: "gomod"
+    directory: "/features/inbound/orchestrator"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 5
+    labels: ["dependencies", "go"]
+    groups:
+      go-deps:
+        patterns: ["*"]
+
+  - package-ecosystem: "gomod"
+    directory: "/features/outreach/campaigns"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 3
+    labels: ["dependencies", "go"]
+
+  - package-ecosystem: "gomod"
+    directory: "/features/acquisition/contacts"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 3
+    labels: ["dependencies", "go"]
+
+  - package-ecosystem: "gomod"
+    directory: "/features/platform/common"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 3
+    labels: ["dependencies", "go"]
+
+  - package-ecosystem: "gomod"
+    directory: "/features/outreach/relay"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    open-pull-requests-limit: 3
+    labels: ["dependencies", "go"]
+
+  # Dashboard (pnpm workspace root)
+  - package-ecosystem: "npm"
+    directory: "/features/platform/outreach-dashboard"
+    schedule:
+      interval: "weekly"
+      day: "tuesday"
+    open-pull-requests-limit: 5
+    labels: ["dependencies", "javascript"]
+    groups:
+      sentry:
+        patterns: ["@sentry/*"]
+      vite:
+        patterns: ["vite", "@vitejs/*", "@vite/*"]
+      react:
+        patterns: ["react", "react-dom", "react-router*"]
+
+  # MCP service
+  - package-ecosystem: "npm"
+    directory: "/features/platform/mcp"
+    schedule:
+      interval: "weekly"
+      day: "tuesday"
+    open-pull-requests-limit: 3
+    labels: ["dependencies", "javascript"]
+
+  # Worker service
+  - package-ecosystem: "npm"
+    directory: "/features/platform/worker"
+    schedule:
+      interval: "weekly"
+      day: "tuesday"
+    open-pull-requests-limit: 3
+    labels: ["dependencies", "javascript"]
+
+  # GitHub Actions versions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    labels: ["dependencies", "github-actions"]

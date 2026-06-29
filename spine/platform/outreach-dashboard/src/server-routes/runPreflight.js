@@ -66,7 +66,7 @@ let tmplCache = null
 export async function listTmplNames() {
   if (tmplCache) return tmplCache
   const here = dirname(fileURLToPath(import.meta.url))
-  const repoRoot = join(here, '..', '..', '..', '..', '..')
+  const repoRoot = join(here, '..', '..', '..', '..')
   const dirs = [
     join(repoRoot, 'modules', 'outreach', 'configs', 'templates'),
     join(repoRoot, 'services', 'campaigns', 'configs', 'templates'),

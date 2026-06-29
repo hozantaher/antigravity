@@ -34,8 +34,7 @@ describe('KT-B5 — Go service skeleton', () => {
     expect(gomod).toMatch(/^module operator-practice/m)
   })
 
-  // QUARANTINED pending owner decision — see docs/handoff/ci-remediation-residual.md
-  it.skip('go.work includes the module', () => {
+  it('go.work includes the module', () => {
     const work = readFileSync(join(REPO_ROOT, 'go.work'), 'utf8')
     expect(work).toContain('use ./features/platform/operator-practice')
   })

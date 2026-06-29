@@ -198,8 +198,7 @@ describe('runVitestJson — integration sanity', () => {
   })
 })
 
-// QUARANTINED: env-coupled (resolves an absolute dev-clone path absent on the CI runner) — see docs/handoff/ci-remediation-residual.md
-describe.skip('writeShadowFile', () => {
+describe('writeShadowFile', () => {
   // Use synthetic file extensions (.fixture.js / .fixture.jsx) so that even
   // if a stray file leaks under the project's tests/ root, vitest's glob
   // won't pick it up as a test file.

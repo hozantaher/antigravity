@@ -1,0 +1,7 @@
+STATUS: 429
+HEADER: Retry-After: 60
+HEADER: Content-Type: application/json
+EXPECT: rate_limit
+NOTE: ARES JSON error envelope with 429 + numeric Retry-After (seconds). Standard RFC 6585 shape.
+---
+{"error":"too_many_requests","message":"Překročen denní limit dotazů na ARES.","retry_after":60}

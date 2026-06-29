@@ -1,0 +1,32 @@
+{
+  "identita": "Zařazení & ICP — kontakt dostane obor, velikost, region a ICP faktory pro přesné cílení.",
+  "smysl": "NACE → obor (machinery/chemicals/logistics), headcount + revenue bucket → segment-query a alokace budgetu.",
+  "smer": "sector.go (NACE + category_path → tag) → icp.go (headcount/revenue faktory) → job.go (NLP titulu); max 3 tagy.",
+  "duvod": "Bez správného zařazení kampaň míří na špatný segment a budget teče tam, kde nekonvertuje.",
+  "myslenka": "Cílení je tak dobré, jak dobré je zařazení pod ním.",
+  "pillar": "data",
+  "role": "supporting",
+  "promise": "Každý kontakt nese obor, velikost a ICP faktory pro přesné cílení.",
+  "loreLine": "Z NACE kódu na ICP profil — kdo je to, jak velký a jestli sedí do cílovky.",
+  "proofSignal": [
+    {
+      "nazev": "classify coverage / unmapped NACE share",
+      "zdroj": "features/acquisition/contacts/classify",
+      "stav": "pending"
+    }
+  ],
+  "antiFeature": "recalc_all() tiše selže v půlce nebo neznámý NACE → „unmapped\" s tichým propadem skóre a staré tagy blokují nové segmenty.",
+  "hotovo": {
+    "kdyzPlati": [
+      {
+        "kriterium": "Zařazení podle NACE i category_path (max 3 tagy) a ICP faktory (headcount/revenue) projdou — segmentace je deterministická.",
+        "check": "test:classify-icp",
+        "stav": "pending",
+        "proof": {
+          "cmd": "cd features/acquisition/contacts && go test ./classify/..."
+        }
+      }
+    ],
+    "vektorGate": "all-met"
+  }
+}

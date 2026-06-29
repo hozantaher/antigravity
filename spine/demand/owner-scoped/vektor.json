@@ -1,0 +1,34 @@
+{
+  "identita": "Owner-scope — token odhlásí jen vlastníkův alert.",
+  "smysl": "HMAC token nemůže vypnout cizí alert; žádný cross-user zásah.",
+  "smer": "Odhlašovací token je owner-scoped — platí jen pro vlastníkův alert.",
+  "duvod": "Token, co odhlásí cizí alert, je security díra a sabotáž.",
+  "myslenka": "Bezpečnost: tvůj token, tvůj alert.",
+  "pillar": "serious-community",
+  "role": "supporting",
+  "promise": "Nikdo ti přes token nevypne tvůj alert.",
+  "loreLine": "Owner-scoped HMAC — token platí jen pro svého vlastníka.",
+  "proofSignal": [
+    {
+      "nazev": "0 cross-user unsubscribe",
+      "zdroj": "api-saved-search-unsubscribe",
+      "stav": "pending"
+    }
+  ],
+  "antiFeature": "Token, který odhlásí cizí alert — sabotáž alertů.",
+  "hotovo": {
+    "kdyzPlati": [
+      {
+        "kriterium": "Token odhlásí jen vlastníkův alert (žádný cross-user)",
+        "check": "test:saved-search-unsubscribe-scope",
+        "stav": "met",
+        "proof": {
+          "cmd": "pnpm exec vitest run --project server tests/server/api/savedSearchAlerts.cron.test.ts -t \"nsub\" 2>&1 | grep -qE \"Test Files +1 passed\""
+        }
+      }
+    ],
+    "vektorGate": "all-met"
+  },
+  "id": "owner-scoped",
+  "story_axis": "demand"
+}

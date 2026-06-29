@@ -1,0 +1,32 @@
+{
+  "identita": "Warmup — reputace schránky roste postupně, ne skokem.",
+  "smysl": "Den 0–2: 5/den, 3–6: 10/den, 7–13: 25/den, 14–29: 50/den, 30+: 100/den; auto-postup 03:00 Praha.",
+  "smer": "Migrace 071 + DB trigger trg_enforce_warmup_cap na send_events; cron runLifecyclePhaseAdvanceCron posouvá fázi.",
+  "duvod": "Schránka, co pošle Den 1 sto e-mailů, spustí ISP fraud detekci a zamkne se — warmup je pojistka reputace.",
+  "myslenka": "Reputaci nelze koupit objemem; staví se trpělivostí, kterou vynucuje databáze, ne dobrá vůle.",
+  "pillar": "reach",
+  "role": "primary",
+  "promise": "Schránka roste podle fází a cap nelze obejít — reputace se buduje bezpečně.",
+  "loreLine": "5 → 10 → 25 → 50 → 100 za den — trpělivost vynucená triggerem, ne příslibem.",
+  "proofSignal": [
+    {
+      "nazev": "warmup fáze adherence / cap-exceeded count",
+      "zdroj": "features/outreach/campaigns/sender",
+      "stav": "pending"
+    }
+  ],
+  "antiFeature": "Fáze se neposune nebo se cap tiše obejde — schránka pošle Den 1 sto e-mailů a ISP ji zamkne.",
+  "hotovo": {
+    "kdyzPlati": [
+      {
+        "kriterium": "Vynucení warmup-capu (DB trigger trg_enforce_warmup_cap) i postup lifecycle fáze projdou — cap nelze přesáhnout ani obejít.",
+        "check": "test:warmup-cap",
+        "stav": "pending",
+        "proof": {
+          "cmd": "cd features/outreach/campaigns && go test ./sender/..."
+        }
+      }
+    ],
+    "vektorGate": "all-met"
+  }
+}

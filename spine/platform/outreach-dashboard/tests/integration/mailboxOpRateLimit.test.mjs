@@ -86,10 +86,7 @@ import { checkAndRecord, OP_RATE_CAPS } from '../../src/lib/mailboxOpRateLimit.j
 // ---------------------------------------------------------------------------
 // Describe suite — skip if pg-mem unavailable
 // ---------------------------------------------------------------------------
-// QUARANTINED pending owner decision — see docs/handoff/ci-remediation-residual.md
-// NOTE: file also carries a known unbalanced-brace syntax error (extra `})` near EOF),
-// left intact per remediation scope; skips are documentary until the owner repairs parse.
-describe.skip('mailboxOpRateLimit — AP3 per-op rate caps', () => {
+describe('mailboxOpRateLimit — AP3 per-op rate caps', () => {
   if (!pgMemAvailable) {
     it.skip(`pg-mem unavailable: ${pgMemSkipReason}`, () => {})
     return
@@ -340,8 +337,7 @@ describe.skip('mailboxOpRateLimit — AP3 per-op rate caps', () => {
 // ---------------------------------------------------------------------------
 // Standalone unit tests — no DB needed (OP_RATE_CAPS shape)
 // ---------------------------------------------------------------------------
-// QUARANTINED pending owner decision — see docs/handoff/ci-remediation-residual.md
-describe.skip('OP_RATE_CAPS shape', () => {
+describe('OP_RATE_CAPS shape', () => {
   it('has all required op types with correct caps', () => {
     expect(OP_RATE_CAPS.imap_poll).toEqual({ max: 4, windowSec: 3600 })
     expect(OP_RATE_CAPS.imap_inbox_fetch).toEqual({ max: 6, windowSec: 3600 })

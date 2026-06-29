@@ -1,0 +1,19 @@
+{
+  "identita": "Outreach — výstupní mašina: doručit relevantní oslovení do schránky, beze stopy a v reputačně bezpečném tempu.",
+  "smysl": "Z plánu kampaně přes personalizaci a warmup až k anti-trace přenosu — jeden integrovaný stroj, ne řada nesouvisejících kroků.",
+  "smer": "Plánovač → render obsahu → warmup-cap → exactly-once claim → anti-trace relay (sanitace/šifra/egress). Každý uzel se svým důkazem.",
+  "duvod": "Špatně odeslané = spam-flag, blacklist a mrtvá schránka; outreach je tam, kde se kvalita náboru buď zúročí, nebo spálí.",
+  "myslenka": "Doručit se musí pomalu, čistě a beze stopy — jinak je objem jen rychlejší cesta na blacklist.",
+  "pillar": "reach",
+  "role": "primary",
+  "promise": "Oslovení dorazí relevantní, v bezpečném tempu a bez metadatové stopy.",
+  "loreLine": "Z plánu kampaně do schránky příjemce — pomalu, personalizovaně a beze stopy.",
+  "proofSignal": [
+    {
+      "nazev": "outreach — všechny dílčí sliby live",
+      "zdroj": "features/outreach/campaigns",
+      "stav": "pending"
+    }
+  ],
+  "antiFeature": "Outreach jako jeden blok — dílčí selhání (rozbitý warmup, prosáklá metadata) se schová v zeleném celku a vyplave až jako blacklist."
+}

@@ -1,0 +1,65 @@
+name: Bug report
+description: Něco se rozbilo. Reprodukovatelné, s acceptance kritérii.
+title: "[bug] "
+labels: ["kind/bug", "from/manual"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Schema parsovatelné botem. Zachovej sekce `## Symptom`, `## Repro`, `## Acceptance`.
+  - type: textarea
+    id: symptom
+    attributes:
+      label: Symptom
+      description: Co se děje, jeden odstavec.
+      placeholder: "Po volání /api/campaigns/123/send vrací 500 místo 200."
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Repro
+      description: Přesný příkaz / kroky / test name. Bot bez Repra nepokračuje.
+      render: shell
+      placeholder: |
+        cd features/outreach/campaigns
+        go test -run TestSendHandler -count=1 ./web/
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance
+      description: Měřitelná kritéria (checkbox seznam).
+      value: |
+        - [ ] kritérium 1
+        - [ ] kritérium 2
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Volitelné — odkazy na Sentry event, CI run, related PRs.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - relay
+        - privacy-gateway
+        - mailboxes
+        - contacts
+        - campaigns
+        - inbox
+        - orchestrator
+        - common
+        - dashboard
+        - scrapers
+        - mcp
+        - worker
+        - extension
+        - bff
+        - test-infra
+    validations:
+      required: true

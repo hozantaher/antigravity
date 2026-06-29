@@ -202,8 +202,7 @@ d('migration 008 — applies cleanly to pg-mem', () => {
     }
   })
 
-  // QUARANTINED pending owner decision — see docs/handoff/ci-remediation-residual.md
-  it.skip('every body carries persona sign-off + BALKAN MOTORS controller footer', async () => {
+  it('every body carries persona sign-off + BALKAN MOTORS controller footer', async () => {
     const r = await query(`SELECT name, body FROM email_templates`)
     for (const row of r.rows) {
       const body = row.body as string

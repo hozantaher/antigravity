@@ -1,0 +1,34 @@
+{
+  "identita": "Amount-due — doplatek je koncová cena minus kredit kauce, přesně na haléř.",
+  "smysl": "Výherce doplatí přesně to, co dluží — ani o haléř víc; když kauce ≥ cena, je plně pokryto.",
+  "smer": "Amount-due = koncová cena − kredit kauce; plně pokryto, když kauce ≥ cena.",
+  "duvod": "Špatně spočítaná částka = ztráta peněz nebo důvěry; matematika musí sednout na haléř.",
+  "myslenka": "Částka je smlouva, ne odhad.",
+  "pillar": "fair-price",
+  "role": "supporting",
+  "promise": "Doplatíš přesně, co dlužíš — na haléř.",
+  "loreLine": "Koncová cena minus kauce — přesně, deterministicky, na haléř.",
+  "proofSignal": [
+    {
+      "nazev": "amount-due-accuracy",
+      "zdroj": "models-settlement",
+      "stav": "pending"
+    }
+  ],
+  "antiFeature": "Zaokrouhlení nebo špatný kredit kauce — výherce přeplatí nebo nedoplatí.",
+  "hotovo": {
+    "kdyzPlati": [
+      {
+        "kriterium": "Amount-due = koncová cena − kredit kauce; plně pokryto, když kauce ≥ cena",
+        "check": "test:settlement-amount-due",
+        "stav": "met",
+        "proof": {
+          "cmd": "pnpm exec vitest run --project unit tests/unit/settlement.test.ts"
+        }
+      }
+    ],
+    "vektorGate": "all-met"
+  },
+  "id": "amount-due",
+  "story_axis": "sale"
+}

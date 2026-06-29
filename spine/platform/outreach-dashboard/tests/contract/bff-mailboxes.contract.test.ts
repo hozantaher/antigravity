@@ -28,29 +28,8 @@ const queryQueue: QueryOutcome[] = []
 const calls: Array<{ sql: string; params?: unknown[] }> = []
 
 vi.mock('pg', () => {
-  // Infrastructure queries the BFF handlers run that return no business rows
-  // the tests feed. They must be short-circuited WITHOUT consuming queryQueue
-  // (and without being recorded in `calls`) so the queued business rows stay
-  // aligned with the handler's real INSERT/SELECT/UPDATE sequence. Same spirit
-  // as the BEGIN/COMMIT short-circuit other contract files already use.
-  function infraShortCircuit(sql: unknown): { rows: unknown[]; rowCount: number } | null {
-    const s = typeof sql === 'string' ? sql : ''
-    // Advisory lock taken by POST /api/mailboxes (mailbox_creation race fix).
-    if (/pg_advisory(_xact)?_lock|pg_advisory_unlock/i.test(s)) return { rows: [], rowCount: 0 }
-    // preFlightPoolCapacity SELECT. With no pool configured (default here) the
-    // gate is a no-op, so return a benign pinned=0 instead of starving the
-    // INSERT row. When WIREPROXY_POOL_CONFIG is set (AS3 pool-gate tests) the
-    // test feeds the pinned count itself, so don't short-circuit.
-    if (/pinned_endpoint_label IS NOT NULL/i.test(s) && !process.env.WIREPROXY_POOL_CONFIG) {
-      return { rows: [{ pinned: 0 }], rowCount: 1 }
-    }
-    return null
-  }
-
   class PoolClient {
     async query(sql: string, params?: unknown[]) {
-      const infra = infraShortCircuit(sql)
-      if (infra) return infra
       calls.push({ sql, params })
       if (!queryQueue.length) return { rows: [] }
       const next = queryQueue.shift()!
@@ -65,8 +44,6 @@ vi.mock('pg', () => {
       return new PoolClient()
     }
     async query(sql: string, params?: unknown[]) {
-      const infra = infraShortCircuit(sql)
-      if (infra) return infra
       calls.push({ sql, params })
       if (!queryQueue.length) return { rows: [] }
       const next = queryQueue.shift()!
@@ -164,16 +141,15 @@ const INVENTORY: Array<[string, string]> = [
   ['GET', '/api/mailboxes/:id/imap-inbox'],
   ['POST', '/api/mailboxes/bulk-assign-proxy'],
   ['POST', '/api/mailboxes/bulk-check'],
-  // import-csv was removed (replaced by POST /api/mailboxes/bulk-set-password);
-  // it is absent from the authoritative api-route-inventory snapshot.
+  ['POST', '/api/mailboxes/import-csv'],
   ['POST', '/api/mailboxes/:id/send-test'],
   ['GET', '/api/mailboxes/:id/alerts'],
   ['PATCH', '/api/mailboxes/:id/alerts/:alertId/resolve'],
 ]
 
 describe('M2 / inventory', () => {
-  it('lists 35 /api/mailboxes* endpoints', () => {
-    expect(INVENTORY).toHaveLength(35)
+  it('lists 36 /api/mailboxes* endpoints', () => {
+    expect(INVENTORY).toHaveLength(36)
   })
 
   // For each endpoint: path resolves (no 404 from Express itself), i.e. a
@@ -502,8 +478,7 @@ describe('PATCH /api/mailboxes/:id', () => {
     ['imap_port', 993],
     ['imap_username', 'imapuser@alias'],
     ['daily_cap_override', 250],
-    // proxy_url removed from FIELD_MAP in the handler (deprecated since
-    // migration 077) — a {proxy_url} patch is now an unknown field.
+    ['proxy_url', 'socks5://1.2.3.4:1080'],
   ]
 
   it.each(UPDATABLE_FIELDS)('accepts %s alone', async (field, value) => {
@@ -936,11 +911,7 @@ describe('M2 / JSON parsing', () => {
   })
 
   it('200 on empty JSON object for PATCH that supports it', async () => {
-    // PATCH with empty body → 400 'nothing to update'. The handler first opens
-    // a txn and SELECTs the current row (for audit), so the mailbox must exist
-    // before the nothing-to-update branch is reached.
-    queueRows([]) // BEGIN
-    queueRows([{ id: 1, status: 'active' }]) // SELECT current state
+    // PATCH with empty body → 400 'nothing to update'
     const res = await req('PATCH', '/api/mailboxes/1', {})
     expect(res.status).toBe(400)
   })

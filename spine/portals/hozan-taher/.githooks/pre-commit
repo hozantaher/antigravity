@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+#
+# SMTP/IMAP egress guard (R2 — SMTP-EGRESS-LOCKDOWN).
+# Blocks staged diffs that add SMTP/IMAP hostnames or mail ports outside
+# the relay/gateway services. Direct mail egress from apps/outreach-dashboard
+# or modules/outreach is the failure mode this hook prevents.
+#
+# Override (only for legitimate exceptions):
+#   SKIP_EGRESS_GUARD=1 EGRESS_GUARD_REASON="why" git commit ...
+# Every skip is appended to .egress-guard-overrides.log.
+
+set -euo pipefail
+
+ROOT="$(git rev-parse --show-toplevel)"
+
+if [[ "${SKIP_EGRESS_GUARD:-0}" == "1" ]]; then
+  reason="${EGRESS_GUARD_REASON:-(no reason)}"
+  who="$(git config user.name 2>/dev/null || echo unknown)"
+  when="$(date -u +%FT%TZ)"
+  sha="$(git rev-parse --short HEAD 2>/dev/null || echo none)"
+  printf '%s\t%s\t%s\t%s\n' "$when" "$who" "$sha" "$reason" \
+    >> "$ROOT/.egress-guard-overrides.log"
+  echo "[pre-commit] SKIP_EGRESS_GUARD=1 — override logged ($reason)."
+  exit 0
+fi
+
+# Banned patterns: real mail hostnames + standard mail ports.
+BANNED='(smtp|imap)\.(seznam|gmail|post|email|chci|spoluzaci)\.(cz|com)|:(465|587|25|993|143)\b'
+
+# Files/paths where mail literals are legitimate.
+ALLOW_PATH='^(services/(anti-trace-relay|privacy-gateway)/|docs/|\.githooks/|infra/|\.egress-guard-overrides\.log$)'
+ALLOW_TEST='(_test\.(go|js|ts|jsx|tsx)$|\.test\.(js|ts|jsx|tsx)$|/test/|testdata/|\.spec\.(js|ts|jsx|tsx)$)'
+
+hit=0
+while IFS= read -r file; do
+  [[ -z "$file" ]] && continue
+  [[ "$file" =~ $ALLOW_PATH ]] && continue
+  [[ "$file" =~ $ALLOW_TEST ]] && continue
+
+  # Only added lines (leading +, excluding +++ file markers).
+  added=$(git diff --cached --unified=0 -- "$file" | grep -E '^\+[^+]' || true)
+  [[ -z "$added" ]] && continue
+
+  matches=$(printf '%s\n' "$added" | grep -E "$BANNED" || true)
+  if [[ -n "$matches" ]]; then
+    echo "[pre-commit] BLOCKED: mail egress literal added in '$file'"
+    printf '%s\n' "$matches" | sed 's/^/[pre-commit]   /'
+    hit=1
+  fi
+done < <(git diff --cached --name-only --diff-filter=AM)
+
+if [[ "$hit" -ne 0 ]]; then
+  echo
+  echo "[pre-commit] SMTP/IMAP egress must live in:"
+  echo "[pre-commit]   services/anti-trace-relay/  or  services/privacy-gateway/"
+  echo "[pre-commit] To allow a legitimate exception:"
+  echo "[pre-commit]   SKIP_EGRESS_GUARD=1 EGRESS_GUARD_REASON='short why' git commit ..."
+  exit 1
+fi
+
+exit 0

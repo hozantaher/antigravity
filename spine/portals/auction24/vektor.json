@@ -1,0 +1,11 @@
+{
+  "id": "auction24",
+  "story_axis": "spine",
+  "state": "pending",
+  "facets": {
+    "ui": [
+      "./auction24.vue"
+    ]
+  },
+  "edges": []
+}

@@ -1,0 +1,21 @@
+{
+  "identita": "Specs před příhozem — data čtená dřív, než padne nabídka.",
+  "smysl": "Kupec vidí a čte vozidlová data na detailu dřív, než vůbec přihodí.",
+  "smer": "Specs viditelné a čtené před příhozem na detailu; měřeno trackingem.",
+  "duvod": "Když se přihazuje před přečtením specs, rozhoduje cena, ne fakta — ověřená data nic neprodala.",
+  "myslenka": "Ověřená data jsou nejsilnější prodejce — ale jen když je kupec potká před příhozem.",
+  "pillar": "transparency",
+  "role": "supporting",
+  "promise": "Než přihodíš, vidíš čím přihazuješ.",
+  "loreLine": "Papíry napřed — specs čtené dřív, než padne první nabídka.",
+  "proofSignal": [
+    { "nazev": "specs-viewed-before-bid", "zdroj": "track/detail", "stav": "live" }
+  ],
+  "antiFeature": "Příhoz před přečtením specs — rozhoduje cena, ne ověřená data.",
+  "hotovo": {
+    "kdyzPlati": [
+      { "kriterium": "Specs viditelné/čtené před příhozem na detailu", "check": "track:specsBeforeBid", "stav": "met" }
+    ],
+    "vektorGate": "all-met"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "identita": "Otevřené papíry pro stroje — veřejná OpenAPI + Scalar UI.",
+  "smysl": "Integrovatelnost bez hádání — platforma jako partner, ne černá skříňka; dva dílčí sliby pod jednou střechou.",
+  "smer": "Dokumentace jako skupina: spec-validity (dokument se načte) a contract-drift (spec sedí s realitou) — každý uzel se svým vlastním důkazem.",
+  "duvod": "Otevřené papíry nejsou jeden test, ale dva oddělené sliby; rozdělené uzly je drží poctivě každý zvlášť.",
+  "myslenka": "Skupina je smlouva jen tehdy, když platí oba její dílčí sliby.",
+  "pillar": "transparency",
+  "role": "supporting",
+  "promise": "Integrovatelnost bez hádání.",
+  "loreLine": "Otevřené papíry i pro stroje — veřejná OpenAPI dělá z platformy partnera, ne černou skříňku.",
+  "proofSignal": [
+    { "nazev": "otevřené papíry — všechny dílčí sliby live", "zdroj": "module:contract", "stav": "pending" }
+  ],
+  "antiFeature": "Dokumentace jako jeden neprůhledný blok — dílčí selhání (contract drift) se schová v zeleném celku."
+}

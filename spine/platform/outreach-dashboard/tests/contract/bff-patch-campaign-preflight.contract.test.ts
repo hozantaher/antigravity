@@ -135,20 +135,14 @@ describe('PATCH /api/campaigns/:id — pre-flight gate on launch transitions', (
   })
 
   it('6: ok preflight → status update succeeds', async () => {
-    // runPreflight uses pool.query(): mailboxes, campaign, template, contacts.
-    // PATCH handler (BEGIN/COMMIT transparent): SELECT campBefore, UPDATE RETURNING.
-    //
-    // This test's focus is the post-preflight status-update path, not disk-tmpl
-    // matching. The T2 disk scan is broken in this worktree layout
-    // (runPreflight.js:69 resolves repoRoot to <wt>/features but the .tmpl files
-    // live at <wt>/modules/outreach/configs/templates — see report), so any
-    // sequence_config template name → T2_missing_tmpl_file 412. Use an EMPTY
-    // sequence_config so the template check takes the DB-fallback branch
-    // (SELECT 1 FROM email_templates), fed a ready row.
+    // runPreflight uses pool.query() (3 entries): mailboxes, campaign, contacts.
+    // PATCH handler (NEW mock — BEGIN/COMMIT transparent): SELECT campBefore, UPDATE RETURNING.
+    // Sprint AH: 'intro_machinery' is the only .tmpl file present on disk in the
+    // test environment (modules/outreach/configs/templates/). Using 'initial' triggers
+    // T2_missing_tmpl_file → 412. Use 'intro_machinery' so the preflight T2 check passes.
     pushAll(
       { rows: [{ id: 1, email: 'a@x.cz', password: 'StrongP@ss99', status: 'active' }] },  // mailboxes
-      { rows: [{ id: 1, name: 'C1', status: 'paused', category_paths: ['machinery'], sequence_config: [] }] },  // campaign (no tmpl ref)
-      { rows: [{ ok: 1 }] },  // T1 DB-fallback: a ready template exists
+      { rows: [{ id: 1, name: 'C1', status: 'paused', category_paths: ['machinery'], sequence_config: [{ template: 'intro_machinery' }] }] },  // campaign
       { rows: [{ n: 100 }] },  // eligible contacts
       // PATCH handler: BEGIN transparent → SELECT current state (campBefore) → UPDATE RETURNING
       { rows: [{ id: 1, name: 'C1', status: 'paused', category_paths: ['machinery'], category_match: 'prefix' }] },  // SELECT campBefore

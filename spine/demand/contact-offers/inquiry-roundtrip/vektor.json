@@ -1,0 +1,32 @@
+{
+  "identita": "Roundtrip — poptávka, která dorazí.",
+  "smysl": "Kontakt i protinabídka se uloží jako lead/offer a notifikují ops.",
+  "smer": "Validace vstupu, uložení s typem (contact|offer), notifikace ops, stav pending.",
+  "duvod": "Lead bez záznamu nebo bez upozornění je obchod, který nikdo nikdy nevyřídí.",
+  "myslenka": "Co přijde, to se zaznamená a ohlásí.",
+  "pillar": "serious-community",
+  "role": "primary",
+  "promise": "Tvoje zpráva se uloží a někdo ji uvidí.",
+  "loreLine": "Odeslání, záznam, notifikace — řetěz, který nezapadne.",
+  "proofSignal": [
+    {
+      "nazev": "contact+offer persisted & notified",
+      "zdroj": "test/contact",
+      "stav": "live"
+    }
+  ],
+  "antiFeature": "Odeslání bez záznamu — díra, kterou propadne poptávka i peníze.",
+  "hotovo": {
+    "kdyzPlati": [
+      {
+        "kriterium": "Kontakt i protinabídka se uloží jako lead/offer a notifikují ops",
+        "check": "test:contact-roundtrip",
+        "stav": "met",
+        "proof": {
+          "cmd": "pnpm exec vitest run --project server tests/server/api/contact.test.ts"
+        }
+      }
+    ],
+    "vektorGate": "all-met"
+  }
+}

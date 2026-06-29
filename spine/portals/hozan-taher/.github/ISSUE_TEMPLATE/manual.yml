@@ -1,0 +1,69 @@
+name: Manual task
+description: Volný úkol bez automatického zdroje. Pro tebe nebo pro bota přes automation/ok.
+title: ""
+labels: ["from/manual"]
+body:
+  - type: textarea
+    id: symptom
+    attributes:
+      label: Symptom
+      description: Co je třeba udělat, jeden odstavec.
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Repro / steps
+      description: Pokud aplikovatelné. Bot bez kroků nepřevezme.
+      render: shell
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance
+      value: |
+        - [ ] kritérium 1
+    validations:
+      required: true
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Initial priority hint
+      description: Reprioritizer to může změnit dle scoring rules.
+      options:
+        - p3 — eventually
+        - p2 — next sprint
+        - p1 — this sprint
+        - p0 — drop everything
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - relay
+        - privacy-gateway
+        - mailboxes
+        - contacts
+        - campaigns
+        - inbox
+        - orchestrator
+        - common
+        - dashboard
+        - scrapers
+        - mcp
+        - worker
+        - extension
+        - bff
+        - test-infra
+    validations:
+      required: true
+  - type: dropdown
+    id: automation
+    attributes:
+      label: Bot eligibility
+      options:
+        - "needs-design (default — review first)"
+        - "ok (safe pro bota)"
+    validations:
+      required: true

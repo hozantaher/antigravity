@@ -71,8 +71,7 @@ function pagesOnDisk() {
 }
 
 describe('AR — every routed UI page has a Playwright smoke row', () => {
-  // QUARANTINED pending owner decision — see docs/handoff/ci-remediation-residual.md
-  it.skip('all post-2026-05-12 pages are referenced by the cumulative smoke pack', () => {
+  it('all post-2026-05-12 pages are referenced by the cumulative smoke pack', () => {
     const router = readRouter()
     const smoke = readSmokePack()
 

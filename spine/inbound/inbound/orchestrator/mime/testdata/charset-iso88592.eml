@@ -1,0 +1,10 @@
+From: alice@example.cz
+To: bob@example.cz
+Subject: ISO-8859-2 cold mail
+Date: Mon, 18 May 2026 12:00:00 +0200
+Message-ID: <cs-iso88592@example.cz>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-2
+Content-Transfer-Encoding: quoted-printable
+
+Dobr=FD den, d=ECkujeme za nab=EDdku.

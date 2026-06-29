@@ -15,6 +15,6 @@ export const useOutreachHealth = create<HealthState>((set) => ({
 // Expose setDegraded on window for Playwright E2E tests (dev + test only).
 // This allows specs to flip the degraded state without mocking BFF timing.
 if (typeof window !== 'undefined') {
-  ;(window as unknown as Record<string, unknown>).__outreachHealthSetDegraded =
+  ;(window as Record<string, unknown>).__outreachHealthSetDegraded =
     (v: boolean) => useOutreachHealth.getState().setDegraded(v)
 }

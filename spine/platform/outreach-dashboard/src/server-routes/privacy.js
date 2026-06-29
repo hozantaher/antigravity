@@ -26,7 +26,7 @@ export function mountPrivacyRoutes(app, { pool } = {}) {
     try {
       const fs = await import('node:fs/promises')
       const path = await import('node:path')
-      const repoRoot = path.resolve(import.meta.dirname || __dirname, '..', '..', '..', '..', '..')
+      const repoRoot = path.resolve(import.meta.dirname || __dirname, '..', '..', '..', '..')
       const md = await fs.readFile(path.join(repoRoot, 'docs/legal/privacy-notice.md'), 'utf8')
 
       // Fetch controller_name from operator_settings; fall back to hardcoded value

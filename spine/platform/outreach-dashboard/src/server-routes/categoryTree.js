@@ -14,7 +14,7 @@
 //   category_tree        — PRIMARY KEY = path; columns: parent_path, label,
 //                          level (1-8), contacts_direct, contacts_subtree, included BOOLEAN
 //   campaign_contacts    — id, campaign_id, contact_id, current_step, next_send_at, status
-//   contacts             — id, category_path, company_ico (or contacts→companies JOIN)
+//   contacts             — id, category_path, ico (joins companies on co.ico = c.ico)
 //   companies            — ico, category_path
 //   campaigns            — id, category_paths (text[])
 //
@@ -198,7 +198,7 @@ export function mountCategoryTreeRoutes(app, { pool, capture500, safeError }) {
            AND NOT EXISTS (
              SELECT 1
                FROM contacts c
-               JOIN companies co ON co.ico = c.company_ico
+               JOIN companies co ON co.ico = c.ico
                JOIN unnest($2::text[]) AS ip(ipath)
                  ON co.category_path LIKE ip.ipath || '%'
               WHERE c.id = cc.contact_id
@@ -225,9 +225,9 @@ export function mountCategoryTreeRoutes(app, { pool, capture500, safeError }) {
             SELECT unnest($2::text[]) AS ipath
           ),
           matched_contacts AS (
-            SELECT DISTINCT c.id AS contact_id
+            SELECT DISTINCT c.id AS contact_id, c.category_path
               FROM contacts c
-              JOIN companies co ON co.ico = c.company_ico
+              JOIN companies co ON co.ico = c.ico
               JOIN included_paths ip ON co.category_path LIKE ip.ipath || '%'
              WHERE c.email IS NOT NULL
                AND c.email <> ''
@@ -245,8 +245,8 @@ export function mountCategoryTreeRoutes(app, { pool, capture500, safeError }) {
                   WHERE sup.email = LOWER(TRIM(c.email))
                )
           )
-          INSERT INTO campaign_contacts (campaign_id, contact_id, status, current_step, next_send_at)
-          SELECT $1, mc.contact_id, 'pending', 0, NOW()
+          INSERT INTO campaign_contacts (campaign_id, contact_id, status, current_step, next_send_at, priority)
+          SELECT $1, mc.contact_id, 'pending', 0, NOW(), compute_machinery_score(mc.category_path)
             FROM matched_contacts mc
           ON CONFLICT DO NOTHING
           RETURNING id

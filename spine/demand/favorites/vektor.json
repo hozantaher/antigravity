@@ -1,0 +1,19 @@
+{
+  "identita": "Oblíbené — auta, co tě chytla, na jednom místě.",
+  "smysl": "Označíš si vůz hvězdou a máš ho po ruce — i po odhlášení, napříč zařízeními.",
+  "smer": "Oblíbené jako vlastní watchlist: toggle hvězdy, vlastní seznam, živé odznaky na kartách.",
+  "duvod": "Kupující se vrací k autům, na která myslí; bez oblíbených je necháváme znovu hledat.",
+  "myslenka": "Co tě zaujalo, neztratíš.",
+  "pillar": "serious-community",
+  "role": "primary",
+  "promise": "Auta, co se ti líbí, máš vždy po ruce.",
+  "loreLine": "Hvězda na kartě — tvůj soukromý seznam vozů, který tě počká.",
+  "proofSignal": [
+    {
+      "nazev": "favorites toggle roundtrip",
+      "zdroj": "test/useFavorites",
+      "stav": "live"
+    }
+  ],
+  "antiFeature": "Oblíbené, která zmizí po odhlášení nebo se neukážou na kartě — slib, který nedrží."
+}

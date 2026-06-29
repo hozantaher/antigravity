@@ -1,0 +1,34 @@
+{
+  "identita": "Hash — token, který v DB nikdy neleží v plaintextu.",
+  "smysl": "Token se ukládá jako HMAC hash s prefixem; plaintext vidíš jen jednou při vydání.",
+  "smer": "HMAC-SHA256 hash + zobrazený prefix; raw token se nikdy neperzistuje.",
+  "duvod": "Token v plaintextu v DB je únik čekající na incident.",
+  "myslenka": "Tajemství se neukládá nahé.",
+  "pillar": "transparency",
+  "role": "primary",
+  "promise": "Tvůj token v databázi nikdo nepřečte.",
+  "loreLine": "Hash a prefix — z DB se původní token zpětně nedá vytáhnout.",
+  "proofSignal": [
+    {
+      "nazev": "tokens stored hashed",
+      "zdroj": "test/apiToken-unit",
+      "stav": "live"
+    }
+  ],
+  "antiFeature": "Plaintextový token v tabulce — jeden dump a je po bezpečnosti.",
+  "hotovo": {
+    "kdyzPlati": [
+      {
+        "kriterium": "Token se ukládá jako HMAC hash s prefixem, nikdy v plaintextu",
+        "check": "test:apiToken-hash",
+        "stav": "met",
+        "proof": {
+          "cmd": "pnpm exec vitest run --project unit tests/unit/apiToken.test.ts"
+        }
+      }
+    ],
+    "vektorGate": "all-met"
+  },
+  "id": "token-hash",
+  "story_axis": "platform"
+}

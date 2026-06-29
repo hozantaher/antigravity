@@ -1,0 +1,91 @@
+(version 1)
+(deny default)
+
+;; ── System libraries (required for any binary to run) ──────
+(allow file-read*
+    (subpath "/usr/lib")
+    (subpath "/usr/share")
+    (subpath "/System/Library")
+    (subpath "/Library/Frameworks")
+    (subpath "/private/var/db/timezone")
+    (literal "/dev/null")
+    (literal "/dev/urandom")
+    (literal "/dev/random")
+)
+
+;; ── Allow reading the ATR binary and its config ────────────
+(allow file-read*
+    (subpath "/usr/local/bin")
+    (subpath "/opt/homebrew/bin")
+    (literal "/etc/ssl/cert.pem")
+    (subpath "/etc/ssl/certs")
+)
+
+;; ── Write isolation: only /tmp/atr-test ────────────────────
+(allow file-write*
+    (subpath "/tmp/atr-test")
+)
+(deny file-write*
+    (subpath "/Users")
+    (subpath "/var/folders")
+)
+
+;; ── Credential access: deny explicitly ─────────────────────
+;;
+;; Note: these deny rules are evaluated after the broad (deny default)
+;; above but are listed here to be explicit about what is blocked.
+;; Add paths as new credential locations are discovered.
+;;
+(deny file-read*
+    ;; Core credential stores
+    (subpath "/Users/messingtomas/.ssh")
+    (subpath "/Users/messingtomas/.gnupg")
+    (subpath "/Users/messingtomas/.aws")
+    (subpath "/Users/messingtomas/.kube")
+    (subpath "/Users/messingtomas/.docker")
+
+    ;; Cloud provider CLIs
+    (subpath "/Users/messingtomas/.config/gh")
+    (subpath "/Users/messingtomas/.config/gcloud")
+    (subpath "/Users/messingtomas/.config/op")
+    (subpath "/Users/messingtomas/.azure")
+    (subpath "/Users/messingtomas/.railway")
+    (subpath "/Users/messingtomas/.config/railway")
+    (subpath "/Users/messingtomas/.config/fly")
+
+    ;; Package manager credentials
+    (literal "/Users/messingtomas/.npmrc")
+    (literal "/Users/messingtomas/.netrc")
+    (literal "/Users/messingtomas/.pypirc")
+    (subpath "/Users/messingtomas/.cargo/credentials")
+    (subpath "/Users/messingtomas/.gem/credentials")
+    (literal "/Users/messingtomas/.composer/auth.json")
+
+    ;; Shell history (may contain typed secrets)
+    (literal "/Users/messingtomas/.bash_history")
+    (literal "/Users/messingtomas/.zsh_history")
+
+    ;; Claude / AI tool config
+    (subpath "/Users/messingtomas/.claude")
+    (literal "/Users/messingtomas/.claude.json")
+
+    ;; Keychains and system credential stores
+    (subpath "/Users/messingtomas/Library/Keychains")
+)
+
+;; ── Network: localhost only ─────────────────────────────────
+;; NOTE: macOS 26 sandbox-exec rejects IP-literal hosts like "127.0.0.1".
+;; Only "*" and "localhost" are valid host values.
+(deny network-outbound)
+(allow network-outbound
+    (remote tcp "localhost:*")
+)
+(allow network-inbound
+    (local tcp "localhost:*")
+)
+
+;; ── Process execution: minimal ─────────────────────────────
+(allow process-exec
+    (literal "/bin/sh")
+    (literal "/usr/bin/env")
+)

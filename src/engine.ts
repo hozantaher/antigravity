@@ -19,7 +19,7 @@ export class UnifiedVectorEngine {
   public async scan(): Promise<void> {
     const jsonFiles = await glob('**/vektor.json', {
       cwd: this.rootDir,
-      ignore: 'node_modules/**',
+      ignore: '**/node_modules/**',
     });
 
     for (const file of jsonFiles) {
@@ -36,7 +36,7 @@ export class UnifiedVectorEngine {
 
     const tsFiles = await glob('**/*.{ts,vue,js}', {
       cwd: this.rootDir,
-      ignore: 'node_modules/**',
+      ignore: '**/node_modules/**',
     });
     for (const file of tsFiles) {
       const fullPath = path.join(this.rootDir, file);

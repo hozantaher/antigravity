@@ -6,6 +6,67 @@ services:
     volumes:
       - redis_data:/data
     command: redis-server --appendonly yes
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  outreach-db:
+    image: postgres:16-alpine
+    ports:
+      - "5435:5432"
+    environment:
+      POSTGRES_DB: outreach
+      POSTGRES_USER: outreach
+      POSTGRES_PASSWORD: outreach
+    volumes:
+      - outreach_db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U outreach -d outreach"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  firmy-db:
+    image: postgres:16-alpine
+    ports:
+      - "5436:5432"
+    environment:
+      POSTGRES_DB: firmy
+      POSTGRES_USER: firmy
+      POSTGRES_PASSWORD: firmy
+    volumes:
+      - firmy_db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U firmy -d firmy"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  mailpit:
+    image: axllent/mailpit:latest
+    ports:
+      - "8025:8025"
+      - "1025:1025"
+    environment:
+      MP_SMTP_AUTH_ACCEPT_ANY: "true"
+      MP_SMTP_AUTH_ALLOW_INSECURE: "true"
+      MP_DATABASE: "/data/mailpit.db"
+    volumes:
+      - mailpit_data:/data
+
+  greenmail:
+    image: greenmail/standalone:2.1.2
+    ports:
+      - "2025:3025"
+      - "1144:3143"
+    environment:
+      GREENMAIL_OPTS: >-
+        -Dgreenmail.setup.test.all
+        -Dgreenmail.hostname=0.0.0.0
+        -Dgreenmail.users=outreach:outreach@test.local
+        -Dgreenmail.auth.disabled=true
 
   antigravity-daemon:
     build: .
@@ -16,7 +77,12 @@ services:
       - .env
     depends_on:
       - redis
+      - outreach-db
+      - firmy-db
     restart: unless-stopped
 
 volumes:
   redis_data:
+  outreach_db_data:
+  firmy_db_data:
+  mailpit_data:

@@ -1,0 +1,32 @@
+{
+  "identita": "Sanitace — z příchozí zprávy zmizí trackery, skripty a fingerprint hlaviček.",
+  "smysl": "Intake pipeline strhne tracking pixely, skripty a identifikující hlavičky dřív, než zpráva postoupí dál.",
+  "smer": "intake.Pipeline → sanitizer strhne hlavičky/skripty/tracking; co projde, je již zbavené stopy.",
+  "duvod": "Nesanitovaná hlavička nebo tracking pixel prozradí identitu i přes všechny ostatní vrstvy.",
+  "myslenka": "Co nemá projít, nesmí projít první branou — sanitace je vstupní filtr anonymity.",
+  "pillar": "reach",
+  "role": "supporting",
+  "promise": "Trackery, skripty a fingerprint hlaviček jsou strženy na vstupu.",
+  "loreLine": "Vstupní filtr — co prozrazuje, padne, než se to dotkne pipeline.",
+  "proofSignal": [
+    {
+      "nazev": "sanitizer strip coverage",
+      "zdroj": "features/outreach/relay/internal/delivery/sanitizer",
+      "stav": "pending"
+    }
+  ],
+  "antiFeature": "Identifikující hlavička nebo tracking pixel projde sanitací — fingerprint prosákne celým řetězcem.",
+  "hotovo": {
+    "kdyzPlati": [
+      {
+        "kriterium": "Sanitizer (strip hlaviček, skriptů, trackingu) projde testy — co prochází intake, je zbavené identifikujících stop.",
+        "check": "test:relay-sanitize",
+        "stav": "pending",
+        "proof": {
+          "cmd": "cd features/outreach/relay && go test ./internal/delivery/sanitizer/..."
+        }
+      }
+    ],
+    "vektorGate": "all-met"
+  }
+}

@@ -189,26 +189,22 @@ describe('CAD-A5-5: operator playbook', () => {
     expect(existsRepo('docs/playbooks/codebase-awareness.md')).toBe(true)
   })
 
-  // QUARANTINED pending owner decision — see docs/handoff/ci-remediation-residual.md
-  it.skip('T-27: playbook contains "When to run" section', () => {
+  it('T-27: playbook contains "When to run" section', () => {
     const src = readRepo('docs/playbooks/codebase-awareness.md')
     expect(src).toMatch(/When to run/)
   })
 
-  // QUARANTINED pending owner decision — see docs/handoff/ci-remediation-residual.md
-  it.skip('T-28: playbook explains drift report interpretation', () => {
+  it('T-28: playbook explains drift report interpretation', () => {
     const src = readRepo('docs/playbooks/codebase-awareness.md')
     expect(src).toMatch(/drift report|How to interpret/)
   })
 
-  // QUARANTINED pending owner decision — see docs/handoff/ci-remediation-residual.md
-  it.skip('T-29: playbook covers ratchet override procedure', () => {
+  it('T-29: playbook covers ratchet override procedure', () => {
     const src = readRepo('docs/playbooks/codebase-awareness.md')
     expect(src).toMatch(/ratchet|audit ratchet/)
   })
 
-  // QUARANTINED pending owner decision — see docs/handoff/ci-remediation-residual.md
-  it.skip('T-30: playbook explains self-validation', () => {
+  it('T-30: playbook explains self-validation', () => {
     const src = readRepo('docs/playbooks/codebase-awareness.md')
     expect(src).toMatch(/self-validation|self-validate/)
   })

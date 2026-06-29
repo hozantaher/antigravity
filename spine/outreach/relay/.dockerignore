@@ -1,0 +1,7 @@
+dist/
+deploy/
+docs/
+scripts/
+*.md
+.gitignore
+railway.toml

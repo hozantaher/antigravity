@@ -1,0 +1,30 @@
+{
+  "identita": "Po obchodu — hodnotí jen ten, kdo opravdu koupil.",
+  "smysl": "Hodnocení lze vložit jen po dokončeném (settled) obchodu.",
+  "smer": "Vazba review → settled invoice; jeden obchod, jedno hodnocení.",
+  "duvod": "Hodnocení bez reálného obchodu je manipulovatelné a bezcenné.",
+  "myslenka": "Soudí jen ten, kdo prošel obchodem.",
+  "pillar": "serious-community",
+  "role": "primary",
+  "promise": "Hodnocení, za kterým je reálný obchod.",
+  "loreLine": "Žádné recenze naslepo — jen po skutečném prodeji.",
+  "proofSignal": [
+    {
+      "nazev": "review gated on settled sale",
+      "zdroj": "vektor-tree",
+      "stav": "pending"
+    }
+  ],
+  "antiFeature": "Hodnocení od kohokoli bez nákupu — reputace, kterou lze zfalšovat.",
+  "hotovo": {
+    "kdyzPlati": [
+      {
+        "kriterium": "Hodnocení lze vložit jen po dokončeném (settled) obchodu",
+        "check": "test:rating-post-sale",
+        "stav": "met",
+        "proof": { "cmd": "pnpm exec vitest run --project server tests/server/api/rating.post.test.ts 2>&1 | grep -qE \"Test Files +1 passed\"" }
+      }
+    ],
+    "vektorGate": "all-met"
+  }
+}

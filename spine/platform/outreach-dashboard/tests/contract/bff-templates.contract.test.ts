@@ -158,14 +158,10 @@ describe('GET /api/templates/ranking', () => {
     expect(calls[0].sql).toMatch(/se\.status\s*=\s*'replied'/)
   })
 
-  // open_rate is now hardcoded `0 AS open_rate` — open-pixel tracking was
-  // removed (AR2) and there is no se.opened_at column anymore
-  // (templates.js:74 + comment lines 62-64).
-  it('open_rate hardcoded 0 (open-pixel tracking removed — no se.opened_at)', async () => {
+  it('open_rate derived from se.opened_at IS NOT NULL', async () => {
     queueRows([])
     await req('GET', '/api/templates/ranking')
-    expect(calls[0].sql).toMatch(/0\s+AS\s+open_rate/i)
-    expect(calls[0].sql).not.toMatch(/se\.opened_at/i)
+    expect(calls[0].sql).toMatch(/se\.opened_at\s+IS\s+NOT\s+NULL/i)
   })
 
   it('ranks by reply_rate DESC', async () => {
@@ -200,11 +196,10 @@ describe('GET /api/templates/ranking', () => {
 // ═══════════════════════════════════════════════════════════════════════
 
 describe('POST /api/templates', () => {
-  // Compliance gate INVERTED 2026-05-07 (templates.js:116-122 bodyHasNoUnsubLink):
-  // a COMPLIANT body MUST NOT contain a clickable unsub link — opt-out is via
-  // reply + STOP keyword. A body with /unsubscribe, {{unsubscribe_url}} or
-  // {{.UnsubURL}} is now rejected 400 compliance_unsub_link_forbidden.
-  const COMPLIANT_BODY = 'Hi {{first_name}}, reply STOP to opt out.'
+  // Bodies in tests must include an unsubscribe link or be empty (drafts).
+  // Save endpoint rejects bodies missing /unsubscribe / {{unsubscribe_url}} /
+  // {{.UnsubURL}} per GDPR Art. 21 + Recital 47 enforcement (closes #585).
+  const COMPLIANT_BODY = 'Hi {{first_name}}, /unsubscribe?c=1&id=2&t=abc'
 
   it('200 returns inserted row', async () => {
     queueRows([{ id: 42, name: 'Foo', subject: 'S', body: COMPLIANT_BODY }])
@@ -319,22 +314,17 @@ describe('PUT /api/templates/:id', () => {
 
 describe('DELETE /api/templates/:id', () => {
   it('200 {ok:true} on success', async () => {
-    // DELETE now runs a pre-SELECT existence/audit fetch before the DELETE
-    // (templates.js:269) — feed it a row so the 404 branch is skipped.
-    queueRows([{ id: 7, name: 'x', subject: 'y' }])
+    queueRows([])
     const res = await req('DELETE', '/api/templates/7')
     expect(res.status).toBe(200)
     expect(res.body).toEqual({ ok: true })
   })
 
   it('issues DELETE with id param', async () => {
-    // pre-SELECT existence row (templates.js:269) is now calls[0]; the DELETE
-    // is a later query — match it by SQL instead of a fixed index.
-    queueRows([{ id: 7, name: 'x', subject: 'y' }])
+    queueRows([])
     await req('DELETE', '/api/templates/7')
-    const del = calls.find((c) => /DELETE FROM email_templates/i.test(c.sql))
-    expect(del).toBeTruthy()
-    expect(del!.params).toEqual(['7'])
+    expect(calls[0].sql).toMatch(/DELETE FROM email_templates/i)
+    expect(calls[0].params).toEqual(['7'])
   })
 
   it('500 on FK violation (template referenced by campaign)', async () => {
@@ -387,9 +377,7 @@ describe('GET /api/templates (extended)', () => {
 
 describe('POST /api/templates (create extended)', () => {
   it('valid → 200 with inserted row', async () => {
-    // Inverted compliance gate (templates.js:116-122): body must NOT carry an
-    // unsub link; opt-out is reply + STOP. A {{unsubscribe_url}} body now 400s.
-    const body = 'Content here. Reply STOP to opt out.'
+    const body = 'Content here. Unsubscribe: {{unsubscribe_url}}'
     queueRows([{ id: 55, name: 'Newsletter', subject: 'Weekly digest', body }])
     const res = await req('POST', '/api/templates', { name: 'Newsletter', subject: 'Weekly digest', body })
     expect(res.status).toBe(200)

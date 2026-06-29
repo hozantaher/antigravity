@@ -1,0 +1,34 @@
+{
+  "identita": "Lifecycle — vydat, vypsat, odvolat.",
+  "smysl": "Celý cyklus tokenu — vydání, výpis s last-used a revoke — projde end-to-end.",
+  "smer": "Endpointy list/create/revoke pod admin bránou, s auditním last-used.",
+  "duvod": "Token, který nejde odvolat nebo dohledat, je trvalá zadní vrátka.",
+  "myslenka": "Co vydáš, musíš umět vzít zpět.",
+  "pillar": "transparency",
+  "role": "supporting",
+  "promise": "Vydaný token kdykoli dohledáš a odvoláš.",
+  "loreLine": "Vydání, audit, revoke — přístup s vypínačem.",
+  "proofSignal": [
+    {
+      "nazev": "create/list/revoke lifecycle",
+      "zdroj": "test/apiTokens-api",
+      "stav": "live"
+    }
+  ],
+  "antiFeature": "Token bez revoke — přístup, který přežije i toho, kdo ho vydal.",
+  "hotovo": {
+    "kdyzPlati": [
+      {
+        "kriterium": "Vydání, výpis a revoke tokenu projdou celým cyklem pod admin bránou",
+        "check": "test:apiToken-lifecycle",
+        "stav": "met",
+        "proof": {
+          "cmd": "pnpm exec vitest run --project server tests/server/api/apiTokens.test.ts"
+        }
+      }
+    ],
+    "vektorGate": "all-met"
+  },
+  "id": "token-lifecycle",
+  "story_axis": "platform"
+}

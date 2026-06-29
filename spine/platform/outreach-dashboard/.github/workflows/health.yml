@@ -1,0 +1,61 @@
+name: Mailboxes Health Check
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  push:
+    paths:
+      - 'services/machinery-outreach/dashboard/**'
+  workflow_dispatch:
+
+jobs:
+  health:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: services/machinery-outreach/dashboard
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+          cache-dependency-path: services/machinery-outreach/dashboard/pnpm-lock.yaml
+
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run unit tests
+        run: pnpm test
+
+      - name: Start server
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: |
+          node server.js &
+          sleep 3
+
+      - name: Run health check
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: pnpm health:json > health-report.json
+
+      - name: Check health score
+        run: |
+          SCORE=$(node -e "const r=require('./health-report.json'); console.log(r.score)")
+          echo "Health score: $SCORE"
+          if [ "$SCORE" -lt 70 ]; then
+            echo "Health score below threshold (70): $SCORE"
+            exit 1
+          fi
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: health-report
+          path: services/machinery-outreach/dashboard/health-report.json

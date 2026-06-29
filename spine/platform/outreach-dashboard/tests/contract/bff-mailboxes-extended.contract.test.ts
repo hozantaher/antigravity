@@ -15,27 +15,8 @@ const queryQueue: QueryOutcome[] = []
 const calls: Array<{ sql: string; params?: unknown[] }> = []
 
 vi.mock('pg', () => {
-  // Infra queries the check/create handlers run that the per-test queues don't
-  // feed. Short-circuit them WITHOUT consuming queryQueue so the queued business
-  // rows stay aligned. (1) POST create advisory lock + pool-capacity pre-flight;
-  // (2) AP3 per-op rate limiter (smtp-check, full-check, imap-inbox call
-  // checkOpRateLimit) — these tests don't exercise the limiter, so resolve it to
-  // the "allowed" path and let the handler's own mailbox lookup be the 404 gate.
-  function infraShortCircuit(sql: unknown): { rows: unknown[]; rowCount: number } | null {
-    const s = typeof sql === 'string' ? sql : ''
-    if (/pg_advisory(_xact)?_lock|pg_advisory_unlock/i.test(s)) return { rows: [], rowCount: 0 }
-    if (/pinned_endpoint_label IS NOT NULL/i.test(s) && !process.env.WIREPROXY_POOL_CONFIG) {
-      return { rows: [{ pinned: 0 }], rowCount: 1 }
-    }
-    if (/FROM outreach_mailboxes WHERE id=\$1 FOR UPDATE/i.test(s)) return { rows: [{ ok: 1 }], rowCount: 1 }
-    if (/FROM mailbox_op_rate_log/i.test(s)) return { rows: [{ used: 0, oldest_in_window: null }], rowCount: 1 }
-    if (/INSERT INTO mailbox_op_rate_log/i.test(s)) return { rows: [], rowCount: 1 }
-    return null
-  }
   class Pool {
     async query(sql: string, params?: unknown[]) {
-      const infra = infraShortCircuit(sql)
-      if (infra) return infra
       calls.push({ sql, params })
       if (!queryQueue.length) return { rows: [] }
       const next = queryQueue.shift()!
@@ -305,9 +286,7 @@ describe('GET /api/mailboxes/health-summary', () => {
   it('retired mailboxes are excluded (SQL filter)', async () => {
     queueRows([])
     await req('GET', '/api/mailboxes/health-summary')
-    // Handler now excludes both 'retired' and 'auth_locked'
-    // (server.js: WHERE status NOT IN ('retired', 'auth_locked')).
-    expect(calls[0].sql).toMatch(/status NOT IN \([^)]*'retired'[^)]*\)/i)
+    expect(calls[0].sql).toMatch(/status NOT IN \('retired'\)/i)
   })
   it('500 on pg throw', async () => {
     queueError('pg')
@@ -684,12 +663,44 @@ describe('POST /api/mailboxes/bulk-check', () => {
 })
 
 // ═══════════════════════════════════════════════════════════════════════
-//  import-csv — route REMOVED (replaced by POST /api/mailboxes/bulk-set-password).
-//  It is absent from the authoritative api-route-inventory snapshot
-//  (tests/contract/api-route-inventory.snapshot.test.ts EXPECTED_ROUTES, which
-//  lists bulk-set-password and no import-csv). The former describe block tested
-//  a route that no longer exists, so it has been dropped.
+//  import-csv
 // ═══════════════════════════════════════════════════════════════════════
+
+describe('POST /api/mailboxes/import-csv', () => {
+  it('400 when rows missing', async () => {
+    const res = await req('POST', '/api/mailboxes/import-csv', {})
+    expect(res.status).toBe(400)
+  })
+  it('400 when rows empty', async () => {
+    const res = await req('POST', '/api/mailboxes/import-csv', { rows: [] })
+    expect(res.status).toBe(400)
+  })
+  it('400 when rows is not array', async () => {
+    const res = await req('POST', '/api/mailboxes/import-csv', { rows: 'nope' })
+    expect(res.status).toBe(400)
+  })
+  it('reports per-row errors for rows missing required fields', async () => {
+    const res = await req('POST', '/api/mailboxes/import-csv', {
+      rows: [{ email: '', smtp_host: 's', password: 'p' }],
+    })
+    expect(res.status).toBe(200)
+    expect((res.body as { errors: unknown[] }).errors).toHaveLength(1)
+  })
+  it('imports valid rows and returns {imported, total}', async () => {
+    queueRows([{ id: 42, email: 'a@b.test' }])
+    const res = await req('POST', '/api/mailboxes/import-csv', {
+      rows: [{ email: 'a@b.test', smtp_host: 's', password: 'p' }],
+    })
+    expect(res.body).toMatchObject({ imported: 1, total: 1 })
+  })
+  it('defaults smtp_port=465 when omitted in csv row', async () => {
+    queueRows([{ id: 1, email: 'a@b.test' }])
+    await req('POST', '/api/mailboxes/import-csv', {
+      rows: [{ email: 'a@b.test', smtp_host: 's', password: 'p' }],
+    })
+    expect(calls[0].params?.[2]).toBe(465)
+  })
+})
 
 // ═══════════════════════════════════════════════════════════════════════
 //  send-test

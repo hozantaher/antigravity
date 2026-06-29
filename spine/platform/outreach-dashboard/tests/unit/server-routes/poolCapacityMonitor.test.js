@@ -123,11 +123,6 @@ describe('T04 ratio exactly 1.0 → Sentry error', () => {
 describe('T05 ratio > 1.0 overcommit → Sentry error', () => {
   it('fires error when pinned > pool_size', async () => {
     process.env.WIREPROXY_POOL_CONFIG = BASE_POOL_CONFIG // pool_size=5
-    // Q4.1 hysteresis state (lastAlertState) is module-level and leaks across
-    // tests — T04 leaves it at 'error', so an overcommit tick would be a
-    // no-op "state unchanged". Prime a non-error baseline so this tick is a
-    // genuine error transition that fires.
-    await runPoolCapacityCron(makePool(2), { Sentry: makeSentry() }) // ratio 0.4 → 'ok'
     const pool = makePool(7) // ratio = 1.4
     const Sentry = makeSentry()
     const result = await runPoolCapacityCron(pool, { Sentry })

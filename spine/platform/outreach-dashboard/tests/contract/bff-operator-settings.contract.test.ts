@@ -199,10 +199,7 @@ describe('PUT /api/operator-settings/:key — happy path', () => {
     // action value 'operator_settings_update' is in params[0], not the SQL template
     const params = auditCall!.params as unknown[]
     expect(params[0]).toBe('operator_settings_update')
-    // Handler binds 4 params; entity_id is an inline NULL literal in the SQL
-    // (operatorSettings.js:156-158 — `VALUES ($1,$2,$3,NULL,$4)`), so the
-    // details JSON is $4 = params[3], not params[4].
-    const details = JSON.parse(params[3] as string)
+    const details = JSON.parse(params[4] as string)
     expect(details.key).toBe('brand_label')
     expect(details.new_value).toBe('NewBrand')
   })

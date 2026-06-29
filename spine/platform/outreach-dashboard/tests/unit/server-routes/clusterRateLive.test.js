@@ -285,10 +285,8 @@ describe('GET /api/operator-metrics/cluster-rate-live', () => {
   it('passes the active-status filter to the perMailboxSql ($1) parameter', async () => {
     stubQueries({ mailboxRows: [] })
     await get()
-    // Calls: [resolveSpacing, perMailboxSql, mailbox-status-summary].
-    // The handler issues a 3rd read (status-summary pills) after perMailboxSql;
-    // perMailboxSql remains call index 1, which is what this test asserts on.
-    expect(pool.query).toHaveBeenCalledTimes(3)
+    // Calls: [resolveSpacing, perMailboxSql]
+    expect(pool.query).toHaveBeenCalledTimes(2)
     const secondCallParams = pool.query.mock.calls[1][1]
     expect(Array.isArray(secondCallParams)).toBe(true)
     expect(secondCallParams[0]).toEqual(['active'])

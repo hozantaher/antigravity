@@ -1,0 +1,7 @@
+STATUS: 200
+HEADER: Content-Type: text/html; charset=UTF-8
+HEADER: Server: nginx/1.18.0
+EXPECT: captcha
+NOTE: Real reCAPTCHA v2 widget shape as served by ARES wrapping pages when too-many-requests heuristic trips. div.g-recaptcha + sitekey markup is industry-standard.
+---
+<!DOCTYPE html><html lang="cs"><head><meta charset="UTF-8"><title>Ověření</title><script src="https://www.google.com/recaptcha/api.js" async defer></script></head><body><form action="/verify" method="POST"><div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div><button type="submit">Pokračovat</button></form></body></html>

@@ -17,21 +17,8 @@ const queryQueue: QueryOutcome[] = []
 const calls: Array<{ sql: string; params?: unknown[] }> = []
 
 vi.mock('pg', () => {
-  // POST /api/mailboxes takes an advisory lock + a pool-capacity pre-flight
-  // SELECT before the INSERT. Short-circuit those infra queries WITHOUT
-  // consuming queryQueue so the queued INSERT/audit rows stay aligned.
-  function infraShortCircuit(sql: unknown): { rows: unknown[]; rowCount: number } | null {
-    const s = typeof sql === 'string' ? sql : ''
-    if (/pg_advisory(_xact)?_lock|pg_advisory_unlock/i.test(s)) return { rows: [], rowCount: 0 }
-    if (/pinned_endpoint_label IS NOT NULL/i.test(s) && !process.env.WIREPROXY_POOL_CONFIG) {
-      return { rows: [{ pinned: 0 }], rowCount: 1 }
-    }
-    return null
-  }
   class Pool {
     async query(sql: string, params?: unknown[]) {
-      const infra = infraShortCircuit(sql)
-      if (infra) return infra
       calls.push({ sql, params })
       if (!queryQueue.length) return { rows: [] }
       const next = queryQueue.shift()!
@@ -123,47 +110,36 @@ describe('PATCH /api/mailboxes/:id extended', () => {
       total_bounced: 0, consecutive_bounces: 0, proxy_url: null, last_send_at: null,
       created_at: '2026-01-01T00:00:00Z', updated_at: '2026-01-01T00:00:00Z',
     }
-    // PATCH now opens a txn and SELECTs the current row (for audit) before the
-    // UPDATE, then re-fetches the full MB_SELECT shape it returns. Queue those.
-    queueRows([{ id: 1, status: 'active' }]) // pre-SELECT current state
-    queueRows([]) // UPDATE (no RETURNING)
-    queueRows([row]) // MB_SELECT re-fetch (the row the handler returns)
+    queueRows([row])
     const res = await req('PATCH', '/api/mailboxes/1', { smtp_host: 'new-smtp.cz' })
     expect(res.status).toBe(200)
     const body = res.body as { host: string }
     expect(body.host).toBe('new-smtp.cz')
-    // Verify the UPDATE SQL was issued (calls[0] is now the pre-SELECT)
-    const updateCall = calls.find(c => c.sql?.includes('UPDATE outreach_mailboxes'))
-    expect(updateCall?.sql).toMatch(/UPDATE outreach_mailboxes/i)
-    expect(updateCall?.sql).toMatch(/smtp_host/i)
+    // Verify the UPDATE SQL was issued
+    expect(calls[0].sql).toMatch(/UPDATE outreach_mailboxes/i)
+    expect(calls[0].sql).toMatch(/smtp_host/i)
   })
 
   it('unknown field → ignored (not crash)', async () => {
-    // When only unknown fields are sent, server returns 400 "nothing to update".
-    // The handler first opens a txn + SELECTs the row (for audit), so the
-    // mailbox must exist; the contract is that NO write (UPDATE) is issued.
-    queueRows([{ id: 1, status: 'active' }]) // pre-SELECT current state
+    // When only unknown fields are sent, server returns 400 "nothing to update"
+    // (no DB call needed — it must NOT crash with 500)
     const res = await req('PATCH', '/api/mailboxes/1', {
       totally_unknown_field: 'value',
       another_unknown: 42,
       nested: { deep: true },
     })
-    // Must not be 500 — 400 (nothing to update)
+    // Must not be 500 — either 400 (nothing to update) or 200 if ignored
     expect(res.status).not.toBe(500)
-    expect(calls.find(c => c.sql?.includes('UPDATE outreach_mailboxes'))).toBeUndefined()
+    expect(calls).toHaveLength(0)
   })
 
   it('MONKEY: large payload → graceful', async () => {
-    // 50 KB+ body — server must not crash. display_name is a valid field, so
-    // with the txn pre-SELECT + UPDATE + re-fetch it resolves to 200.
+    // 50 KB+ body — server must not crash, either 400 or 200
     const hugeString = 'x'.repeat(50_000)
-    queueRows([{ id: 1, status: 'active' }]) // pre-SELECT current state
-    queueRows([]) // UPDATE
-    queueRows([{ id: 1, display_name: hugeString }]) // MB_SELECT re-fetch
     const res = await req('PATCH', '/api/mailboxes/1', {
       display_name: hugeString,
     })
-    // 200 (updated) or 400; NOT 500
+    // 400 (nothing to update if display_name stripped) or 200; NOT 500
     expect([200, 400]).toContain(res.status)
   })
 
@@ -265,25 +241,21 @@ describe('POST /api/mailboxes (create)', () => {
 
 describe('DELETE /api/mailboxes/:id', () => {
   it('existing mailbox → 200 {ok:true}', async () => {
-    // DELETE now opens a txn → SELECT id,email,from_address (for audit) →
-    // DELETE → INSERT operator_audit_log → COMMIT. Queue the pre-SELECT row so
-    // the mailbox is found, then the DELETE + audit succeed.
-    queueRows([{ id: 1, email: 'x@test.cz', from_address: 'x@test.cz' }]) // pre-SELECT
-    queueRows([]) // DELETE
-    queueRows([]) // INSERT audit
+    // DELETE returns {ok:true} regardless of whether a row was matched —
+    // BFF does not check rowCount, it just calls pool.query and responds ok.
+    queueRows([])
     const res = await req('DELETE', '/api/mailboxes/1')
     expect(res.status).toBe(200)
     expect(res.body).toEqual({ ok: true })
   })
 
-  it('nonexistent id → 404 mailbox_not_found', async () => {
-    // Behavior change: the DELETE handler now SELECTs the row for an audit log
-    // and returns 404 when it does not exist (src/server-routes/mailboxes.js
-    // ~line 431: `if (!mailbox) { ROLLBACK; return 404 mailbox_not_found }`).
-    queueRows([]) // pre-SELECT returns no row
+  it('nonexistent id → still 200 {ok:true} (BFF does not 404 on no rows deleted)', async () => {
+    // The server.js DELETE handler is: pool.query(...); res.json({ok:true})
+    // There is no rowCount check, so nonexistent rows silently succeed.
+    queueRows([])
     const res = await req('DELETE', '/api/mailboxes/99999')
-    expect(res.status).toBe(404)
-    expect(res.body).toEqual({ error: 'mailbox_not_found' })
+    expect(res.status).toBe(200)
+    expect(res.body).toEqual({ ok: true })
   })
 
   it('DB error → 500', async () => {
@@ -293,22 +265,16 @@ describe('DELETE /api/mailboxes/:id', () => {
   })
 
   it('DELETE SQL targets correct id', async () => {
-    queueRows([{ id: 42, email: 'x@test.cz', from_address: 'x@test.cz' }]) // pre-SELECT
-    queueRows([]) // DELETE
-    queueRows([]) // INSERT audit
+    queueRows([])
     await req('DELETE', '/api/mailboxes/42')
-    const deleteCall = calls.find(c => c.sql?.includes('DELETE FROM outreach_mailboxes'))
-    expect(deleteCall?.sql).toMatch(/DELETE FROM outreach_mailboxes/i)
-    expect(deleteCall?.params).toContain('42')
+    expect(calls[0].sql).toMatch(/DELETE FROM outreach_mailboxes/i)
+    expect(calls[0].params).toContain('42')
   })
 
   it('DELETE with string id (route param is always string)', async () => {
-    queueRows([{ id: 7, email: 'x@test.cz', from_address: 'x@test.cz' }]) // pre-SELECT
-    queueRows([]) // DELETE
-    queueRows([]) // INSERT audit
+    queueRows([])
     const res = await req('DELETE', '/api/mailboxes/7')
     expect(res.status).toBe(200)
-    const deleteCall = calls.find(c => c.sql?.includes('DELETE FROM outreach_mailboxes'))
-    expect(typeof deleteCall?.params?.[0]).toBe('string')
+    expect(typeof calls[0].params?.[0]).toBe('string')
   })
 })

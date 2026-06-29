@@ -31,8 +31,7 @@ describe('Sprint AL: Brand label operator_settings (contract)', () => {
   })
 
   describe('GET /privacy', () => {
-    // QUARANTINED pending owner decision — see docs/handoff/ci-remediation-residual.md
-    it.skip('fetches controller_name from operator_settings', async () => {
+    it('fetches controller_name from operator_settings', async () => {
       ;(pool.query as any).mockResolvedValueOnce({
         rows: [{ value: 'Hozan s.r.o.' }],
       })
@@ -93,12 +92,10 @@ describe('Sprint AL: Brand label operator_settings (contract)', () => {
         .get('/unsubscribe?c=123&id=456&t=abcdef0123456789')
         .set('X-Forwarded-For', '127.0.0.1')
 
-      // First call fetches brand_label, second verifies token.
-      // Handler calls pool.query(sql) with a SINGLE arg (no params) —
-      // unsubscribe.js:93 — so the matcher must not assert a 2nd `undefined` arg
-      // (vitest does not pad a 1-arg call to match a 2-arg expectation).
+      // First call fetches brand_label, second verifies token
       expect(pool.query).toHaveBeenCalledWith(
-        expect.stringContaining("SELECT value FROM operator_settings WHERE key='brand_label'")
+        expect.stringContaining("SELECT value FROM operator_settings WHERE key='brand_label'"),
+        undefined
       )
     })
 
@@ -135,7 +132,6 @@ describe('Sprint AL: Brand label operator_settings (contract)', () => {
         }) // SELECT reply
         .mockResolvedValueOnce({ rows: [{ id: 1 }] }) // UPDATE reply handled
         .mockResolvedValueOnce({ rows: [] }) // INSERT healing_log
-        .mockResolvedValueOnce({ rows: [] }) // INSERT operator_audit_log (replies.js:1105-1115)
 
       mountRepliesRoutes(app, { pool: pool as any, setRouteTags: () => {}, capture500: (res: any, e: any, safeError: any) => { res.status(500).json({ error: safeError(e) }) }, safeError: (e: any) => e.message })
 
@@ -156,24 +152,18 @@ describe('Sprint AL: Brand label operator_settings (contract)', () => {
         })
         .mockResolvedValueOnce({ rows: [{ id: 1 }] })
         .mockResolvedValueOnce({ rows: [] })
-        .mockResolvedValueOnce({ rows: [] }) // INSERT operator_audit_log (replies.js:1105-1115)
 
       mountRepliesRoutes(app, { pool: pool as any, setRouteTags: () => {}, capture500: (res: any, e: any, safeError: any) => { res.status(500).json({ error: safeError(e) }) }, safeError: (e: any) => e.message })
 
-      // Send NO notes/crm_url so the healing_log `reason` falls back to
-      // `manual handoff to ${brandLabel}` (replies.js:1097 — reason is
-      // `notes || url || \`manual handoff to ${brandLabel}\``).
       await request(app)
         .post('/api/replies/1/forward-to-crm')
-        .send({})
+        .send({ notes: 'Test', crm_url: 'https://example.com' })
 
       const healingLogCall = (pool.query as any).mock.calls.find((call: any) =>
         call[0].includes('INSERT INTO healing_log')
       )
       expect(healingLogCall).toBeDefined()
-      // brand_label is bound as the `reason` param ($3 = params[2]), not
-      // interpolated into the SQL string (replies.js:1094-1098).
-      expect(healingLogCall[1][2]).toContain('manual handoff to Hozan')
+      expect(healingLogCall[0]).toContain('manual handoff to Hozan')
     })
   })
 
@@ -186,7 +176,6 @@ describe('Sprint AL: Brand label operator_settings (contract)', () => {
         })
         .mockResolvedValueOnce({ rows: [{ id: 1 }] })
         .mockResolvedValueOnce({ rows: [] })
-        .mockResolvedValueOnce({ rows: [] }) // INSERT operator_audit_log (replies.js:1105-1115)
 
       mountRepliesRoutes(app, { pool: pool as any, setRouteTags: () => {}, capture500: (res: any, e: any, safeError: any) => { res.status(500).json({ error: safeError(e) }) }, safeError: (e: any) => e.message })
 
@@ -206,7 +195,6 @@ describe('Sprint AL: Brand label operator_settings (contract)', () => {
         })
         .mockResolvedValueOnce({ rows: [{ id: 1 }] })
         .mockResolvedValueOnce({ rows: [] })
-        .mockResolvedValueOnce({ rows: [] }) // INSERT operator_audit_log (replies.js:1105-1115)
 
       mountRepliesRoutes(app, { pool: pool as any, setRouteTags: () => {}, capture500: (res: any, e: any, safeError: any) => { res.status(500).json({ error: safeError(e) }) }, safeError: (e: any) => e.message })
 

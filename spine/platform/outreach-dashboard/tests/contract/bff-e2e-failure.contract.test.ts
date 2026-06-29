@@ -26,21 +26,8 @@ const queryQueue: QueryOutcome[] = []
 const callLog: Array<{ sql: string; params?: unknown[] }> = []
 
 vi.mock('pg', () => {
-  // POST /api/mailboxes takes an advisory lock + pool-capacity pre-flight SELECT
-  // before the INSERT. Short-circuit those infra queries WITHOUT consuming
-  // queryQueue so the queued INSERT/audit rows stay aligned.
-  function infraShortCircuit(sql: unknown): { rows: unknown[]; rowCount: number } | null {
-    const s = typeof sql === 'string' ? sql : ''
-    if (/pg_advisory(_xact)?_lock|pg_advisory_unlock/i.test(s)) return { rows: [], rowCount: 0 }
-    if (/pinned_endpoint_label IS NOT NULL/i.test(s) && !process.env.WIREPROXY_POOL_CONFIG) {
-      return { rows: [{ pinned: 0 }], rowCount: 1 }
-    }
-    return null
-  }
   class Pool {
     async query(sql: string, params?: unknown[]) {
-      const infra = infraShortCircuit(sql)
-      if (infra) return infra
       callLog.push({ sql, params })
       if (!queryQueue.length) return { rows: [] }
       const next = queryQueue.shift()!
@@ -164,8 +151,7 @@ describe('e2e fail — CRUD chain failures', () => {
     queueError('deadlock')
     const fail = await req('PATCH', '/api/mailboxes/1', { display_name: 'x' })
     expect(fail.status).toBe(500)
-    // DELETE now SELECTs the row (for audit) before deleting; feed that row.
-    queueRows([{ id: 1, email: 'x@b.cz', from_address: 'x@b.cz' }])
+    queueRows([])
     const del = await req('DELETE', '/api/mailboxes/1')
     expect(del.status).toBe(200)
   })
@@ -211,9 +197,36 @@ describe('e2e fail — warmup start', () => {
   })
 })
 
-// Flow 5 (Import CSV) removed: POST /api/mailboxes/import-csv no longer exists
-// (replaced by POST /api/mailboxes/bulk-set-password; absent from the
-// authoritative api-route-inventory snapshot EXPECTED_ROUTES).
+// ═══════════════════════════════════════════════════════════════════════
+// Flow 5: Import CSV partial
+// ═══════════════════════════════════════════════════════════════════════
+describe('e2e fail — import CSV', () => {
+  it('import with pg throw → handled', async () => {
+    queueError('boom')
+    queueError('boom')
+    queueError('boom')
+    const r = await req('POST', '/api/mailboxes/import-csv', { rows: [{ email: 'a@b.cz' }] })
+    expect(r.status).toBeLessThan(600)
+  })
+  it('import with empty rows array → handled', async () => {
+    queueRows([])
+    const r = await req('POST', '/api/mailboxes/import-csv', { rows: [] })
+    expect(r.status).toBeLessThan(600)
+  })
+  it('import with undefined rows → 400', async () => {
+    const r = await req('POST', '/api/mailboxes/import-csv', {})
+    expect([200, 400, 500]).toContain(r.status)
+  })
+  it('import with 100 mixed rows → handled', async () => {
+    queueRows([])
+    const rows = Array.from({ length: 100 }, (_, i) => ({
+      email: i % 10 === 0 ? '' : `user${i}@example.cz`,
+      smtp_host: 'smtp.example.cz',
+    }))
+    const r = await req('POST', '/api/mailboxes/import-csv', { rows })
+    expect(r.status).toBeLessThan(600)
+  })
+})
 
 // ═══════════════════════════════════════════════════════════════════════
 // Flow 6: Pipeline test stages

@@ -291,9 +291,6 @@ describe('D. Content-Type negotiation on POST', () => {
 describe('E. Request body forwarding', () => {
   it('forwards canonical Go payload shape (name + description + steps + category_paths + category_match + min_score + region)', async () => {
     queueGoJSON({ id: 9, estimate: 5 })
-    // POST /api/campaigns now pre-checks steps[].template against email_templates
-    // (campaigns.js:195) BEFORE proxying to Go — feed the template-exists row first.
-    queueRows([{ name: 'initial' }])
     queueRows([{ id: 9, name: 'Full', description: 'desc', status: 'draft', category_paths: ['Stroje'], sequence_config: {}, category_match: 'exact', created_at: '2026-04-30T00:00:00Z' }])
     await bffReq('POST', '/api/campaigns', {
       name: 'Full',
@@ -346,7 +343,6 @@ describe('E. Request body forwarding', () => {
 describe('F. Path-param forwarding — /run', () => {
   it('forwards /api/campaigns/42/run verbatim (id preserved)', async () => {
     queueGoJSON({ ok: true })
-    queueRows([{ id: 42, status: 'draft' }]) // pre-SELECT existence row (campaigns.js:911)
     const res = await bffReq('POST', '/api/campaigns/42/run')
     expect(res.status).toBe(200)
     expect(fetchCalls[0].url).toBe('http://go-stub.local/api/campaigns/42/run')
@@ -363,9 +359,6 @@ describe('F. Path-param forwarding — /run', () => {
 describe('G. Path-param forwarding — /pause', () => {
   it('forwards /api/campaigns/77/pause verbatim', async () => {
     queueGoJSON({ ok: true })
-    // pre-SELECT existence row; status must be running/sending to pass the
-    // pause precondition (campaigns.js:996,1009).
-    queueRows([{ id: 77, status: 'running' }])
     const res = await bffReq('POST', '/api/campaigns/77/pause')
     expect(res.status).toBe(200)
     expect(fetchCalls[0].url).toBe('http://go-stub.local/api/campaigns/77/pause')
@@ -374,7 +367,6 @@ describe('G. Path-param forwarding — /pause', () => {
 
   it('forwards x-api-key on the /pause proxy too', async () => {
     queueGoJSON({ ok: true })
-    queueRows([{ id: 3, status: 'running' }]) // pre-SELECT; running passes pause precondition
     await bffReq('POST', '/api/campaigns/3/pause')
     expect(fetchCalls[0].headers['x-api-key']).toBe('kt-b1-test-key')
   })
@@ -398,8 +390,6 @@ describe('H. 4xx pass-through', () => {
 
   it('Go 404 on /run → BFF 404 with envelope (campaign not found)', async () => {
     queueGoJSON({ error: 'not found' }, { ok: false, status: 404 })
-    // pre-SELECT row so we reach Go and pass through ITS 404 (campaigns.js:911)
-    queueRows([{ id: 9999, status: 'draft' }])
     const res = await bffReq('POST', '/api/campaigns/9999/run')
     expect(res.status).toBe(404)
     const body = res.body as { error: string; http_status: number; response: unknown }
@@ -411,7 +401,6 @@ describe('H. 4xx pass-through', () => {
 describe('I. 5xx pass-through', () => {
   it('Go 500 on /pause → BFF 500 with envelope', async () => {
     queueGoJSON({ error: 'internal' }, { ok: false, status: 500 })
-    queueRows([{ id: 3, status: 'running' }]) // pre-SELECT; running passes pause precondition
     const res = await bffReq('POST', '/api/campaigns/3/pause')
     expect(res.status).toBe(500)
     const body = res.body as { error: string; http_status: number; response: unknown }
@@ -424,7 +413,6 @@ describe('J. Non-JSON Go body', () => {
   it('returns response.raw with truncated text when Go returns non-JSON HTML error page', async () => {
     const html = '<html><body><h1>500 Internal Server Error</h1>' + 'x'.repeat(800) + '</body></html>'
     queueGoRaw(html, { status: 500, contentType: 'text/html' })
-    queueRows([{ id: 5, status: 'draft' }]) // pre-SELECT existence row (campaigns.js:911)
     const res = await bffReq('POST', '/api/campaigns/5/run')
     expect(res.status).toBe(500)
     const body = res.body as { error: string; response: { raw: string } }
@@ -440,41 +428,37 @@ describe('J. Non-JSON Go body', () => {
 // ═══════════════════════════════════════════════════════════════════════════
 
 describe('K. Network error → fallback', () => {
-  it('Go ECONNREFUSED on POST /api/campaigns → BFF 503 (Sprint C1: no silent direct-DB fallback)', async () => {
-    // Behavior change (campaigns.js:258-272, Sprint C1 #1254): the old direct-DB
-    // INSERT fallback was REMOVED because it wrote zero-send draft campaigns the
-    // operator thought were live. Go is now the only source of truth → 503 on
-    // unreachable. No steps[] ⇒ template pre-check is skipped, so the Go fetch is
-    // the first thing that runs and throws.
+  it('Go ECONNREFUSED on POST /api/campaigns → BFF falls back to legacy direct-DB INSERT (200 + _warning)', async () => {
     queueGoNetworkError('ECONNREFUSED')
+    // Legacy fallback path issues 3 queries: INSERT campaigns, UPDATE sequence_config, SELECT full row.
+    queueRows([{ id: 100 }])
+    queueRows([])
+    queueRows([{ id: 100, name: 'Fallback', description: null, status: 'draft', category_paths: [], sequence_config: {}, category_match: 'prefix', created_at: '2026-04-30T00:00:00Z' }])
     const res = await bffReq('POST', '/api/campaigns', { name: 'Fallback' })
-    expect(res.status).toBe(503)
-    const body = res.body as { ok: boolean; error: string }
-    expect(body.ok).toBe(false)
-    expect(body.error).toMatch(/unreachable/)
+    expect(res.status).toBe(200)
+    const body = res.body as { id: number; _warning: string }
+    expect(body.id).toBe(100)
+    expect(body._warning).toMatch(/legacy direct-DB/)
   })
 
-  it('Go ECONNREFUSED on POST /:id/run → BFF 503 (Sprint C1: no silent DB fallback)', async () => {
-    // Behavior change (campaigns.js:951-968, Sprint C1 #1254): the bare status-flip
-    // fallback was removed — Go unreachable now returns 503 so the operator retries.
+  it('Go ECONNREFUSED on POST /:id/run → BFF falls back to status-flip + _warning', async () => {
     queueGoNetworkError('ECONNREFUSED')
-    queueRows([{ id: 1, status: 'draft' }]) // pre-SELECT existence row so we reach the Go fetch
+    queueRows([])
     const res = await bffReq('POST', '/api/campaigns/1/run')
-    expect(res.status).toBe(503)
-    const body = res.body as { ok: boolean; error: string }
-    expect(body.ok).toBe(false)
-    expect(body.error).toMatch(/unreachable/)
+    expect(res.status).toBe(200)
+    const body = res.body as { ok: boolean; _warning: string }
+    expect(body.ok).toBe(true)
+    expect(body._warning).toMatch(/fallback/)
   })
 
-  it('Go ECONNREFUSED on POST /:id/pause → BFF 503 (Sprint C1: no silent DB fallback)', async () => {
-    // Behavior change (campaigns.js:1047-1059, Sprint C1 #1254): same as /run.
+  it('Go ECONNREFUSED on POST /:id/pause → BFF falls back to status-flip + _warning', async () => {
     queueGoNetworkError('ECONNREFUSED')
-    queueRows([{ id: 1, status: 'running' }]) // pre-SELECT; running passes pause precondition
+    queueRows([])
     const res = await bffReq('POST', '/api/campaigns/1/pause')
-    expect(res.status).toBe(503)
-    const body = res.body as { ok: boolean; error: string }
-    expect(body.ok).toBe(false)
-    expect(body.error).toMatch(/unreachable/)
+    expect(res.status).toBe(200)
+    const body = res.body as { ok: boolean; _warning: string }
+    expect(body.ok).toBe(true)
+    expect(body._warning).toMatch(/fallback/)
   })
 })
 
@@ -512,7 +496,6 @@ describe('L. Round-trip — Go response shape into BFF response', () => {
 describe('M. /run happy path — no fallback warning', () => {
   it('Go {ok:true} round-trips into BFF {ok:true} with NO _warning marker', async () => {
     queueGoJSON({ ok: true })
-    queueRows([{ id: 5, status: 'draft' }]) // pre-SELECT existence row (campaigns.js:911)
     const res = await bffReq('POST', '/api/campaigns/5/run')
     expect(res.status).toBe(200)
     const body = res.body as Record<string, unknown>
@@ -527,7 +510,6 @@ describe('M. /run happy path — no fallback warning', () => {
 describe('N. /pause happy path — no fallback warning', () => {
   it('Go {ok:true} round-trips into BFF {ok:true} with NO _warning marker', async () => {
     queueGoJSON({ ok: true })
-    queueRows([{ id: 6, status: 'running' }]) // pre-SELECT; running passes pause precondition
     const res = await bffReq('POST', '/api/campaigns/6/pause')
     expect(res.status).toBe(200)
     const body = res.body as Record<string, unknown>

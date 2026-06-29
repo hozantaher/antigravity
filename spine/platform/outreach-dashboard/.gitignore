@@ -1,0 +1,58 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+!.env.lab.example
+
+
+# Build caches & test artifacts
+.vite/
+.stryker-tmp/
+reports/
+test-results/
+playwright-report/
+*.test
+# Re-include after *.test above: committed test env override (stubs, no secrets).
+# Forces tests off prod — see tests/setup/no-prod-egress.js.
+!.env.test
+
+# A1-A8 anti-hallucination tooling outputs (regenerable; baseline kept separately)
+.inverted-shadow/
+linkage-map.json
+linkage-orphans.md
+assertion-audit.json
+assertion-audit.md
+fixture-drift.json
+fixture-drift.md
+hallucination-score.json
+inverted-fault-report.json
+prod-snapshots/
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Production E2E + Playwright MCP artifacts (uncommitted)
+test-results-prod/
+playwright-report-prod/

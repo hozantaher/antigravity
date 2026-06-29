@@ -1,0 +1,697 @@
+title: My Auctions
+auction: Auctions
+hiw: How it works
+contact: Contact
+findVehicle: Find vehicle
+login: Login
+footerTerms: Terms
+minBid: Minimum Bid
+previewAuctionStarts: The auction starts in
+previewJoinAuction: Join Auction
+categories: Categories
+carCategory: Cars
+motoCategory: Motorbikes
+motorhomeCategory: Motorhomes
+vut75Category: Vans / Trucks up to 7.5T
+to75Category: Trucks over 7.5T
+avCategory: Agricultural Vehicles
+sttCategory: Semitrailer-Truck
+tCategory: Trailers
+stCategory: Semitrailers
+cmCategory: Construction machinery
+busCategory: Buses
+ftCategory: Forklifts
+othersCategory: Others
+formTitle: Do you want to sell
+formDescription: Are you interested in selling your car, truck, machine or other equipment through our auction? Leave us your contact details and a description of the item you are about to sell and we get back to you as soon as we can. We can inspect the item, give you a price estimate and prepare everything for sale. Your Auction24 Team
+formCallUs: Call us now
+formAgree: I agree with
+formTerms: Terms and Conditions
+formSubmit: Send us a message
+allAuctions: All Auctions
+addAuction: Add Auction
+auctionsCount.none: Auctions
+auctionsCount.singular: Auctions
+auctionsCount.plural: Auctions
+numberOfItems: Number of Items
+itemsCount.none: Items
+itemsCount.singular: Item
+itemsCount.plural: Items
+viewItems: View Items
+editAuction: Edit Auction
+noAuctionsYet: No auctions are taking place yet
+backToAuctions: Back to Auction Overview
+backToAuction: Back to Auction Overview
+addItem: Add Item
+listOfItems: List of Items
+prevItem: Previous Item
+nextItem: Next Item
+editItem: Edit Item
+bidContainerTitle: Current price
+yourBid: Your Offer
+placeBid: Place Bid
+createNewItem: Create New Item
+dialogCategory: Categories
+dialogTitle: Title
+dialogPrice: Price
+startingPrice: Starting Price
+taxIncluded: Tax Included
+withoutTax: without tax
+priceBuyNow: Price Buy Now
+dialogDescription: Description
+dialogDescriptionPlaceholder: Item Description ...
+dialogHighlights: Highlights
+highlightTitlePlaceholder: Title
+highlightValuePlaceholder: Value
+dialogVideo: Video
+dialogVideoPlaceholder: Fill in id only, not the whole url
+dialogPhotos: Photos
+dialogAuctionTitleAdd: Add Auction
+dialogAuctionTitleEdit: Edit Auction
+auctionTitle: Auction Title
+startOfAuction: Auction starts
+endOfAuction: End Auction
+deleteAuction: Delete Auction
+hiwTitle1: Registration
+hiwDesc1: Register and after filling out the registration form, you will receive a confirmation of registration by email. After logging in, you will have free access to all the items beeing offered in our auction.
+hiwTitle2: Auctioneer
+hiwDesc2: In order to be able to bid on selected items, it is necessary to pay a refundable deposit. Instructions can be found in your profile. The refundable deposit can be used to pay the purchase price of the auctioned item or returned to your account.
+hiwTitle3: Bidding and winning
+hiwDesc3: If the minimum price is reached and your bid is the highest, you become the winner of the auction and you will be sent an email with instructions for payment and collection of the auctioned item.
+copyright: All rights reserved
+ICO: CIN
+DIC: VAT ID
+contacts: Contacts
+phone: Phone
+mobile: Mobile
+address: Address
+accountTitle: My Account
+balance: My Balance
+amountPlaceholder: Amount to Add
+fundBalance: Finance your balance
+Invoices: invoices
+invoiceReqDate: Request Date
+invoiceAmount: Amount
+invoiceStatus: Status
+invoiceStatusUnpaid: Unpaid
+invoiceStatusPaid: Paid
+invoiceStatusCanceled: Canceled
+invoiceDueDate: Due Date
+invoice: Invoice
+invoiceCreatedDate: Created
+invoiceCreating: Creating a new invoice, it can take a while...
+myAuctions: My Auctions
+details: Account Details
+name: Name
+namePlaceholder: Your Name
+companyName: Company Name
+companyNamePlaceholder: Company Name
+bankAccount: Bank Account
+PSC: Zip code
+city: City
+country: Country
+saveDetails: Save Changes
+changePw: Change Password
+currentPw: Current Password
+password: Password
+pwAgain: Retype Password
+deleteAccount: Delete Account
+deleteAccountDesc: If you want to delete your account and leave no traces
+logout: Logout
+signUp: Sign Up
+invoicementCurrency: Invoice Currency
+loginWGoogle: Sign in with Google
+loginWFacebook: Login via Facebook
+dontHaveAccount: I don't have an account
+forgotPw: Forgot Password
+alreadyHaveAccount: You already have an account
+whatToSell: What do you want to sell?
+vehicleLocation: Vehicle Location
+emailPlaceholder: Your Email
+phonePlaceholder: Your Phone
+auctionNamePlaceholder: Auction Name
+searchResult: Search Result
+resetPassword: Reset Password
+newPw: New Password
+newPwAgain: New Password
+auctionTitlePlaceholder: Title
+deleteItem: Delete Item
+toastDetailsSaved: Details Saved
+toastInvoiceListed: Invoice specified
+toastWrongPass: Wrong password
+toastPassChanged: Password changed
+toastAuctionSaved: Auction Saved
+toastAuctionCreated: Auction Created
+toastAuctionDeleted: Auction Deleted
+toastLoggedIn: Logged In
+toastWrongCredentials: Wrong email or password
+toastRegistered: Registered
+toastEmailSent: Email Sent
+toastError: Something went wrong
+toastBidError: You must be logged in to bid
+toastBalanceError: You must pay your balance first
+toastMinBidError: Enter Minimum Bid
+toastBidSaved: Offer Saved
+toastNoPhotoError: Please upload at least one photo
+toastItemUpdated: Item Updated
+toastItemCreated: Item created
+formSentSuccessTitle: Sent successfully
+formSentSuccessMsg: Thank you for your interest in selling through the auction. Your offer has been sent and will be submitted for processing our staff, who will contact you shortly.
+close: Close
+cancel: Cancel
+save: Save
+searchPlace: Search for place...
+openMainMenu: Open main menu
+panorama: 360° panorama
+aboutTitle: About
+aboutText: Auction24.cz — vehicle auctions and classifieds.
+selectTab: Select a tab
+itemPreviewVideo: Item Preview Video
+cz: Czech
+en: English
+de: German
+fr: French
+pl: Polish
+nl: Dutch
+ru: Russian
+rs: Serbian
+hr: Croatian
+me: Montenegrin
+ua: Ukrainian
+ar: Arabic
+accountTax: Tax
+hidden: Hidden
+hiddenItems: Hidden Items
+bidsHistory: Bids History
+noBidsYet: Zero bids
+assignAuction: Assign to an auction
+chooseAuction: Choose an auction
+recentItems: Recent items
+auctionEndsIn: The auction ends in
+soldItems: Sold items
+soldLabel: Sold
+username: Username
+usernameHint: This username will be visible to others.
+itemDescription: Vehicle description
+itemHighlights: Technical data
+items: Items
+location: Location
+minimalPrice: Minimal Price
+bids: Bids
+auctionLive: Live
+auctionSoon: Soon
+auctionEnded: Ended
+infoEnded: Ended
+infoProcessing: Processing ..
+infoNoWinner: No Winner
+infoYouWon: You Won
+infoWon: Won
+cpBrand: Brand
+cpModel: Model
+cpYear: Year
+cpVolume: Volume
+cpPower: Power
+cpFuel: Fuel
+cpTransmission: Transmission
+cpMileage: Mileage
+cpColour: Color
+cpVIN: VIN
+cpEquip: Equipment/Features
+cpLocation: Location
+cpAxles: Axles
+cpState: State
+cpNetWeight: Net Weight
+cpSuspensions: Suspensions
+cpWorkingHours: Working Hours
+cpSeats: Seats
+cpForkliftAttach: Forklift attachments
+cpSleepPlaces: Number of Sleep places
+cpType: Type
+titleError: Title is empty
+visible: Visible
+visibility: Visibility
+errorHidden: Item you were looking for is no longer available
+notSoldLabel: Not Sold
+favorite: Favourites
+noFavorites: You have no favorite items
+contactEmail: Contact Email
+contactPhone: Contact Phone
+email: E-mail
+clipboardCopied: Copied to clipboard
+language: Language
+formNews: Send me newsletters
+accountDeleted: Account has been deleted
+errorTerms: Please agree with our terms and conditions
+errorPasswordLength: Password must be at least 6 charactes long
+errorPasswordMatch: Password doesn't match
+buyItem: Buy now
+type: Type
+typeAuction: Auction
+typeAd: Ad
+toastRequiredDate: Please fill dates
+firebase:
+  auth/invalid-credential: 'Wrong e-mail or password.'
+  auth/invalid-email: 'Wrong e-mail or password.'
+  auth/missing-password: 'Please enter your password.'
+  auth/weak-password: 'The password is too weak (use at least 6 characters).'
+  auth/network-request-failed: 'Network error. Check your connection and try again.'
+  auth/no-user: 'You need to be signed in.'
+  auth/not-configured: 'Sign-in is temporarily unavailable.'
+  auth/user-disabled: 'This account has been disabled.'
+  auth/expired-action-code: 'This link has expired.'
+  auth/invalid-action-code: 'This link is invalid or has already been used.'
+  auth/email-already-in-use: This email is already in use
+  auth/requires-recent-login: To update your email, please logout and login again
+  auth/wrong-password: Wrong password
+  auth/user-not-found: User not found
+  auth/too-many-requests: Too many request, please try it later
+  auth/error: Something went wrong
+noBidsYetDesc: There are no bids yet
+noContactInfo: No contact information
+minBidValidator: Minimal bid is {minBid}
+signInFirst: Please sign in first
+depositFirst: Please deposit first
+enterAmount: Enter amount (e.g. {amount})
+itemStatus:
+  buyNow: Buy now
+  auctionSoon: Soon
+  auctionLive: Live
+  auctionProcessing: Auction is processing, please wait..
+  auctionEnd: Winner is {name}
+  auctionEndNoWinner: Auction ended, minimum price not met
+  sold: This item is sold
+companyInfo: Company info
+confirm:
+  title: Are you sure?
+  desc: Do you want to continue?
+  cta: Confirm
+  cancel: Cancel
+accountDesc: The basic information about your account
+billingTitle: Billing information & invoices
+billingDesc: Your billing information and invoice history
+invoicesTitle: Invoices
+invoicesDesc: Complete invoice history
+sendMeLinkPassword: Send me email to change password
+sendMeVerificationLink: Send verification email
+update: Update
+emailSentTo: The email has been sent to {email}
+proceedPayment: Proceed payment
+showPDF: Show PDF
+createNewAccount: Create new account
+signIn: Sign in to your account
+noItems: No item found
+noItemsDesc: Sorry, we couldn’t find any item.
+cookies: We use cookies to improve your experience on our site and to show you relevant advertisting. To find out more, read our
+accept: Accept
+privacyPolicy: Privacy Policy
+registerAsCompany: Register as company
+notEligibleToBid: You are not eligible to bid, please contact support
+bidEmailAndPhone: Please verify your e-mail and fill your phone to be able to bid
+emailSent: The email has been sent to {email}
+emailUpdated: Email was successfully updated
+termsValidator: You have to agree with terms and conditions
+accountCreated: Account has been created
+requiredField: This field is required
+you: You
+form:
+  validator:
+    min: Minimal value is {min}
+    max: Maximal value is {max}
+    minlength: Minimal length is {min}
+    maxlength: Maximal length is {max}
+    email: Wrong e-mail format
+    phone: Wrong phone format
+    wrongMatch: Passwords must be equal
+minBidNotMet: Minimum bid not reached
+buyNow: Buy Now
+offerPrice: Offer price
+enterOffer: Enter amount
+sendOffer: Send offer
+onRequest: On request
+sold: Sold
+resetPasswordSent: The email has been sent to {email}
+yourBidIs: Your bid is
+confirmBid: Are you sure you want to bid this amount ?
+copyLink: Copy Link
+share: Share
+acountTax: Tax
+invoices: invoices
+not-found: Page not found
+galleryPrevious: Previous photo
+galleryNext: Next photo
+galleryZoomIn: Zoom in
+galleryZoomOut: Zoom out
+galleryViewAll: View all photos
+galleryPhotoOf: Photo {current} of {total}
+
+authFlow:
+  verifying: 'Verifying…'
+  verifiedTitle: 'E-mail verified'
+  verifiedBody: 'Your e-mail {email} has been verified.'
+  pendingTitle: 'E-mail verification'
+  invalidCode: 'This link is invalid or has expired.'
+  resend: 'Resend verification e-mail'
+  resending: 'Sending…'
+  resendSuccess: 'We''ve sent you a new verification e-mail.'
+  resendError: 'Failed to send the e-mail. Please try again.'
+  backToLogin: 'Back to sign in'
+  resetLead: 'Choose a new password for your account.'
+  newPassword: 'New password'
+  resetSubmit: 'Set new password'
+  resetSuccess: 'Your password has been changed. You can now sign in.'
+  resetFailed: 'Something went wrong. Please try again.'
+  getNewResetLink: 'Request a new link'
+  emailSentReset: 'We''ve sent a password-reset link to {email}.'
+
+pagination:
+  previous: Previous
+  next: Next
+  showing: "Showing {from}–{to} of {total}"
+  label: Pagination
+
+vehicle:
+  title: Vehicle parameters
+  brand: Brand
+  model: Model
+  year: Year
+  firstRegistration: First registration
+  fuelType: Fuel
+  transmission: Transmission
+  bodyType: Body type
+  driveType: Drivetrain
+  color: Color
+  power: Power
+  displacement: Engine displacement
+  gears: Gears
+  emission: Emission standard
+  co2: CO₂ emissions
+  doors: Doors
+  seats: Seats
+  axles: Axles
+  length: Length
+  width: Width
+  height: Height
+  wheelbase: Wheelbase
+  weight: Curb weight
+  maxSpeed: Top speed
+  vin: VIN
+  fuel:
+    petrol: Petrol
+    diesel: Diesel
+    electric: Electric
+    hybrid: Hybrid
+    phev: Plug-in hybrid
+    lpg: LPG
+    cng: CNG
+    hydrogen: Hydrogen
+    other: Other
+  trans:
+    manual: Manual
+    automatic: Automatic
+    semi_automatic: Semi-automatic
+    cvt: CVT
+    dct: Dual-clutch (DCT)
+  body:
+    sedan: Sedan
+    wagon: Estate
+    hatchback: Hatchback
+    suv: SUV
+    coupe: Coupé
+    convertible: Convertible
+    van: Van
+    pickup: Pickup
+    minibus: Minibus
+    other: Other
+  drive:
+    fwd: Front-wheel drive
+    rwd: Rear-wheel drive
+    awd: All-wheel drive
+    4x4: 4×4
+  colors:
+    white: White
+    black: Black
+    silver: Silver
+    grey: Grey
+    blue: Blue
+    red: Red
+    green: Green
+    brown: Brown
+    beige: Beige
+    yellow: Yellow
+    orange: Orange
+    gold: Gold
+    other: Other
+
+reco:
+  similarTitle: Similar listings
+  forYouTitle: Picked for you
+notifications:
+  title: Notifications
+  markAllRead: Mark all as read
+  loadMore: Load more
+  empty: You have no notifications yet
+  type:
+    win: You won the auction {title}
+    outbid: You were outbid on {title}
+    answer: Your question on {title} was answered
+continueWith: Continue with {provider}
+orSeparator: or
+savedSearch:
+  title: Saved searches
+  empty: You have no saved searches yet.
+  save: Save this search
+  nameLabel: Name this search
+  namePlaceholder: e.g. Diesel SUVs under 300k
+  create: Save search
+  delete: Delete
+  deleteConfirm: Delete this saved search?
+  alertOn: Email alerts on
+  alertOff: Email alerts off
+  alertHint: We'll email you when new or ending-soon items match.
+  filterSummary: "{count} filters"
+  created: Saved search created
+  removed: Saved search removed
+messaging:
+  title: Questions
+  ask: Ask a question
+  placeholder: Ask the seller a question…
+  submit: Send question
+  submitted: Your question was sent and is awaiting review.
+  signInFirst: Sign in to ask a question
+  empty: No questions yet
+  emptyDesc: Be the first to ask the seller a question.
+  answer: Seller's answer
+  asker: Buyer
+  pending: Awaiting review
+  you: You
+  error: Sending your question failed. Please try again.
+compare:
+  title: Compare vehicles
+  pageTitle: Vehicle comparison
+  hint: "Compare up to {max} vehicles side by side."
+  empty: No vehicles to compare
+  emptyHint: Add vehicles using the compare icon on any listing.
+  failedToLoad: "{count} vehicle(s) could not be loaded — they were probably deleted."
+  add: Add to comparison
+  remove: Remove from comparison
+  removeAria: "Remove {title} from comparison"
+  open: Open comparison
+  clear: Clear
+  count: "{count}/{max}"
+  addedToast: "Added to comparison ({count}/{max})"
+  removedToast: Removed from comparison
+  fullToast: "You can compare up to {max} vehicles."
+  price: Price
+
+settlement:
+  title: "Complete your purchase"
+  cardTitle: "You won — pay the final price"
+  finalPrice: "Final price"
+  depositCredit: "Deposit credit"
+  amountDue: "Amount due"
+  fullyCoveredByDeposit: "Fully covered by your deposit"
+  back: "Back"
+  continue: "Continue"
+  confirmFree: "Confirm purchase"
+  summaryHeading: "Purchase summary"
+  summaryIntro: "Pay the final price minus the deposit you already hold."
+  billingHeading: "Billing details"
+  billingIntro: "We use these details on the invoice."
+  billingName: "Name"
+  billingEmail: "E-mail"
+  billingStreet: "Street and number"
+  billingZip: "ZIP code"
+  billingCity: "City"
+  billingCountry: "Country"
+  billingError: "Saving the details failed. Please try again."
+  methodHeading: "Choose a payment method"
+  methodIntro: "Both methods complete your purchase automatically once the payment arrives."
+  methodCard: "Card"
+  methodCardHint: "Instant via Stripe"
+  methodTransfer: "Bank transfer"
+  methodTransferHint: "QR payment, usually within 1 business day"
+  payByCard: "Pay by card"
+  cardDesc: "We will redirect you to the secure Stripe payment page."
+  cardSecure: "The payment is processed by Stripe — your card details never reach us."
+  redirecting: "Redirecting…"
+  payByTransfer: "Pay by bank transfer"
+  transferIntro: "Send the exact amount with the variable symbol below so we can match your payment automatically."
+  recipient: "Recipient"
+  account: "Account number"
+  iban: "IBAN"
+  variableSymbol: "Variable symbol"
+  paymentMessage: "Payment reference"
+  scanToPay: "Scan to pay"
+  transferWaiting: "Waiting for your payment — this screen refreshes automatically."
+  viewInvoice: "View the invoice"
+  copy: "Copy details"
+  copied: "Payment details copied"
+  loadingPayment: "Preparing payment details…"
+  verifyingTitle: "Confirming your payment…"
+  verifyingSlow: "This is taking longer than usual — your payment is safe."
+  successTitle: "Purchase complete"
+  successBody: "Your invoice is on its way by e-mail. Thank you!"
+  successFeatures:
+    invoice: "Invoice by e-mail"
+    complete: "Purchase complete"
+  notWinner: "Only the auction winner can settle this sale."
+  alreadyPaid: "This sale is already paid."
+  toastError: "Could not start the payment. Please try again."
+  toastPaid: "Payment received — thank you!"
+  steps:
+    summary: "Purchase summary"
+    billing: "Billing details"
+    method: "Choose a payment method"
+    payment: "Pay by bank transfer"
+    success: "Purchase complete"
+  card:
+    paidTitle: "Purchase complete"
+    paidDesc: "Your invoice has been sent by e-mail."
+    pendingTitle: "Waiting for your payment"
+    pendingDesc: "Once your payment of {amount} arrives, the purchase completes automatically."
+    dueDesc: "You won — pay {amount} to complete the purchase."
+    showDetails: "Finish the payment"
+    cta: "Pay now"
+
+deposit:
+  title: Auction deposit
+  continue: Continue
+  back: Back
+  stepper:
+    currency: Currency
+    details: Details
+    payment: Payment
+    done: Done
+    method: Method
+  currency:
+    heading: Choose your deposit currency
+    intro: The deposit is a refundable guarantee that unlocks bidding in all auctions. Pay it with a simple bank transfer.
+    czkSub: pay in CZK from a Czech account
+    eurSub: pay in EUR (SEPA)
+  billing:
+    heading: Billing details
+    intro: We use these details on the deposit proforma invoice.
+    name: Name
+    email: E-mail
+    street: Street and number
+    city: City
+    zip: ZIP code
+    country: Country
+    error: Saving the details failed. Please try again.
+  payment:
+    heading: Pay by bank transfer
+    intro: Send the exact amount with the variable symbol below so we can match your payment automatically.
+    recipient: Recipient
+    account: Account number
+    iban: IBAN
+    amount: Amount
+    vs: Variable symbol
+    message: Payment reference
+    qrHint: Scan the QR code with your banking app
+    copy: Copy details
+    copied: Payment details copied
+    waiting: Waiting for your payment — this screen refreshes automatically.
+    invoice: View the proforma invoice
+    note: We match your payment by the variable symbol {vs}. Transfers usually arrive within minutes, up to 1 business day.
+    error: Could not load the payment details. Close the window and try again.
+    loading: Preparing payment details…
+  method:
+    heading: Choose a payment method
+    intro: Both methods activate the deposit automatically once the payment arrives.
+    card: Card payment
+    cardHint: Instant via Stripe
+    transfer: Bank transfer
+    transferHint: QR payment, usually arrives within 1 business day
+  cardPay:
+    heading: Card payment
+    desc: We will redirect you to the secure Stripe payment page.
+    secure: The payment is processed by Stripe — your card details never reach us.
+    pay: Pay by card
+    redirecting: Redirecting…
+    error: Could not start the card payment. Try again or choose a bank transfer.
+  verifying:
+    slowNote: This is taking longer than usual. We will finish the payment in the background — you can close this window, the deposit activates automatically.
+  return:
+    cancelled: The card payment was cancelled. You can try again or pay by bank transfer.
+  success:
+    processing: Verifying the payment…
+    title: Deposit paid!
+    note: A confirmation and the receipt were sent to your e-mail. Happy bidding!
+    features:
+      bidding: Bidding unlocked
+      refundable: Fully refundable
+      invoice: Receipt by e-mail
+      instant: Instant activation
+    back: Back to the auction
+    browse: Browse auctions
+    close: Close
+  card:
+    title: Auction deposit
+    desc: To bid in auctions, pay a refundable deposit of {czk} or {eur}.
+    cta: Pay the deposit
+    pendingTitle: Waiting for your deposit payment
+    pendingDesc: Once your payment of {amount} arrives, the deposit activates automatically.
+    showDetails: Finish the payment
+    invoice: Proforma invoice
+    paidTitle: Deposit paid
+    paidDesc: You can bid in all auctions.
+
+seo:
+  homeTitle: "Online auctions of vehicles and machinery"
+  homeDescription: "Auctions and direct sales of trucks, cars, machinery and equipment. Browse verified listings and bid online at Auction24.cz."
+  categoryDescription: "Current auctions and listings in the {category} category. Browse the offer and bid online at Auction24.cz."
+  auctionsDescription: "Live vehicle and machinery auctions — trucks, cars and equipment. Bid online and follow closing times at Auction24.cz."
+  buyNowDescription: "Vehicles and machinery available for immediate purchase at a fixed price. Browse buy-now listings at Auction24.cz."
+  soldDescription: "Recently sold vehicles and machinery — achieved prices and closed auctions at Auction24.cz."
+  aboutDescription: "About Auction24.cz — an online marketplace for auctions and direct sales of vehicles and machinery. Find out who we are and how the platform works."
+  contactDescription: "Contact Auction24.cz — address, phone and e-mail. Write to us with questions about auctions, listings or selling your vehicle."
+  categoriesDescription: "Browse all vehicle and machinery categories on Auction24.cz — trucks, cars, equipment and more. Find auctions and buy-now listings by category."
+  home: "Home"
+  breadcrumb: "Breadcrumb"
+search:
+  title: Search
+  placeholder: Search auctions…
+  resultsCount: "{count} results"
+  noResults: No matching listings
+  noResultsHint: Try removing a filter or broadening your search
+  filters: Filters
+  clearFilters: Clear all
+  facetType: Type
+  facetTypeAuction: Auction
+  facetTypeAd: Buy now
+  facetCategory: Category
+  facetPriceMin: Min price
+  facetPriceMax: Max price
+  facetFuel: Fuel
+  facetBody: Body type
+  facetTransmission: Transmission
+  facetDrive: Drivetrain
+  facetColor: Color
+  facetYearFrom: Year from
+  facetYearTo: Year to
+  sortLabel: Sort
+  sortRelevance: Relevance
+  sortNewest: Newest
+  sortPriceAsc: "Price: low to high"
+  sortPriceDesc: "Price: high to low"
+  activeFilter: "Filter: {label}"

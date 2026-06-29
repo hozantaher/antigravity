@@ -293,6 +293,7 @@ const EXPECTED_ROUTES: string[] = [
   'POST /api/campaigns/:id/expand-segments',
   'POST /api/campaigns/:id/filter-tier',
   'POST /api/campaigns/:id/pause',
+  'POST /api/campaigns/:id/rescore-priority',
   'POST /api/campaigns/:id/reset-next-send-at',
   'POST /api/campaigns/:id/run',
   'POST /api/campaigns/:id/segment/apply',
@@ -345,7 +346,6 @@ const EXPECTED_ROUTES: string[] = [
   'POST /api/protections/alerts/:id/ack',
   'POST /api/replies/:id/auto-classify',
   'POST /api/replies/:id/draft-reply',
-  'POST /api/replies/:id/forward',
   'POST /api/replies/:id/forward-to-crm',
   'POST /api/replies/:id/forward-to-garaaage',
   'POST /api/replies/:id/reply',
@@ -421,8 +421,7 @@ describe('BFF route inventory', () => {
     it('no route path contains a double slash', () => {
       for (const r of routes) expect(r.path.includes('//')).toBe(false)
     })
-    // QUARANTINED pending owner decision — see docs/handoff/ci-remediation-residual.md
-    it.skip('param names are lowercase with optional dashes', () => {
+    it('param names are lowercase with optional dashes', () => {
       for (const r of routes) {
         const params = r.path.match(/:[a-zA-Z0-9_]+/g) ?? []
         for (const p of params) expect(p).toMatch(/^:[a-z][a-zA-Z0-9]*$/)

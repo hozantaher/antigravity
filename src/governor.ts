@@ -33,7 +33,7 @@ export class CyberneticGovernor {
     const report: string[] = [];
     const jsonFiles = await glob('**/vektor.json', {
       cwd: this.rootDir,
-      ignore: 'node_modules/**',
+      ignore: '**/node_modules/**',
     });
     const validNodes = new Set<string>();
     const nodePaths = new Map<string, string>(); // path -> nodeId
@@ -97,7 +97,7 @@ export class CyberneticGovernor {
 
     const tsFiles = await glob('**/*.{ts,vue,js}', {
       cwd: this.rootDir,
-      ignore: 'node_modules/**',
+      ignore: '**/node_modules/**',
     });
     for (const file of tsFiles) {
       const fullPath = path.join(this.rootDir, file);
@@ -221,7 +221,7 @@ export class CyberneticGovernor {
 
     const spineFiles = await glob('spine/**/*.{ts,vue,js,mjs}', {
       cwd: this.rootDir,
-      ignore: 'node_modules/**',
+      ignore: '**/node_modules/**',
     });
 
     for (const file of spineFiles) {

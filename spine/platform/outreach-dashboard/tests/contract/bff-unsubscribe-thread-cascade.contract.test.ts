@@ -28,14 +28,6 @@ const calls: Array<{ sql: string; params?: unknown[] }> = []
 vi.mock('pg', () => {
   class Pool {
     async query(sql: string, params?: unknown[]) {
-      // The /unsubscribe handler issues a brand_label pre-SELECT against
-      // operator_settings before the contact lookup. Treat it as a no-op
-      // (no row → handler falls back to 'Garaaage') so it neither shifts the
-      // per-test queryQueue nor appears in `calls` — the queues below model
-      // only the business queries (contact lookup onward).
-      if (typeof sql === 'string' && /FROM\s+operator_settings\s+WHERE\s+key='brand_label'/i.test(sql)) {
-        return { rows: [], rowCount: 0 }
-      }
       calls.push({ sql, params })
       if (!queryQueue.length) return { rows: [], rowCount: 0 }
       const next = queryQueue.shift()!

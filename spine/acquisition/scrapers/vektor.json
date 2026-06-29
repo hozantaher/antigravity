@@ -1,0 +1,32 @@
+{
+  "identita": "Scrapery — 6 nezávislých sběračů z českých veřejných zdrojů.",
+  "smysl": "autoline, mascus-cz, mobile-de, judikaty, esbirka, firmy-cz harvestují kontakt + metadata pro MCP a enrichment.",
+  "smer": "Sitemap → detail fáze (Cheerio/Playwright) → dedup → zápis do PostgreSQL; běh zaznamenán do scrape_runs.",
+  "duvod": "Veřejné zdroje doplňují to, co registry nemají; bez nich je obrázek o firmě neúplný.",
+  "myslenka": "Sběr je férový jen s rate-limitem a deduplikací — jinak je to jen zátěž cizích serverů.",
+  "pillar": "data",
+  "role": "supporting",
+  "promise": "Veřejná data se sbírají řízeně, deduplikovaně a s respektem k rate-limitu.",
+  "loreLine": "Šest sběračů, jeden trychtýř — z veřejných zdrojů na strukturovaná data.",
+  "proofSignal": [
+    {
+      "nazev": "scrape_runs úspěšnost / rate-limit gaps",
+      "zdroj": "features/acquisition/scrapers",
+      "stav": "pending"
+    }
+  ],
+  "antiFeature": "BullMQ producer nezapojen (dormant) nebo in-process rate-limiter — dvě repliky najednou zaperou stejnou doménu.",
+  "hotovo": {
+    "kdyzPlati": [
+      {
+        "kriterium": "Scraper fáze (sitemap + detail), parsování polí a rate-limit gapy projdou TypeScript testy — sběr je deterministický.",
+        "check": "test:scrapers",
+        "stav": "pending",
+        "proof": {
+          "cmd": "cd features/acquisition/scrapers && pnpm test"
+        }
+      }
+    ],
+    "vektorGate": "all-met"
+  }
+}

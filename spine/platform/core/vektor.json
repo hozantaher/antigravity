@@ -1,0 +1,15 @@
+{
+  "identita": "Neviditelné jeviště — infra, SEO, consent, observabilita.",
+  "smysl": "Svět Auction24 je rychlý, dohledatelný a důvěryhodný — dva dílčí sliby pod jednou střechou.",
+  "smer": "Jeviště jako skupina: lcp (rychlý first paint) a sitemap (každý živý inzerát dohledatelný) — každý uzel se svým vlastním důkazem.",
+  "duvod": "Neviditelné jeviště není jeden test, ale dva oddělené sliby; rozdělené uzly je drží poctivě každý zvlášť.",
+  "myslenka": "Skupina nese svět jen tehdy, když platí oba její dílčí sliby.",
+  "pillar": "cross",
+  "role": "stage",
+  "promise": "Rychlost a nalezitelnost.",
+  "loreLine": "Neviditelné jeviště — infra, SEO a consent drží svět Auction24 rychlý, dohledatelný a důvěryhodný.",
+  "proofSignal": [
+    { "nazev": "neviditelné jeviště — všechny dílčí sliby live", "zdroj": "web-vitals", "stav": "pending" }
+  ],
+  "antiFeature": "Jeviště jako jeden neprůhledný blok — dílčí selhání (inzerát mimo sitemapu) se schová v zeleném celku."
+}

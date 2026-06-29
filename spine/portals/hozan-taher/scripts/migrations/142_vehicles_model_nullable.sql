@@ -1,0 +1,23 @@
+-- 142_vehicles_model_nullable.sql
+--
+-- 2026-05-30: Allow vehicles.model to be NULL.
+--
+-- Bug: runVehicleAutoCaptureCron silently dropped real vehicle offers. When a
+-- reply names a make but the regex extractor cannot isolate a clean model
+-- token (e.g. "Mercedes Vito", "Dacia Logan", "Mazda 6", "Jeep Cherokee" —
+-- cars the operator explicitly buys), captureVehiclesFromReply produced a
+-- make-only candidate with model=NULL. The INSERT then hit the NOT NULL
+-- constraint (SQLSTATE 23502) and the cron's per-reply catch swallowed it,
+-- so 8 genuine seller leads never reached the Vozidla inventory.
+--
+-- A vehicle's model is genuinely unknown at capture time when the seller only
+-- names the brand. NULL is the correct representation. The dashboard already
+-- renders a missing model gracefully (VehiclesTableRow → `${make} ${model}`
+-- .trim()), and the MANUAL capture form (VehicleCaptureModal / POST
+-- /api/vehicles) keeps model required — this only relaxes the column so the
+-- AUTOMATED path can persist make-only offers instead of losing them.
+--
+-- Reversible: re-adding NOT NULL would require backfilling a placeholder for
+-- any make-only rows first; not done here.
+
+ALTER TABLE vehicles ALTER COLUMN model DROP NOT NULL;

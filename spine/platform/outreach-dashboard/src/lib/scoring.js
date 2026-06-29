@@ -64,7 +64,7 @@ function clamp01(x) { return Math.max(0, Math.min(1, x)) }
 function clamp100(x) { return Math.max(0, Math.min(100, Math.round(x))) }
 
 function axisIcp(c)        { return ICP_TIER_VALUE[c.icp_tier] ?? 0.2 }
-function axisEmail(c)      { return Number.isFinite(c.email_confidence) ? clamp01(c.email_confidence / 100) : 0 }
+function axisEmail(c)      { return typeof c.email_confidence === 'number' ? clamp01(c.email_confidence / 100) : 0 }
 function axisSize(c)       { return SIZE_VALUE[String(c.velikost_firmy || '').toLowerCase()] ?? 0.3 }
 function axisSector(c)     { return clamp01(Number(c.sector_confidence) || 0) }
 
@@ -108,8 +108,7 @@ export function axisEngagement(c, priors = ENGAGEMENT_PRIORS) {
 export function axisRecency(c, halflifeDays = 30) {
   if (!c.last_contacted) return 0.5
   const days = (Date.now() - new Date(c.last_contacted).getTime()) / 86400000
-  if (!Number.isFinite(days)) return 0.5
-  if (days < 0) return 1 // future timestamp (clock skew / just-contacted) → max recency
+  if (!Number.isFinite(days) || days < 0) return 0.5
   return Math.pow(0.5, days / halflifeDays)
 }
 

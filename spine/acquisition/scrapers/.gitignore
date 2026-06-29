@@ -1,0 +1,14 @@
+node_modules/
+*.db
+*.db-shm
+*.db-wal
+.sitemap-cache/
+data/
+!data/.gitkeep
+/.idea/
+coverage/
+output/
+test-output/
+.env
+.sitemap-cache-makes/
+/test-pdfs/

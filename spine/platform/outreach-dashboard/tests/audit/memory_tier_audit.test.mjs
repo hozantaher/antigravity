@@ -97,8 +97,7 @@ beforeAll(() => {
 
 // --- tests ---
 
-// QUARANTINED: env-coupled (scans the dev machine's ~/.claude memory dir, absent on the CI runner) — see docs/handoff/ci-remediation-residual.md
-describe.skip('memory tier audit (CAD-A3, #562)', () => {
+describe('memory tier audit (CAD-A3, #562)', () => {
 
   // 1. All memory files have frontmatter
   it('all memory files have a frontmatter block (---)', () => {

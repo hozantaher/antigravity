@@ -612,12 +612,14 @@ describe('POST /api/templates — template_create audit (#845)', () => {
     expect(rollback).toBeDefined()
   })
 
-  it('{{unsubscribe_url}} tag rejected (compliance gate inverted — HARD RULE feedback_no_unsub_url_in_body)', async () => {
-    // 2026-05-07 inversion (templates.js:118,155): an unsub link in the body is
-    // now FORBIDDEN. Rejected with 400 before any DB write — no queue rows fire.
+  it('{{unsubscribe_url}} tag accepted as unsub link', async () => {
+    queueResult([]) // BEGIN
+    queueResult([{ id: 13, name: 'T', subject: '', body: '{{unsubscribe_url}}', created_at: new Date().toISOString() }])
+    queueResult([]) // audit
+    queueResult([]) // COMMIT
+
     const res = await req('POST', '/api/templates', { name: 'T', body: '{{unsubscribe_url}}' })
-    expect(res.status).toBe(400)
-    expect((res.body as { error: string }).error).toBe('compliance_unsub_link_forbidden')
+    expect(res.status).toBe(200)
   })
 
   it('entity_type=template in audit SQL', async () => {
@@ -729,12 +731,14 @@ describe('PUT /api/templates/:id — template_update audit (#845)', () => {
     expect(rollback).toBeDefined()
   })
 
-  it('{{.UnsubURL}} Go-flavoured tag rejected (compliance gate inverted — HARD RULE)', async () => {
-    // 2026-05-07 inversion (templates.js:119,201-207): {{.UnsubURL}} in the body
-    // is now FORBIDDEN. Rejected with 400 before any DB write — no queue rows fire.
+  it('{{.UnsubURL}} Go-flavoured tag accepted', async () => {
+    queueResult([]) // BEGIN
+    queueResult([{ id: 23, name: 'T', subject: '', body: '{{.UnsubURL}}', created_at: new Date().toISOString() }])
+    queueResult([]) // audit
+    queueResult([]) // COMMIT
+
     const res = await req('PUT', '/api/templates/23', { name: 'T', body: '{{.UnsubURL}}' })
-    expect(res.status).toBe(400)
-    expect((res.body as { error: string }).error).toBe('compliance_unsub_link_forbidden')
+    expect(res.status).toBe(200)
   })
 
   it('entity_type=template in audit SQL', async () => {

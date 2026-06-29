@@ -1,0 +1,32 @@
+{
+  "identita": "Pokrytí kategorií — každý stroj má kam patřit.",
+  "smysl": "Žádný typ techniky nezůstane bez kategorie, do které se zařadí.",
+  "smer": "Category coverage úplná napříč celou nabídkou; žádný nezařaditelný stroj.",
+  "duvod": "Chybějící kategorie udělá z části inventáře neviditelný šum → katalog přestane být jeden.",
+  "myslenka": "Úplný číselník kategorií je čitelný katalog, ne nuda.",
+  "pillar": "borderless",
+  "role": "supporting",
+  "promise": "Každý stroj má svou kategorii.",
+  "loreLine": "Úplné kategorie — od bagru po tahač má každý typ své místo v katalogu.",
+  "proofSignal": [
+    {
+      "nazev": "category coverage",
+      "zdroj": "test/categoryCoverage",
+      "stav": "pending"
+    }
+  ],
+  "antiFeature": "Mezera v kategoriích — část inventáře se nikam nezařadí a zmizí.",
+  "hotovo": {
+    "kdyzPlati": [
+      {
+        "kriterium": "Category coverage úplná napříč nabídkou",
+        "check": "test:categoryCoverage",
+        "stav": "met",
+        "proof": {
+          "cmd": "pnpm exec vitest run --project nuxt tests/nuxt/refData.test.ts"
+        }
+      }
+    ],
+    "vektorGate": "all-met"
+  }
+}

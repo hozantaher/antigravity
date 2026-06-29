@@ -1,0 +1,285 @@
+@import 'tailwindcss';
+
+/* Safelist runtime-built classes the scanner can't see (BaseModal width = md:w-<ModalSize>). */
+@source inline("md:w-[400px] md:w-[520px] md:w-[720px] md:w-[920px] md:w-[1020px]");
+
+/* ============================================================
+   Theme tokens — stargate-inspired redesign: slate neutrals +
+   auction24 brand red as the primary chrome (also auction/bid +
+   destructive). Single light mode (no dark). main.css is exempt
+   from stylelint, so raw hex + arbitrary @apply values are
+   allowed here only — components reference tokens, never hex.
+   ============================================================ */
+@theme {
+  /* Neutral ramp re-mapped gray → slate (cool neutrals). Re-tints every existing
+     *-gray-* utility app-wide to slate without touching components — the single
+     highest-leverage move of the redesign. */
+  --color-gray-50: #f8fafc;
+  --color-gray-100: #f1f5f9;
+  --color-gray-200: #e2e8f0;
+  --color-gray-300: #cbd5e1;
+  --color-gray-400: #94a3b8;
+  --color-gray-500: #64748b;
+  --color-gray-600: #475569;
+  --color-gray-700: #334155;
+  --color-gray-800: #1e293b;
+  --color-gray-900: #0f172a;
+  --color-gray-950: #020617;
+
+  /* Semantic surface/text tokens — the system components should reference. */
+  --color-app-bg: #f8fafc; /* page background (slate-50) */
+  --color-app-surface: #ffffff; /* cards, panels, header */
+  --color-app-surface-muted: #f1f5f9; /* thead, inset boxes, hover fill (slate-100) */
+  --color-app-border: #e2e8f0; /* hairline borders, dividers (slate-200) */
+  --color-app-border-strong: #cbd5e1; /* stronger outline (slate-300) */
+  --color-app-text: #334155; /* body text (slate-700) */
+  --color-app-text-muted: #64748b; /* labels, secondary (slate-500) */
+  --color-app-text-strong: #0f172a; /* headings, values (slate-900) */
+
+  /* Primary chrome = auction24 brand red (same value as app-red). */
+  --color-app-primary: #db302f;
+  --color-app-primary-hover: #c0211f;
+
+  /* Auction/bid + destructive accent = the brand red. */
+  --color-app-red: #db302f;
+  --color-app-red-hover: #c0211f;
+
+  /* Buy-now / success / winning = green. Pending / "soon" = amber. */
+  --color-app-green: #16a34a;
+  --color-app-amber: #f59e0b;
+
+  /* Generic black/white (app-black powers the ItemCard compare-overlay scrim). */
+  --color-app-white: #ffffff;
+  --color-app-black: #000000;
+
+  /* Fonts — Lato (body) + Fira Code (mono), loaded via @nuxt/fonts */
+  --font-sans: 'Lato', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: 'Fira Code', 'Fira Mono', ui-monospace, monospace;
+
+  /* Type scale — the ONLY sanctioned font sizes (6 steps): 12 (text-xs), 14, 16, 18, 24, 32.
+     Each size carries a paired line-height so line-heights stay on the 6-value scale
+     16/20/24/28/32/36/40 instead of inheriting an ancestor ratio. */
+  --text-14: 0.875rem;
+  --text-14--line-height: 1.25rem; /* 20px */
+  --text-16: 1rem;
+  --text-16--line-height: 1.5rem; /* 24px */
+  --text-18: 1.125rem;
+  --text-18--line-height: 1.75rem; /* 28px */
+  --text-24: 1.5rem;
+  --text-24--line-height: 2rem; /* 32px */
+  --text-32: 2rem;
+  --text-32--line-height: 2.5rem; /* 40px */
+}
+
+/* ============================================================
+   App utility shortcuts — flat, border-first; blue chrome,
+   red for auction/destructive. (Arbitrary px values allowed here.)
+   ============================================================ */
+@utility app-btn {
+  @apply flex w-full cursor-pointer justify-center rounded-lg border border-transparent px-4 py-2 text-sm font-medium text-white;
+  @apply bg-app-primary hover:bg-app-primary-hover;
+  @apply focus:ring-2 focus:ring-app-primary/40 focus:ring-offset-2 focus:outline-none;
+  @apply disabled:cursor-not-allowed disabled:opacity-30;
+}
+
+@utility app-btn-alt {
+  @apply flex w-full cursor-pointer justify-center rounded-lg border border-app-border-strong bg-app-surface px-4 py-2 text-sm font-medium text-app-text;
+  @apply hover:bg-app-surface-muted;
+  @apply focus:ring-2 focus:ring-app-primary/40 focus:ring-offset-2 focus:outline-none;
+  @apply disabled:cursor-not-allowed disabled:opacity-30;
+}
+
+@utility app-btn-danger {
+  @apply flex w-full cursor-pointer justify-center rounded-lg border border-transparent px-4 py-2 text-sm font-medium text-white;
+  @apply bg-app-red/90 hover:bg-app-red;
+  @apply focus:ring-2 focus:ring-app-red/50 focus:ring-offset-2 focus:outline-none;
+  @apply disabled:cursor-not-allowed disabled:opacity-30;
+}
+
+@utility app-btn-auction {
+  @apply flex w-full cursor-pointer justify-center rounded-lg border border-transparent px-4 py-2 text-sm font-medium text-white;
+  @apply bg-app-red hover:bg-app-red-hover;
+  @apply focus:ring-2 focus:ring-app-red/40 focus:ring-offset-2 focus:outline-none;
+  @apply disabled:cursor-not-allowed disabled:opacity-30;
+}
+
+@utility app-btn-admin {
+  @apply flex w-full cursor-pointer justify-center rounded-lg border border-transparent px-4 py-2 text-sm font-medium text-white;
+  @apply bg-app-primary hover:bg-app-primary-hover;
+  @apply focus:ring-2 focus:ring-app-primary/40 focus:ring-offset-2 focus:outline-none;
+  @apply disabled:cursor-not-allowed disabled:opacity-30;
+}
+
+@utility app-icon-btn {
+  @apply flex cursor-pointer items-center rounded-full text-app-text-muted;
+  @apply focus:ring-2 focus:ring-app-primary/40 focus:ring-offset-2 focus:outline-none;
+}
+
+@utility app-text-btn {
+  @apply text-14 text-app-primary;
+}
+
+@utility app-text-btn-admin {
+  @apply text-14 text-app-primary;
+}
+
+@utility app-link {
+  @apply text-app-primary hover:underline;
+}
+
+@utility app-pane {
+  @apply h-full overflow-auto;
+}
+
+@utility app-hover-green {
+  @apply bg-app-red/80 hover:bg-app-red;
+}
+
+@utility app-base-menu-items {
+  @apply absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-lg border border-app-border bg-app-surface shadow-lg focus:outline-none;
+}
+
+@utility app-container-center {
+  @apply container mx-auto px-[12px] md:px-[24px] lg:px-[56px];
+}
+
+@utility app-container {
+  @apply mx-auto max-w-[1800px] px-[12px] md:px-[24px] lg:px-[56px];
+}
+
+@utility app-h1 {
+  @apply text-2xl leading-tight font-bold text-app-text-strong md:text-32;
+}
+
+@utility app-section {
+  @apply py-[32px] md:pb-[64px];
+}
+
+@utility app-panel {
+  @apply rounded-lg border border-app-border bg-app-surface px-[16px];
+}
+
+@utility app-panel-heading {
+  @apply border-b border-app-border py-[12px] text-base leading-6 font-medium text-app-text-strong sm:py-[16px] md:text-lg;
+}
+
+@utility app-panel-body {
+  @apply py-[8px] text-sm sm:py-[16px] md:text-base;
+}
+
+/* Off-scale one-offs that don't map to a preset utility. Defined here (stylelint
+   exempts main.css) so component <style> blocks can @apply them without arbitrary values. */
+@utility aspect-4-3 {
+  aspect-ratio: 4 / 3;
+}
+
+@utility aspect-2-1 {
+  aspect-ratio: 2 / 1;
+}
+
+@utility z-1 {
+  z-index: 1;
+}
+
+@utility w-90 {
+  @apply w-[90%];
+}
+
+@utility max-w-90vw {
+  @apply max-w-[90vw];
+}
+
+@utility max-h-90vh {
+  @apply max-h-[90vh];
+}
+
+@utility backdrop-dim {
+  @apply backdrop-brightness-[0.35];
+}
+
+/* ============================================================
+   Global base styles
+   ============================================================ */
+html,
+body,
+#__nuxt {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  @apply bg-app-bg;
+}
+
+body {
+  @apply font-sans text-app-text;
+}
+
+/* iOS Safari rasterizes text lighter/thinner than desktop browsers (grayscale
+   antialiasing, no subpixel rendering), washing out inherited slate. Darkening
+   the inherited colour is the reliable lever; tune the shade on a real device. */
+@supports (-webkit-touch-callout: none) {
+  body {
+    @apply text-app-text-strong;
+  }
+
+  ::placeholder {
+    @apply text-app-text-muted opacity-100;
+  }
+}
+
+.main-content {
+  min-height: calc(100vh - 250px);
+}
+
+/* NProgress bar — kept auction red as a brand moment. */
+#nprogress {
+  pointer-events: none;
+}
+
+#nprogress .bar {
+  @apply bg-app-red;
+
+  position: fixed;
+  z-index: 1031;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+}
+
+/* ============================================================
+   Global custom scrollbar — slim, rounded slate thumb on a
+   transparent track; darkens on hover. The 2px transparent
+   border + padding-box clip insets the thumb into a pill.
+   (Raw values + theme var() on purpose — main.css is stylelint-exempt.)
+   ============================================================ */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-app-border-strong) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 2px solid transparent;
+  border-radius: 9999px;
+  background-color: var(--color-app-border-strong);
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-app-text-muted);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}

@@ -1,0 +1,26 @@
+{
+  "name": "hozan-taher",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.9.0",
+  "scripts": {
+    "rebuild-claude-knowledge": "node scripts/rebuild-claude-knowledge.mjs",
+    "rebuild-claude-knowledge:dry": "node scripts/rebuild-claude-knowledge.mjs --dry-run",
+    "cad:self-validate": "node scripts/codebase-awareness/self-validate.mjs",
+    "cad:self-validate:quiz": "node scripts/codebase-awareness/self-validate.mjs --quiz-only",
+    "verify:launch": "node scripts/verify-launch.mjs",
+    "crm:import": "node scripts/audits/crm-import.mjs",
+    "crm:import:dry": "node scripts/audits/crm-import.mjs --dry-run",
+    "crm:suppress-backfill": "psql \"$(grep -E '^(DATABASE_URL|OUTREACH_DATABASE_URL)=' apps/outreach-dashboard/.env | head -n1 | cut -d= -f2- | tr -d '\\\"')\" -f scripts/audits/crm-suppress-backfill.sql",
+    "dedup:replay": "node scripts/audits/dedup-replay-validation.mjs",
+    "dedup:replay:json": "node scripts/audits/dedup-replay-validation.mjs --json",
+    "crm:coverage": "node scripts/audits/crm-coverage-report.mjs",
+    "crm:coverage:json": "node scripts/audits/crm-coverage-report.mjs --json"
+  },
+  "devDependencies": {
+    "pg": "^8.13.0"
+  },
+  "dependencies": {
+    "exceljs": "^4.4.0"
+  }
+}

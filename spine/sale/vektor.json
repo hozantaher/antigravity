@@ -1,12 +1,19 @@
 {
-  "id": "sale",
-  "story_axis": "sale",
-  "state": "pending",
-  "facets": {
-    "ui": [
-      "./sale.vue"
-    ],
-    "legacy_unmapped": []
-  },
-  "edges": []
+  "identita": "Prodej — osa páteře: konverze hodnoty na peníze.",
+  "smysl": "Sdružuje domény, které inkasují — depozit, vyrovnání prodeje, provize.",
+  "smer": "Dovést transakci k zaplacení — charge-once, amount-due přesně.",
+  "duvod": "Tady se dělají peníze; bez prodeje firma nevydělá.",
+  "myslenka": "Prodej je osa, ne náhoda.",
+  "pillar": "cross",
+  "role": "stage",
+  "promise": "Co se vydraží, to se i zaplatí.",
+  "loreLine": "Osa prodeje — depozit, settlement a provize; gate se rolluje z dětí.",
+  "proofSignal": [
+    {
+      "nazev": "sale-axis-rollup",
+      "zdroj": "vektor-tree",
+      "stav": "pending"
+    }
+  ],
+  "antiFeature": "Osa, která sdružuje domény bez společného prodejního smyslu."
 }

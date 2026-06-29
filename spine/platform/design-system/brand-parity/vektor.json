@@ -1,0 +1,32 @@
+{
+  "identita": "Token parita — žádná komponenta nevypadá off-brand.",
+  "smysl": "Každé Base* primitivum drží značkové tokeny a škály, ne svévolnou hodnotu.",
+  "smer": "0 off-brand komponent; token a scale parity napříč celou knihovnou.",
+  "duvod": "Off-brand komponenta prozradí default Tailwind/shadcn → profesionální sebevědomí značky se rozpadne.",
+  "myslenka": "Konzistence tokenů je charakter, ne omezení.",
+  "pillar": "cross",
+  "role": "supporting",
+  "promise": "Žádná komponenta nevypadá off-brand.",
+  "loreLine": "Token parita — každý dotyk mluví hlasem Auction24, ne korporátní šedí.",
+  "proofSignal": [
+    {
+      "nazev": "token/scale parity",
+      "zdroj": "brand:check",
+      "stav": "live"
+    }
+  ],
+  "antiFeature": "Komponenta mimo tokeny — svévolná hodnota prozradí default šablonu.",
+  "hotovo": {
+    "kdyzPlati": [
+      {
+        "kriterium": "0 off-brand komponent (token/scale parity)",
+        "check": "brand:check",
+        "stav": "met",
+        "proof": {
+          "cmd": "pnpm -s lint:css"
+        }
+      }
+    ],
+    "vektorGate": "all-met"
+  }
+}

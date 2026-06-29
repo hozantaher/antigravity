@@ -1,0 +1,19 @@
+# Default owner — all unmatched files
+* @messingtomas
+
+# Go services
+/features/inbound/orchestrator/    @messingtomas
+/features/outreach/campaigns/       @messingtomas
+/features/acquisition/contacts/        @messingtomas
+/features/platform/common/          @messingtomas
+/features/outreach/relay/           @messingtomas
+/features/compliance/privacy-gateway/ @messingtomas
+
+# Dashboard
+/features/platform/outreach-dashboard/  @messingtomas
+
+# CI/CD — always requires careful review
+/.github/                  @messingtomas
+
+# Docs
+/docs/                     @messingtomas

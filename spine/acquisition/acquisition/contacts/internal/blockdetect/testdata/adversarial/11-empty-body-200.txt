@@ -1,0 +1,5 @@
+STATUS: 200
+HEADER: Content-Length: 0
+EXPECT: none
+NOTE: Edge: empty body, 200. Detector must not crash and must NOT classify as block (false negative preferred per design doc). Consumed-empty path stays in KT-A7 health metric counters.
+---

@@ -1,0 +1,9 @@
+From: alice@example.cz
+To: bob@example.cz
+Subject: =?utf-8?B?TmVtw6FtZSB6w6FqZW0=?= =?iso-8859-2?Q?_pokra=E8ovat?=
+Date: Wed, 29 Apr 2026 12:00:00 +0200
+Message-ID: <rfc2047-1@example.cz>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 7bit
+
+Nemáme zájem pokračovat.

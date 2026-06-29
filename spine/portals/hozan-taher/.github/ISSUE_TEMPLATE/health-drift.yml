@@ -1,0 +1,44 @@
+name: Test health drift (auto)
+description: Auto-vytvořeno z scripts/test-health.mjs (weekly cron).
+title: "[health] "
+labels: ["kind/infra", "from/health-check", "area/test-infra"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Týdenní health check detekoval drift v test infra (stub skripty, missing dep, dead-code reference).
+  - type: dropdown
+    id: drift_type
+    attributes:
+      label: Drift type
+      options:
+        - "0s pass anomaly (suspected stub)"
+        - "Missing dependency"
+        - "Dead-code reference (smoke script)"
+        - "No expect() in test file"
+        - "Coverage tool broken"
+        - "Version mismatch"
+    validations:
+      required: true
+  - type: textarea
+    id: detected
+    attributes:
+      label: What changed since baseline
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: baseline_diff
+    attributes:
+      label: Baseline diff
+      description: Output ze srovnání reports/test-health.json vs baseline.
+      render: diff
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance
+      value: |
+        - [ ] Drift opraven nebo dokumentován jako intent
+        - [ ] Baseline aktualizován (`reports/test-health.baseline.json`)
+    validations:
+      required: true

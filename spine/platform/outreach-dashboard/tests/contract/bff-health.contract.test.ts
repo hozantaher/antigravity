@@ -94,7 +94,6 @@ async function get(path: string) {
 describe('GET /api/health/watchdog', () => {
   it('200 with healthy=true when recent events present', async () => {
     const recent = new Date(Date.now() - 60_000).toISOString() // 1min ago
-    queueRows([]) // #867 access-log INSERT into operator_audit_log (health.js:188, best-effort)
     queueRows([{ created_at: recent }])
     queueRows([{ event_type: 'auto_pause', n: 2 }])
     const res = await get('/api/health/watchdog')
@@ -128,25 +127,16 @@ describe('GET /api/health/watchdog', () => {
   })
 
   it('500 on generic pg error', async () => {
-    // The #867 access-log INSERT (health.js:188) is best-effort and SWALLOWS
-    // non-missing-table errors (health.js:196-200), so feed it a success first;
-    // the generic error must land on the main watchdog_events SELECT to reach
-    // the outer catch → capture500 (health.js:222-226).
-    queueRows([]) // access-log INSERT succeeds
-    queueError('connection refused') // main SELECT → generic pg error → 500
+    queueError('connection refused')
     const res = await get('/api/health/watchdog')
     expect(res.status).toBe(500)
   })
 
   it('counts_24h window uses interval 24h', async () => {
-    queueRows([]) // #867 access-log INSERT (calls[0])
-    queueRows([]) // last-event SELECT
-    queueRows([]) // counts_24h SELECT
+    queueRows([])
+    queueRows([])
     await get('/api/health/watchdog')
-    // The audit INSERT is now calls[0], so the counts query is no longer a fixed
-    // index — locate it by its GROUP BY and assert its 24h window.
-    const countsCall = calls.find(c => /GROUP BY event_type/i.test(c.sql))
-    expect(countsCall?.sql).toMatch(/24 hours/i)
+    expect(calls[1].sql).toMatch(/24 hours/i)
   })
 })
 

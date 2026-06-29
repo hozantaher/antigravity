@@ -1,17 +1,19 @@
 {
-  "id": "supply",
-  "story_axis": "supply",
-  "state": "active",
-  "facets": {
-    "ui": [
-      "./supply.vue"
-    ],
-    "logic": [
-      "./logic.ts"
-    ],
-    "tests": [
-      "./logic.test.ts"
-    ]
-  },
-  "edges": []
+  "identita": "Nabídka — osa páteře: hodnota, kterou produkt dává.",
+  "smysl": "Sdružuje domény, které vytvářejí a obsluhují férový aukční ring a data o vozech.",
+  "smer": "Dát kupci důvod přihodit — férový ring, úplná data.",
+  "duvod": "Bez kvalitní nabídky není co prodávat.",
+  "myslenka": "Nabídka je osa, ne sklad.",
+  "pillar": "cross",
+  "role": "stage",
+  "promise": "Co prodáváme, stojí za přihození.",
+  "loreLine": "Osa nabídky — aukční ring, inzeráty, VIN data a média; gate se rolluje z dětí.",
+  "proofSignal": [
+    {
+      "nazev": "supply-axis-rollup",
+      "zdroj": "vektor-tree",
+      "stav": "pending"
+    }
+  ],
+  "antiFeature": "Osa, která sdružuje domény bez společného nabídkového smyslu."
 }

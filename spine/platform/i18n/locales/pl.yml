@@ -1,0 +1,697 @@
+title: Moje aukcje
+auction: Aukcja
+hiw: Jak to działa
+contact: Kontakt
+findVehicle: Znajdź Pojazd
+login: Zaloguj się
+footerTerms: Warunki
+minBid: Minimalna oferta
+previewAuctionStarts: Aukcja zaczyna się za
+previewJoinAuction: Dołącz do aukcji
+categories: kategorie
+carCategory: Samochódy
+motoCategory: Motocykle
+motorhomeCategory: Samochody kempingowe
+vut75Category: Samochody dostawcze / ciężarówki do 7,5T
+to75Category: Ciężarówki powyżej 7,5T
+avCategory: Pojazdy rolnicze
+sttCategory: Ciągniki siodłowe
+tCategory: Przyczepy
+stCategory: Naczepy
+cmCategory: Maszyny budowlane
+busCategory: Autobusy
+ftCategory: Wózki widłowe
+othersCategory: Inni
+formTitle: Czy chcesz sprzedać
+formDescription: Jeśli masz na sprzedaż pojazd, maszynę lub inny przedmiot, zostaw nam wiadomość z opisem i danymi kontaktowymi, abyśmy mogli się z Tobą skontaktować. Zorganizujemy oględziny, wycenę i wszystkie dokumenty administracyjne do sprzedaży na aukcji. Dziękujemy za skorzystanie z Auction24. Twój zespół Auction24.
+formCallUs: Zadzwoń do nas teraz
+formAgree: Zgadzam z
+formTerms: warunkami umownymi
+formSubmit: Wyślij nam wiadomość
+allAuctions: Wszystkie aukcje
+addAuction: Dodaj aukcję
+auctionsCount.none: Aukcje
+auctionsCount.singular: Aukcje
+auctionsCount.plural: Aukcje
+numberOfItems: Liczba pozycji
+itemsCount.none: Przedmioty
+itemsCount.singular: Przedmiot
+itemsCount.plural: Przedmioty
+viewItems: Wyświetl przedmioty
+editAuction: Edytuj aukcję
+noAuctionsYet: Nie odbywają się jeszcze aukcje
+backToAuctions: Powrót do przeglądu aukcji
+backToAuction: Powrót do przeglądu aukcji
+addItem: Dodaj element
+listOfItems: Lista pozycji
+prevItem: Poprzedni element
+nextItem: Następny element
+editItem: Edytuj element
+bidContainerTitle: Bieżący
+yourBid: Twoja oferta
+placeBid: Umieść ofertę
+createNewItem: Utwórz nowy przedmiot
+dialogCategory: Kategorie
+dialogTitle: Tytuł
+dialogPrice: Cena
+startingPrice: Cena wywoławcza
+taxIncluded: Podatek wliczony
+withoutTax: Bez podatku
+priceBuyNow: Cena Kup Teraz
+dialogDescription: Opis
+dialogDescriptionPlaceholder: Opis Pozycji ...
+dialogHighlights: Highlights
+highlightTitlePlaceholder: Tytuł
+highlightValuePlaceholder: Wartość
+dialogVideo: Wideo
+dialogVideoPlaceholder: Wypełnij tylko identyfikator, a nie cały adres URL
+dialogPhotos: Zdjęcia
+dialogAuctionTitleAdd: Dodaj aukcję
+dialogAuctionTitleEdit: Edytuj aukcję
+auctionTitle: Tytuł aukcji
+startOfAuction: Rozpoczyna się aukcja
+endOfAuction: Zakończ aukcję
+deleteAuction: Usuń aukcję
+hiwTitle1: Rejestracja
+hiwDesc1: Zarejestruj się, a po wypełnieniu formularza rejestracyjnego otrzymasz e-mailem potwierdzenie rejestracji. Po zalogowaniu będziesz miał bezpłatny dostęp do oferty pojazdów i maszyn znajdujących się na naszej aukcji.
+hiwTitle2: Licytator
+hiwDesc2: Za aktywny udział w aukcji i możliwość licytowania wybranych pozycji wymagana jest kaucja zwrotna. Instrukcje znajdziesz w swoim profilu. Kaucja podlega zwrotowi i może zostać wykorzystana na zapłacenie ceny zakupu wylicytowanego przedmiotu lub zwrócona na Twoje konto.
+hiwTitle3: Licytowanie i wygrywanie
+hiwDesc3: Jeśli cena minimalna zostanie osiągnięta, a Twoja oferta jest najwyższa, zostajesz zwycięzcą aukcji i otrzymasz wiadomość e-mail z instrukcjami dotyczącymi płatności i odbioru wylicytowanego przedmiotu.
+copyright: Wszelkie prawa zastrzeżone
+ICO: REGON
+DIC: NIP
+contacts: Kontakty
+phone: Telefon
+mobile: Komórkowy
+address: Adres
+accountTitle: Moje konto
+balance: Moje saldo
+amountPlaceholder: Kwota do dodania
+fundBalance: Sfinansuj swoje saldo
+invoices: Faktury
+invoiceReqDate: Data wniosku
+invoiceAmount: Kwota
+invoiceStatus: Status
+invoiceStatusUnpaid: Niezapłacone
+invoiceStatusPaid: Zapłacone
+invoiceStatusCanceled: Anulowane
+invoiceDueDate: Data płatności
+invoice: Faktura
+invoiceCreatedDate: stworz Date
+invoiceCreating: Tworzenie nowej faktury, może to chwilę potrwać...
+myAuctions: Moje aukcje
+details: Szczegóły Konta
+name: Nazwa
+namePlaceholder: Twoje imię
+companyName: Nazwa firmy
+companyNamePlaceholder: Nazwa firmy
+bankAccount: Konto bankowe
+PSC: Kod pocztowy
+city: Miasto
+country: Kraj
+saveDetails: Zapisz zmiany
+changePw: Zmień hasło
+currentPw: Aktualne Hasło
+password: Hasło
+pwAgain: Wpisz ponownie hasło
+deleteAccount: Usuń konto
+deleteAccountDesc: Jeśli chcesz usunąć swoje konto i nie pozostawić żadnych śladów
+logout: Wyloguj
+signUp: Zarejestruj się
+invoicementCurrency: Waluta faktury
+loginWGoogle: Zaloguj się przez Google
+loginWFacebook: Zaloguj się przez Facebooka
+dontHaveAccount: Nie mam konta
+forgotPw: Zapomniałem hasła
+alreadyHaveAccount: Już jesteśmieć konto
+whatToSell: Co chcesz sprzedać?
+vehicleLocation: Lokalizacja Pojazdu
+emailPlaceholder: Twój e-mail
+phonePlaceholder: Twój telefon
+auctionNamePlaceholder: Nazwa aukcji
+searchResult: Wynik wyszukiwania
+resetPassword: Zresetuj hasło
+newPw: Nowe hasło
+newPwAgain: Nowe hasło
+auctionTitlePlaceholder: Tytuł
+deleteItem: Usuń element
+toastDetailsSaved: Szczegóły zapisane
+toastInvoiceListed: Podano fakturę
+toastWrongPass: Złe hasło
+toastPassChanged: Zmieniono hasło
+toastAuctionSaved: Aukcja zapisana
+toastAuctionCreated: Utworzono aukcję
+toastAuctionDeleted: Aukcja usunięta
+toastLoggedIn: Zalogowany
+toastWrongCredentials: Niewłaściwy adres e-mail lub hasło
+toastRegistered: Zarejestrowany
+toastEmailSent: E-mail wysłany
+toastError: Coś poszło nie tak
+toastBidError: Musisz być zalogowany, aby licytować
+toastBalanceError: Najpierw musisz zapłacić saldo
+toastMinBidError: Wprowadź minimalną cenę ofertową
+toastBidSaved: Oferta zapisana
+toastNoPhotoError: Prześlij przynajmniej jedno zdjęcie
+toastItemUpdated: Przedmiot zaktualizowany
+toastItemCreated: Utworzono przedmiot
+formSentSuccessTitle: Wysłano pomyślnie
+formSentSuccessMsg: Dziękujemy za zainteresowanie sprzedażą poprzez aukcję. Twoja oferta została wysłana i zostanie przekazana do przetworzenia naszemu personelowi, który wkrótce się z Tobąskontaktuje
+cz: Czeski
+en: Angielski
+de: Niemiecki
+fr: Francuski
+pl: Polski
+nl: Holenderski
+ru: Rosja
+rs: Serbski
+hr: Chorwacki
+me: Czarnogórski
+ua: Ukraiński
+ar: Arabski
+accountTax: Podatek
+hidden: Ukryty
+hiddenItems: Ukryte przedmioty
+bidsHistory: Historia ofert
+noBidsYet: Nie ma jeszcze ofert
+assignAuction: Przypisz do aukcji
+chooseAuction: Wybierz aukcję
+recentItems: Ostatnia aukcja
+auctionEndsIn: Aukcja kończy się za
+soldItems: Sprzedanych przedmiotów
+soldLabel: Sprzedany
+username: Nazwa Użytkownika
+usernameHint: Ta nazwa użytkownika będzie widoczna dla innych.
+favorite: Obserwowane
+itemHighlights: Dane techniczne
+itemDescription: Opis pojazdu
+auctionLive: Na żywo
+auctionSoon: Wkrótce
+auctionEnded: Sprzedany
+buyItem: Kup Teraz
+infoEnded: Ta aukcja zakończyła się
+infoNoWinner: Brak zwycięzcy
+infoProcessing: Przetwórczość
+infoYouWon: Wygrałeś!
+infoWon: Wygrał
+firebase:
+  auth/invalid-credential: 'Błędny e-mail lub hasło.'
+  auth/invalid-email: 'Błędny e-mail lub hasło.'
+  auth/missing-password: 'Wpisz swoje hasło.'
+  auth/weak-password: 'Hasło jest zbyt słabe (użyj co najmniej 6 znaków).'
+  auth/network-request-failed: 'Błąd sieci. Sprawdź połączenie i spróbuj ponownie.'
+  auth/no-user: 'Musisz być zalogowany.'
+  auth/not-configured: 'Logowanie jest tymczasowo niedostępne.'
+  auth/user-disabled: 'To konto zostało zablokowane.'
+  auth/expired-action-code: 'Ten link wygasł.'
+  auth/invalid-action-code: 'Ten link jest nieprawidłowy lub został już użyty.'
+  auth/email-already-in-use: Ten e-mail jest już używany
+  auth/requires-recent-login: Aby zaktualizować swój adres e-mail, wyloguj się i zaloguj ponownie
+  auth/wrong-password: Złe hasło
+  auth/user-not-found: Nie znaleziono użytkownika
+  auth/too-many-requests: Za dużo żądań, spróbuj później
+  auth/error: Coś poszło nie tak
+noBidsYetDesc: Nie ma jeszcze ofert
+noContactInfo: Brak danych kontaktowych
+minBidValidator: minimalna stawka to {minBid}
+signInFirst: Proszę się najpierw zalogować
+depositFirst: Proszę najpierw dokonać wpłaty
+enterAmount: Wprowadź kwotę (np. {amount})
+itemStatus:
+  buyNow: Kup teraz
+  auctionSoon: Wkrótce
+  auctionLive: Na żywo
+  auctionProcessing: Aukcja jest w toku, proszę czekać..
+  auctionEnd: Zwycięzcą jest {name}
+  auctionEndNoWinner: Aukcja zakończyła się bez zwycięzcy
+  sold: Ten przedmiot jest sprzedany
+companyInfo: Informacje o firmie
+confirm:
+  title: Czy na pewno?
+  desc: Czy chcesz kontynuować?
+  cta: Potwierdź
+  cancel: Anuluj
+accountDesc: Podstawowe informacje o Twoim koncie
+billingTitle: Informacje rozliczeniowe i faktury
+billingDesc: Twoje informacje rozliczeniowe i historia faktur
+invoicesTitle: Faktury
+invoicesDesc: Pełna historia faktur
+sendMeLinkPassword: Wyślij mi e-mail, aby zmienić hasło
+sendMeVerificationLink: Wyślij e-mail weryfikacyjny
+update: Aktualizacja
+emailSentTo: e-mail został wysłany na adres {email}
+proceedPayment: Kontynuuj płatność
+showPDF: Pokaż PDF
+createNewAccount: Stwórz nowe konto
+signIn: Zaloguj się
+noItems: Nie znaleziono przedmiotu
+noItemsDesc: Przepraszamy, nie mogliśmy znaleźć żadnego przedmiotu.
+cookies: Używamy plików cookie, aby poprawić komfort korzystania z naszej witryny i wyświetlać odpowiednie reklamy. Aby dowiedzieć się więcej, przeczytaj nasze
+accept: Zaakceptować
+privacyPolicy: Polityka prywatności
+registerAsCompany: Zarejestruj się jako firma
+notEligibleToBid: Nie możesz licytować, skontaktuj się z pomocą techniczną
+bidEmailAndPhone: Zweryfikuj swój adres e-mail i wypełnij numer telefonu, aby móc licytować
+emailSent: E-mail został wysłany na adres {email}
+emailUpdated: E-mail został pomyślnie zaktualizowany
+termsValidator: Musisz zgodzić się z regulaminem
+accountCreated: Konto zostało utworzone
+requiredField: To pole jest wymagane We use cookies to improve your experience on our site and to show you relevant advertisting. To find out more, read our
+cpBrand: Marka
+cpModel: Model
+cpYear: Rok
+cpVolume: Wolumen
+cpPower: Moc
+cpFuel: Paliwo
+cpTransmission: Przenoszenie
+cpMileage: Przebieg
+cpColour: Kolor
+cpVIN: VIN
+cpEquip: Wyposażenie/funkcje
+cpLocation: Lokalizacja
+cpAxles: Osie
+cpState: Stan
+cpNetWeight: Waga netto
+cpSuspensions: Zawieszenia
+cpWorkingHours: Godziny pracy
+cpSeats: Siedzenia
+cpForkliftAttach: Osprzęt do wózków widłowych
+cpSleepPlaces: Liczba miejsc do spania
+cpType: Rodzaj
+you: Ty
+form:
+  validator:
+    min: Minimalna wartość to {min}
+    max: Maksymalna wartość to {max}
+    minlength: Minimalna długość to {min}
+    maxlength: Maksymalna długość to {max}
+    email: Niewłaściwy format wiadomości e-mail
+    phone: Zły format telefonu
+    wrongMatch: Hasła muszą być takie same
+minBidNotMet: Minimalna oferta nie została osiągnięta
+buyNow: Kup Teraz
+offerPrice: Zaproponuj cenę
+enterOffer: Wprowadź ilość
+sendOffer: Wysłać ofertę
+onRequest: Na prośbę
+sold: Sprzedany
+resetPasswordSent: The email has been sent to {email}
+yourBidIs: Twoja oferta wynosi
+confirmBid: Czy na pewno chcesz zalicytować tę kwotę?
+copyLink: Kopiuj link
+share: Udostępnij
+Invoices: Faktury
+accountDeleted: Konto zostało usunięte
+acountTax: Podatek
+bids: Oferty
+clipboardCopied: Skopiowano do schowka
+close: Zamknij
+cancel: Anuluj
+save: Zapisz
+searchPlace: Szukaj miejsca...
+openMainMenu: Otwórz menu główne
+panorama: Panorama 360°
+aboutTitle: O nas
+aboutText: Auction24.cz — aukcje i ogłoszenia pojazdów.
+selectTab: Wybierz zakładkę
+itemPreviewVideo: Wideo podglądu przedmiotu
+contactEmail: Kontaktowy e-mail
+contactPhone: Kontaktowy telefon
+email: E-mail
+errorHidden: Szukany przedmiot nie jest już dostępny
+errorPasswordLength: Hasło musi mieć co najmniej 6 znaków
+errorPasswordMatch: Hasła nie są zgodne
+errorTerms: Proszę zaakceptować nasze warunki użytkowania
+formNews: Chcę otrzymywać newsletter
+items: Przedmioty
+language: Język
+location: Lokalizacja
+minimalPrice: Cena minimalna
+noFavorites: Nie masz żadnych ulubionych przedmiotów
+not-found: Strona nie została znaleziona
+notSoldLabel: Nie sprzedano
+titleError: Tytuł jest pusty
+toastRequiredDate: Proszę uzupełnić daty
+type: Typ
+typeAd: Ogłoszenie
+typeAuction: Aukcja
+visibility: Widoczność
+visible: Widoczny
+galleryPrevious: Poprzednie zdjęcie
+galleryNext: Następne zdjęcie
+galleryZoomIn: Powiększ
+galleryZoomOut: Pomniejsz
+galleryViewAll: Zobacz wszystkie zdjęcia
+galleryPhotoOf: Zdjęcie {current} z {total}
+
+authFlow:
+  verifying: 'Weryfikacja…'
+  verifiedTitle: 'E-mail zweryfikowany'
+  verifiedBody: 'Twój e-mail {email} został zweryfikowany.'
+  pendingTitle: 'Weryfikacja e-maila'
+  invalidCode: 'Ten link jest nieprawidłowy lub wygasł.'
+  resend: 'Wyślij ponownie e-mail weryfikacyjny'
+  resending: 'Wysyłanie…'
+  resendSuccess: 'Wysłaliśmy Ci nowy e-mail weryfikacyjny.'
+  resendError: 'Nie udało się wysłać e-maila. Spróbuj ponownie.'
+  backToLogin: 'Powrót do logowania'
+  resetLead: 'Wybierz nowe hasło do swojego konta.'
+  newPassword: 'Nowe hasło'
+  resetSubmit: 'Ustaw nowe hasło'
+  resetSuccess: 'Twoje hasło zostało zmienione. Możesz się teraz zalogować.'
+  resetFailed: 'Coś poszło nie tak. Spróbuj ponownie.'
+  getNewResetLink: 'Poproś o nowy link'
+  emailSentReset: 'Wysłaliśmy link do resetowania hasła na adres {email}.'
+
+pagination:
+  previous: Poprzednia
+  next: Następna
+  showing: "Wyświetlanie {from}–{to} z {total}"
+  label: Paginacja
+
+vehicle:
+  title: Dane techniczne
+  brand: Marka
+  model: Model
+  year: Rok produkcji
+  firstRegistration: Pierwsza rejestracja
+  fuelType: Paliwo
+  transmission: Skrzynia biegów
+  bodyType: Nadwozie
+  driveType: Napęd
+  color: Kolor
+  power: Moc
+  displacement: Pojemność silnika
+  gears: Liczba biegów
+  emission: Norma emisji spalin
+  co2: Emisja CO₂
+  doors: Liczba drzwi
+  seats: Liczba miejsc
+  axles: Osie
+  length: Długość
+  width: Szerokość
+  height: Wysokość
+  wheelbase: Rozstaw osi
+  weight: Masa własna
+  maxSpeed: Prędkość maksymalna
+  vin: VIN
+  fuel:
+    petrol: Benzyna
+    diesel: Diesel
+    electric: Elektryczny
+    hybrid: Hybryda
+    phev: Hybryda plug-in
+    lpg: LPG
+    cng: CNG
+    hydrogen: Wodór
+    other: Inne
+  trans:
+    manual: Manualna
+    automatic: Automatyczna
+    semi_automatic: Półautomatyczna
+    cvt: CVT
+    dct: Dwusprzęgłowa (DCT)
+  body:
+    sedan: Sedan
+    wagon: Kombi
+    hatchback: Hatchback
+    suv: SUV
+    coupe: Coupé
+    convertible: Kabriolet
+    van: Van
+    pickup: Pickup
+    minibus: Minibus
+    other: Inne
+  drive:
+    fwd: Przedni (FWD)
+    rwd: Tylny (RWD)
+    awd: Na wszystkie koła (AWD)
+    4x4: 4×4
+  colors:
+    white: Biały
+    black: Czarny
+    silver: Srebrny
+    grey: Szary
+    blue: Niebieski
+    red: Czerwony
+    green: Zielony
+    brown: Brązowy
+    beige: Beżowy
+    yellow: Żółty
+    orange: Pomarańczowy
+    gold: Złoty
+    other: Inny
+
+reco:
+  similarTitle: Podobne ogłoszenia
+  forYouTitle: Wybrane dla Ciebie
+notifications:
+  title: Powiadomienia
+  markAllRead: Oznacz wszystkie jako przeczytane
+  loadMore: Wczytaj więcej
+  empty: Nie masz jeszcze powiadomień
+  type:
+    win: Wygrałeś aukcję {title}
+    outbid: Zostałeś przelicytowany na {title}
+    answer: Odpowiedziano na Twoje pytanie o {title}
+continueWith: Kontynuuj z {provider}
+orSeparator: lub
+savedSearch:
+  title: Zapisane wyszukiwania
+  empty: Nie masz jeszcze żadnych zapisanych wyszukiwań.
+  save: Zapisz to wyszukiwanie
+  nameLabel: Nazwij to wyszukiwanie
+  namePlaceholder: np. SUV-y diesel do 300 tys.
+  create: Zapisz wyszukiwanie
+  delete: Usuń
+  deleteConfirm: Usunąć to zapisane wyszukiwanie?
+  alertOn: Powiadomienia e-mail włączone
+  alertOff: Powiadomienia e-mail wyłączone
+  alertHint: Wyślemy Ci e-mail, gdy pojawią się nowe lub kończące się wkrótce pasujące ogłoszenia.
+  filterSummary: "{count} filtrów"
+  created: Zapisane wyszukiwanie utworzone
+  removed: Zapisane wyszukiwanie usunięte
+messaging:
+  title: Pytania
+  ask: Zadaj pytanie
+  placeholder: Zadaj pytanie sprzedającemu…
+  submit: Wyślij pytanie
+  submitted: Twoje pytanie zostało wysłane i oczekuje na zatwierdzenie.
+  signInFirst: Zaloguj się, aby zadać pytanie
+  empty: Brak pytań
+  emptyDesc: Zadaj sprzedającemu pytanie jako pierwszy.
+  answer: Odpowiedź sprzedającego
+  asker: Kupujący
+  pending: Oczekuje na zatwierdzenie
+  you: Ty
+  error: Wysłanie pytania nie powiodło się. Spróbuj ponownie.
+compare:
+  title: Porównaj pojazdy
+  pageTitle: Porównanie pojazdów
+  hint: "Porównaj do {max} pojazdów obok siebie."
+  empty: Brak pojazdów do porównania
+  emptyHint: Dodaj pojazdy ikoną porównania przy dowolnym ogłoszeniu.
+  failedToLoad: "Nie udało się załadować {count} pojazdów — prawdopodobnie zostały usunięte."
+  add: Dodaj do porównania
+  remove: Usuń z porównania
+  removeAria: "Usuń {title} z porównania"
+  open: Otwórz porównanie
+  clear: Wyczyść
+  count: "{count}/{max}"
+  addedToast: "Dodano do porównania ({count}/{max})"
+  removedToast: Usunięto z porównania
+  fullToast: "Możesz porównać maksymalnie {max} pojazdy."
+  price: Cena
+
+settlement:
+  title: "Dokończ zakup"
+  cardTitle: "Wygrałeś — zapłać cenę końcową"
+  finalPrice: "Cena końcowa"
+  depositCredit: "Zaliczona kaucja"
+  amountDue: "Do zapłaty"
+  fullyCoveredByDeposit: "W pełni pokryte Twoją kaucją"
+  back: "Wstecz"
+  continue: "Kontynuuj"
+  confirmFree: "Potwierdź zakup"
+  summaryHeading: "Podsumowanie zakupu"
+  summaryIntro: "Zapłać cenę końcową pomniejszoną o już wpłaconą kaucję."
+  billingHeading: "Dane do faktury"
+  billingIntro: "Wykorzystamy te dane na fakturze."
+  billingName: "Imię i nazwisko"
+  billingEmail: "E-mail"
+  billingStreet: "Ulica i numer"
+  billingZip: "Kod pocztowy"
+  billingCity: "Miasto"
+  billingCountry: "Kraj"
+  billingError: "Zapisanie danych nie powiodło się. Spróbuj ponownie."
+  methodHeading: "Wybierz metodę płatności"
+  methodIntro: "Obie metody automatycznie kończą zakup po zaksięgowaniu płatności."
+  methodCard: "Karta"
+  methodCardHint: "Natychmiast przez Stripe"
+  methodTransfer: "Przelew bankowy"
+  methodTransferHint: "Płatność QR, zwykle w ciągu 1 dnia roboczego"
+  payByCard: "Zapłać kartą"
+  cardDesc: "Przekierujemy Cię na bezpieczną stronę płatności Stripe."
+  cardSecure: "Płatność obsługuje Stripe — dane karty nigdy do nas nie trafiają."
+  redirecting: "Przekierowanie…"
+  payByTransfer: "Zapłać przelewem"
+  transferIntro: "Wyślij dokładną kwotę z symbolem zmiennym poniżej, abyśmy mogli automatycznie powiązać płatność."
+  recipient: "Odbiorca"
+  account: "Numer konta"
+  iban: "IBAN"
+  variableSymbol: "Symbol zmienny"
+  paymentMessage: "Tytuł płatności"
+  scanToPay: "Zeskanuj, aby zapłacić"
+  transferWaiting: "Czekamy na Twoją płatność — strona odświeża się automatycznie."
+  viewInvoice: "Zobacz fakturę"
+  copy: "Kopiuj dane"
+  copied: "Dane płatności skopiowane"
+  loadingPayment: "Przygotowujemy dane płatności…"
+  verifyingTitle: "Potwierdzamy Twoją płatność…"
+  verifyingSlow: "Trwa to dłużej niż zwykle — Twoja płatność jest bezpieczna."
+  successTitle: "Zakup zakończony"
+  successBody: "Faktura jest w drodze e-mailem. Dziękujemy!"
+  successFeatures:
+    invoice: "Faktura e-mailem"
+    complete: "Zakup zakończony"
+  notWinner: "Tylko zwycięzca aukcji może opłacić ten zakup."
+  alreadyPaid: "Ten zakup jest już opłacony."
+  toastError: "Nie udało się rozpocząć płatności. Spróbuj ponownie."
+  toastPaid: "Płatność otrzymana — dziękujemy!"
+  steps:
+    summary: "Podsumowanie zakupu"
+    billing: "Dane do faktury"
+    method: "Wybierz metodę płatności"
+    payment: "Zapłać przelewem"
+    success: "Zakup zakończony"
+  card:
+    paidTitle: "Zakup zakończony"
+    paidDesc: "Faktura została wysłana e-mailem."
+    pendingTitle: "Czekamy na Twoją płatność"
+    pendingDesc: "Po zaksięgowaniu płatności {amount} zakup zostanie automatycznie zakończony."
+    dueDesc: "Wygrałeś — zapłać {amount}, aby zakończyć zakup."
+    showDetails: "Dokończ płatność"
+    cta: "Zapłać"
+
+deposit:
+  title: Kaucja aukcyjna
+  continue: Dalej
+  back: Wstecz
+  stepper:
+    currency: Waluta
+    details: Dane
+    payment: Płatność
+    done: Gotowe
+    method: Metoda
+  currency:
+    heading: Wybierz walutę kaucji
+    intro: Kaucja to zwrotna gwarancja, która odblokowuje licytowanie we wszystkich aukcjach. Zapłacisz ją zwykłym przelewem bankowym.
+    czkSub: płatność w CZK z czeskiego konta
+    eurSub: płatność w EUR (SEPA)
+  billing:
+    heading: Dane do faktury
+    intro: Dane wykorzystamy na fakturze proforma za kaucję.
+    name: Imię i nazwisko
+    email: E-mail
+    street: Ulica i numer
+    city: Miasto
+    zip: Kod pocztowy
+    country: Kraj
+    error: Nie udało się zapisać danych. Spróbuj ponownie.
+  payment:
+    heading: Zapłać przelewem bankowym
+    intro: Wyślij dokładną kwotę z podanym symbolem wariabilnym, abyśmy mogli automatycznie dopasować płatność.
+    recipient: Odbiorca
+    account: Numer konta
+    iban: IBAN
+    amount: Kwota
+    vs: Symbol wariabilny
+    message: Tytuł przelewu
+    qrHint: Zeskanuj kod QR w aplikacji bankowej
+    copy: Skopiuj dane
+    copied: Dane płatności skopiowane
+    waiting: Czekamy na zaksięgowanie płatności — ekran odświeża się automatycznie.
+    invoice: Zobacz fakturę proforma
+    note: Płatność dopasujemy po symbolu wariabilnym {vs}. Przelewy docierają zwykle w kilka minut, maksymalnie 1 dzień roboczy.
+    error: Nie udało się wczytać danych płatności. Zamknij okno i spróbuj ponownie.
+    loading: Przygotowujemy dane płatności…
+  method:
+    heading: Wybierz metodę płatności
+    intro: Obie metody aktywują kaucję automatycznie po zaksięgowaniu płatności.
+    card: Płatność kartą
+    cardHint: Natychmiast przez Stripe
+    transfer: Przelew bankowy
+    transferHint: Płatność QR, zaksięgowanie zwykle do 1 dnia roboczego
+  cardPay:
+    heading: Płatność kartą
+    desc: Przekierujemy Cię na bezpieczną stronę płatności Stripe.
+    secure: Płatność obsługuje Stripe — dane karty nigdy do nas nie trafiają.
+    pay: Zapłać kartą
+    redirecting: Przekierowujemy…
+    error: Nie udało się rozpocząć płatności kartą. Spróbuj ponownie lub wybierz przelew.
+  verifying:
+    slowNote: Trwa to dłużej niż zwykle. Dokończymy płatność w tle — możesz zamknąć okno, kaucja aktywuje się automatycznie.
+  return:
+    cancelled: Płatność kartą została anulowana. Możesz spróbować ponownie lub zapłacić przelewem.
+  success:
+    processing: Weryfikujemy płatność…
+    title: Kaucja wpłacona!
+    note: Potwierdzenie i dokument wysłaliśmy e-mailem. Powodzenia w aukcjach!
+    features:
+      bidding: Licytowanie odblokowane
+      refundable: W pełni zwrotna
+      invoice: Dokument e-mailem
+      instant: Natychmiastowa aktywacja
+    back: Wróć do aukcji
+    browse: Przeglądaj aukcje
+    close: Zamknij
+  card:
+    title: Kaucja aukcyjna
+    desc: Aby licytować, wpłać zwrotną kaucję {czk} lub {eur}.
+    cta: Wpłać kaucję
+    pendingTitle: Czekamy na wpłatę kaucji
+    pendingDesc: Gdy płatność {amount} zostanie zaksięgowana, kaucja aktywuje się automatycznie.
+    showDetails: Dokończ płatność
+    invoice: Faktura proforma
+    paidTitle: Kaucja wpłacona
+    paidDesc: Możesz licytować we wszystkich aukcjach.
+
+seo:
+  homeTitle: "Aukcje pojazdów i maszyn online"
+  homeDescription: "Aukcje i sprzedaż bezpośrednia samochodów ciężarowych, osobowych, maszyn i sprzętu. Przeglądaj zweryfikowane ogłoszenia i licytuj online na Auction24.cz."
+  categoryDescription: "Aktualne aukcje i ogłoszenia w kategorii {category}. Przeglądaj ofertę i licytuj online na Auction24.cz."
+  auctionsDescription: "Aukcje pojazdów i maszyn na żywo — samochody ciężarowe, osobowe i sprzęt. Licytuj online i śledź zakończenia aukcji na Auction24.cz."
+  buyNowDescription: "Pojazdy i maszyny do natychmiastowego zakupu w stałej cenie. Przeglądaj ogłoszenia Kup teraz na Auction24.cz."
+  soldDescription: "Niedawno sprzedane pojazdy i maszyny — osiągnięte ceny i zakończone aukcje na Auction24.cz."
+  aboutDescription: "O Auction24.cz — internetowa platforma aukcji i bezpośredniej sprzedaży pojazdów i maszyn. Dowiedz się, kim jesteśmy i jak działa platforma."
+  contactDescription: "Kontakt z Auction24.cz — adres, telefon i e-mail. Napisz do nas w sprawie aukcji, ogłoszeń lub sprzedaży swojego pojazdu."
+  categoriesDescription: "Przeglądaj wszystkie kategorie pojazdów i maszyn na Auction24.cz — samochody ciężarowe, osobowe, sprzęt i więcej. Aukcje i ogłoszenia Kup teraz według kategorii."
+  home: "Strona główna"
+  breadcrumb: "Ścieżka nawigacyjna"
+search:
+  title: Wyszukiwanie
+  placeholder: Szukaj aukcji…
+  resultsCount: "{count} wyników"
+  noResults: Brak pasujących ogłoszeń
+  noResultsHint: Usuń filtr lub rozszerz wyszukiwanie
+  filters: Filtry
+  clearFilters: Wyczyść wszystko
+  facetType: Typ
+  facetTypeAuction: Aukcja
+  facetTypeAd: Kup teraz
+  facetCategory: Kategoria
+  facetPriceMin: Cena od
+  facetPriceMax: Cena do
+  facetFuel: Paliwo
+  facetBody: Nadwozie
+  facetTransmission: Skrzynia biegów
+  facetDrive: Napęd
+  facetColor: Kolor
+  facetYearFrom: Rok od
+  facetYearTo: Rok do
+  sortLabel: Sortowanie
+  sortRelevance: Trafność
+  sortNewest: Najnowsze
+  sortPriceAsc: "Cena: rosnąco"
+  sortPriceDesc: "Cena: malejąco"
+  activeFilter: "Filtr: {label}"

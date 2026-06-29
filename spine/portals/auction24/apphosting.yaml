@@ -1,0 +1,218 @@
+runConfig:
+  runtime: nodejs22
+  minInstances: 0
+  maxInstances: 10
+  cpu: 1
+  memoryMiB: 1024
+
+env:
+  - variable: NODE_OPTIONS
+    value: --max-old-space-size=4096
+    availability:
+      - BUILD
+
+  # Postgres connection string. Create the secret with:
+  #   firebase apphosting:secrets:set POSTGRES_URL
+  - variable: POSTGRES_URL
+    secret: POSTGRES_URL
+
+  # Firebase Web config is public; it's baked into the client bundle at build,
+  # so these need BUILD availability. Create each with apphosting:secrets:set.
+  # The Admin SDK uses the App Hosting service account (ADC) at runtime — no
+  # GOOGLE_APPLICATION_CREDENTIALS needed in production. Grant that service
+  # account the "Firebase Authentication Admin" role on the Firebase project.
+  - variable: FIREBASE_API_KEY
+    secret: FIREBASE_API_KEY
+    availability:
+      - BUILD
+      - RUNTIME
+  - variable: FIREBASE_AUTH_DOMAIN
+    secret: FIREBASE_AUTH_DOMAIN
+    availability:
+      - BUILD
+      - RUNTIME
+  - variable: FIREBASE_PROJECT_ID
+    secret: FIREBASE_PROJECT_ID
+    availability:
+      - BUILD
+      - RUNTIME
+  - variable: FIREBASE_STORAGE_BUCKET
+    secret: FIREBASE_STORAGE_BUCKET
+    availability:
+      - BUILD
+      - RUNTIME
+  - variable: FIREBASE_MESSAGING_SENDER_ID
+    secret: FIREBASE_MESSAGING_SENDER_ID
+    availability:
+      - BUILD
+      - RUNTIME
+  - variable: FIREBASE_APP_ID
+    secret: FIREBASE_APP_ID
+    availability:
+      - BUILD
+      - RUNTIME
+
+  # Absolute origin baked into e-mail action links (/auth/verify, /auth/reset).
+  # Public, non-secret → plain value. BUILD because it's baked into public.baseUrl.
+  - variable: BASE_URL
+    value: https://auction24.cz
+    availability:
+      - BUILD
+      - RUNTIME
+
+  # SendGrid delivers the auth e-mails (verification + password reset). The API key
+  # is a secret (apphosting:secrets:set SENDGRID_API_KEY); the from-address is public.
+  # Both feed runtimeConfig (baked at build), so they need BUILD availability.
+  - variable: SENDGRID_API_KEY
+    secret: SENDGRID_API_KEY
+    availability:
+      - BUILD
+      - RUNTIME
+  - variable: SENDGRID_FROM_NO_REPLY
+    value: no-reply@auction24.cz
+    availability:
+      - BUILD
+      - RUNTIME
+
+  # Vincario VIN decoder (admin VIN auto-fill). Both keys gate public.vincarioEnabled
+  # (baked at build) and feed the server runtimeConfig, so they need BUILD availability.
+  - variable: VINCARIO_API_KEY
+    secret: VINCARIO_API_KEY
+    availability:
+      - BUILD
+      - RUNTIME
+  - variable: VINCARIO_SECRET_KEY
+    secret: VINCARIO_SECRET_KEY
+    availability:
+      - BUILD
+      - RUNTIME
+
+  # HMAC pepper for admin-issued API tokens. Gates public.apiTokensEnabled (baked at
+  # build) and feeds the server runtimeConfig, so it needs BUILD availability too.
+  # Create + grant access with: firebase apphosting:secrets:set INTERNAL_API_SECRET
+  - variable: INTERNAL_API_SECRET
+    secret: INTERNAL_API_SECRET
+    availability:
+      - BUILD
+      - RUNTIME
+
+  # Optional BullMQ e-mail queue (retry + concurrency). Read directly via process.env
+  # at runtime (like POSTGRES_URL); unset → e-mail is sent inline in the request.
+  - variable: REDIS_URL
+    secret: REDIS_URL
+
+  # Shared secret the close-auctions Cloud Scheduler job sends in the Authorization
+  # header. Read via process.env.CRON_SECRET in nuxt.config (→ runtimeConfig.cronSecret),
+  # evaluated at BUILD — so it must be available at build to get baked in, exactly like
+  # INTERNAL_API_SECRET. RUNTIME-only left runtimeConfig.cronSecret = '' → endpoint 503.
+  # Create + grant access with: firebase apphosting:secrets:set CRON_SECRET
+  - variable: CRON_SECRET
+    secret: CRON_SECRET
+    availability:
+      - BUILD
+      - RUNTIME
+
+  # Inbox that contact-form submissions and price offers are e-mailed to. Public, non-secret →
+  # plain value; the handler falls back to COMPANY.email (info@auction24.cz) when unset. Baked
+  # into runtimeConfig at build, so it needs BUILD availability like the other server values.
+  - variable: CONTACT_NOTIFY_EMAIL
+    value: info@auction24.cz
+    availability:
+      - BUILD
+      - RUNTIME
+
+  # GA4 measurement ID (public). Baked into the client bundle at build, so it needs
+  # BUILD availability. Unset → no gtag.js is loaded and useGtag() is a no-op.
+  - variable: GTAG_ID
+    value: G-XXXXXXXXXX
+    availability:
+      - BUILD
+
+  # Fakturoid v3 OAuth (deposit proformas). Server-only secrets feeding runtimeConfig
+  # (baked at build → BUILD + RUNTIME, same trap as CRON_SECRET). Create + grant
+  # access with: firebase apphosting:secrets:set FAKTUROID_SLUG (etc.)
+  - variable: FAKTUROID_SLUG
+    secret: FAKTUROID_SLUG
+    availability:
+      - BUILD
+      - RUNTIME
+  - variable: FAKTUROID_CLIENT_ID
+    secret: FAKTUROID_CLIENT_ID
+    availability:
+      - BUILD
+      - RUNTIME
+  - variable: FAKTUROID_CLIENT_SECRET
+    secret: FAKTUROID_CLIENT_SECRET
+    availability:
+      - BUILD
+      - RUNTIME
+
+  # Fio read-only API tokens (CZK + EUR account) for the fio-payments cron. Tokens
+  # expire after 180 days — enable auto-renewal in Fio internetbanking. The deposit
+  # IBANs/account numbers have safe defaults in nuxt.config (DEPOSIT_* env to override).
+  - variable: FIO_TOKEN_CZK
+    secret: FIO_TOKEN_CZK
+    availability:
+      - BUILD
+      - RUNTIME
+  - variable: FIO_TOKEN_EUR
+    secret: FIO_TOKEN_EUR
+    availability:
+      - BUILD
+      - RUNTIME
+
+  # Stripe card payments for the deposit. The webhook secret belongs to THIS
+  # deployment's webhook endpoint (created via scripts/setup-stripe-webhook.ts),
+  # not to any other project's.
+  - variable: STRIPE_SECRET_KEY
+    secret: STRIPE_SECRET_KEY
+    availability:
+      - BUILD
+      - RUNTIME
+  - variable: STRIPE_WEBHOOK_SECRET
+    secret: STRIPE_WEBHOOK_SECRET
+    availability:
+      - BUILD
+      - RUNTIME
+
+  # Kill switch for the card option (wizard visibility + checkout endpoint).
+  # '1' = enabled. Baked into public.stripeEnabled at BUILD, so flipping it
+  # takes a rollout; set back to '0' to hide the card again.
+  - variable: STRIPE_CARD_ENABLED
+    value: '1'
+    availability:
+      - BUILD
+
+  # Master switch for the recommendation engine (detail rail + tracking + build/newsletter
+  # crons). Baked into public.recoEnabled at BUILD. Flip to '1' to enable in production.
+  - variable: RECO_ENABLED
+    value: '0'
+    availability:
+      - BUILD
+      - RUNTIME
+
+  # Deterministic listing-enrichment cron (VIN auto-decode + DeepL auto-translate of empty locales).
+  # Opt-in; '0' until enabled. Needs VINCARIO_* / DEEPL_API_KEY present to actually fill anything.
+  - variable: ENRICH_ENABLED
+    value: '0'
+    availability:
+      - BUILD
+      - RUNTIME
+
+  # Routes images through the same-origin /img cache proxy so the CDN caches the (1-year-cacheable)
+  # processing output instead of every visitor reprocessing it. Baked into public.imageCacheEnabled
+  # at BUILD. Flip to '1' once the CDN fronts the app. See docs/image-performance.md.
+  - variable: IMAGE_CACHE_ENABLED
+    value: '0'
+    availability:
+      - BUILD
+      - RUNTIME
+
+  # DeepL translation (admin item editor "translate to other languages"). Gates
+  # public.deeplEnabled (baked at build) and feeds the server runtimeConfig, so it needs
+  # BUILD availability too. Create + grant access with: firebase apphosting:secrets:set DEEPL_API_KEY
+  - variable: DEEPL_API_KEY
+    secret: DEEPL_API_KEY
+    availability:
+      - BUILD
+      - RUNTIME

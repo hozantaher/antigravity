@@ -1,0 +1,11 @@
+{
+  "id": "hozan-taher",
+  "story_axis": "spine",
+  "state": "pending",
+  "facets": {
+    "ui": [
+      "./hozan-taher.vue"
+    ]
+  },
+  "edges": []
+}

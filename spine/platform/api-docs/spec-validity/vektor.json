@@ -1,0 +1,32 @@
+{
+  "identita": "Validní spec — OpenAPI 3.1 vždy projde validací.",
+  "smysl": "Vygenerovaný dokument je strojově čitelný a syntakticky v pořádku, ne rozbitý JSON.",
+  "smer": "OpenAPI 3.1 spec validní; generátor produkuje korektní dokument.",
+  "duvod": "Nevalidní spec partner nenačte → integrace naslepo a důvěra padá.",
+  "myslenka": "Validní dokumentace je smlouva, ne příloha.",
+  "pillar": "transparency",
+  "role": "supporting",
+  "promise": "Spec se vždy načte.",
+  "loreLine": "Validní papíry pro stroje — OpenAPI 3.1, který každý nástroj přečte.",
+  "proofSignal": [
+    {
+      "nazev": "spec validity (OpenAPI 3.1)",
+      "zdroj": "test/openapiValid",
+      "stav": "live"
+    }
+  ],
+  "antiFeature": "Rozbitý spec — partner nenačte dokument a integruje naslepo.",
+  "hotovo": {
+    "kdyzPlati": [
+      {
+        "kriterium": "OpenAPI 3.1 spec validní",
+        "check": "test:openapiValid",
+        "stav": "met",
+        "proof": {
+          "cmd": "pnpm exec vitest run --project server tests/server/openapiSpec.test.ts"
+        }
+      }
+    ],
+    "vektorGate": "all-met"
+  }
+}

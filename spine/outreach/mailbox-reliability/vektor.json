@@ -1,0 +1,32 @@
+{
+  "identita": "Spolehlivost schránky — po 3 selháních cooldown, ne nekonečné retry.",
+  "smysl": "Circuit breaker: 3 po sobě jdoucí auth/delivery chyby → 30min cooldown; watchdog drží half-open trigger.",
+  "smer": "engine pickMailbox gate G5 (threshold 3, cooldown 30m) + backpressure RecordSuccess/RecordBounce + watchdog daemon.",
+  "duvod": "Schránka, co retryuje navždy, kaskáduje auth chyby, ISP ji rate-limitne a operátor přijde o všechny sendy z ní.",
+  "myslenka": "Selhávající schránku je třeba odstavit dřív, než stáhne reputaci celého účtu.",
+  "pillar": "reach",
+  "role": "supporting",
+  "promise": "Selhávající schránka jde do cooldownu místo kaskády auth chyb.",
+  "loreLine": "Tři selhání a klid — jistič, co chrání účet před vlastní schránkou.",
+  "proofSignal": [
+    {
+      "nazev": "circuit open/close events / mailbox recovery",
+      "zdroj": "features/outreach/mailboxes/watchdog",
+      "stav": "pending"
+    }
+  ],
+  "antiFeature": "Schránka retryuje navždy bez throttlingu — auth chyby kaskádují, ISP rate-limitne a sendy z ní mizí.",
+  "hotovo": {
+    "kdyzPlati": [
+      {
+        "kriterium": "Circuit breaker (open/close, počítání selhání, expirace cooldownu) ve watchdogu projde — odstavení i návrat schránky jsou deterministické.",
+        "check": "test:mailbox-circuit",
+        "stav": "pending",
+        "proof": {
+          "cmd": "cd features/outreach/mailboxes && go test ./watchdog/..."
+        }
+      }
+    ],
+    "vektorGate": "all-met"
+  }
+}

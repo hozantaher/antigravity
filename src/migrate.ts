@@ -16,7 +16,7 @@ export class BatchMigrator {
   public async migrateAllLegacy(): Promise<void> {
     const legacyFiles = await glob('products/**/vektor.json', {
       cwd: this.rootDir,
-      ignore: 'node_modules/**',
+      ignore: '**/node_modules/**',
     });
 
     if (legacyFiles.length === 0) {
@@ -31,8 +31,23 @@ export class BatchMigrator {
       const fullPath = path.join(this.rootDir, file);
       try {
         const manifest = JSON.parse(fs.readFileSync(fullPath, 'utf8')) as VektorManifest;
-        const axis = manifest.story_axis || 'unknown';
-        const id = manifest.id;
+        
+        const pathParts = file.split('/');
+        // products/auction24/features/sale/deposit-billing/reconcile/vektor.json
+        // or products/hozan-taher/features/platform/mcp/vektor.json
+        const featuresIdx = pathParts.indexOf('features');
+        let inferredAxis = 'unknown';
+        let inferredId = pathParts[pathParts.length - 2]; // dir name
+
+        if (featuresIdx !== -1 && pathParts.length > featuresIdx + 1) {
+          inferredAxis = pathParts[featuresIdx + 1];
+        }
+
+        const axis = manifest.story_axis || inferredAxis;
+        const id = manifest.id || inferredId;
+        
+        if (!id) throw new Error('ID cannot be determined');
+
         const targetDir = path.join('spine', axis, id);
 
         console.log(`🚀 Přesunuji uzel: ${id} -> ${targetDir}`);

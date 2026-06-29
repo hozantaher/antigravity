@@ -98,8 +98,7 @@ describe('migration 008 — every template has substantive content', () => {
     }
   )
 
-  // QUARANTINED pending owner decision — see docs/handoff/ci-remediation-residual.md
-  it.skip.each(['heavy-01-intro', 'heavy-02-followup', 'heavy-03-bump'])(
+  it.each(['heavy-01-intro', 'heavy-02-followup', 'heavy-03-bump'])(
     '%s body signs off with persona + controller footer',
     (name) => {
       const row = BY_NAME.get(name)!

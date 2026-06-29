@@ -101,7 +101,6 @@ async function get(path: string) {
 
 describe('GET /unsubscribe — happy path', () => {
   it('200 on valid token + writes suppression + status update + audit', async () => {
-    q([])                          // brand_label pre-SELECT (operator_settings → fallback 'Garaaage')
     q([{ email: 'jan@firma.cz' }]) // contact lookup
     q([])                          // suppression_list INSERT
     q([])                          // contacts UPDATE
@@ -123,7 +122,6 @@ describe('GET /unsubscribe — happy path', () => {
   })
 
   it('idempotent: repeat with same token still succeeds', async () => {
-    q([])                          // brand_label pre-SELECT
     q([{ email: 'jan@firma.cz' }])
     q([]); q([]); q([])
     const t = makeToken(42, 1001, 'jan@firma.cz')
@@ -131,7 +129,6 @@ describe('GET /unsubscribe — happy path', () => {
     expect(r1.status).toBe(200)
 
     queryQueue.length = 0; calls.length = 0
-    q([])                          // brand_label pre-SELECT
     q([{ email: 'jan@firma.cz' }])
     q([]); q([]); q([])
     const r2 = await get(`/unsubscribe?c=42&id=1001&t=${t}`)
@@ -170,7 +167,6 @@ describe('GET /unsubscribe — validation', () => {
   })
 
   it('403 when token does not match', async () => {
-    q([])                          // brand_label pre-SELECT
     q([{ email: 'jan@firma.cz' }])
     const wrongToken = makeToken(42, 1001, 'jan@firma.cz', 'wrong-secret')
     const r = await get(`/unsubscribe?c=42&id=1001&t=${wrongToken}`)
@@ -181,7 +177,6 @@ describe('GET /unsubscribe — validation', () => {
   })
 
   it('403 when payload tampered (different campaign in URL than token bound to)', async () => {
-    q([])                          // brand_label pre-SELECT
     q([{ email: 'jan@firma.cz' }])
     // Token computed for campaign 42 but URL says 99 → HMAC mismatch
     const t = makeToken(42, 1001, 'jan@firma.cz')

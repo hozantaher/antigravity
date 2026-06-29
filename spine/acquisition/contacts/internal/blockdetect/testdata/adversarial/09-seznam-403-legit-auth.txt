@@ -1,0 +1,7 @@
+STATUS: 403
+HEADER: Server: nginx
+HEADER: Content-Type: text/html; charset=utf-8
+EXPECT: forbidden
+NOTE: Legit auth-fail 403 from Seznam (no anti-bot signature). Distinct from Cloudflare 403 — `Server: nginx` not `cloudflare`. Classified as plain forbidden so KT-A7 escalates rather than triggering Cloudflare bypass.
+---
+<!DOCTYPE html><html><head><title>403 Forbidden</title></head><body><h1>403 Forbidden</h1><p>Přístup k požadovanému zdroji byl odepřen.</p></body></html>

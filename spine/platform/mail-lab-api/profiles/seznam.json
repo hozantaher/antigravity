@@ -1,0 +1,16 @@
+{
+  "domain": "seznam.lab",
+  "max_message_size_bytes": 31457280,
+  "mailbox_quota_bytes": 1073741824,
+  "rate_limit_per_hour": 100,
+  "reject_non_cz_origin": true,
+  "greylist_unknown_sender": false,
+  "spam_classify_link_ratio": 0.5,
+  "reject_proxy_ips_cidr": [
+    "194.242.0.0/16",
+    "146.70.0.0/16"
+  ],
+  "bounce_kind_on_reject": "5.7.1",
+  "dkim_strictness": "strict",
+  "auto_reply_enabled": false
+}

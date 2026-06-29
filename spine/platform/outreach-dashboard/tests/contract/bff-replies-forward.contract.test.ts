@@ -13,14 +13,6 @@ const calls: Array<{ sql: string; params?: unknown[] }> = []
 vi.mock('pg', () => {
   class Pool {
     async query(sql: string, params?: unknown[]) {
-      // The forward-to-crm handler issues a brand_label pre-SELECT against
-      // operator_settings before the reply lookup. Treat it as a no-op
-      // (no row → handler falls back to 'Garaaage') so it neither shifts the
-      // per-test queryQueue nor appears in `calls` — the queues below model
-      // only the business queries (reply lookup onward).
-      if (typeof sql === 'string' && /FROM\s+operator_settings\s+WHERE\s+key='brand_label'/i.test(sql)) {
-        return { rows: [], rowCount: 0 }
-      }
       calls.push({ sql, params })
       if (!queryQueue.length) return { rows: [], rowCount: 0 }
       const next = queryQueue.shift()!
@@ -117,11 +109,7 @@ describe('POST /api/replies/:id/forward-to-garaaage', () => {
 
     const sqls = calls.map(c => c.sql)
     expect(sqls.some(s => /UPDATE reply_inbox SET handled=TRUE/.test(s))).toBe(true)
-    // Sprint AL brand-agnostic rename: handler writes action 'forward_to_crm'
-    // (src/server-routes/replies.js:1096; rename documented at :1064-1065). The
-    // /forward-to-garaaage ROUTE is preserved as an alias (:1123) but the
-    // healing_log action literal is the brand-neutral 'forward_to_crm'.
-    expect(sqls.some(s => /INSERT INTO healing_log/.test(s) && /forward_to_crm/.test(s))).toBe(true)
+    expect(sqls.some(s => /INSERT INTO healing_log/.test(s) && /forward_to_garaaage/.test(s))).toBe(true)
   })
 
   it('accepts garaaage_url in body and includes in response', async () => {
@@ -135,10 +123,7 @@ describe('POST /api/replies/:id/forward-to-garaaage', () => {
       { garaaage_url: 'https://garaaage.cz/aukce/xyz' }
     )
     expect(status).toBe(200)
-    // Body still ACCEPTS the legacy garaaage_url input field (replies.js:1068),
-    // but the response envelope returns it under the brand-neutral crm_url key
-    // (replies.js:1116) post Sprint AL rename.
-    expect((body as Record<string, unknown>).crm_url).toBe('https://garaaage.cz/aukce/xyz')
+    expect((body as Record<string, unknown>).garaaage_url).toBe('https://garaaage.cz/aukce/xyz')
   })
 
   it('404 when reply not found', async () => {

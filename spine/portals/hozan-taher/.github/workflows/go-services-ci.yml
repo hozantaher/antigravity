@@ -1,0 +1,285 @@
+name: Go Services CI
+
+on:
+  push:
+    branches: [main, 'wm/development', 'wm/tests', 'wm/new-features']
+    paths:
+      - 'features/inbound/orchestrator/**'
+      - 'features/outreach/campaigns/**'
+      - 'features/acquisition/contacts/**'
+      - 'features/platform/common/**'
+      - 'features/outreach/relay/**'
+      - 'features/compliance/privacy-gateway/**'
+      - 'features/outreach/anti-trace-relay/**'
+      - 'services/smoke-privacy-*.sh'
+      - 'features/platform/outreach-dashboard/**'
+      - 'go.work'
+      - '.github/workflows/go-services-ci.yml'
+  pull_request:
+    paths:
+      - 'features/inbound/orchestrator/**'
+      - 'features/outreach/campaigns/**'
+      - 'features/acquisition/contacts/**'
+      - 'features/platform/common/**'
+      - 'features/outreach/relay/**'
+      - 'features/compliance/privacy-gateway/**'
+      - 'features/outreach/anti-trace-relay/**'
+      - 'services/smoke-privacy-*.sh'
+      - 'features/platform/outreach-dashboard/**'
+      - 'go.work'
+      - '.github/workflows/go-services-ci.yml'
+  schedule:
+    - cron: '17 2 * * *'
+  workflow_dispatch:
+    inputs:
+      run_integration:
+        description: 'Run integration tests (requires DATABASE_URL)'
+        required: false
+        default: 'false'
+        type: boolean
+
+jobs:
+  test:
+    name: outreach-orchestrator
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-go@v6
+        with:
+          go-version-file: features/inbound/orchestrator/go.mod
+          cache-dependency-path: features/inbound/orchestrator/go.sum
+          # setup-go already caches the module download cache.
+          # We add an explicit build cache on top.
+
+      - name: Restore Go build cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/go-build
+          key: ${{ runner.os }}-go-build-${{ hashFiles('features/inbound/orchestrator/go.sum', 'features/outreach/campaigns/go.sum', 'features/acquisition/contacts/go.sum', 'features/platform/common/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-build-
+
+      - name: Build
+        run: go build ./features/inbound/orchestrator/... ./features/outreach/campaigns/... ./features/acquisition/contacts/... ./features/platform/common/...
+      - name: Test — orchestrator
+        env:
+          SENTRY_DSN_GO: ${{ secrets.SENTRY_DSN_GO }}
+        run: go test -race -count=1 ./features/inbound/orchestrator/...
+      - name: Test — shared services
+        run: |
+          go test -race -count=1 ./features/outreach/campaigns/...
+          go test -race -count=1 ./features/acquisition/contacts/...
+          go test -race -count=1 ./features/platform/common/...
+      - name: Vet
+        run: |
+          go vet ./features/inbound/orchestrator/...
+          go vet ./features/outreach/campaigns/...
+          go vet ./features/acquisition/contacts/...
+          go vet ./features/platform/common/...
+      - name: Upload Go coverage
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: go-coverage-${{ github.run_id }}
+          path: |
+            **/coverage.out
+          retention-days: 7
+      - name: Sentry Release — Go orchestrator
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+          SENTRY_PROJECT_GO: ${{ secrets.SENTRY_PROJECT_GO }}
+        run: |
+          if [ -n "$SENTRY_AUTH_TOKEN" ] && [ -n "$SENTRY_PROJECT_GO" ]; then
+            RELEASE="${{ github.sha }}"
+            npx @sentry/cli releases new "$RELEASE" --project "$SENTRY_PROJECT_GO"
+            npx @sentry/cli releases set-commits "$RELEASE" --auto --project "$SENTRY_PROJECT_GO"
+            npx @sentry/cli releases finalize "$RELEASE" --project "$SENTRY_PROJECT_GO"
+          fi
+
+  # outreach-invariants: removed in M7.3 — modules/outreach deleted.
+  # Mailbox invariant tests will be re-added under features/inbound/orchestrator
+  # once the integration test suite is ported (SEND-S6.2).
+  # outreach-invariants:
+  #   name: outreach-invariants
+  #   runs-on: ubuntu-latest
+  #   needs: test
+  #   continue-on-error: true
+  #   if: github.event_name == 'push' || github.event_name == 'pull_request'
+  #   steps:
+  #     - uses: actions/checkout@v6
+  #     - uses: actions/setup-go@v6
+  #       with:
+  #         go-version-file: features/inbound/orchestrator/go.mod
+  #         cache-dependency-path: features/inbound/orchestrator/go.sum
+  #     - name: Invariant — no placeholder passwords in outreach_mailboxes
+  #       if: ${{ env.DATABASE_URL != '' }}
+  #       env:
+  #         DATABASE_URL: ${{ secrets.DATABASE_URL }}
+  #       run: go test -tags=integration -run Invariant ./features/inbound/orchestrator/internal/mailbox/ -count=1 -v
+
+  privacy-services:
+    name: privacy-mail-gateway
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-go@v6
+        with:
+          go-version-file: features/compliance/privacy-gateway/go.mod
+      - name: Restore Go build cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/go-build
+          key: ${{ runner.os }}-go-build-privacy-${{ hashFiles('features/outreach/relay/go.sum', 'features/compliance/privacy-gateway/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-build-privacy-
+      - name: Build both modules
+        run: |
+          go build ./features/outreach/anti-trace-relay/...
+          go build ./features/compliance/privacy-gateway/...
+          go build ./features/outreach/relay/...
+      - name: Test privacy-gateway
+        run: go test -race -count=1 ./features/compliance/privacy-gateway/...
+      - name: Test anti-trace-relay
+        run: go test -race -count=1 ./features/outreach/anti-trace-relay/...
+      - name: Test relay
+        run: |
+          cd features/outreach/relay
+          go test -race -count=1 -timeout=120s ./...
+      - name: Vet
+        run: |
+          go vet ./features/outreach/anti-trace-relay/...
+          go vet ./features/compliance/privacy-gateway/...
+          go vet ./features/outreach/relay/...
+      - name: Smoke — sources restored (R1)
+        run: bash services/smoke-privacy-restore.sh
+      - name: Smoke — go.work + port 8081 (R2)
+        run: bash services/smoke-privacy-r2.sh
+      - name: Smoke — gateway runtime (R3)
+        run: bash services/smoke-privacy-r3.sh
+      - name: Smoke — relay runtime (R4)
+        run: bash services/smoke-privacy-r4.sh
+      - name: Smoke — gateway ↔ relay pair (R5)
+        run: bash services/smoke-privacy-r5.sh
+      - name: Smoke — resolver SMTP bridge (R6)
+        run: bash services/smoke-privacy-r6.sh
+      - name: Smoke — static SOCKS5 pool (R7)
+        run: bash services/smoke-privacy-r7.sh
+
+  docker-smoke:
+    name: docker-smoke-${{ matrix.name }}
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' || github.event_name == 'pull_request'
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: orchestrator
+            # Orchestrator Dockerfile copies the entire monorepo workspace
+            # (go.work + sibling services/*) so build context MUST be repo
+            # root. The Dockerfile header documents this; the workflow had
+            # context=features/inbound/orchestrator which broke the COPY paths.
+            context: .
+            dockerfile: features/inbound/orchestrator/Dockerfile
+          - name: mcp
+            context: features/platform/mcp
+            dockerfile: features/platform/mcp/Dockerfile
+            target: mcp
+          - name: worker
+            context: features/platform/worker
+    steps:
+      - uses: actions/checkout@v6
+      - name: Build Docker image
+        run: |
+          ARGS="--no-cache -t hozan/${{ matrix.name }}:ci"
+          [ -n "${{ matrix.dockerfile }}" ] && ARGS="$ARGS -f ${{ matrix.dockerfile }}"
+          [ -n "${{ matrix.target }}" ] && ARGS="$ARGS --target ${{ matrix.target }}"
+          docker build $ARGS ${{ matrix.context }}
+
+  dashboard:
+    name: outreach-dashboard
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' || github.event_name == 'pull_request'
+    defaults:
+      run:
+        working-directory: features/platform/outreach-dashboard
+    steps:
+      - uses: actions/checkout@v6
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: pnpm
+          cache-dependency-path: features/platform/outreach-dashboard/pnpm-lock.yaml
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Type check
+        run: pnpm typecheck
+      - name: Unit tests
+        run: pnpm test --run
+      - name: Contract tests
+        run: pnpm vitest run test/contract/ --reporter=default --reporter=json --outputFile=contract-results.json
+      - name: Contract perf baseline (fail if suite > 20s)
+        run: |
+          dur=$(node -e "const r=require('./contract-results.json');console.log(Math.round(r.duration||0))")
+          echo "Contract suite duration: ${dur}ms"
+          if [ "$dur" -gt 20000 ]; then
+            echo "::error::Contract suite took ${dur}ms — exceeds 20s baseline"; exit 1
+          fi
+      - name: Upload contract results
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: contract-test-results
+          path: features/platform/outreach-dashboard/contract-results.json
+      - name: Build
+        run: pnpm build
+        env:
+          GO_SERVER_URL: http://localhost:8080
+          OUTREACH_API_KEY: ci-placeholder
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+          SENTRY_PROJECT_FRONTEND: ${{ secrets.SENTRY_PROJECT_FRONTEND }}
+          VITE_SENTRY_DSN_FRONTEND: ${{ secrets.VITE_SENTRY_DSN_FRONTEND }}
+      - name: Sentry Release — create + set-commits + finalize
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && env.SENTRY_AUTH_TOKEN != ''
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+          SENTRY_PROJECT_FRONTEND: ${{ secrets.SENTRY_PROJECT_FRONTEND }}
+        run: |
+          RELEASE="${{ github.sha }}"
+          npx @sentry/cli releases new "$RELEASE" --project "$SENTRY_PROJECT_FRONTEND"
+          npx @sentry/cli releases set-commits "$RELEASE" --auto --project "$SENTRY_PROJECT_FRONTEND"
+          npx @sentry/cli releases finalize "$RELEASE" --project "$SENTRY_PROJECT_FRONTEND"
+      - name: Sentry Deployment — mark production deploy
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+          SENTRY_PROJECT_FRONTEND: ${{ secrets.SENTRY_PROJECT_FRONTEND }}
+          SENTRY_ENV: ${{ secrets.SENTRY_ENV || 'production' }}
+        run: |
+          if [ -n "$SENTRY_AUTH_TOKEN" ] && [ -n "$SENTRY_PROJECT_FRONTEND" ]; then
+            npx @sentry/cli deploys new \
+              --release "${{ github.sha }}" \
+              --env "$SENTRY_ENV" \
+              --project "$SENTRY_PROJECT_FRONTEND"
+          fi
+      - name: PR Comment — test summary
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const sha = context.sha.slice(0, 7)
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: `✅ Dashboard CI passed — \`${sha}\`\n- Unit + contract tests ✓\n- Build ✓\n- Source maps uploaded`
+            })

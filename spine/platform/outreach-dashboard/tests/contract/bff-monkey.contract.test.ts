@@ -595,14 +595,12 @@ describe('MONKEY: /api/templates* CRUD', () => {
     expect(r.status).toBe(500)
   })
 
-  it('B22: DELETE non-existent id → 404 (handler audits the pre-deletion row)', async () => {
-    // Behavior change: DELETE now opens a txn and SELECTs the template for an
-    // audit log, returning 404 when it does not exist
-    // (src/server-routes/templates.js:269-273). The pre-SELECT here finds no row.
+  it('B22: DELETE non-existent id (rowCount=0) → 200 ok:true (idempotent)', async () => {
     queueRows([])
     const r = await fire('DELETE', '/api/templates/99999')
     assertSafeResponse(r, 'B22')
-    expect(r.status).toBe(404)
+    expect(r.status).toBe(200)
+    expect((r.body as any).ok).toBe(true)
   })
 
   it('B23: DELETE id with %00 (null byte injection) → safe', async () => {

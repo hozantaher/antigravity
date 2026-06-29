@@ -185,11 +185,10 @@ describe('GET /api/contacts/:id', () => {
   })
 
   it('200 returns contact + send_history[]', async () => {
-    queueRows([{ id: 7, email: 'a@x', first_name: 'Jan', status: 'active' }])  // detail SELECT
-    queueRows([])  // campaigns sub-SELECT (detail enrichment, contacts.js:149)
+    queueRows([{ id: 7, email: 'a@x', first_name: 'Jan', status: 'active' }])
     queueRows([
       { sent_at: '2026-04-20', status: 'sent', subject: 'S1', smtp_response: '250 OK' },
-    ])  // send_history SELECT
+    ])
     const res = await req('GET', '/api/contacts/7')
     expect(res.status).toBe(200)
     expect(res.body).toMatchObject({ id: 7, email: 'a@x' })
@@ -197,14 +196,10 @@ describe('GET /api/contacts/:id', () => {
   })
 
   it('send_history limited to 20 rows', async () => {
-    queueRows([{ id: 7, email: 'a@x' }])  // detail SELECT
-    queueRows([])  // campaigns sub-SELECT (detail enrichment, contacts.js:149)
-    queueRows([])  // send_history SELECT
+    queueRows([{ id: 7, email: 'a@x' }])
+    queueRows([])
     await req('GET', '/api/contacts/7')
-    // calls[1] is now the campaigns enrichment query; match the send_history
-    // query by its unique LEFT JOIN instead of a drifted positional index.
-    const histCall = calls.find(c => /LEFT JOIN outreach_mailboxes/.test(c.sql))
-    expect(histCall?.sql).toMatch(/LIMIT 20/)
+    expect(calls[1].sql).toMatch(/LIMIT 20/)
   })
 
   it('500 on pg throw', async () => {
@@ -220,21 +215,18 @@ describe('GET /api/contacts/:id', () => {
 
 describe('PATCH /api/contacts/:id', () => {
   it('400 when body has nothing to update', async () => {
-    queueRows([{ id: 7, email: 'a@x', status: 'active' }])  // pre-SELECT existence (audit txn, contacts.js:194)
     const res = await req('PATCH', '/api/contacts/7', {})
     expect(res.status).toBe(400)
     expect(res.body).toEqual({ error: 'nothing to update' })
   })
 
   it('400 when only unknown fields', async () => {
-    queueRows([{ id: 7, email: 'a@x', status: 'active' }])  // pre-SELECT existence (audit txn, contacts.js:194)
     const res = await req('PATCH', '/api/contacts/7', { unknown_field: 'x' })
     expect(res.status).toBe(400)
   })
 
   it('200 + updated row on status change', async () => {
-    queueRows([{ id: 7, email: 'a@x', status: 'active' }])        // pre-SELECT existence (audit txn)
-    queueRows([{ id: 7, email: 'a@x', status: 'unsubscribed' }])  // UPDATE ... RETURNING
+    queueRows([{ id: 7, email: 'a@x', status: 'unsubscribed' }])
     const res = await req('PATCH', '/api/contacts/7', { status: 'unsubscribed' })
     expect(res.status).toBe(200)
     expect(res.body).toMatchObject({ id: 7, status: 'unsubscribed' })
@@ -243,13 +235,10 @@ describe('PATCH /api/contacts/:id', () => {
   const allowed = ['status', 'first_name', 'last_name', 'company_name']
   for (const field of allowed) {
     it(`accepts ${field} alone`, async () => {
-      queueRows([{ id: 7, status: 'active' }])  // pre-SELECT existence (audit txn)
-      queueRows([{ id: 7 }])                     // UPDATE ... RETURNING
+      queueRows([{ id: 7 }])
       const res = await req('PATCH', '/api/contacts/7', { [field]: 'test' })
       expect(res.status).toBe(200)
-      // calls[0] is now the pre-SELECT; assert the field on the UPDATE itself.
-      const updateCall = calls.find(c => /UPDATE contacts SET/.test(c.sql))
-      expect(updateCall?.sql).toMatch(new RegExp(field))
+      expect(calls[0].sql).toMatch(new RegExp(field))
     })
   }
 

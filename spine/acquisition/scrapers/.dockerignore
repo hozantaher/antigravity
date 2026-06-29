@@ -1,0 +1,15 @@
+node_modules/
+data/
+output/
+coverage/
+.env
+.idea/
+.git/
+.github/
+.claude/
+*.db
+*.db-shm
+*.db-wal
+.sitemap-cache/
+*.md
+!pnpm-workspace.yaml

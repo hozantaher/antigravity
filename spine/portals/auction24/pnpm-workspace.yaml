@@ -1,0 +1,9 @@
+# Standalone root — prevents this project from being absorbed into the
+# parent /home/dkrul/Projects pnpm workspace.
+packages: []
+
+onlyBuiltDependencies:
+  - '@parcel/watcher'
+  - esbuild
+  - vue-demi
+  - unrs-resolver

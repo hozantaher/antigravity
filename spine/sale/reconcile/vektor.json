@@ -1,0 +1,34 @@
+{
+  "identita": "Reconcile — každá platba má protějšek, 0 refund-candidate.",
+  "smysl": "Žádné peníze neleží bez párového záznamu; účet sedí.",
+  "smer": "0 refund-candidate (každá platba má protějšek).",
+  "duvod": "Peníze bez protějšku = chyba, refund-riziko a ztráta důvěry; účet musí sedět.",
+  "myslenka": "Každá koruna má svůj protějšek.",
+  "pillar": "serious-community",
+  "role": "supporting",
+  "promise": "Žádná platba neleží bez protějšku.",
+  "loreLine": "0 refund-candidate — každá platba spárovaná, účet sedí.",
+  "proofSignal": [
+    {
+      "nazev": "refund-candidate count = 0",
+      "zdroj": "server-log/stripe",
+      "stav": "live"
+    }
+  ],
+  "antiFeature": "Platba bez párového záznamu — skryté refund-riziko.",
+  "hotovo": {
+    "kdyzPlati": [
+      {
+        "kriterium": "0 refund-candidate (každá platba má protějšek)",
+        "check": "test:depositReconcile",
+        "stav": "met",
+        "proof": {
+          "cmd": "pnpm exec vitest run --project server tests/server/deposit.test.ts"
+        }
+      }
+    ],
+    "vektorGate": "all-met"
+  },
+  "id": "reconcile",
+  "story_axis": "sale"
+}

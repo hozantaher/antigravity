@@ -191,3 +191,20 @@
   .kd-step__btns { grid-column: 2; justify-content: flex-end; }
   .kd-readrow { grid-template-columns: 84px 1fr; }
 }
+
+/* ── Priority / machinery-fit tier panel (2026-06-26) ──────────────────── */
+.kd-tiers { display: flex; flex-direction: column; gap: 7px; margin-bottom: var(--app-space-3); }
+.kd-tier {
+  display: grid; grid-template-columns: 10px minmax(0, 1fr) 90px auto;
+  align-items: center; gap: var(--app-space-2); font-size: var(--app-text-sm);
+}
+.kd-tier__dot { width: 9px; height: 9px; border-radius: 50%; background: var(--app-text-muted); flex-shrink: 0; }
+.kd-tier__label { color: var(--app-text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.kd-tier__bar { height: 7px; border-radius: 99px; background: var(--app-surface-sunk); overflow: hidden; }
+.kd-tier__fill { display: block; height: 100%; border-radius: 99px; background: var(--app-border-strong); }
+.kd-tier__n { font-variant-numeric: tabular-nums; font-weight: 600; color: var(--app-text); text-align: right; min-width: 44px; }
+.kd-tier--a .kd-tier__dot, .kd-tier--a .kd-tier__fill { background: var(--app-positive); }
+.kd-tier--b .kd-tier__dot, .kd-tier--b .kd-tier__fill { background: var(--app-accent); }
+.kd-tier--c .kd-tier__dot, .kd-tier--c .kd-tier__fill { background: var(--app-text-muted); }
+.kd-tier--d .kd-tier__dot, .kd-tier--d .kd-tier__fill { background: var(--app-warning); }
+.kd-tier--e .kd-tier__dot, .kd-tier--e .kd-tier__fill { background: var(--app-negative); }

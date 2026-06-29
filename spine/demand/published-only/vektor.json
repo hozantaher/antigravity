@@ -1,0 +1,34 @@
+{
+  "identita": "Jen publikované — veřejně se ukazují pouze schválené Q&A.",
+  "smysl": "Na detailu inzerátu je vidět jen to, co prošlo publikací.",
+  "smer": "Veřejně se ukazují výhradně publikované Q&A (draft/pending neviditelné).",
+  "duvod": "Nepublikovaný obsah na světle = chaos a riziko; veřejné musí být řízené.",
+  "myslenka": "Veřejné neznamená syrové.",
+  "pillar": "transparency",
+  "role": "supporting",
+  "promise": "Veřejně je jen to, co prošlo publikací.",
+  "loreLine": "Jen publikované Q&A na světle — draft zůstává v zákulisí.",
+  "proofSignal": [
+    {
+      "nazev": "published-only visibility",
+      "zdroj": "repo-question",
+      "stav": "pending"
+    }
+  ],
+  "antiFeature": "Nepublikovaný/draft obsah viditelný veřejně — únik nehotového.",
+  "hotovo": {
+    "kdyzPlati": [
+      {
+        "kriterium": "Veřejně se ukazují výhradně publikované Q&A",
+        "check": "test:question-published-only",
+        "stav": "met",
+        "proof": {
+          "cmd": "pnpm exec vitest run --project unit tests/unit/question.test.ts"
+        }
+      }
+    ],
+    "vektorGate": "all-met"
+  },
+  "id": "published-only",
+  "story_axis": "demand"
+}

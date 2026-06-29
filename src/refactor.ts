@@ -20,13 +20,19 @@ export class TransactionalRefactorEngine {
     // 1. Locate the node
     const jsonFiles = await glob('**/vektor.json', {
       cwd: this.rootDir,
-      ignore: 'node_modules/**',
+      ignore: '**/node_modules/**',
     });
     for (const file of jsonFiles) {
       const fullPath = path.join(this.rootDir, file);
       try {
         const manifest = JSON.parse(fs.readFileSync(fullPath, 'utf8')) as VektorManifest;
-        if (manifest.id === oldId) {
+        let inferredId = manifest.id;
+        if (!inferredId) {
+            const parts = file.split('/');
+            inferredId = parts[parts.length - 2];
+        }
+
+        if (inferredId === oldId) {
           nodePath = path.dirname(fullPath);
           manifestData = manifest;
           manifestFullPath = fullPath;
@@ -50,7 +56,7 @@ export class TransactionalRefactorEngine {
     // 2. Patch reverse links in code
     const tsFiles = await glob('**/*.{ts,vue,js}', {
       cwd: this.rootDir,
-      ignore: 'node_modules/**',
+      ignore: '**/node_modules/**',
     });
     for (const file of tsFiles) {
       const fullPath = path.join(this.rootDir, file);

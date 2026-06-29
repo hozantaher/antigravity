@@ -131,8 +131,7 @@ describe('TC-04: skip is not a failure', () => {
 // ══════════════════════════════════════════════════════════════════════════════
 // TC-05  BFF unavailable → skip, not fail
 // ══════════════════════════════════════════════════════════════════════════════
-// QUARANTINED: env-coupled (needs a live BFF on localhost, not available in the unit CI step) — see docs/handoff/ci-remediation-residual.md
-describe.skip('TC-05: BFF offline → skip', () => {
+describe('TC-05: BFF offline → skip', () => {
   it('checkLaunchReadiness returns skip when connection refused', async () => {
     // port 1 is nearly always closed
     const result = await checkLaunchReadiness(457, 1, 'test-key');

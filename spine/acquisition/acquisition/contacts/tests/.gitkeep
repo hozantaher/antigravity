@@ -1,0 +1,3 @@
+# TEMPLATE: tento adresář drží integration + E2E testy domény.
+# TEMPLATE: unit testy patří vedle zdrojáků (Go: _test.go, TS: .test.ts).
+# TEMPLATE: coverage cíl 80% — viz docs/playbooks/DISCIPLINE.md (až bude existovat).

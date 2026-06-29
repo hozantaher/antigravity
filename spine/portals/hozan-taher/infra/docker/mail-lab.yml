@@ -1,0 +1,373 @@
+# Mail Lab — virtuální mail providery pro dev + test (ML1 foundation).
+#
+# Initiative: docs/initiatives/2026-04-29-mail-lab.md
+#
+# This file ONLY brings up seznam.lab (ML1). Multi-provider expansion
+# (gmail.lab, outlook.lab) lands in ML2. DNS resolver in ML1.2,
+# Roundcube in ML1.3, mail-lab-api in ML1.5.
+#
+# Usage:
+#   bash scripts/mail-lab/up.sh         # bootstrap + seed
+#   bash scripts/mail-lab/down.sh       # graceful shutdown (volumes preserved)
+#   bash scripts/mail-lab/down.sh --clean  # wipe volumes
+#
+# Hermeticity:
+#   The `mail-lab` network is `internal: true` — containers cannot reach
+#   external IPs. Only the host can reach them via the explicitly-mapped
+#   ports below (ports omitted in CI; expose only on dev workstations).
+#
+# Port map (host → container; dev profile only — CI uses internal-only):
+#   25025 → 25  (SMTP plain — for tests)
+#   25465 → 465 (SMTPS submission)
+#   25587 → 587 (STARTTLS submission)
+#   25993 → 993 (IMAPS)
+
+x-mailserver-image: &mailserver-image
+  image: mailserver/docker-mailserver:13.3.1
+
+services:
+  mail-lab-seznam:
+    <<: *mailserver-image
+    container_name: mail-lab-seznam
+    hostname: mx.seznam.lab
+    domainname: seznam.lab
+    dns:
+      - 10.20.0.2
+    networks:
+      mail-lab:
+        ipv4_address: 10.20.0.10
+        aliases:
+          - mx.seznam.lab
+          - imap.seznam.lab
+          - seznam.lab
+    ports:
+      - "25025:25"
+      - "25587:587"
+      - "25143:143"
+    volumes:
+      - mail-lab-seznam-data:/var/mail
+      - mail-lab-seznam-state:/var/mail-state
+      - mail-lab-seznam-logs:/var/log/mail
+      - mail-lab-seznam-config:/tmp/docker-mailserver
+    # Pre-seed of postmaster account is performed by scripts/mail-lab/up.sh
+    # *before* compose up: it copies infra/mail-lab/seznam/postfix-accounts.cf
+    # into the named volume so the file lands in the volume as r/w. Using
+    # compose `configs:` here breaks `setup email add` (the file gets
+    # bind-mounted RO and docker-mailserver cannot append new accounts).
+    environment:
+      # Postfix
+      OVERRIDE_HOSTNAME: mx.seznam.lab
+      POSTMASTER_ADDRESS: postmaster@seznam.lab
+      ENABLE_SPAMASSASSIN: 0       # Rspamd handles spam — see ML2.4
+      ENABLE_CLAMAV: 0             # AV not needed for test stack (Mail Lab non-goal)
+      ENABLE_FAIL2BAN: 0           # No external IPs to ban
+      ENABLE_POSTGREY: 0           # ML3.3 toggles this per-profile
+      ENABLE_OPENDKIM: 1
+      ENABLE_OPENDMARC: 1
+      ENABLE_POLICYD_SPF: 1
+      # SSL — disabled for ML1 (lab is sealed in internal network; clear-text
+      # is acceptable). ML2 may add self-signed certs once we have a per-
+      # provider cert generation step (the SSL_TYPE=self-signed mode in
+      # docker-mailserver requires pre-existing /tmp/docker-mailserver/ssl/
+      # files, which we'd have to provision via init container).
+      SSL_TYPE: ""
+      PERMIT_DOCKER: connected-networks
+      ONE_DIR: 1
+      # Quotas — ML2 will set per-profile via dovecot config; for ML1 a
+      # generous default keeps Seznam single-provider tests unblocked.
+      ENABLE_QUOTAS: 1
+      # Message size — Seznam profile is 30 MB. ML2 will set this per-profile;
+      # for ML1 single-provider we hard-code Seznam's value here so the
+      # `SIZE` ESMTP advertisement matches the documented profile.
+      POSTFIX_MESSAGE_SIZE_LIMIT: "31457280"
+      POSTFIX_MAILBOX_SIZE_LIMIT: "0"
+      # Logging
+      LOG_LEVEL: info
+      # Account/relay
+      ACCOUNT_PROVISIONER: FILE
+      # Disable update-check phone-home (would also fail under internal network)
+      UPDATE_CHECK_INTERVAL: 0d
+    cap_add:
+      - NET_ADMIN
+      - SYS_PTRACE
+    restart: unless-stopped
+    healthcheck:
+      test: "ss --listening --tcp | grep -P 'LISTEN.+:smtp' || exit 1"
+      timeout: 3s
+      retries: 30
+      start_period: 30s
+
+  # ── gmail.lab provider (ML2.1) ───────────────────────────────────────
+  # Mirror of seznam.lab with profile differences:
+  #   * SIZE 25 MB (Gmail's published per-message limit)
+  #   * IP 10.20.0.11
+  #   * Host ports 26025/26587/26143
+  # Acceptance rules (rate, quota, spam threshold) live in mail-lab-api
+  # profile config — Postfix/Dovecot here is the same software as seznam.
+  mail-lab-gmail:
+    <<: *mailserver-image
+    container_name: mail-lab-gmail
+    hostname: mx.gmail.lab
+    domainname: gmail.lab
+    dns:
+      - 10.20.0.2
+    networks:
+      mail-lab:
+        ipv4_address: 10.20.0.11
+        aliases:
+          - mx.gmail.lab
+          - imap.gmail.lab
+          - gmail.lab
+    ports:
+      - "26025:25"
+      - "26587:587"
+      - "26143:143"
+    volumes:
+      - mail-lab-gmail-data:/var/mail
+      - mail-lab-gmail-state:/var/mail-state
+      - mail-lab-gmail-logs:/var/log/mail
+      - mail-lab-gmail-config:/tmp/docker-mailserver
+    environment:
+      OVERRIDE_HOSTNAME: mx.gmail.lab
+      POSTMASTER_ADDRESS: postmaster@gmail.lab
+      ENABLE_SPAMASSASSIN: 0
+      ENABLE_CLAMAV: 0
+      ENABLE_FAIL2BAN: 0
+      ENABLE_POSTGREY: 0
+      ENABLE_OPENDKIM: 1
+      ENABLE_OPENDMARC: 1
+      ENABLE_POLICYD_SPF: 1
+      SSL_TYPE: ""
+      PERMIT_DOCKER: connected-networks
+      ONE_DIR: 1
+      ENABLE_QUOTAS: 1
+      POSTFIX_MESSAGE_SIZE_LIMIT: "26214400"   # 25 MB — Gmail profile
+      POSTFIX_MAILBOX_SIZE_LIMIT: "0"
+      LOG_LEVEL: info
+      ACCOUNT_PROVISIONER: FILE
+      UPDATE_CHECK_INTERVAL: 0d
+    cap_add:
+      - NET_ADMIN
+      - SYS_PTRACE
+    restart: unless-stopped
+    healthcheck:
+      test: "ss --listening --tcp | grep -P 'LISTEN.+:smtp' || exit 1"
+      timeout: 3s
+      retries: 30
+      start_period: 30s
+
+  # ── outlook.lab provider (ML2.1) ─────────────────────────────────────
+  # Profile differences vs seznam.lab:
+  #   * SIZE 35 MB (Outlook's documented limit for personal accounts)
+  #   * IP 10.20.0.12
+  #   * Host ports 27025/27587/27143
+  mail-lab-outlook:
+    <<: *mailserver-image
+    container_name: mail-lab-outlook
+    hostname: mx.outlook.lab
+    domainname: outlook.lab
+    dns:
+      - 10.20.0.2
+    networks:
+      mail-lab:
+        ipv4_address: 10.20.0.12
+        aliases:
+          - mx.outlook.lab
+          - imap.outlook.lab
+          - outlook.lab
+    ports:
+      - "27025:25"
+      - "27587:587"
+      - "27143:143"
+    volumes:
+      - mail-lab-outlook-data:/var/mail
+      - mail-lab-outlook-state:/var/mail-state
+      - mail-lab-outlook-logs:/var/log/mail
+      - mail-lab-outlook-config:/tmp/docker-mailserver
+    environment:
+      OVERRIDE_HOSTNAME: mx.outlook.lab
+      POSTMASTER_ADDRESS: postmaster@outlook.lab
+      ENABLE_SPAMASSASSIN: 0
+      ENABLE_CLAMAV: 0
+      ENABLE_FAIL2BAN: 0
+      ENABLE_POSTGREY: 0
+      ENABLE_OPENDKIM: 1
+      ENABLE_OPENDMARC: 1
+      ENABLE_POLICYD_SPF: 1
+      SSL_TYPE: ""
+      PERMIT_DOCKER: connected-networks
+      ONE_DIR: 1
+      ENABLE_QUOTAS: 1
+      POSTFIX_MESSAGE_SIZE_LIMIT: "36700160"   # 35 MB — Outlook profile
+      POSTFIX_MAILBOX_SIZE_LIMIT: "0"
+      LOG_LEVEL: info
+      ACCOUNT_PROVISIONER: FILE
+      UPDATE_CHECK_INTERVAL: 0d
+    cap_add:
+      - NET_ADMIN
+      - SYS_PTRACE
+    restart: unless-stopped
+    healthcheck:
+      test: "ss --listening --tcp | grep -P 'LISTEN.+:smtp' || exit 1"
+      timeout: 3s
+      retries: 30
+      start_period: 30s
+
+  # ── DNS resolver (ML1.2) ─────────────────────────────────────────────
+  # unbound serves the *.lab zones to anything in the mail-lab network.
+  # Forwarding to upstream is disabled by config — non-lab queries SERVFAIL.
+  # That is intentional: Mail Lab is sealed and the resolver is the
+  # last-line guard against accidentally reaching real Seznam/Gmail.
+  mail-lab-dns:
+    image: mvance/unbound:1.20.0
+    container_name: mail-lab-dns
+    hostname: mail-lab-dns
+    networks:
+      mail-lab:
+        ipv4_address: 10.20.0.2
+    volumes:
+      - ../mail-lab/dns/unbound.conf:/opt/unbound/etc/unbound/unbound.conf:ro
+    restart: unless-stopped
+    healthcheck:
+      # unbound-control requires a separate setup-ctl ceremony; not worth
+      # the complexity here. Verify the daemon actually answers a query
+      # for one of our local zones — that proves both "process up" and
+      # "config loaded" in one shot.
+      test: ["CMD-SHELL", "drill @127.0.0.1 mx.seznam.lab A | grep -q '10.20.0.10' || exit 1"]
+      timeout: 3s
+      retries: 5
+      start_period: 5s
+
+  # ── Roundcube webmail (ML1.3) ────────────────────────────────────────
+  # Operator-facing webmail UI, indistinguishable from Seznam Email web
+  # for daily ops. Talks IMAP/SMTP to mail-lab-seznam over the lab
+  # network. SQLite session store, persistent volume.
+  # ── mail-lab-api REST service (ML1.5) ───────────────────────────────────
+  # Go admin REST API for programmatic mailbox management.
+  # Consumers: seed.sh, test harness (#211), dev operator.
+  #
+  # Auth: X-Lab-Api-Key header. LAB_API_KEY defaults to "dev-only" for local
+  # dev; override via docker compose --env-file or environment variable.
+  #
+  # The container must reach docker socket so it can exec into mail-lab-seznam.
+  # Bind-mount /var/run/docker.sock (host) read/write. This is intentional
+  # for a TEST-ONLY local stack — never run in production.
+  #
+  # Port: 8090 (host) → 8090 (container). The service is NOT on the mail-lab
+  # internal network so it is reachable from the host and test harness.
+  mail-lab-api:
+    image: mail-lab-api:latest
+    container_name: mail-lab-api
+    build:
+      # Build context is the repo root so the Dockerfile can COPY
+      # services/common (required by the replace directive in go.mod).
+      context: ../..
+      dockerfile: services/mail-lab-api/Dockerfile
+    ports:
+      - "8090:8090"
+    environment:
+      PORT: "8090"
+      LAB_API_KEY: "${LAB_API_KEY:-dev-only}"
+      PROFILES_DIR: /profiles
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ../../services/mail-lab-api/profiles:/profiles:ro
+    depends_on:
+      mail-lab-seznam:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:8090/healthz | grep -q '\"ok\"' || exit 1"]
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+
+  mail-lab-roundcube:
+    image: roundcube/roundcubemail:1.6.7-apache
+    container_name: mail-lab-roundcube
+    hostname: webmail.seznam.lab
+    # Use the lab DNS resolver — `dns: 10.20.0.2` overrides Docker's
+    # default (host's resolver), so any DNS lookup from inside Roundcube
+    # goes through mail-lab-dns. Since mail-lab-dns has no upstream and
+    # SERVFAILs non-lab domains, accidental real-world resolution fails.
+    # This is the operative hermeticity guarantee — see README + ML1.2.
+    dns:
+      - 10.20.0.2
+    networks:
+      mail-lab:
+        ipv4_address: 10.20.0.20
+        aliases:
+          - webmail.seznam.lab
+    ports:
+      - "28080:80"
+    environment:
+      ROUNDCUBEMAIL_DEFAULT_HOST: mx.seznam.lab
+      ROUNDCUBEMAIL_DEFAULT_PORT: "143"
+      ROUNDCUBEMAIL_SMTP_SERVER: mx.seznam.lab
+      ROUNDCUBEMAIL_SMTP_PORT: "587"
+      ROUNDCUBEMAIL_PLUGINS: "archive,zipdownload"
+      ROUNDCUBEMAIL_SKIN: "elastic"
+      ROUNDCUBEMAIL_DB_TYPE: sqlite
+      ROUNDCUBEMAIL_DB_DIR: /var/roundcube/db
+    volumes:
+      - mail-lab-roundcube-data:/var/roundcube/db
+    depends_on:
+      mail-lab-seznam:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      # roundcubemail:apache image ships with curl (not wget). The login
+      # page must include 'Roundcube' branding for healthy.
+      test: ["CMD-SHELL", "curl -sS http://localhost/ | grep -q 'Roundcube' || exit 1"]
+      timeout: 5s
+      retries: 10
+      start_period: 15s
+
+networks:
+  mail-lab:
+    name: mail-lab
+    driver: bridge
+    # NOTE: internal: true blocks docker port-publish (operator can't reach
+    # Roundcube on host:28080), so we rely on the *DNS resolver* (ML1.2)
+    # for hermeticity instead — non-lab queries return SERVFAIL, which
+    # makes accidental DNS-based egress (e.g. resolving real seznam.cz)
+    # fail just as effectively. IP-level egress is still possible if
+    # someone hard-codes a public IP, but that is a much harder accident.
+    # Operator discipline: don't expose Mail Lab on any non-localhost
+    # interface, and don't connect it to real infrastructure.
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.20.0.0/24
+
+volumes:
+  mail-lab-seznam-data:
+    name: mail-lab-seznam-data
+  mail-lab-seznam-state:
+    name: mail-lab-seznam-state
+  mail-lab-seznam-logs:
+    name: mail-lab-seznam-logs
+  mail-lab-seznam-config:
+    name: mail-lab-seznam-config
+  mail-lab-roundcube-data:
+    name: mail-lab-roundcube-data
+
+  # gmail.lab provider (ML2.1)
+  mail-lab-gmail-data:
+    name: mail-lab-gmail-data
+  mail-lab-gmail-state:
+    name: mail-lab-gmail-state
+  mail-lab-gmail-logs:
+    name: mail-lab-gmail-logs
+  mail-lab-gmail-config:
+    name: mail-lab-gmail-config
+
+  # outlook.lab provider (ML2.1)
+  mail-lab-outlook-data:
+    name: mail-lab-outlook-data
+  mail-lab-outlook-state:
+    name: mail-lab-outlook-state
+  mail-lab-outlook-logs:
+    name: mail-lab-outlook-logs
+  mail-lab-outlook-config:
+    name: mail-lab-outlook-config

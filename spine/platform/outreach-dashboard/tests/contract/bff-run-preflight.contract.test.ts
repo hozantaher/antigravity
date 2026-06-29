@@ -117,20 +117,12 @@ function pushAll(...outcomes: QueryOutcome[]) { queryQueue.push(...outcomes) }
 function readyCampaignSetup() {
   // Pre-flight runs in this order: mailboxes → campaign lookup → template → segments
   // After preflight passes, /run handler: BEGIN (transparent) → SELECT → Go proxy
-  //
-  // T2 disk-scan is broken in this worktree layout: runPreflight.js:69 resolves
-  // repoRoot to <wt>/features (4× '..'), but the .tmpl files live at
-  // <wt>/modules/outreach/configs/templates (needs 5× '..'), so listTmplNames()
-  // returns ∅ and ANY sequence_config template name → T2_missing_tmpl_file 412.
-  // This test's purpose is the Go-proxy happy path, NOT disk-tmpl matching, so we
-  // exercise the equally-valid template-ready state: an EMPTY sequence_config so
-  // the template check takes the DB-fallback branch (SELECT 1 FROM email_templates),
-  // which we feed a ready row. (Disk-tmpl matching is covered by test 16, which is
-  // the canary for the runPreflight.js:69 path bug — see report.)
+  // Sprint AH: only 'intro_machinery.tmpl' exists on disk in test env; using
+  // 'initial' triggers T2_missing_tmpl_file → 412. Use 'intro_machinery'.
   pushAll(
     { rows: [{ id: 1, email: 'a@x.cz', password: 'StrongP@ss99', status: 'active' }] },
-    { rows: [{ id: 1, name: 'C1', status: 'paused', category_paths: ['machinery'], sequence_config: [] }] },
-    { rows: [{ ok: 1 }] },   // T1 DB-fallback: a ready template exists
+    { rows: [{ id: 1, name: 'C1', status: 'paused', category_paths: ['machinery'], sequence_config: [{ step: 0, template: 'intro_machinery' }] }] },
+    // template path takes the sequence-config branch (no DB query)
     { rows: [{ n: 100 }] },  // eligible-contacts COUNT
     // /run handler: BEGIN (transparent) → SELECT id,status → Go proxy
     { rows: [{ id: 1, status: 'paused' }] },  // SELECT campBefore in /run handler
@@ -292,16 +284,13 @@ describe('POST /api/campaigns/:id/run — pre-flight gate', () => {
   })
 
   it('14: M2 ok when at least one mailbox is active', async () => {
-    // This test's focus is M2 (active mailbox), not disk-tmpl matching — use the
-    // DB-fallback template branch (empty sequence_config) so the broken T2 disk
-    // scan (runPreflight.js:69, see report) doesn't mask the M2 assertion.
+    // Sprint AH: use 'intro_machinery' (only .tmpl on disk in test env).
     pushAll(
       { rows: [
         { id: 1, email: 'a@x.cz', password: 'StrongP@ss99', status: 'paused' },
         { id: 2, email: 'b@x.cz', password: 'AnotherP@ss88', status: 'active' },
       ]},
-      { rows: [{ id: 1, name: 'C1', status: 'paused', category_paths: ['machinery'], sequence_config: [] }] },
-      { rows: [{ ok: 1 }] },   // T1 DB-fallback: a ready template exists
+      { rows: [{ id: 1, name: 'C1', status: 'paused', category_paths: ['machinery'], sequence_config: [{ template: 'intro_machinery' }] }] },
       { rows: [{ n: 100 }] },
       // /run handler: BEGIN (transparent) → SELECT campBefore → Go proxy
       { rows: [{ id: 1, status: 'paused' }] },
@@ -342,13 +331,9 @@ describe('POST /api/campaigns/:id/run — pre-flight gate', () => {
     // Mirrors prod campaign 455 ("Soft launch 001"): category_paths=[]
     // but 20 rows already in campaign_contacts. Operator should be able
     // to launch without re-editing the wizard step 3.
-    // Focus is the S1 pre-enqueue bypass, not disk-tmpl matching — use the
-    // DB-fallback template branch (empty sequence_config) so the broken T2 disk
-    // scan (runPreflight.js:69, see report) doesn't mask the S1 assertion.
     pushAll(
       { rows: [{ id: 1, email: 'a@x.cz', password: 'StrongP@ss99', status: 'active' }] },
-      { rows: [{ id: 1, name: 'C1', status: 'paused', category_paths: [], sequence_config: [] }] },
-      { rows: [{ ok: 1 }] },  // T1 DB-fallback: a ready template exists
+      { rows: [{ id: 1, name: 'C1', status: 'paused', category_paths: [], sequence_config: [{ template: 'intro_machinery' }] }] },
       { rows: [{ n: 20 }] },  // pre-enqueued contacts
       // /run handler: BEGIN (transparent) → SELECT campBefore → Go proxy
       { rows: [{ id: 1, status: 'paused' }] },

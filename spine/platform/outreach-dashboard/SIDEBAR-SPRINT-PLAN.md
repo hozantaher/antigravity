@@ -9,13 +9,13 @@ Baseline: 3 sections (Pracovní prostor / Přehledy / Konfigurace), HR dividers,
 **Goal:** Collapsible sections and keyboard shortcut hints.
 
 **Tasks:**
-- [x] Collapsible `Přehledy` and `Konfigurace`: chevron toggle, open by default, persist state to `localStorage` — `Layout.jsx`
-- [x] Kbd hints on `WORKSPACE_NAV` item hover: `⌘1–⌘4`, `opacity 0→1`, `IS_MAC` aware (shows `Ctrl` on non-Mac) — `Layout.jsx`, `index.css`
+- Collapsible `Přehledy` and `Konfigurace`: chevron toggle, open by default, persist state to `localStorage` — `Layout.jsx`
+- Kbd hints on `WORKSPACE_NAV` item hover: `⌘1–⌘4`, `opacity 0→1`, `IS_MAC` aware (shows `Ctrl` on non-Mac) — `Layout.jsx`, `index.css`
 
 **Acceptance criteria:**
-- [x] Sections collapse/expand with chevron; state survives page reload
-- [x] Shortcut badges fade in on nav item hover, correct modifier per platform
-- [x] No layout shift when toggling sections
+- Sections collapse/expand with chevron; state survives page reload
+- Shortcut badges fade in on nav item hover, correct modifier per platform
+- No layout shift when toggling sections
 
 ---
 
@@ -24,11 +24,11 @@ Baseline: 3 sections (Pracovní prostor / Přehledy / Konfigurace), HR dividers,
 **Goal:** Polish active states, CTA, logo, section labels, and nav hover.
 
 **Tasks:**
-- [x] Active nav item: add subtle `accent-soft` background gradient behind existing left-border accent — `index.css`
-- [x] CTA "Nová kampaň": gradient shimmer sweep on hover + stronger `box-shadow` — `index.css`
-- [x] Logo: replace `InboxIcon` with CSS-only `HT` monogram (rounded square, accent bg, white text) — `Layout.jsx`, `index.css`
-- [x] Section labels: `text-transform: uppercase`, increased `letter-spacing`, slightly larger `font-size` — `index.css`
-- [x] Nav item hover: slide-in background from left via `clip-path` animation — `index.css`
+- Active nav item: add subtle `accent-soft` background gradient behind existing left-border accent — `index.css`
+- CTA "Nová kampaň": gradient shimmer sweep on hover + stronger `box-shadow` — `index.css`
+- Logo: replace `InboxIcon` with CSS-only `HT` monogram (rounded square, accent bg, white text) — `Layout.jsx`, `index.css`
+- Section labels: `text-transform: uppercase`, increased `letter-spacing`, slightly larger `font-size` — `index.css`
+- Nav item hover: slide-in background from left via `clip-path` animation — `index.css`
 
 **Acceptance criteria:**
 - Active item visually distinct (border + gradient) at all breakpoints

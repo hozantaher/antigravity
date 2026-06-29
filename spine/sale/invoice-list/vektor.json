@@ -1,0 +1,34 @@
+{
+  "identita": "Výpis — tvé faktury na jednom místě.",
+  "smysl": "Uživatel vidí své faktury (kauce i prodej) se stavem a odkazem na doklad.",
+  "smer": "Stránkovaný výpis /api/invoices, oba typy (deposit|sale), stav placeno + url.",
+  "duvod": "Faktura, kterou uživatel nenajde, je jako by nebyla.",
+  "myslenka": "Doklad, který je vidět.",
+  "pillar": "serious-community",
+  "role": "primary",
+  "promise": "Své faktury najdeš se stavem i odkazem.",
+  "loreLine": "Kauce i nákup — všechny doklady v jednom seznamu.",
+  "proofSignal": [
+    {
+      "nazev": "user sees own invoices",
+      "zdroj": "test/userInvoices",
+      "stav": "live"
+    }
+  ],
+  "antiFeature": "Faktura existuje, ale uživatel ji nikde nevidí.",
+  "hotovo": {
+    "kdyzPlati": [
+      {
+        "kriterium": "Uživatel vidí své faktury (kauce i prodej) se stavem a odkazem",
+        "check": "test:invoice-list",
+        "stav": "met",
+        "proof": {
+          "cmd": "pnpm exec vitest run --project server tests/server/api/userInvoices.test.ts"
+        }
+      }
+    ],
+    "vektorGate": "all-met"
+  },
+  "id": "invoice-list",
+  "story_axis": "sale"
+}

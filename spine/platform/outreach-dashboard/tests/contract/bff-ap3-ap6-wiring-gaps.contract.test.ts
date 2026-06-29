@@ -160,9 +160,8 @@ describe('Fix 1 (AP3): GET /api/mailboxes/:id/smtp-check — smtp_probe rate lim
     // checkAndRecord: BEGIN + COUNT(12, oldestInWindow) → ROLLBACK (refused)
     const oldest = new Date(Date.now() - 100_000).toISOString() // 100s ago, window=3600s
     queueClientRows([]) // BEGIN
-    queueClientRows([{ ok: 1 }], 1) // SELECT 1 ... FOR UPDATE — lock acquired (mailboxOpRateLimit.js:46)
     queueClientRows([{ used: 12, oldest_in_window: oldest }]) // COUNT ≥ 12 → refused
-    queueClientRows([]) // COMMIT (refused path commits, no INSERT)
+    queueClientRows([]) // ROLLBACK
 
     const r = await req('GET', '/api/mailboxes/1/smtp-check')
     expect(r.status).toBe(429)
@@ -175,9 +174,8 @@ describe('Fix 1 (AP3): GET /api/mailboxes/:id/smtp-check — smtp_probe rate lim
   it('T4: 429 body has error=rate_limit, op=smtp_probe, used, max, retryAfterSec', async () => {
     const oldest = new Date(Date.now() - 100_000).toISOString()
     queueClientRows([]) // BEGIN
-    queueClientRows([{ ok: 1 }], 1) // SELECT 1 ... FOR UPDATE — lock acquired (mailboxOpRateLimit.js:46)
     queueClientRows([{ used: 12, oldest_in_window: oldest }]) // COUNT ≥ cap
-    queueClientRows([]) // COMMIT (refused path commits, no INSERT)
+    queueClientRows([]) // ROLLBACK
 
     const r = await req('GET', '/api/mailboxes/1/smtp-check')
     expect(r.status).toBe(429)

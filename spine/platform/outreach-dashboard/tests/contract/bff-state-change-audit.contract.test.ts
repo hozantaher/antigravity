@@ -22,22 +22,8 @@ const queryQueue: QueryOutcome[] = []
 const calls: Array<{ sql: string; params?: unknown[] }> = []
 
 vi.mock('pg', () => {
-  // POST /api/mailboxes takes an advisory lock + a pool-capacity pre-flight
-  // SELECT before the INSERT…RETURNING. Short-circuit those infra queries
-  // WITHOUT consuming queryQueue so the queued INSERT/audit rows stay aligned
-  // (otherwise newMailbox is undefined and the audit INSERT throws → 500).
-  function infraShortCircuit(sql: unknown): { rows: unknown[]; rowCount: number } | null {
-    const s = typeof sql === 'string' ? sql : ''
-    if (/pg_advisory(_xact)?_lock|pg_advisory_unlock/i.test(s)) return { rows: [], rowCount: 0 }
-    if (/pinned_endpoint_label IS NOT NULL/i.test(s) && !process.env.WIREPROXY_POOL_CONFIG) {
-      return { rows: [{ pinned: 0 }], rowCount: 1 }
-    }
-    return null
-  }
   class PoolClient {
     async query(sql: string, params?: unknown[]) {
-      const infra = infraShortCircuit(sql)
-      if (infra) return infra
       calls.push({ sql, params })
       if (!queryQueue.length) return { rows: [] }
       const next = queryQueue.shift()!
@@ -52,8 +38,6 @@ vi.mock('pg', () => {
       return new PoolClient()
     }
     async query(sql: string, params?: unknown[]) {
-      const infra = infraShortCircuit(sql)
-      if (infra) return infra
       calls.push({ sql, params })
       if (!queryQueue.length) return { rows: [] }
       const next = queryQueue.shift()!

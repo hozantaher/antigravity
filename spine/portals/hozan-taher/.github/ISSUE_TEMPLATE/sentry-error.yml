@@ -1,0 +1,50 @@
+name: Sentry error (auto)
+description: Auto-vytvořeno z scripts/sentry-triage.mjs nebo Sentry → GitHub native integration.
+title: "[sentry] "
+labels: ["kind/bug", "from/sentry"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Tento template plní Sentry integration nebo sentry-triage cron.
+  - type: input
+    id: sentry_event_id
+    attributes:
+      label: Sentry event ID
+      placeholder: "abcd1234..."
+    validations:
+      required: true
+  - type: input
+    id: release_tag
+    attributes:
+      label: Affected release
+      placeholder: "campaigns@a05f8d1"
+  - type: input
+    id: count_24h
+    attributes:
+      label: Event count (24h)
+      placeholder: "523"
+    validations:
+      required: true
+  - type: textarea
+    id: stack_trace
+    attributes:
+      label: Stack trace (top 10 frames)
+      render: shell
+    validations:
+      required: true
+  - type: input
+    id: sentry_url
+    attributes:
+      label: Sentry URL
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance
+      value: |
+        - [ ] Sentry event count drops to 0 over next 24h after deploy
+        - [ ] Regression test added pokrývající root cause
+    validations:
+      required: true

@@ -1,0 +1,9 @@
+artifacts/
+data*/
+docs/
+*.md
+privacy-gateway
+.env*
+.gitignore
+railway.toml
+cover.out

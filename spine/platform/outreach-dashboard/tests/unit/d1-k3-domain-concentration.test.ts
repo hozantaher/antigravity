@@ -59,8 +59,7 @@ function analyzeConcentration(distribution: DomainDistribution[]): Concentration
 }
 
 describe('K3: Domain Concentration Warning', () => {
-  // QUARANTINED pending owner decision — see docs/handoff/ci-remediation-residual.md
-  it.skip('happy path: uniform spread (5 domains, 20% each) → no warning', () => {
+  it('happy path: uniform spread (5 domains, 20% each) → no warning', () => {
     const distribution = [
       { domain: 'gmail.com', count: 100 },
       { domain: 'yahoo.com', count: 100 },
@@ -75,8 +74,7 @@ describe('K3: Domain Concentration Warning', () => {
     expect(result.topPercentage).toBe(0.2)
   })
 
-  // QUARANTINED pending owner decision — see docs/handoff/ci-remediation-residual.md
-  it.skip('boundary: top domain = 0.05 (5.0%) → no warning (threshold exclusive)', () => {
+  it('boundary: top domain = 0.05 (5.0%) → no warning (threshold exclusive)', () => {
     const distribution = [
       { domain: 'gmail.com', count: 50 },
       { domain: 'other1.com', count: 475 },
@@ -89,8 +87,7 @@ describe('K3: Domain Concentration Warning', () => {
     expect(result.shouldWarn).toBe(false)
   })
 
-  // QUARANTINED pending owner decision — see docs/handoff/ci-remediation-residual.md
-  it.skip('boundary: top domain > 0.05 (5.1%) → show warning', () => {
+  it('boundary: top domain > 0.05 (5.1%) → show warning', () => {
     const distribution = [
       { domain: 'gmail.com', count: 51 },
       { domain: 'other1.com', count: 475 },
@@ -104,8 +101,7 @@ describe('K3: Domain Concentration Warning', () => {
     expect(result.warningLabel).toBe('watch')
   })
 
-  // QUARANTINED pending owner decision — see docs/handoff/ci-remediation-residual.md
-  it.skip('warning: 25% concentration → label "concentration"', () => {
+  it('warning: 25% concentration → label "concentration"', () => {
     const distribution = [
       { domain: 'gmail.com', count: 250 },
       { domain: 'other.com', count: 750 },

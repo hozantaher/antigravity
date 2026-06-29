@@ -1,0 +1,55 @@
+Return-Path: <>
+Received: from mx.example.com (mx.example.com [192.0.2.1]) by mta.sender.test with ESMTP id mno345
+	for <sender@sender.test>; Wed, 06 May 2026 10:04:00 +0000
+Date: Wed, 06 May 2026 10:04:00 +0000
+From: Mail Delivery Subsystem <MAILER-DAEMON@mx.example.com>
+To: sender@sender.test
+Subject: Undelivered Mail Returned to Sender
+Auto-Submitted: auto-replied
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status; boundary="==BOUNCE_5xx_blacklist=="
+Message-ID: <dsn-5xx-blacklist-001@mx.example.com>
+X-Failed-Recipients: contact@strict-domain.example
+
+This is a MIME-encapsulated message.
+
+--==BOUNCE_5xx_blacklist==
+Content-Type: text/plain; charset=utf-8
+
+This is the mail system at host mx.example.com.
+
+I'm sorry to have to inform you that your message could not
+be delivered to one or more recipients.
+
+<contact@strict-domain.example>: host mx.strict-domain.example[203.0.113.40]
+    said: 550 5.7.1 Delivery not authorized, message refused. IP address
+    192.0.2.1 has been blocked by the recipient domain's reputation filter.
+    Please contact your email service provider to resolve this issue.
+
+--==BOUNCE_5xx_blacklist==
+Content-Description: Delivery report
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; mx.example.com
+Arrival-Date: Wed, 06 May 2026 10:00:00 +0000
+
+Final-Recipient: rfc822; contact@strict-domain.example
+Original-Recipient: rfc822; contact@strict-domain.example
+Action: failed
+Status: 5.7.1
+Remote-MTA: dns; mx.strict-domain.example
+Diagnostic-Code: smtp; 550 5.7.1 Delivery not authorized, message refused
+
+--==BOUNCE_5xx_blacklist==
+Content-Description: Undelivered Message
+Content-Type: message/rfc822
+
+Message-ID: <original-msg-005@sender.test>
+Date: Wed, 06 May 2026 09:57:00 +0000
+From: sender@sender.test
+To: contact@strict-domain.example
+Subject: Business proposal
+
+Message body redacted.
+
+--==BOUNCE_5xx_blacklist==--

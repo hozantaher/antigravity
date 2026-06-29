@@ -1,0 +1,10 @@
+From: alice@example.cz
+To: bob@example.cz
+Subject: RTL bidi
+Date: Wed, 29 Apr 2026 12:00:00 +0200
+Message-ID: <rtl-1@example.cz>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
+
+Dobrý den, שלום مرحبا, ozveme se. ‮reverseblock‬ end.
+Not interested.

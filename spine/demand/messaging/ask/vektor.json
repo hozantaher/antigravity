@@ -1,0 +1,32 @@
+{
+  "identita": "Otázka — přihlášený kupující se zeptá, s rate-limitem a validací.",
+  "smysl": "Zájemce položí dotaz ke stroji, ale ne spam-záplavou.",
+  "smer": "Přihlášený uživatel položí otázku; rate-limit + validace délky.",
+  "duvod": "Bez ochrany se Q&A zaplaví spamem a ztratí hodnotu pro ostatní.",
+  "myslenka": "Ptát se smí každý vážný, ale ne donekonečna.",
+  "pillar": "transparency",
+  "role": "supporting",
+  "promise": "Zeptat se jde, spamovat ne.",
+  "loreLine": "Dotaz s kůží ve hře — přihlášení a rate-limit drží signál nad šumem.",
+  "proofSignal": [
+    {
+      "nazev": "questions asked",
+      "zdroj": "item_questions",
+      "stav": "pending"
+    }
+  ],
+  "antiFeature": "Otázky bez rate-limitu — spam-záplava, co Q&A znehodnotí.",
+  "hotovo": {
+    "kdyzPlati": [
+      {
+        "kriterium": "Přihlášený uživatel položí otázku (rate-limit + validace délky)",
+        "check": "test:question-ask",
+        "stav": "met",
+        "proof": {
+          "cmd": "pnpm exec vitest run --project nuxt tests/nuxt/useItemQuestions.test.ts"
+        }
+      }
+    ],
+    "vektorGate": "all-met"
+  }
+}

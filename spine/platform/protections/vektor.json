@@ -1,0 +1,32 @@
+{
+  "identita": "Ochrany — vícevrstvé hlídání (L2 alive + L3 correctness) s automatickou eskalací do Ochrany panelu.",
+  "smysl": "Sondy odhalí výpadek infrastruktury do 5 min a eskalují alert (L2: 1 chyba → critical; L3: 3 chyby → warning → critical po 2h).",
+  "smer": "protections/probe Scheduler + 11 Prober typů → alert/evaluator → tabulky protection_probes + protection_alerts.",
+  "duvod": "Hluchá sonda nebo deadlock L3 shadow-tx na live tabulce umlčí alerty přesně v okamžiku, kdy jsou nejvíc potřeba.",
+  "myslenka": "Hlídka, která mlčí při zátěži, je horší než žádná — eskalace musí přežít právě špičku.",
+  "pillar": "platform",
+  "role": "supporting",
+  "promise": "Výpadek se objeví na panelu a eskaluje do 5 minut.",
+  "loreLine": "Jedenáct sond a eskalace — výpadek je vidět dřív, než ho nahlásí operátor.",
+  "proofSignal": [
+    {
+      "nazev": "probe coverage / alert escalation latency",
+      "zdroj": "features/inbound/orchestrator/protections",
+      "stav": "pending"
+    }
+  ],
+  "antiFeature": "L3 shadow-tx na live outreach_mailboxes deadlockne se souběžnými sendy a umlčí alerty během špičky.",
+  "hotovo": {
+    "kdyzPlati": [
+      {
+        "kriterium": "Sondy (probe scheduler, L3 prober coverage, recorder) i alert evaluator (L2/L3 eskalace) projdou — hlídání i eskalace jsou deterministické.",
+        "check": "test:protections",
+        "stav": "pending",
+        "proof": {
+          "cmd": "cd features/inbound/orchestrator && go test ./protections/..."
+        }
+      }
+    ],
+    "vektorGate": "all-met"
+  }
+}

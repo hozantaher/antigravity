@@ -185,11 +185,7 @@ describe('POST /api/companies/:ico/verify-email', () => {
   })
 
   it('returns no_email status when company exists but has no email', async () => {
-    // verify-email now runs inside a txn (companies.js:442). This file's connect
-    // mock does NOT short-circuit BEGIN/COMMIT, so BEGIN consumes a queue row —
-    // feed it an empty row first so the company SELECT lands on the right row.
-    queueRows([])  // BEGIN
-    queueRows([{ ico: '12345678', email: null }])  // SELECT ico, email
+    queueRows([{ ico: '12345678', email: null }])
     queueRows([])  // UPDATE companies SET email_status='no_email'
     const res = await post('/api/companies/12345678/verify-email')
     expect(res.status).toBe(200)
@@ -219,9 +215,6 @@ describe('POST /api/companies/bulk-verify-email', () => {
   })
 
   it('processes companies with no email as no_email', async () => {
-    // bulk-verify runs inside a txn (companies.js:482); BEGIN consumes a queue
-    // row here (connect mock does NOT short-circuit it), so feed an empty first.
-    queueRows([])  // BEGIN
     queueRows([{ ico: '12345678', email: null }])  // SELECT ico, email FROM companies
     queueRows([])                                  // UPDATE companies SET email_status='no_email'
     const res = await post('/api/companies/bulk-verify-email', { icos: ['12345678'] })

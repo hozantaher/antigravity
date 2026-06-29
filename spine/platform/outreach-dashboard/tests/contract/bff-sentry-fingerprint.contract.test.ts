@@ -257,11 +257,8 @@ describe('Route-specific tags — setRouteTags()', () => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name: 'test' }),
     })
-    // Route errors out, but the campaign.action tag is set first (campaigns.js:180).
-    // POST /api/campaigns now gates on the Go orchestrator and returns 503 when it
-    // is unreachable/unconfigured (campaigns.js:268,275) — no GO_SERVER_URL or fetch
-    // mock here, so 503 is the expected status. The tag assertion below is the point.
-    expect([200, 500, 503]).toContain(res.status)
+    // Route will error (DB chaos) but tag should have been set
+    expect([200, 500]).toContain(res.status)
     // Check withIsolationScope was called (used by setRouteTags)
     const { withIsolationScope } = await import('@sentry/node')
     expect(withIsolationScope).toHaveBeenCalled()

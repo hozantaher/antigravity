@@ -1,0 +1,65 @@
+name: Reusable Go Test
+
+on:
+  workflow_call:
+    inputs:
+      go-version-file:
+        required: true
+        type: string
+        description: 'Path to go.mod file for Go version'
+      working-directory:
+        required: false
+        type: string
+        default: '.'
+        description: 'Working directory for build/test'
+      test-pattern:
+        required: false
+        type: string
+        default: './...'
+        description: 'Go test pattern'
+      coverage-threshold:
+        required: false
+        type: string
+        default: '45'
+        description: 'Minimum coverage %'
+    secrets:
+      SENTRY_DSN_GO:
+        required: false
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-go@v6
+        with:
+          go-version-file: ${{ inputs.go-version-file }}
+
+      - name: Restore Go build cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/go-build
+          key: ${{ runner.os }}-go-build-${{ hashFiles(format('{0}/go.sum', inputs.working-directory)) }}
+          restore-keys: |
+            ${{ runner.os }}-go-build-
+
+      - name: Build
+        working-directory: ${{ inputs.working-directory }}
+        run: go build ./...
+
+      - name: Test
+        working-directory: ${{ inputs.working-directory }}
+        env:
+          SENTRY_DSN_GO: ${{ secrets.SENTRY_DSN_GO }}
+        run: go test -race -count=1 -coverprofile=coverage.out ${{ inputs.test-pattern }}
+
+      - name: Coverage gate
+        working-directory: ${{ inputs.working-directory }}
+        run: |
+          total=$(go tool cover -func=coverage.out | grep '^total:' | awk '{print $NF}' | tr -d '%')
+          echo "Coverage: ${total}%"
+          threshold="${{ inputs.coverage-threshold }}"
+          if [ "$(echo "${total} < ${threshold}" | bc -l)" -eq 1 ]; then
+            echo "::error::Coverage ${total}% below ${threshold}% threshold"; exit 1
+          fi

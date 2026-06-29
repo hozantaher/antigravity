@@ -1,0 +1,34 @@
+{
+  "identita": "Reset hesla — cesta zpět, když heslo zapomeneš.",
+  "smysl": "Zapomenuté heslo není slepá ulička — přijde odkaz, nastavíš si nové.",
+  "smer": "request-password-reset odešle Firebase oobCode na /auth/reset; confirm nastaví nové heslo.",
+  "duvod": "Bez resetu uživatel se zapomenutým heslem nadobro ztratí účet i kauci.",
+  "myslenka": "Žádné heslo není ztracené napořád.",
+  "pillar": "serious-community",
+  "role": "supporting",
+  "promise": "Zapomenuté heslo si vždy obnovíš.",
+  "loreLine": "Odkaz v poště, nové heslo — návrat bez ztráty účtu.",
+  "proofSignal": [
+    {
+      "nazev": "reset request validated + oobCode sent",
+      "zdroj": "test/auth",
+      "stav": "live"
+    }
+  ],
+  "antiFeature": "Zapomenuté heslo = ztracený účet — reset, který chybí nebo tiše selže.",
+  "hotovo": {
+    "kdyzPlati": [
+      {
+        "kriterium": "Žádost o reset hesla projde validací a odešle oobCode odkaz",
+        "check": "test:password-reset",
+        "stav": "met",
+        "proof": {
+          "cmd": "pnpm exec vitest run --project server tests/server/api/auth.test.ts"
+        }
+      }
+    ],
+    "vektorGate": "all-met"
+  },
+  "id": "password-reset",
+  "story_axis": "platform"
+}

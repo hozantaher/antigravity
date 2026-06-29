@@ -1,0 +1,232 @@
+(version 1)
+
+;; Allow everything by default, then deny specific paths
+(allow default)
+
+;; ── Filesystem WRITE restrictions ──────────────────────────
+;; Block all writes to user home
+(deny file-write*
+    (subpath "/Users/messingtomas")
+)
+
+;; Re-allow writes only to sandboxed paths and system temp
+(allow file-write*
+    (subpath "/Users/messingtomas/Taher/claude-sandbox/sandboxed-home")
+    (subpath "/private/tmp")
+    (subpath "/private/var/folders")
+    (subpath "/tmp")
+)
+
+;; ── Filesystem READ restrictions ───────────────────────────
+;; Block reading sensitive directories
+(deny file-read*
+    ;; Personal data
+    (subpath "/Users/messingtomas/Documents")
+    (subpath "/Users/messingtomas/Downloads")
+    (subpath "/Users/messingtomas/Desktop")
+    (subpath "/Users/messingtomas/Pictures")
+    (subpath "/Users/messingtomas/Movies")
+    (subpath "/Users/messingtomas/Music")
+
+    ;; Credentials and secrets
+    (subpath "/Users/messingtomas/.ssh")
+    (subpath "/Users/messingtomas/.gnupg")
+    (subpath "/Users/messingtomas/.aws")
+    (subpath "/Users/messingtomas/.kube")
+    (subpath "/Users/messingtomas/.docker")
+    (subpath "/Users/messingtomas/.npmrc")
+    (subpath "/Users/messingtomas/.netrc")
+    (subpath "/Users/messingtomas/.gitconfig")
+    (literal "/Users/messingtomas/.git-credentials")
+    (subpath "/Users/messingtomas/.terraform.d")
+
+    ;; Shell history (may contain typed secrets)
+    (literal "/Users/messingtomas/.bash_history")
+    (literal "/Users/messingtomas/.zsh_history")
+    (literal "/Users/messingtomas/.python_history")
+    (literal "/Users/messingtomas/.node_repl_history")
+
+    ;; Package manager credentials
+    (subpath "/Users/messingtomas/.cargo/credentials")
+    (subpath "/Users/messingtomas/.gem/credentials")
+    (literal "/Users/messingtomas/.pypirc")
+    (literal "/Users/messingtomas/.composer/auth.json")
+    (literal "/Users/messingtomas/.nuget/NuGet.Config")
+    (literal "/Users/messingtomas/.m2/settings.xml")
+    (literal "/Users/messingtomas/.gradle/gradle.properties")
+
+    ;; Password manager stores
+    (subpath "/Users/messingtomas/.password-store")
+
+    ;; Cloud provider credentials
+    (subpath "/Users/messingtomas/.config/gcloud")
+    (subpath "/Users/messingtomas/.config/gh")
+    (subpath "/Users/messingtomas/.railway")
+    (subpath "/Users/messingtomas/.config/railway")
+    (subpath "/Users/messingtomas/.config/op")
+    (subpath "/Users/messingtomas/.azure")
+    (subpath "/Users/messingtomas/.config/heroku")
+
+    ;; SaaS / platform CLI credentials
+    (subpath "/Users/messingtomas/.config/hub")
+    (subpath "/Users/messingtomas/.config/netlify")
+    (subpath "/Users/messingtomas/.config/vercel")
+    (subpath "/Users/messingtomas/.config/stripe")
+    (subpath "/Users/messingtomas/.config/fly")
+    (subpath "/Users/messingtomas/.config/doppler")
+    (subpath "/Users/messingtomas/.config/supabase")
+    (subpath "/Users/messingtomas/.config/planetscale")
+    (subpath "/Users/messingtomas/.config/turso")
+
+    ;; Other app data
+    (subpath "/Users/messingtomas/.claude")
+    (subpath "/Users/messingtomas/Library/Keychains")
+    (subpath "/Users/messingtomas/Library/Mail")
+    (subpath "/Users/messingtomas/Library/Messages")
+    (subpath "/Users/messingtomas/Library/Safari")
+    (subpath "/Users/messingtomas/Library/Cookies")
+    (subpath "/Users/messingtomas/Library/Accounts")
+
+    ;; Browser data
+    (subpath "/Users/messingtomas/Library/Application Support/Google")
+    (subpath "/Users/messingtomas/Library/Application Support/Firefox")
+    (subpath "/Users/messingtomas/Library/Application Support/Mullvad Browser")
+    (subpath "/Users/messingtomas/Library/Application Support/BraveSoftware")
+    (subpath "/Users/messingtomas/Library/Application Support/Microsoft Edge")
+    (subpath "/Users/messingtomas/Library/Application Support/Arc")
+    (subpath "/Users/messingtomas/Library/Application Support/Vivaldi")
+
+    ;; Password managers
+    (subpath "/Users/messingtomas/Library/Application Support/1Password")
+    (subpath "/Users/messingtomas/Library/Application Support/Bitwarden")
+
+    ;; Messaging / communication apps (tokens, chat data)
+    (subpath "/Users/messingtomas/Library/Application Support/Slack")
+    (subpath "/Users/messingtomas/Library/Application Support/com.tinyspeck.slackmacgap")
+    (subpath "/Users/messingtomas/Library/Application Support/discord")
+    (subpath "/Users/messingtomas/Library/Application Support/Telegram")
+    (subpath "/Users/messingtomas/Library/Application Support/Signal")
+    (subpath "/Users/messingtomas/Library/Application Support/WhatsApp")
+    (subpath "/Users/messingtomas/Library/Application Support/zoom.us")
+
+    ;; Terminal emulators (may embed passwords in config)
+    (subpath "/Users/messingtomas/Library/Application Support/iTerm2")
+
+    ;; IDE/editor sensitive data
+    (subpath "/Users/messingtomas/Library/Application Support/Code")
+
+    ;; iCloud Drive
+    (subpath "/Users/messingtomas/Library/Mobile Documents")
+
+    ;; Local app data (credentials, tokens)
+    (subpath "/Users/messingtomas/.local/share")
+    (subpath "/Users/messingtomas/.config/Claude")
+
+    ;; Claude settings (prevent reading config/API keys)
+    (literal "/Users/messingtomas/.claude.json")
+
+    ;; All other projects and work directories
+    (subpath "/Users/messingtomas/Projects")
+    (subpath "/Users/messingtomas/Work")
+    (subpath "/Users/messingtomas/Developer")
+    (subpath "/Users/messingtomas/dev")
+    (subpath "/Users/messingtomas/src")
+    (subpath "/Users/messingtomas/code")
+    (subpath "/Users/messingtomas/repos")
+    (subpath "/Users/messingtomas/Sites")
+)
+
+;; ── Network isolation ──────────────────────────────────────
+;; Default: deny all outbound network connections
+(deny network-outbound)
+
+;; Allow DNS resolution (UDP/TCP to port 53, any address)
+(allow network-outbound
+    (remote udp "*:53")
+    (remote tcp "*:53")
+)
+
+;; Allow HTTPS (port 443) to any host
+;; NOTE: macOS 26 sandbox-exec only accepts "*" and "localhost" as host
+;; values — hostname-based rules (e.g. "api.anthropic.com:443") and
+;; IP-literal rules (e.g. "127.0.0.1:*") cause parse errors.
+;; Port-only filtering is accepted trade-off for MVP (see ADR-002).
+(allow network-outbound
+    (remote tcp "*:443")
+)
+
+;; Allow localhost for IPC (Electron apps need this)
+(allow network-outbound
+    (remote tcp "localhost:*")
+)
+
+;; Allow Unix domain sockets (required for MCP and Electron IPC)
+(allow network-outbound
+    (remote unix-socket)
+)
+
+;; ── Allow git (required for Claude Desktop local sessions) ─
+(allow process-exec
+    (literal "/usr/bin/git")
+    (subpath "/Library/Developer/CommandLineTools")
+)
+(allow file-read*
+    (subpath "/Library/Developer/CommandLineTools")
+)
+
+;; ── Process restrictions ───────────────────────────────────
+;; Block dangerous binaries (shells allowed — git needs them)
+(deny process-exec
+    ;; AppleScript / Keychain access
+    (literal "/usr/bin/osascript")
+    (literal "/usr/bin/security")
+
+    ;; SSH family — all helpers
+    (literal "/usr/bin/ssh")
+    (literal "/usr/bin/scp")
+    (literal "/usr/bin/sftp")
+    (literal "/usr/bin/ssh-agent")
+    (literal "/usr/bin/ssh-add")
+    (literal "/usr/bin/ssh-keygen")
+    (literal "/usr/bin/ssh-keyscan")
+
+    ;; Network tools — prevent data exfiltration (system paths)
+    (literal "/usr/bin/curl")
+    (literal "/usr/bin/nc")
+    (literal "/usr/bin/ncat")
+    (literal "/usr/bin/wget")
+    (literal "/usr/bin/telnet")
+    (literal "/usr/bin/ftp")
+
+    ;; Clipboard — data exfiltration / credential theft
+    (literal "/usr/bin/pbcopy")
+    (literal "/usr/bin/pbpaste")
+
+    ;; open — can exfiltrate data via URL parameters
+    (literal "/usr/bin/open")
+
+    ;; Unnecessary or dangerous system utilities
+    (literal "/usr/bin/say")
+    (literal "/usr/sbin/networksetup")
+    (literal "/usr/bin/dscl")
+    (literal "/usr/bin/defaults")
+
+    ;; Network tools — Homebrew paths
+    (literal "/opt/homebrew/bin/curl")
+    (literal "/opt/homebrew/bin/wget")
+    (literal "/opt/homebrew/bin/nmap")
+    (literal "/opt/homebrew/bin/nc")
+    (literal "/opt/homebrew/bin/ncat")
+    (literal "/opt/homebrew/bin/httpie")
+    (literal "/opt/homebrew/bin/http")
+
+    ;; Homebrew CLIs with embedded auth tokens
+    (literal "/opt/homebrew/bin/gh")
+    (literal "/opt/homebrew/bin/aws")
+    (literal "/opt/homebrew/bin/gcloud")
+    (literal "/opt/homebrew/bin/az")
+    (literal "/opt/homebrew/bin/fly")
+    (literal "/opt/homebrew/bin/railway")
+    (literal "/opt/homebrew/bin/heroku")
+    (literal "/opt/homebrew/bin/supabase")
+)

@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "garaaage": {
+      "command": "npx",
+      "args": ["tsx", "mcp-server/index.ts"]
+    }
+  }
+}

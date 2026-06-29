@@ -1,0 +1,65 @@
+# service.yaml — mailboxes domain
+# Viz docs/architecture/DOMAIN-MAP.md + docs/playbooks/DOMAIN-MIGRATION.md
+name: mailboxes
+domain: outreach
+owner: tomas
+status: active                         # M1a-d committed; M1d.2 deferred
+deploy_target: shared                  # hosted inside machinery-outreach Railway binary
+railway_service_name: machinery-outreach
+technology:
+  - go
+  - typescript                         # @hozan/mailboxes-ui pnpm package (M1d.1 re-export)
+migration_state:                       # M1 sprint artifacts
+  M1a: done                            # registry (mailbox pkg) → services/mailboxes/mailbox
+  M1b: done                            # watchdog → services/mailboxes/watchdog
+  M1c: done                            # bounce → services/mailboxes/bounce
+  M1d.1: done                          # @hozan/mailboxes-ui scaffold (re-export)
+  M1d.2: deferred                      # actual UI move + deep dep refactor
+  M1e: done                            # this commit — service.yaml + OpenAPI + DOMAIN-MAP
+dependencies:
+  upstream:
+    - relay                            # SMTP transport (services/relay/ after M2)
+    - privacy-gateway                  # identity vault pro outbound headers
+    - database/outreach_mailboxes      # PostgreSQL table
+  downstream:
+    - campaigns                        # "vyber schránku na send"
+    - inbox                            # IMAP poller používá stejné credentials
+    - intelligence                     # analytics send-rate + bounce
+    - dashboard                        # UI: /mailboxes, /watchdog
+public_api:
+  rest:
+    - GET    /api/mailboxes
+    - POST   /api/mailboxes
+    - PATCH  /api/mailboxes/:id
+    - DELETE /api/mailboxes/:id
+    - GET    /api/mailboxes/:id/stats
+    - GET    /api/mailboxes/:id/full-check
+    - GET    /api/mailboxes/health-summary
+    - POST   /api/mailboxes/:id/warmup/start
+    - POST   /api/mailboxes/bulk-check
+  events:
+    - mailbox.health.changed
+    - mailbox.circuit.opened
+    - mailbox.auth_fail_alert          # SEND-S6.3
+  schemas: schemas/openapi.yaml
+invariants:
+  - "password jen v outreach_mailboxes.password v DB, nikdy env vars po bootstrap"
+  - "circuit breaker opens po 5 consecutive SMTP failures v 15min window"
+  - "warmup day N+1 jen po 24h úspěchů na dayu N"
+  - "status MUSÍ být jeden z {active, warming, paused, bounce_hold, retired}"
+  - "auth_fail_alert fires po 3× SMTP fail in 15min (SEND-S6.3)"
+slo:
+  availability: 99.5
+  latency_p95_ms: 200                  # GET /api/mailboxes/selector/next
+  error_budget: 0.5
+sub_services:
+  - registry                           # CRUD + selector + active-mailbox query
+  - warmup                             # adaptive_release.go — warmup day curve
+  - backpressure                       # watchdog + circuit breaker
+  - bounce                             # bounce processor (tight coupling se sender)
+docs:
+  - docs/architecture/DOMAIN-MAP.md#mailboxes
+  - docs/playbooks/MAILBOX-PASSWORD-UPDATE.md
+  - docs/playbooks/AUTH-FAIL-ALERT-RESPONSE.md
+  - docs/playbooks/SEND-OPERATIONS.md
+  - docs/initiatives/2026-04-22-send-pipeline-unblock.md

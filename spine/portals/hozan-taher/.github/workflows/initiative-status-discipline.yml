@@ -1,0 +1,75 @@
+name: Initiative status discipline
+
+# Catches initiative files in docs/initiatives/ whose Status header
+# declares Archived / Superseded / Closed but whose path is still
+# /initiatives/ rather than /archive/. Per docs/initiatives/README.md
+# convention, archived/superseded initiatives must be physically
+# moved.
+#
+# Background: in the 2026-05-04 session three batch-relocate PRs
+# (#731 + #733 + #735 + #737) cleaned up 24 mismarked files. This
+# workflow prevents the same drift from recurring — a future PR that
+# flips a Status header without `git mv` to the archive path will
+# fail this check.
+#
+# The check is also runnable locally via:
+#
+#   scripts/audits/initiative-status-audit.sh
+#   scripts/audits/initiative-status-audit.sh --json    # machine-readable
+#
+# Trigger: every PR open / sync against main, and on push to main as
+# a final guard. Manual dispatch is exposed via workflow_dispatch.
+#
+# Exit 0 = clean. Exit 1 = drift detected (file list to stderr).
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'docs/initiatives/**'
+      - 'docs/archive/**'
+      - 'scripts/audits/initiative-status-audit.sh'
+      - '.github/workflows/initiative-status-discipline.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'docs/initiatives/**'
+      - 'docs/archive/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: initiative-status-discipline-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Run discipline audit
+        run: |
+          bash scripts/audits/initiative-status-audit.sh
+
+  shellcheck-anti-trace-verify:
+    # Lints the operator-runnable diagnostic scripts in
+    # scripts/anti-trace-verify/ committed in PR #734 + #742. They are
+    # session artifacts but operators copy/paste from them; basic shell
+    # syntax soundness keeps Sprint V execution from failing on a typo.
+    if: github.event.pull_request.head.ref != ''
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Bash syntax check (no execution)
+        run: |
+          set -e
+          for script in scripts/anti-trace-verify/*.sh; do
+            if [[ -f "$script" ]]; then
+              echo "Checking $script"
+              bash -n "$script"
+            fi
+          done

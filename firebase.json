@@ -1,0 +1,12 @@
+{
+  "apphosting": [
+    {
+      "target": "outreach-dashboard",
+      "source": "spine/platform/outreach-dashboard"
+    },
+    {
+      "target": "auction24",
+      "source": "spine/portals/auction24"
+    }
+  ]
+}

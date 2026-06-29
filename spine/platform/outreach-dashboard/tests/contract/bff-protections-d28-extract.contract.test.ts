@@ -244,10 +244,7 @@ describe('GET /api/protections/trace/:messageId', () => {
     const call = calls.find(c => /protection_trace/.test(c.sql))
     expect(call?.params).toEqual(['msg-99'])
     expect(call?.sql).toMatch(/LEFT JOIN send_events/)
-    // traced_at is the SELECT alias `se.sent_at AS traced_at` (protections.js:83),
-    // so the query orders by se.sent_at DESC — pt has no traced_at column. Same
-    // intent (most-recent trace first), real handler shape (protections.js:92).
-    expect(call?.sql).toMatch(/ORDER BY se\.sent_at DESC/)
+    expect(call?.sql).toMatch(/ORDER BY pt\.traced_at DESC/)
     expect(call?.sql).toMatch(/LIMIT 1/)
   })
 

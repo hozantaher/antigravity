@@ -1,0 +1,103 @@
+name: Recurring inventory
+
+# Weekly mini-inventory — per T2.5 from synthesis PR #428.
+# North-star aspirace #2: self-auditing fleet.
+#
+# Runs every Monday 04:00 UTC (= ~05:00–06:00 Europe/Prague).
+# Generates a compact report (~50-100 lines) under docs/audits/recurring/.
+# Opens a PR only when critical drift signals are present (script exit 10);
+# otherwise commits the report to a branch and closes immediately as no-op.
+
+on:
+  schedule:
+    - cron: '0 4 * * 1'   # Monday 04:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: read
+
+concurrency:
+  group: recurring-inventory
+  cancel-in-progress: false
+
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Configure git author
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+
+      - name: Run recurring inventory
+        id: run
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set +e
+          bash scripts/audit/recurring-inventory.sh --since 7
+          rc=$?
+          set -e
+          echo "rc=$rc" >> "$GITHUB_OUTPUT"
+          today=$(date -u +%Y-%m-%d)
+          echo "today=$today" >> "$GITHUB_OUTPUT"
+          echo "report=docs/audits/recurring/${today}-mini-inventory.md" >> "$GITHUB_OUTPUT"
+
+      - name: Commit report on dedicated branch
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPORT: ${{ steps.run.outputs.report }}
+          TODAY: ${{ steps.run.outputs.today }}
+          RC: ${{ steps.run.outputs.rc }}
+        run: |
+          if [ ! -f "$REPORT" ]; then
+            echo "no report file — script aborted before write"
+            exit 0
+          fi
+          branch="audit/recurring-inventory-${TODAY}"
+          git checkout -b "$branch"
+          git add "$REPORT"
+          if git diff --cached --quiet; then
+            echo "no changes to commit"
+            exit 0
+          fi
+          git commit -m "audit(recurring): weekly inventory ${TODAY}"
+          git push -u origin "$branch"
+
+      - name: Open PR if critical drift
+        if: steps.run.outputs.rc == '10'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TODAY: ${{ steps.run.outputs.today }}
+          REPORT: ${{ steps.run.outputs.report }}
+        run: |
+          branch="audit/recurring-inventory-${TODAY}"
+          body=$(cat <<EOF
+          Automated weekly mini-inventory per T2.5.
+
+          Critical drift signals were detected. See \`${REPORT}\` for the breakdown.
+
+          Source: \`.github/workflows/recurring-inventory.yml\` + \`scripts/audit/recurring-inventory.sh\`.
+          Heuristic greps; defer to CI ratchet tests for authoritative gold.
+          EOF
+          )
+          gh pr create \
+            --title "audit(recurring): weekly inventory ${TODAY}" \
+            --body "$body" \
+            --base main \
+            --head "$branch" \
+            --label automation/ok || echo "PR creation failed (label may not exist) — continuing"
+
+      - name: No-op summary
+        if: steps.run.outputs.rc != '10'
+        env:
+          TODAY: ${{ steps.run.outputs.today }}
+        run: |
+          echo "No critical drift detected for ${TODAY}. Report committed to branch only."

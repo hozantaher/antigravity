@@ -1,0 +1,21 @@
+{
+  "identita": "Framing — kauce v textech jako vstupenka, ne poplatek.",
+  "smysl": "Veřejné texty komunikují kauci jako přijetí mezi vážné, ne jako bariéru.",
+  "smer": "Kauce ve veřejných textech rámovaná jako vstupenka, ne poplatek.",
+  "duvod": "Kauce jako zámek/poplatek odpuzuje vážné hráče; framing je produkt.",
+  "myslenka": "Slovo dělá z poplatku pozvánku.",
+  "pillar": "serious-community",
+  "role": "supporting",
+  "promise": "Kauce zní jako pozvánka, ne jako poplatek.",
+  "loreLine": "Vstupenka, ne poplatek — framing, co vítá vážné dražitele.",
+  "proofSignal": [
+    { "nazev": "deposit framing coverage", "zdroj": "i18n-deposit", "stav": "live" }
+  ],
+  "antiFeature": "Kauce komunikovaná jako zámek, poplatek nebo chyba — bariéra místo pozvánky.",
+  "hotovo": {
+    "kdyzPlati": [
+      { "kriterium": "Kauce ve veřejných textech rámovaná jako vstupenka, ne poplatek", "check": "i18n:depositFraming", "stav": "met" }
+    ],
+    "vektorGate": "all-met"
+  }
+}

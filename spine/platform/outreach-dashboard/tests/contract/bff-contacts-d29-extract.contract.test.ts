@@ -38,12 +38,6 @@ vi.mock('pg', () => {
     async connect() {
       return {
         query: async (sql: string, params?: unknown[]) => {
-          // Transaction-control statements are infra, not business queries:
-          // short-circuit them WITHOUT shifting the shared queue (mirrors the
-          // bff-contacts / api-response-envelope mocks). Mutating handlers now
-          // wrap work in BEGIN … COMMIT with a pre-SELECT + audit INSERT, so
-          // unless BEGIN is short-circuited it would eat the first queued row.
-          if (/^\s*(BEGIN|COMMIT|ROLLBACK|SAVEPOINT|RELEASE)/i.test(typeof sql === 'string' ? sql : '')) return { rows: [], rowCount: 0 }
           calls.push({ sql, params })
           if (!queryQueue.length) return { rows: [], rowCount: 0 }
           const next = queryQueue.shift()!
@@ -230,11 +224,10 @@ describe('GET /api/contacts/:id', () => {
   it('200 returns contact + send_history array', async () => {
     queueRows([{ id: 7, email: 'x@y.cz', first_name: 'X', last_name: 'Y', company_name: 'Acme',
                  status: 'active', email_status: 'valid', email_verified_at: null,
-                 email_verification: null, email_confidence: 0.8, suppressed: false }])  // detail SELECT
-    queueRows([])  // campaigns sub-SELECT (detail enrichment, contacts.js:149)
+                 email_verification: null, email_confidence: 0.8, suppressed: false }])
     queueRows([
       { sent_at: '2026-05-01T10:00:00Z', status: 'sent', subject: 'Hi', smtp_response: '250 OK', mailbox_email: 'a@b.cz' },
-    ])  // send_history SELECT
+    ])
     const res = await get('/api/contacts/7')
     expect(res.status).toBe(200)
     const body = res.body as { id: number; send_history: unknown[] }
@@ -275,22 +268,19 @@ describe('GET /api/contacts/:id', () => {
 
 describe('PATCH /api/contacts/:id', () => {
   it('400 when no allowed field provided', async () => {
-    queueRows([{ id: 1, email: 'a@b.cz', status: 'active' }])  // pre-SELECT existence (audit txn, contacts.js:194)
     const res = await send('PATCH', '/api/contacts/1', { id: 99, email: 'evil@x.cz' })
     expect(res.status).toBe(400)
     expect((res.body as { error: string }).error).toBe('nothing to update')
   })
 
   it('400 with empty body', async () => {
-    queueRows([{ id: 1, email: 'a@b.cz', status: 'active' }])  // pre-SELECT existence (audit txn, contacts.js:194)
     const res = await send('PATCH', '/api/contacts/1', {})
     expect(res.status).toBe(400)
   })
 
   it('200 returns updated row when status set', async () => {
-    queueRows([{ id: 1, email: 'a@b.cz', status: 'active' }])    // pre-SELECT existence (audit txn)
     queueRows([{ id: 1, email: 'a@b.cz', first_name: 'A', last_name: 'B',
-                 company_name: 'Acme', status: 'paused' }])      // UPDATE ... RETURNING
+                 company_name: 'Acme', status: 'paused' }])
     const res = await send('PATCH', '/api/contacts/1', { status: 'paused' })
     expect(res.status).toBe(200)
     expect((res.body as { status: string }).status).toBe('paused')
@@ -302,8 +292,7 @@ describe('PATCH /api/contacts/:id', () => {
   })
 
   it('only allowed columns are written (email + id ignored)', async () => {
-    queueRows([{ id: 1, email: 'a@b.cz', status: 'active' }])         // pre-SELECT existence (audit txn)
-    queueRows([{ id: 1, status: 'active', first_name: 'NewName' }])   // UPDATE ... RETURNING
+    queueRows([{ id: 1, status: 'active', first_name: 'NewName' }])
     await send('PATCH', '/api/contacts/1', {
       first_name: 'NewName',
       email: 'attacker@evil.cz',  // not in allow-list
@@ -380,8 +369,7 @@ describe('POST /api/contacts/:id/verify-email', () => {
 
 describe('DELETE /api/contacts/:id', () => {
   it('200 returns { ok: true } on success', async () => {
-    queueRows([{ id: 5, email: 'a@b.cz', status: 'active' }])  // pre-SELECT existence (audit txn, contacts.js:367)
-    queueRows([{ id: 5 }])                                      // DELETE ... RETURNING id
+    queueRows([{ id: 5 }])
     const res = await send('DELETE', '/api/contacts/5')
     expect(res.status).toBe(200)
     expect(res.body).toEqual({ ok: true })

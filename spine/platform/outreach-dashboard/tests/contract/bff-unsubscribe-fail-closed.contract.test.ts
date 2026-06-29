@@ -114,14 +114,14 @@ function forgedTokenWithEmptyKey(c: number, id: number, email: string) {
 
 describe('GET /unsubscribe — S-C1 fail-closed when no secret env vars', () => {
   it('1: returns 503 (not 200/403) when both UNSUBSCRIBE_SECRET and OUTREACH_API_KEY are unset', async () => {
-    pushAll({ rows: [] }, { rows: [{ email: 'jan@firma.test' }] }) // brand_label pre-SELECT, then contact lookup
+    pushAll({ rows: [{ email: 'jan@firma.test' }] })
     const t = forgedTokenWithEmptyKey(42, 1001, 'jan@firma.test')
     const res = await fetch(`${baseUrl}/unsubscribe?c=42&id=1001&t=${t}`)
     expect(res.status).toBe(503)
   })
 
   it('2: response is HTML and tells the user to contact support', async () => {
-    pushAll({ rows: [] }, { rows: [{ email: 'jan@firma.test' }] }) // brand_label pre-SELECT, then contact lookup
+    pushAll({ rows: [{ email: 'jan@firma.test' }] })
     const t = forgedTokenWithEmptyKey(42, 1001, 'jan@firma.test')
     const res = await fetch(`${baseUrl}/unsubscribe?c=42&id=1001&t=${t}`)
     expect(res.headers.get('content-type')).toMatch(/text\/html/)
@@ -130,7 +130,7 @@ describe('GET /unsubscribe — S-C1 fail-closed when no secret env vars', () => 
   })
 
   it('3: NO suppression INSERT when secret missing (regression: empty-key fallback would have inserted)', async () => {
-    pushAll({ rows: [] }, { rows: [{ email: 'jan@firma.test' }] }) // brand_label pre-SELECT, then contact lookup
+    pushAll({ rows: [{ email: 'jan@firma.test' }] })
     const t = forgedTokenWithEmptyKey(42, 1001, 'jan@firma.test')
     await fetch(`${baseUrl}/unsubscribe?c=42&id=1001&t=${t}`)
     const inserts = calls.filter(c => /INSERT INTO suppression_list/i.test(c.sql))
@@ -138,7 +138,7 @@ describe('GET /unsubscribe — S-C1 fail-closed when no secret env vars', () => 
   })
 
   it('4: NO contacts UPDATE when secret missing', async () => {
-    pushAll({ rows: [] }, { rows: [{ email: 'jan@firma.test' }] }) // brand_label pre-SELECT, then contact lookup
+    pushAll({ rows: [{ email: 'jan@firma.test' }] })
     const t = forgedTokenWithEmptyKey(42, 1001, 'jan@firma.test')
     await fetch(`${baseUrl}/unsubscribe?c=42&id=1001&t=${t}`)
     const updates = calls.filter(c => /UPDATE contacts SET status/i.test(c.sql))
@@ -146,7 +146,7 @@ describe('GET /unsubscribe — S-C1 fail-closed when no secret env vars', () => 
   })
 
   it('5: NO outreach_suppressions write when secret missing', async () => {
-    pushAll({ rows: [] }, { rows: [{ email: 'jan@firma.test' }] }) // brand_label pre-SELECT, then contact lookup
+    pushAll({ rows: [{ email: 'jan@firma.test' }] })
     const t = forgedTokenWithEmptyKey(42, 1001, 'jan@firma.test')
     await fetch(`${baseUrl}/unsubscribe?c=42&id=1001&t=${t}`)
     const inserts = calls.filter(c => /INSERT INTO outreach_suppressions/i.test(c.sql))
@@ -154,7 +154,7 @@ describe('GET /unsubscribe — S-C1 fail-closed when no secret env vars', () => 
   })
 
   it('6: NO operator_audit_log entry when secret missing', async () => {
-    pushAll({ rows: [] }, { rows: [{ email: 'jan@firma.test' }] }) // brand_label pre-SELECT, then contact lookup
+    pushAll({ rows: [{ email: 'jan@firma.test' }] })
     const t = forgedTokenWithEmptyKey(42, 1001, 'jan@firma.test')
     await fetch(`${baseUrl}/unsubscribe?c=42&id=1001&t=${t}`)
     const inserts = calls.filter(c => /INSERT INTO operator_audit_log/i.test(c.sql))
@@ -162,7 +162,7 @@ describe('GET /unsubscribe — S-C1 fail-closed when no secret env vars', () => 
   })
 
   it('7: Sentry captures the misconfig event with route + code tags', async () => {
-    pushAll({ rows: [] }, { rows: [{ email: 'jan@firma.test' }] }) // brand_label pre-SELECT, then contact lookup
+    pushAll({ rows: [{ email: 'jan@firma.test' }] })
     const t = forgedTokenWithEmptyKey(42, 1001, 'jan@firma.test')
     await fetch(`${baseUrl}/unsubscribe?c=42&id=1001&t=${t}`)
     expect(sentryCaptures.length).toBeGreaterThanOrEqual(1)
@@ -174,7 +174,7 @@ describe('GET /unsubscribe — S-C1 fail-closed when no secret env vars', () => 
   })
 
   it('8: even with a "valid-looking" empty-key forged token, returns 503 (handler never invokes HMAC compare)', async () => {
-    pushAll({ rows: [] }, { rows: [{ email: 'jan@firma.test' }] }) // brand_label pre-SELECT, then contact lookup
+    pushAll({ rows: [{ email: 'jan@firma.test' }] })
     // Compute the exact token the old buggy code would have accepted.
     const forged = forgedTokenWithEmptyKey(42, 1001, 'jan@firma.test')
     const res = await fetch(`${baseUrl}/unsubscribe?c=42&id=1001&t=${forged}`)
@@ -184,7 +184,7 @@ describe('GET /unsubscribe — S-C1 fail-closed when no secret env vars', () => 
   })
 
   it('9: 503 fires AFTER contact lookup (i.e. 404 for unknown contact still wins, info-leak parity)', async () => {
-    pushAll({ rows: [] }, { rows: [] })  // brand_label pre-SELECT, then contact not found
+    pushAll({ rows: [] })  // contact not found
     const t = forgedTokenWithEmptyKey(42, 9999, 'ghost@test.cz')
     const res = await fetch(`${baseUrl}/unsubscribe?c=42&id=9999&t=${t}`)
     expect(res.status).toBe(404)

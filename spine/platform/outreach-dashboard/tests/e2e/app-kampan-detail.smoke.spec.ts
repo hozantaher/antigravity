@@ -40,10 +40,16 @@ test('Kampaň detail — editor renders all sections', async ({ page }) => {
   await expect(page.getByTestId('kd-status')).toBeVisible()
   await expect(page.getByTestId('kd-kpis')).toBeVisible()
 
-  // All editor sections present.
-  for (const id of ['kd-identity', 'kd-audience', 'kd-sequence', 'kd-pacing', 'kd-window', 'kd-staircase', 'kd-danger']) {
+  // All editor sections present (incl. the machinery-priority panel, 2026-06-26).
+  for (const id of ['kd-identity', 'kd-audience', 'kd-sequence', 'kd-priority', 'kd-pacing', 'kd-window', 'kd-staircase', 'kd-danger']) {
     await expect(page.getByTestId(id)).toBeVisible()
   }
+
+  // Priority panel renders its tier breakdown + the re-score action (visible
+  // only — clicking it would reprice real local PROD data, so the smoke does
+  // not mutate).
+  await expect(page.getByTestId('kd-priority-tiers')).toBeVisible()
+  await expect(page.getByTestId('kd-rescore')).toBeVisible()
 
   // Identity is always editable (non-structural). Open the inline editor.
   await page.getByTestId('kd-identity').getByTestId('kd-edit').click()

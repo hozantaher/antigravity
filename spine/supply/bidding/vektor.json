@@ -1,0 +1,15 @@
+{
+  "identita": "Férový ring — přihazování, které drží slib fair-price.",
+  "smysl": "Nepřeplatíš a nikdo ti aukci neukradne — tři dílčí sliby pod jednou střechou.",
+  "smer": "Bidding jako skupina: eligibility (kauce-gate), soft-close (viditelná ochrana) a concurrency (souběh) — každý uzel se svým vlastním důkazem.",
+  "duvod": "Férovost ringu není jeden test, ale tři oddělené sliby; rozdělené uzly je drží poctivě každý zvlášť.",
+  "myslenka": "Skupina je férová jen tehdy, když platí všechny její dílčí sliby.",
+  "pillar": "fair-price",
+  "role": "primary",
+  "promise": "Nepřeplatíš, neukradnou ti to, souběh nerozhodí pořadí.",
+  "loreLine": "Férová dražba — kůže ve hře plus soft-close, který nedovolí ukrást aukci v poslední vteřině.",
+  "proofSignal": [
+    { "nazev": "férový ring — všechny dílčí sliby live", "zdroj": "track/bidding", "stav": "pending" }
+  ],
+  "antiFeature": "Bidding jako jeden neprůhledný blok — dílčí selhání (skrytý soft-close) se schová v zeleném celku."
+}

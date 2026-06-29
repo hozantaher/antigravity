@@ -19,8 +19,7 @@ function readAll(dir, ext) {
 }
 
 describe('Security audit — MVP-34 (T-0309–T-0314)', () => {
-  // QUARANTINED pending owner decision — see docs/handoff/ci-remediation-residual.md
-  it.skip('T-0309: no hardcoded API keys or tokens in source', () => {
+  it('T-0309: no hardcoded API keys or tokens in source', () => {
     const files = [...readAll(join(ROOT, 'src'), '.jsx'), ...readAll(join(ROOT, 'src'), '.js')]
     const secrets = /(?:api_?key|secret|token|password)\s*[:=]\s*['"][A-Za-z0-9_\-]{10,}['"]/i
     for (const f of files) {

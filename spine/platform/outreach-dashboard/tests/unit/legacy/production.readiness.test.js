@@ -45,10 +45,7 @@ describe('Production readiness — MVP-35 (T-0315–T-0321)', () => {
   })
 
   it('T-0320: ErrorBoundary component exists in layout', () => {
-    // src/components/Layout.jsx was folded into the app root during the
-    // src/app reorg — main.jsx now composes the AppShell layout and wraps it
-    // in the (Route/Sentry) ErrorBoundary.
-    const layout = readFileSync(ROOT + '/src/main.jsx', 'utf8')
+    const layout = readFileSync(ROOT + '/src/components/Layout.jsx', 'utf8')
     expect(layout).toContain('ErrorBoundary')
   })
 

@@ -159,6 +159,12 @@ describe('AR6 audit: crons migrated to scheduleCron', () => {
     expect(src).toContain("scheduleCron('runCampaignContactsStaleReclaim'")
   })
 
+  // 2026-06-26 — machinery-priority sync cron (drift guard for migration 178, 6h cadence).
+  it('T-32: runCampaignContactPriorityCron uses scheduleCron', () => {
+    const src = getSource()
+    expect(src).toContain("scheduleCron('runCampaignContactPriorityCron'")
+  })
+
   // J4 addition — contact stale re-verify uses scheduleDaily (daily-at-03:00 pattern, not scheduleCron interval)
   it('T-25: runContactStaleReverifyCron is wired via scheduleDaily in startCronEngine', () => {
     const src = getSource()

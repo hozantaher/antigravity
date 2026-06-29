@@ -1,0 +1,3 @@
+# TEMPLATE: tento adresář drží DB migrace domény.
+# TEMPLATE: pojmenovávej NNNN_popis.up.sql + NNNN_popis.down.sql (golang-migrate style)
+# TEMPLATE: nebo dle konvence zvoleného migration toolu (viz service README).

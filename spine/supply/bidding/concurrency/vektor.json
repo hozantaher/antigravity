@@ -1,0 +1,32 @@
+{
+  "identita": "Souběh — dva příhozy naráz skončí korektně.",
+  "smysl": "Závod o stejnou položku nerozbije pořadí ani cenu.",
+  "smer": "Serializace na úrovni dat, ne optimistický odhad.",
+  "duvod": "Bez korektního souběhu vznikne dvojí vítěz nebo ztracený příhoz.",
+  "myslenka": "Férový ring drží i pod souběžným tlakem.",
+  "pillar": "fair-price",
+  "role": "internal",
+  "promise": "Souběžné příhozy nikdy nerozhodí pořadí ani cenu.",
+  "loreLine": "I když přihodí dva naráz, ring zůstane férový.",
+  "proofSignal": [
+    {
+      "nazev": "bid-concurrency correctness",
+      "zdroj": "test/bidConcurrency",
+      "stav": "live"
+    }
+  ],
+  "antiFeature": "Optimistický zápis bez zámku — dvojí vítěz pod souběhem.",
+  "hotovo": {
+    "kdyzPlati": [
+      {
+        "kriterium": "Souběžné přihozy korektní (concurrency)",
+        "check": "test:bidConcurrency",
+        "stav": "met",
+        "proof": {
+          "cmd": "pnpm exec vitest run --project unit tests/unit/bid.test.ts"
+        }
+      }
+    ],
+    "vektorGate": "all-met"
+  }
+}

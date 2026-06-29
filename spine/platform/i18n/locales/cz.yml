@@ -1,0 +1,697 @@
+title: Moje aukce
+auction: Aukce
+hiw: Jak to funguje
+contact: Kontakt
+findVehicle: Najdi vozidlo
+login: Přihlásit se
+footerTerms: Podmínky
+minBid: Minimální nabídka
+previewAuctionStarts: Aukce začíná za
+previewJoinAuction: Připojit se k aukci
+categories: Kategorie
+carCategory: Automobily
+motoCategory: Motocykly
+motorhomeCategory: Obytné vozy
+vut75Category: Dodávky/ auta do 7,5T
+to75Category: Nákladní automobily nad 7,5T
+avCategory: Zemědělská vozidla
+sttCategory: Tahače
+tCategory: Trailery
+stCategory: Návěsy
+cmCategory: Stavební stroje
+busCategory: Autobusy
+ftCategory: Vysokozdvižné vozíky
+othersCategory: Jiné
+formTitle: Chcete prodat ?
+formDescription: Pokud máte vozidlo, stroj nebo jiný předmět na prodej, zanechte nám prosím zprávu s popisem a kontaktními údaji, abychom Vás mohli zkontaktovat. Zajistíme prohlídku, ocenění a veškeré administrativní podklady pro prodej v aukci. Děkujeme za používání Auction24. Váš tým Auction24.
+formCallUs: Zavolejte nám hned
+formAgree: Souhlasím se
+formTerms: smluvními podmínkami
+formSubmit: Pošlete nám zprávu
+allAuctions: Všechny aukce
+addAuction: Přidat aukci
+auctionsCount.none: Aukce
+auctionsCount.singular: Aukce
+auctionsCount.plural: Aukce
+numberOfItems: Počet položek
+itemsCount.none: Položky
+itemsCount.singular: Položka
+itemsCount.plural: Položky
+viewItems: Zobrazit položky
+editAuction: Upravit aukci
+noAuctionsYet: Zatím neprobíhají žádné aukce
+backToAuctions: Zpět na přehled aukce
+backToAuction: Zpět na přehled aukce
+addItem: Přidat položku
+listOfItems: Seznam položek
+prevItem: Předchozí položka
+nextItem: Další položka
+editItem: Upravit položku
+bidContainerTitle: Aktuální cena
+yourBid: Vaše nabídka
+placeBid: Umístit nabídku
+createNewItem: Vytvořit novou položku
+dialogCategory: Kategorie
+dialogTitle: Název
+dialogPrice: Cena
+startingPrice: Počáteční cena
+taxIncluded: Včetně daně
+withoutTax: bez daně
+priceBuyNow: Cena Koupit nyní
+dialogDescription: Popis
+dialogDescriptionPlaceholder: Popis položky ...
+dialogHighlights: Highlights
+highlightTitlePlaceholder: Titul
+highlightValuePlaceholder: Hodnota
+dialogVideo: Video
+dialogVideoPlaceholder: Vyplňte pouze ID, nikoli celou adresu URL
+dialogPhotos: Fotografie
+dialogAuctionTitleAdd: Přidat aukci
+dialogAuctionTitleEdit: Upravit aukci
+auctionTitle: Název aukce
+startOfAuction: Aukce začíná
+endOfAuction: Konec aukce
+deleteAuction: Smazat aukci
+hiwTitle1: Registrace
+hiwDesc1: Zaregistrujte se a po vyplnění registračního formuláře Vám na email přijde potvrzení o registraci. Po přihlášení budete mít volný přístup k nabídce vozidel a strojů, které jsou v naší aukci.
+hiwTitle2: Dražitel
+hiwDesc2: Pro aktivní účast v aukci a možnost dražit vybrané předměty je nutné složit dražební jistinu. Instrukce najdete ve Vašem profilu. Aukční jistina je vratná a může být použita při úhradě kupní ceny vydraženého předmětu nebo vrácena zpět na Váš účet.
+hiwTitle3: Nabízet a vyhrávat
+hiwDesc3: Pokud bude dosaženo minimální ceny a vaše nabídka je nejvyšší, stáváte se vítězem aukce a bude Vám zaslán e-mail s pokyny pro zaplacení a převzetí vydraženého předmětu.
+copyright: Všechna práva vyhrazena
+ICO: ICO
+DIC: DIC
+contacts: Kontakty
+phone: Telefon
+mobile: Mobil
+address: Adresa
+accountTitle: Můj účet
+balance: Můj zůstatek
+amountPlaceholder: Částka k přidání
+fundBalance: Financujte svůj zůstatek
+invoices: faktury
+invoiceReqDate: Datum požadavku
+invoiceAmount: Částka
+invoiceStatus: Stav
+invoiceStatusUnpaid: Nezaplaceno
+invoiceStatusPaid: Zaplaceno
+invoiceStatusCanceled: Zrušeno
+invoiceDueDate: Datum splatnosti
+invoice: Faktura
+invoiceCreatedDate: datum vytvoření faktury
+invoiceCreating: Vytváření nové faktury, může to chvíli trvat...
+myAuctions: Moje aukce
+details: Detaily účtu
+name: Jméno
+namePlaceholder: Vaše jméno
+companyName: Název společnosti
+companyNamePlaceholder: Název společnosti
+bankAccount: Bankovní účet
+PSC: PSC
+city: Město
+country: Země
+saveDetails: Uložit změny
+changePw: Změnit heslo
+currentPw: Aktuální heslo
+password: Heslo
+pwAgain: Znovu zadejte heslo
+deleteAccount: Smazat účet
+deleteAccountDesc: Pokud chcete smazat svůj účet a nezanechat žádné stopy
+logout: Odhlásit se
+signUp: Zaregistrovat se
+invoicementCurrency: Měna faktury
+loginWGoogle: Přihlásit se pomocí Google
+loginWFacebook: Přihlášení přes Facebook
+dontHaveAccount: Nemám účet
+forgotPw: Zapomenuté heslo
+alreadyHaveAccount: Už máte účet
+whatToSell: Co chcete prodat?
+vehicleLocation: Umístění vozidla
+emailPlaceholder: Váš e-mail
+phonePlaceholder: Váš telefon
+auctionNamePlaceholder: Název aukce
+searchResult: Výsledek vyhledávání
+resetPassword: Resetovat heslo
+newPw: Nové heslo
+newPwAgain: Nové heslo
+auctionTitlePlaceholder: Titul
+deleteItem: Smazat položku
+toastDetailsSaved: Podrobnosti uloženy
+toastInvoiceListed: Zadaná faktura
+toastWrongPass: Špatné heslo
+toastPassChanged: Heslo změněno
+toastAuctionSaved: Aukce uložena
+toastAuctionCreated: aukce vytvořena
+toastAuctionDeleted: Aukce smazána
+toastLoggedIn: Přihlášeno
+toastWrongCredentials: Špatný e-mail nebo heslo
+toastRegistered: Registrováno
+toastEmailSent: E-mail odeslán
+toastError: Něco se pokazilo
+toastBidError: Pro přihazování musíte být přihlášeni
+toastBalanceError: Nejprve musíte zaplatit svůj zůstatek
+toastMinBidError: Zadejte minimální nabídku
+toastBidSaved: Nabídka uložena
+toastNoPhotoError: Nahrajte prosím alespoň jednu fotografii
+toastItemUpdated: Položka aktualizována
+toastItemCreated: Položka vytvořena
+formSentSuccessTitle: Úspěšně odesláno
+formSentSuccessMsg: Děkujeme za Váš zájem o prodej prostřednictvím aukce. Vaše nabídka byla odeslána a bude předložena ke zpracování našim pracovníkům, kteří Vás budou v nejbližší době kontaktovat.
+close: Zavřít
+cancel: Zrušit
+save: Uložit
+searchPlace: Hledat místo...
+openMainMenu: Otevřít hlavní menu
+panorama: Panorama 360°
+aboutTitle: O nás
+aboutText: Auction24.cz — aukce a inzerce vozidel.
+selectTab: Vyberte záložku
+itemPreviewVideo: Náhledové video položky
+cz: čeština
+en: angličtina
+de: němčina
+fr: francouzština
+pl: polština
+nl: holandština
+ru: ruština
+rs: srbština
+hr: chorvatština
+me: černohorština
+ua: ukrajinština
+ar: arabština
+acountTax: Daň
+hidden: Skrytý
+hiddenItems: Skryté položky
+bidsHistory: Historie nabídek
+noBidsYet: Žádné nabídky
+assignAuction: Přiřadit k aukci
+chooseAuction: Zvolit aukci
+recentItems: Poslední položky
+auctionEndsIn: Aukce končí za
+soldItems: Prodané položky
+soldLabel: Prodáno
+username: Jméno uživatele
+usernameHint: Toto uživatelské jméno bude viditelné pro ostatní
+itemDescription: Popis vozidla
+itemHighlights: Technická data
+auctionLive: Živě
+auctionSoon: Brzy
+auctionEnded: Prodáno
+infoEnded: Tato aukce skončila
+infoProcessing: Probíhá zpracování.
+infoNoWinner: Žádný vítěz
+infoYouWon: Vyhrál jste !
+infoWon: Vyhrál
+cpBrand: Značka
+cpModel: Model
+cpYear: Rok
+cpVolume: Objem
+cpPower: Výkon
+cpFuel: Palivo
+cpTransmission: Převodovka
+cpMileage: Kilometry
+cpColour: Barva
+cpVIN: VIN
+cpEquip: Vybavení
+cpLocation: Lokace
+cpAxles: Osy
+cpState: Stav
+cpNetWeight: Váha
+cpSuspensions: Odpružení
+cpWorkingHours: Motohodiny
+cpSeats: Sedadla
+cpForkliftAttach: Příslušenství
+cpSleepPlaces: Místa na spaní
+cpType: Typ
+titleError: Název je prázdný
+visible: Viditelný
+visibility: Viditelnost
+errorHidden: Položka již není k dispozici
+notSoldLabel: Není prodáno
+favorite: Oblíbené
+noFavorites: Nemáte žádné oblíbené položky
+contactEmail: Kontaktní e-mail
+contactPhone: Kontaktní telefon
+email: E-mail
+clipboardCopied: Zkopírován do schránky
+language: Jazyk
+formNews: Chci zasílat novinky
+accountDeleted: Účet byl odstraněn
+errorTerms: Musíte souhlasit s podmínkami používání
+errorPasswordLength: Heslo musí obsahovat alespoň 6 znaků
+errorPasswordMatch: Hesla se neshodují
+buyItem: Kup teď
+type: Typ
+typeAuction: Aukce
+typeAd: Inzerát
+toastRequiredDate: Prosím vyplte datumy
+firebase:
+  auth/invalid-credential: 'Nesprávný e-mail nebo heslo.'
+  auth/invalid-email: 'Nesprávný e-mail nebo heslo.'
+  auth/missing-password: 'Zadejte prosím heslo.'
+  auth/weak-password: 'Heslo je příliš slabé (použijte alespoň 6 znaků).'
+  auth/network-request-failed: 'Chyba sítě. Zkontrolujte připojení a zkuste to znovu.'
+  auth/no-user: 'Musíte být přihlášeni.'
+  auth/not-configured: 'Přihlášení je dočasně nedostupné.'
+  auth/user-disabled: 'Tento účet byl deaktivován.'
+  auth/expired-action-code: 'Platnost tohoto odkazu vypršela.'
+  auth/invalid-action-code: 'Tento odkaz je neplatný nebo již byl použit.'
+  auth/email-already-in-use: Tento e-mail se již používá
+  auth/requires-recent-login: Chcete-li aktualizovat svůj e-mail, odhlaste se a znovu se přihlaste
+  auth/wrong-password: Nesprávné heslo
+  auth/user-not-found: Uživatel nenalezen
+  auth/too-many-requests: Příliš mnoho požadavků, zkuste to později
+  auth/error: Něco se pokazilo
+noBidsYetDesc: Zatím nejsou žádné nabídky
+noContactInfo: Žádné kontaktní informace
+minBidValidator: Minimální nabídka je {minBid}
+signInFirst: Nejprve se prosím přihlaste
+depositFirst: Nejprve prosím složte kauci
+enterAmount: Zadejte částku (např. {amount})
+itemStatus:
+  buyNow: Kup teď
+  auctionSoon: Brzy
+  auctionLive: Živě
+  auctionProcessing: Aukce se zpracovává, čekejte prosím..
+  auctionEnd: Vítězem je {name}
+  auctionEndNoWinner: Aukce skončila bez vítěze
+  sold: Tato položka je prodána
+companyInfo: Informace o společnosti
+confirm:
+  title: Jsi si jistý?
+  desc: Chcete pokračovat?
+  cta: Potvrďte
+  cancel: Zrušit
+accountDesc: Základní informace o vašem účtu
+billingTitle: Fakturační údaje a faktury
+billingDesc: Vaše fakturační údaje a historie faktur
+invoicesTitle: Faktury
+invoicesDesc: Kompletní historie fakturace
+sendMeLinkPassword: Pošlete mi e-mail pro změnu hesla
+sendMeVerificationLink: Odeslat ověřovací e-mail
+update: Změnit
+emailSentTo: E-mail byl odeslán na adresu {email}
+proceedPayment: Pokračovat v platbě
+showPDF: Zobrazit PDF
+createNewAccount: vytvořit nový účet
+signIn: Přihlaste se ke svému účtu
+noItems: Nebyla nalezena žádná položka
+noItemsDesc: Omlouváme se, žádnou položku jsme nenašli.
+cookies: Soubory cookie používáme ke zlepšení vašeho zážitku na našich stránkách a k zobrazení relevantní reklamy. Chcete-li se dozvědět více, přečtěte si naše
+accept: Přijmout
+privacyPolicy: Zásady ochrany osobních údajů
+registerAsCompany: Zaregistrujte se jako společnost
+notEligibleToBid: Nemáte nárok přihazovat, kontaktujte prosím podporu
+bidEmailAndPhone: Ověřte prosím svůj e-mail a vyplňte svůj telefon, abyste mohli přihazovat
+emailSent: E-mail byl odeslán na adresu {email}
+emailUpdated: Email byl úspěšně aktualizován
+termsValidator: Musíte souhlasit s podmínkami
+accountCreated: Účet byl vytvořen
+requiredField: Toto pole je povinné
+you: Vy
+form:
+  validator:
+    min: Minimální hodnota je {min}
+    max: Maximální hodnota je  {max}
+    minlength: Minimální délka je  {min}
+    maxlength: Maximální délka je  {max}
+    email: Nesprávný formát e-mailu
+    phone: Nesprávný formát telefonu
+    wrongMatch: Hesla se musí shodovat
+minBidNotMet: Nebyla dosažena minimální částka
+buyNow: Kup teď
+offerPrice: Nabídněte cenu
+enterOffer: Zadejte částku
+sendOffer: Odeslat nabídku
+onRequest: Na dotaz
+sold: Prodáno
+resetPasswordSent: The email has been sent to {email}
+yourBidIs: Vaše nabídka je
+confirmBid: Opravdu chcete přihodit tuto částku?
+copyLink: Kopírovat odkaz
+share: Sdílet
+Invoices: faktury
+accountTax: Daň
+bids: nabídky
+items: Položky
+location: Lokalita
+minimalPrice: Minimální cena
+not-found: Stránka nenalezena
+galleryPrevious: Předchozí fotka
+galleryNext: Další fotka
+galleryZoomIn: Přiblížit
+galleryZoomOut: Oddálit
+galleryViewAll: Zobrazit všechny fotky
+galleryPhotoOf: Fotka {current} z {total}
+
+authFlow:
+  verifying: 'Ověřuji…'
+  verifiedTitle: 'E-mail ověřen'
+  verifiedBody: 'Váš e-mail {email} byl ověřen.'
+  pendingTitle: 'Ověření e-mailu'
+  invalidCode: 'Tento odkaz je neplatný nebo jeho platnost vypršela.'
+  resend: 'Poslat ověřovací e-mail znovu'
+  resending: 'Odesílám…'
+  resendSuccess: 'Poslali jsme vám nový ověřovací e-mail.'
+  resendError: 'E-mail se nepodařilo odeslat. Zkuste to prosím znovu.'
+  backToLogin: 'Zpět na přihlášení'
+  resetLead: 'Zvolte nové heslo k vašemu účtu.'
+  newPassword: 'Nové heslo'
+  resetSubmit: 'Nastavit nové heslo'
+  resetSuccess: 'Vaše heslo bylo změněno. Nyní se můžete přihlásit.'
+  resetFailed: 'Něco se pokazilo. Zkuste to prosím znovu.'
+  getNewResetLink: 'Vyžádat nový odkaz'
+  emailSentReset: 'Poslali jsme odkaz pro obnovu hesla na {email}.'
+
+pagination:
+  previous: Předchozí
+  next: Další
+  showing: "Zobrazeno {from}–{to} z {total}"
+  label: Stránkování
+
+vehicle:
+  title: Technické parametry
+  brand: Značka
+  model: Model
+  year: Rok výroby
+  firstRegistration: První registrace
+  fuelType: Palivo
+  transmission: Převodovka
+  bodyType: Karoserie
+  driveType: Pohon
+  color: Barva
+  power: Výkon
+  displacement: Objem motoru
+  gears: Počet stupňů
+  emission: Emisní norma
+  co2: Emise CO₂
+  doors: Počet dveří
+  seats: Počet sedadel
+  axles: Počet náprav
+  length: Délka
+  width: Šířka
+  height: Výška
+  wheelbase: Rozvor
+  weight: Pohotovostní hmotnost
+  maxSpeed: Nejvyšší rychlost
+  vin: VIN
+  fuel:
+    petrol: Benzín
+    diesel: Nafta
+    electric: Elektro
+    hybrid: Hybrid
+    phev: Plug-in hybrid
+    lpg: LPG
+    cng: CNG
+    hydrogen: Vodík
+    other: Jiné
+  trans:
+    manual: Manuální
+    automatic: Automatická
+    semi_automatic: Poloautomatická
+    cvt: CVT
+    dct: Dvouspojková (DCT)
+  body:
+    sedan: Sedan
+    wagon: Kombi
+    hatchback: Hatchback
+    suv: SUV
+    coupe: Kupé
+    convertible: Kabriolet
+    van: Dodávka
+    pickup: Pickup
+    minibus: Minibus
+    other: Jiné
+  drive:
+    fwd: Přední (FWD)
+    rwd: Zadní (RWD)
+    awd: Pohon všech kol (AWD)
+    4x4: 4×4
+  colors:
+    white: Bílá
+    black: Černá
+    silver: Stříbrná
+    grey: Šedá
+    blue: Modrá
+    red: Červená
+    green: Zelená
+    brown: Hnědá
+    beige: Béžová
+    yellow: Žlutá
+    orange: Oranžová
+    gold: Zlatá
+    other: Jiná
+
+reco:
+  similarTitle: Podobné inzeráty
+  forYouTitle: Vybráno pro vás
+notifications:
+  title: Oznámení
+  markAllRead: Označit vše jako přečtené
+  loadMore: Načíst další
+  empty: Zatím nemáte žádná oznámení
+  type:
+    win: Vyhráli jste aukci {title}
+    outbid: Byli jste přeplaceni u {title}
+    answer: Váš dotaz u {title} byl zodpovězen
+continueWith: Pokračovat přes {provider}
+orSeparator: nebo
+savedSearch:
+  title: Uložená hledání
+  empty: Zatím nemáte žádná uložená hledání.
+  save: Uložit hledání
+  nameLabel: Pojmenujte hledání
+  namePlaceholder: např. Naftová SUV do 300 tisíc
+  create: Uložit hledání
+  delete: Smazat
+  deleteConfirm: Smazat toto uložené hledání?
+  alertOn: E-mailová upozornění zapnuta
+  alertOff: E-mailová upozornění vypnuta
+  alertHint: Pošleme vám e-mail, když se objeví nové nebo brzy končící odpovídající inzeráty.
+  filterSummary: "{count} filtrů"
+  created: Uložené hledání vytvořeno
+  removed: Uložené hledání odebráno
+messaging:
+  title: Dotazy
+  ask: Položit dotaz
+  placeholder: Zeptejte se prodejce…
+  submit: Odeslat dotaz
+  submitted: Váš dotaz byl odeslán a čeká na schválení.
+  signInFirst: Pro položení dotazu se přihlaste
+  empty: Zatím žádné dotazy
+  emptyDesc: Buďte první, kdo se prodejce zeptá.
+  answer: Odpověď prodejce
+  asker: Zájemce
+  pending: Čeká na schválení
+  you: Vy
+  error: Odeslání dotazu se nezdařilo. Zkuste to prosím znovu.
+compare:
+  title: Porovnat vozidla
+  pageTitle: Porovnání vozidel
+  hint: "Porovnejte až {max} vozidla vedle sebe."
+  empty: Žádná vozidla k porovnání
+  emptyHint: Vozidla přidáte ikonou porovnání u libovolného inzerátu.
+  failedToLoad: "Nepodařilo se načíst {count} vozidel — pravděpodobně byla smazána."
+  add: Přidat do porovnání
+  remove: Odebrat z porovnání
+  removeAria: "Odebrat {title} z porovnání"
+  open: Otevřít porovnání
+  clear: Vymazat
+  count: "{count}/{max}"
+  addedToast: "Přidáno do porovnání ({count}/{max})"
+  removedToast: Odebráno z porovnání
+  fullToast: "Porovnat lze nejvýše {max} vozidla."
+  price: Cena
+
+settlement:
+  title: "Dokončete svůj nákup"
+  cardTitle: "Vyhráli jste — uhraďte konečnou cenu"
+  finalPrice: "Konečná cena"
+  depositCredit: "Započtená kauce"
+  amountDue: "K úhradě"
+  fullyCoveredByDeposit: "Plně pokryto vaší kaucí"
+  back: "Zpět"
+  continue: "Pokračovat"
+  confirmFree: "Potvrdit nákup"
+  summaryHeading: "Shrnutí nákupu"
+  summaryIntro: "Uhraďte konečnou cenu poníženou o již složenou kauci."
+  billingHeading: "Fakturační údaje"
+  billingIntro: "Tyto údaje použijeme na faktuře."
+  billingName: "Jméno"
+  billingEmail: "E-mail"
+  billingStreet: "Ulice a číslo"
+  billingZip: "PSČ"
+  billingCity: "Město"
+  billingCountry: "Země"
+  billingError: "Uložení údajů selhalo. Zkuste to prosím znovu."
+  methodHeading: "Zvolte způsob platby"
+  methodIntro: "Oba způsoby dokončí nákup automaticky po připsání platby."
+  methodCard: "Karta"
+  methodCardHint: "Okamžitě přes Stripe"
+  methodTransfer: "Bankovní převod"
+  methodTransferHint: "QR platba, obvykle do 1 pracovního dne"
+  payByCard: "Zaplatit kartou"
+  cardDesc: "Přesměrujeme vás na zabezpečenou platební stránku Stripe."
+  cardSecure: "Platbu zpracovává Stripe — údaje o kartě se k nám nedostanou."
+  redirecting: "Přesměrování…"
+  payByTransfer: "Zaplatit převodem"
+  transferIntro: "Pošlete přesnou částku s variabilním symbolem níže, abychom platbu spárovali automaticky."
+  recipient: "Příjemce"
+  account: "Číslo účtu"
+  iban: "IBAN"
+  variableSymbol: "Variabilní symbol"
+  paymentMessage: "Zpráva pro příjemce"
+  scanToPay: "Naskenujte pro platbu"
+  transferWaiting: "Čekáme na vaši platbu — stránka se obnoví automaticky."
+  viewInvoice: "Zobrazit fakturu"
+  copy: "Kopírovat údaje"
+  copied: "Platební údaje zkopírovány"
+  loadingPayment: "Připravujeme platební údaje…"
+  verifyingTitle: "Ověřujeme vaši platbu…"
+  verifyingSlow: "Trvá to déle než obvykle — vaše platba je v bezpečí."
+  successTitle: "Nákup dokončen"
+  successBody: "Faktura je na cestě e-mailem. Děkujeme!"
+  successFeatures:
+    invoice: "Faktura e-mailem"
+    complete: "Nákup dokončen"
+  notWinner: "Tento nákup může uhradit pouze vítěz aukce."
+  alreadyPaid: "Tento nákup je již uhrazen."
+  toastError: "Platbu se nepodařilo spustit. Zkuste to prosím znovu."
+  toastPaid: "Platba přijata — děkujeme!"
+  steps:
+    summary: "Shrnutí nákupu"
+    billing: "Fakturační údaje"
+    method: "Zvolte způsob platby"
+    payment: "Zaplatit převodem"
+    success: "Nákup dokončen"
+  card:
+    paidTitle: "Nákup dokončen"
+    paidDesc: "Fakturu jsme vám zaslali e-mailem."
+    pendingTitle: "Čekáme na vaši platbu"
+    pendingDesc: "Jakmile připíšeme platbu {amount}, nákup se automaticky dokončí."
+    dueDesc: "Vyhráli jste — uhraďte {amount} a dokončete nákup."
+    showDetails: "Dokončit platbu"
+    cta: "Zaplatit"
+
+deposit:
+  title: Aukční kauce
+  continue: Pokračovat
+  back: Zpět
+  stepper:
+    currency: Měna
+    details: Údaje
+    payment: Platba
+    done: Hotovo
+    method: Způsob
+  currency:
+    heading: Zvolte měnu kauce
+    intro: Kauce je vratná jistota, která vám odemkne přihazování ve všech aukcích. Zaplatíte ji jednoduše bankovním převodem.
+    czkSub: platba v korunách z českého účtu
+    eurSub: platba v eurech (SEPA)
+  billing:
+    heading: Fakturační údaje
+    intro: Údaje použijeme na zálohovou fakturu ke kauci.
+    name: Jméno
+    email: E-mail
+    street: Ulice a č. p.
+    city: Město
+    zip: PSČ
+    country: Země
+    error: Údaje se nepodařilo uložit. Zkuste to prosím znovu.
+  payment:
+    heading: Zaplaťte bankovním převodem
+    intro: Pošlete přesnou částku s uvedeným variabilním symbolem, ať platbu spárujeme automaticky.
+    recipient: Příjemce
+    account: Číslo účtu
+    iban: IBAN
+    amount: Částka
+    vs: Variabilní symbol
+    message: Zpráva pro příjemce
+    qrHint: Naskenujte QR kód v bankovní aplikaci
+    copy: Zkopírovat údaje
+    copied: Platební údaje zkopírovány
+    waiting: Čekáme na připsání platby — tato obrazovka se aktualizuje automaticky.
+    invoice: Zobrazit zálohovou fakturu
+    note: Platbu spárujeme podle variabilního symbolu {vs}. Připsání převodu obvykle trvá několik minut až 1 pracovní den.
+    error: Platební údaje se nepodařilo načíst. Zavřete okno a zkuste to znovu.
+    loading: Připravujeme platební údaje…
+  method:
+    heading: Zvolte způsob platby
+    intro: Oba způsoby kauci po připsání aktivují automaticky.
+    card: Platba kartou
+    cardHint: Okamžité připsání přes Stripe
+    transfer: Bankovní převod
+    transferHint: QR platba, připsání obvykle do 1 pracovního dne
+  cardPay:
+    heading: Platba kartou
+    desc: Přesměrujeme vás na zabezpečenou platební bránu Stripe.
+    secure: Platbu zpracovává Stripe — údaje o kartě se k nám nedostanou.
+    pay: Zaplatit kartou
+    redirecting: Přesměrováváme…
+    error: Platbu kartou se nepodařilo zahájit. Zkuste to znovu, nebo zvolte převod.
+  verifying:
+    slowNote: Trvá to déle než obvykle. Platbu dokončíme na pozadí — okno můžete zavřít, kauce se aktivuje automaticky.
+  return:
+    cancelled: Platba kartou byla zrušena. Můžete to zkusit znovu, nebo zaplatit převodem.
+  success:
+    processing: Ověřujeme platbu…
+    title: Kauce složena!
+    note: Potvrzení a doklad jsme vám poslali e-mailem. Hodně štěstí v aukcích!
+    features:
+      bidding: Přihazování odemčeno
+      refundable: Plně vratná
+      invoice: Doklad e-mailem
+      instant: Okamžitá aktivace
+    back: Zpět na aukci
+    browse: Prohlížet aukce
+    close: Zavřít
+  card:
+    title: Aukční kauce
+    desc: Pro přihazování v aukcích složte vratnou kauci {czk} nebo {eur}.
+    cta: Složit kauci
+    pendingTitle: Čekáme na platbu kauce
+    pendingDesc: Jakmile se platba {amount} připíše, kauci aktivujeme automaticky.
+    showDetails: Dokončit platbu
+    invoice: Zálohová faktura
+    paidTitle: Kauce složena
+    paidDesc: Můžete přihazovat ve všech aukcích.
+
+seo:
+  homeTitle: "Online aukce vozidel a strojů"
+  homeDescription: "Aukce a přímý prodej nákladních i osobních vozidel, strojů a techniky. Prohlédněte si ověřené inzeráty a přihazujte online na Auction24.cz."
+  categoryDescription: "Aktuální aukce a inzeráty v kategorii {category}. Prohlédněte si nabídku a přihazujte online na Auction24.cz."
+  auctionsDescription: "Živé aukce vozidel a strojů — nákladní i osobní vozy, technika. Přihazujte online a sledujte konce aukcí na Auction24.cz."
+  buyNowDescription: "Vozidla a stroje k okamžitému koupení za pevnou cenu. Prohlédněte si inzeráty Kup teď na Auction24.cz."
+  soldDescription: "Nedávno prodaná vozidla a stroje — dosažené ceny a ukončené aukce na Auction24.cz."
+  aboutDescription: "O společnosti Auction24.cz — online tržiště pro aukce a přímý prodej vozidel a strojů. Zjistěte, kdo jsme a jak platforma funguje."
+  contactDescription: "Kontakt na Auction24.cz — adresa, telefon a e-mail. Napište nám s dotazy k aukcím, inzerátům nebo prodeji vašeho vozidla."
+  categoriesDescription: "Procházejte všechny kategorie vozidel a strojů na Auction24.cz — nákladní i osobní vozy, technika a další. Najděte aukce a inzeráty Kup teď podle kategorie."
+  home: "Domů"
+  breadcrumb: "Drobečková navigace"
+search:
+  title: Hledání
+  placeholder: Hledat aukce…
+  resultsCount: "{count} výsledků"
+  noResults: Žádné odpovídající inzeráty
+  noResultsHint: Zkuste odebrat filtr nebo rozšířit hledání
+  filters: Filtry
+  clearFilters: Vymazat vše
+  facetType: Typ
+  facetTypeAuction: Aukce
+  facetTypeAd: Kup teď
+  facetCategory: Kategorie
+  facetPriceMin: Cena od
+  facetPriceMax: Cena do
+  facetFuel: Palivo
+  facetBody: Karoserie
+  facetTransmission: Převodovka
+  facetDrive: Pohon
+  facetColor: Barva
+  facetYearFrom: Rok od
+  facetYearTo: Rok do
+  sortLabel: Řazení
+  sortRelevance: Relevance
+  sortNewest: Nejnovější
+  sortPriceAsc: "Cena: od nejnižší"
+  sortPriceDesc: "Cena: od nejvyšší"
+  activeFilter: "Filtr: {label}"

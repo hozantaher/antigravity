@@ -205,3 +205,10 @@ Tento log je automaticky spravován systémem Antigravity.
 - **Affected Nodes:** None
 - **Details:** Hodinový Cyber-Audit dokončen. Architektura je 100% čistá (iterace 11).
 
+
+## [2026-06-29T13:00:17.597Z] MANUAL_LOG
+
+- **Actor:** Human
+- **Affected Nodes:** None
+- **Details:** Hodinový Cyber-Audit dokončen. Architektura je 100% čistá (iterace 12). Lokální agent crony se vypínají, přechod na Railway.
+

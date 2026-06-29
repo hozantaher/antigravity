@@ -271,7 +271,7 @@ export function mountCampaignSegmentExpansionRoutes(app, { pool, capture500, saf
             SELECT unnest($2::text[]) AS p
           ),
           candidates AS (
-            SELECT DISTINCT c.id AS contact_id
+            SELECT DISTINCT c.id AS contact_id, c.category_path
               FROM contacts c
               JOIN added a ON c.category_path LIKE a.p || '%'
              WHERE c.status = 'valid'
@@ -291,8 +291,8 @@ export function mountCampaignSegmentExpansionRoutes(app, { pool, capture500, saf
                   WHERE sup.email = LOWER(TRIM(c.email))
                )
           )
-          INSERT INTO campaign_contacts (campaign_id, contact_id, status, current_step, next_send_at)
-          SELECT $1, cand.contact_id, 'pending', 0, NOW()
+          INSERT INTO campaign_contacts (campaign_id, contact_id, status, current_step, next_send_at, priority)
+          SELECT $1, cand.contact_id, 'pending', 0, NOW(), compute_machinery_score(cand.category_path)
             FROM candidates cand
           RETURNING id
           `,

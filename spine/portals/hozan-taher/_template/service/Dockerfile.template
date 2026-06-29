@@ -1,0 +1,61 @@
+# TEMPLATE: přejmenuj na `Dockerfile` a customizuj dle technologie služby.
+# TEMPLATE: Níže jsou komentáře pro 3 běžné varianty (Go, Node/TS, Python).
+# TEMPLATE: Smaž nerelevantní části a nech jen finální build.
+
+# =============================================================================
+# VARIANTA A: Go (multi-stage, static binary)
+# =============================================================================
+# FROM golang:1.25-alpine AS builder
+# WORKDIR /app
+# COPY go.mod go.sum ./
+# RUN go mod download
+# COPY . .
+# RUN CGO_ENABLED=0 GOOS=linux go build -o /out/service ./cmd/<service>
+#
+# FROM gcr.io/distroless/static-debian12
+# COPY --from=builder /out/service /service
+# USER nonroot:nonroot
+# EXPOSE 8080
+# ENTRYPOINT ["/service"]
+
+# =============================================================================
+# VARIANTA B: Node / TypeScript (pnpm)
+# =============================================================================
+# FROM node:22-alpine AS builder
+# WORKDIR /app
+# RUN corepack enable
+# COPY pnpm-lock.yaml package.json ./
+# RUN pnpm install --frozen-lockfile
+# COPY . .
+# RUN pnpm build
+#
+# FROM node:22-alpine
+# WORKDIR /app
+# COPY --from=builder /app/dist ./dist
+# COPY --from=builder /app/node_modules ./node_modules
+# COPY --from=builder /app/package.json ./package.json
+# EXPOSE 8080
+# CMD ["node", "dist/index.js"]
+
+# =============================================================================
+# VARIANTA C: Python (pip)
+# =============================================================================
+# FROM python:3.13-slim AS builder
+# WORKDIR /app
+# COPY requirements.txt .
+# RUN pip install --no-cache-dir --prefix=/install -r requirements.txt
+#
+# FROM python:3.13-slim
+# COPY --from=builder /install /usr/local
+# WORKDIR /app
+# COPY . .
+# EXPOSE 8080
+# CMD ["python", "-m", "<service>"]
+
+# TEMPLATE NOTES:
+# - Nikdy necommituj secrets do Dockerfile (žádné `ENV API_KEY=...`)
+# - Pinuj base image tag (ne `:latest`)
+# - Preferuj multi-stage pro menší runtime image
+# - USER nonroot kde to jde (distroless nebo explicit useradd)
+# - HEALTHCHECK instrukce je doporučena pro Railway
+# - Viz docs/playbooks/DOMAIN-MIGRATION.md

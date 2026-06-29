@@ -150,13 +150,8 @@ describe('PUT /api/scoring/config', () => {
   })
 
   it('200 + updated row on valid weights', async () => {
-    // Handler now wraps the write in a txn with an audit INSERT (scoring.js:165-176):
-    // BEGIN → UPDATE → INSERT operator_audit_log → COMMIT → SELECT current row.
-    // The audit INSERT shifts the queue, so feed an empty row for it; the version
-    // row must be queued LAST for the final SELECT.
     queueRows([])  // UPDATE result
-    queueRows([])  // INSERT operator_audit_log result
-    queueRows([{ weights: { icp_tier: 40 }, version: 4, updated_at: '2026-04-21' }])  // final SELECT
+    queueRows([{ weights: { icp_tier: 40 }, version: 4, updated_at: '2026-04-21' }])
     const res = await req('PUT', '/api/scoring/config', {
       weights: { icp_tier: 40, email_confidence: 20 },
       updated_by: 'test',

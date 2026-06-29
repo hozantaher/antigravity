@@ -1,0 +1,17 @@
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "Dockerfile"
+
+[deploy]
+# Use the Dockerfile ENTRYPOINT (entrypoint.sh) so wireproxy starts before
+# the relay when WIREPROXY_CONFIG is set. Hardcoding startCommand to the
+# binary path would bypass the entrypoint and skip wireproxy boot.
+startCommand = "/app/entrypoint.sh"
+healthcheckPath = "/healthz"
+healthcheckTimeout = 30
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 3
+
+# Deploy trigger 2026-05-20T18:30 — anti-trace-relay container down on Railway,
+# attempting GitHub-auto-deploy redeploy via no-op commit. If Railway watches
+# this path, push triggers a fresh build.

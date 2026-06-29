@@ -20,25 +20,8 @@ const queryQueue: QueryOutcome[] = []
 const calls: Array<{ sql: string; params?: unknown[] }> = []
 
 vi.mock('pg', () => {
-  // AP3 per-op rate limiter (checkAndRecord) runs BEGIN → SELECT 1 … FOR UPDATE
-  // → COUNT mailbox_op_rate_log → INSERT mailbox_op_rate_log → COMMIT before the
-  // full-check handler does its real cache/mailbox lookups. These tests are not
-  // exercising the limiter, so short-circuit its queries to the "allowed" path
-  // WITHOUT consuming queryQueue, leaving the queued cache/mailbox rows for the
-  // handler's own queries. (The actual 404-on-unknown-id gate is the mailbox
-  // lookup, which the tests still control.)
-  function infraShortCircuit(sql: unknown): { rows: unknown[]; rowCount: number } | null {
-    const s = typeof sql === 'string' ? sql : ''
-    if (/FROM outreach_mailboxes WHERE id=\$1 FOR UPDATE/i.test(s)) return { rows: [{ ok: 1 }], rowCount: 1 }
-    if (/FROM mailbox_op_rate_log/i.test(s)) return { rows: [{ used: 0, oldest_in_window: null }], rowCount: 1 }
-    if (/INSERT INTO mailbox_op_rate_log/i.test(s)) return { rows: [], rowCount: 1 }
-    return null
-  }
-
   class Pool {
     async query(sql: string, params?: unknown[]) {
-      const infra = infraShortCircuit(sql)
-      if (infra) return infra
       calls.push({ sql, params })
       if (!queryQueue.length) return { rows: [], rowCount: 0 }
       const next = queryQueue.shift()!

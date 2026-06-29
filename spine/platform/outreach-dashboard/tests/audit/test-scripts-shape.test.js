@@ -80,14 +80,12 @@ describe('test scripts shape (#70 + #69)', () => {
   })
 
   // 11. Root CLAUDE.md cross-references README#running-tests.
-  // QUARANTINED pending owner decision — see docs/handoff/ci-remediation-residual.md
-  it.skip('root CLAUDE.md points to README#running-tests', () => {
+  it('root CLAUDE.md points to README#running-tests', () => {
     expect(rootClaude).toMatch(/README\.md#running-tests/i)
   })
 
   // 12. Root CLAUDE.md documents the flip.
-  // QUARANTINED pending owner decision — see docs/handoff/ci-remediation-residual.md
-  it.skip('root CLAUDE.md mentions the flip', () => {
+  it('root CLAUDE.md mentions the flip', () => {
     expect(rootClaude).toMatch(/since #70|TEST_SCOPE=all/)
   })
 

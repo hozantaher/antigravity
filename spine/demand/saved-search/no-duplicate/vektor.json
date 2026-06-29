@@ -1,0 +1,14 @@
+{
+  "identita": "Bez duplicit — claim-CAS zaručí 'právě jednou'.",
+  "smysl": "Stejná shoda nepřijde dvakrát; kupec se nenaučí alert ignorovat.",
+  "smer": "Claim-CAS na odeslání brání duplicitě i při souběhu cronů.",
+  "duvod": "Duplicitní alert naučí kupce mail ignorovat — slib padá.",
+  "myslenka": "Právě jednou: ani spam, ani ticho.",
+  "pillar": "serious-community",
+  "role": "supporting",
+  "promise": "Stejná shoda nepřijde dvakrát.",
+  "loreLine": "Claim-CAS drží 'právě jednou' — i když cron běží dvakrát.",
+  "proofSignal": [{ "nazev": "duplicate-alert count = 0", "zdroj": "saved-search-alerts-job", "stav": "pending" }],
+  "antiFeature": "Duplicitní alerty bez claim-CAS — kupec je začne ignorovat.",
+  "hotovo": { "kdyzPlati": [{ "kriterium": "Claim-CAS na odeslání brání duplicitě (právě jednou)", "check": "test:saved-search-dedup", "stav": "met", "proof": { "cmd": "docker compose -f docker-compose.test.yml up -d --wait >/dev/null 2>&1 && POSTGRES_URL=postgresql://test:test@localhost:5434/test POSTGRES_SSL=disable pnpm exec vitest run --project integration tests/integration/savedSearchRepo.test.ts -t \"claimAlertSend\" 2>&1 | grep -qE \"Test Files +1 passed\"", "timeout": 180000 } }], "vektorGate": "all-met" }
+}

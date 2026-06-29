@@ -1,0 +1,21 @@
+{
+  "mcpServers": {
+    "garaaage": {
+      "command": "npx",
+      "args": ["tsx", "features/platform/mcp/mcp-server/index.ts"]
+    },
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@playwright/mcp@0.0.76",
+        "--headless",
+        "--isolated",
+        "--viewport-size",
+        "1440,900",
+        "--output-dir",
+        "features/platform/outreach-dashboard/test-results-prod/mcp-artifacts"
+      ]
+    }
+  }
+}

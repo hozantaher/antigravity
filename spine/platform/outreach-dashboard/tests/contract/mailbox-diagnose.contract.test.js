@@ -255,13 +255,8 @@ describe('POST /api/mailboxes/:id/diagnose — contract (F3)', () => {
   it('T5: returns 200 with ok:true when relay+imap+dns all pass', async () => {
     queryQueue.push(mailboxRow())
     for (const r of rateAllowed()) queryQueue.push(r)
-    // Order matters: the audit-log INSERT is fire-and-forget and invoked
-    // (mailboxes.js:1251) BEFORE runRelayProbe → getRelayBase, so it shifts the
-    // queue first. getRelayBase runs TWICE (once at mailboxes.js:1262, once
-    // inside relayFetch at relayClient.js:38), so queue the config row twice.
-    queryQueue.push({ rows: [], rowCount: 0 })  // audit log insert (mailboxes.js:1251)
-    queryQueue.push(relayConfigRow())  // getRelayBase #1 (mailboxes.js:1262)
-    queryQueue.push(relayConfigRow())  // getRelayBase #2 (relayFetch → relayClient.js:38)
+    queryQueue.push(relayConfigRow())  // getRelayBase DB lookup
+    queryQueue.push({ rows: [], rowCount: 0 })  // audit log insert
 
     // relay /v1/probe call
     fetchResponses.push(makeRelayProbeResponse(true, true))
@@ -299,10 +294,8 @@ describe('POST /api/mailboxes/:id/diagnose — contract (F3)', () => {
   it('T7: imap.error includes imap_host when no imap_host set', async () => {
     queryQueue.push(mailboxRow({ imap_host: null, imap_port: null }))
     for (const r of rateAllowed()) queryQueue.push(r)
-    // audit INSERT shifts first (mailboxes.js:1251), then getRelayBase ×2.
-    queryQueue.push({ rows: [], rowCount: 0 })  // audit log insert (mailboxes.js:1251)
-    queryQueue.push(relayConfigRow())  // getRelayBase #1 (mailboxes.js:1262)
-    queryQueue.push(relayConfigRow())  // getRelayBase #2 (relayFetch → relayClient.js:38)
+    queryQueue.push(relayConfigRow())
+    queryQueue.push({ rows: [], rowCount: 0 })  // audit log
 
     // relay response without imap section (imap_host not sent)
     fetchResponses.push({
@@ -403,10 +396,8 @@ describe('POST /api/mailboxes/:id/diagnose — contract (F3)', () => {
   it('T12: relay /v1/probe is called with mailbox_id param', async () => {
     queryQueue.push(mailboxRow())
     for (const r of rateAllowed()) queryQueue.push(r)
-    // audit INSERT shifts first (mailboxes.js:1251), then getRelayBase ×2.
-    queryQueue.push({ rows: [], rowCount: 0 })  // audit log insert (mailboxes.js:1251)
-    queryQueue.push(relayConfigRow())  // getRelayBase #1 (mailboxes.js:1262)
-    queryQueue.push(relayConfigRow())  // getRelayBase #2 (relayFetch → relayClient.js:38)
+    queryQueue.push(relayConfigRow())
+    queryQueue.push({ rows: [], rowCount: 0 })
     fetchResponses.push(makeRelayProbeResponse(true, true))
 
     await request.post('/api/mailboxes/42/diagnose')

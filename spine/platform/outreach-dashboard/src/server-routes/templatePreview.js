@@ -29,8 +29,8 @@ const SAMPLE_VARS = {
 // same directory in production so we stay in sync — no fabricated content.
 function templatesDir() {
   const here = dirname(fileURLToPath(import.meta.url))
-  // .../features/platform/outreach-dashboard/src/server-routes → repo root → modules/outreach/configs/templates
-  return join(here, '..', '..', '..', '..', '..', 'modules', 'outreach', 'configs', 'templates')
+  // .../apps/outreach-dashboard/src/server-routes → repo root → services/campaigns/configs/templates
+  return join(here, '..', '..', '..', '..', 'services', 'campaigns', 'configs', 'templates')
 }
 
 function substituteVars(text, vars) {

@@ -1,0 +1,34 @@
+{
+  "identita": "Rozpoznání země — žádný stroj nepřijde z neznámého místa.",
+  "smysl": "Inzerát z kterékoli země má vlajku, název a měnu, ne prázdné pole.",
+  "smer": "Country-resolution hit-rate nad cílem; každá země z nabídky se rozpozná.",
+  "duvod": "Neznámá země u zahraničního inzerátu udělá nabídku nečitelnou → borderless padá.",
+  "myslenka": "Rozpoznaná země je čitelná nabídka, ne ozdoba.",
+  "pillar": "borderless",
+  "role": "supporting",
+  "promise": "Stroj z jakékoli země se rozpozná.",
+  "loreLine": "Každá země rozpoznaná — tahač z Ukrajiny i z Chorvatska má svou vlajku a měnu.",
+  "proofSignal": [
+    {
+      "nazev": "country-resolution hit-rate",
+      "zdroj": "test/countryResolution",
+      "stav": "live"
+    }
+  ],
+  "antiFeature": "Neznámá země u zahraničního stroje — nabídka beze jména a měny.",
+  "hotovo": {
+    "kdyzPlati": [
+      {
+        "kriterium": "Country-resolution hit-rate nad cílem (žádná neznámá země)",
+        "check": "test:countryResolution",
+        "stav": "met",
+        "proof": {
+          "cmd": "pnpm exec vitest run --project nuxt tests/nuxt/refData.test.ts"
+        }
+      }
+    ],
+    "vektorGate": "all-met"
+  },
+  "id": "country-resolution",
+  "story_axis": "platform"
+}

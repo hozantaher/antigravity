@@ -21,12 +21,7 @@ import type { AddressInfo } from 'net'
 
 // ── source-ratchet helpers ────────────────────────────────────────────────
 
-// Re-root: this dashboard now lives at <worktree>/features/platform/outreach-dashboard,
-// so __dirname is tests/contract under it. The source-ratchet relPaths below are
-// anchored at the worktree root (features/…, scripts/migrations/…), which is five
-// levels up from tests/contract (contract → tests → outreach-dashboard → platform →
-// features → <worktree root>).
-const ROOT = resolve(__dirname, '../../../../..')
+const ROOT = resolve(__dirname, '../../../..')
 
 function src(relPath: string) {
   return readFileSync(resolve(ROOT, relPath), 'utf-8')

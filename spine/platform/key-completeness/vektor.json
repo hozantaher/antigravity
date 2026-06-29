@@ -1,0 +1,34 @@
+{
+  "identita": "Úplnost klíčů — žádný jazyk nepadá zpět na češtinu.",
+  "smysl": "Každý z 12 jazyků má vyplněný každý klíč; nikde nezůstane český text v cizí řeči.",
+  "smer": "100% key-completeness ve všech 12 locales; nový klíč jde do všech souborů.",
+  "duvod": "Chybějící klíč prosákne český fallback do cizího jazyka → překlad přestane být tržní dosah.",
+  "myslenka": "Úplnost překladu je dosah, ne kosmetika.",
+  "pillar": "borderless",
+  "role": "supporting",
+  "promise": "Každý jazyk je kompletní.",
+  "loreLine": "Žádný fallback na češtinu — Kyjev, Berlín i Dubaj čtou ve své řeči.",
+  "proofSignal": [
+    {
+      "nazev": "key-completeness 100%",
+      "zdroj": "i18n:check",
+      "stav": "live"
+    }
+  ],
+  "antiFeature": "Chybějící klíč v locale — cizí jazyk tiše spadne na český text.",
+  "hotovo": {
+    "kdyzPlati": [
+      {
+        "kriterium": "100% key-completeness ve všech 12 locales",
+        "check": "i18n:check",
+        "stav": "met",
+        "proof": {
+          "cmd": "pnpm exec vitest run --project unit tests/unit/i18nCompleteness.test.ts"
+        }
+      }
+    ],
+    "vektorGate": "all-met"
+  },
+  "id": "key-completeness",
+  "story_axis": "platform"
+}

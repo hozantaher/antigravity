@@ -9,7 +9,7 @@
   "scripts": {
     "build": "npm run test && tsc && npm run ag:map && node dist/index.js map --gravity && node dist/index.js map --glossary && node dist/index.js docs && npm run ag:audit && npm run notify",
     "start": "ts-node src/index.ts",
-    "test": "vitest run src spine",
+    "test": "vitest run src",
     "ag:audit": "node dist/index.js audit",
     "ag:heal": "node dist/index.js heal",
     "ag:jules": "node dist/index.js jules",

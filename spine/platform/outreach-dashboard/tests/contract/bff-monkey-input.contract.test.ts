@@ -255,19 +255,14 @@ describe('MONKEY: PATCH /api/mailboxes/:id — nonexistent / edge IDs', () => {
   })
 
   it('PATCH with empty body → 400 nothing to update', async () => {
-    // Handler opens a txn + SELECTs the current row (for audit) before the
-    // nothing-to-update check, so the mailbox must exist.
-    queueRows([{ id: 1, status: 'active' }]) // pre-SELECT current state
     const r = await req('PATCH', '/api/mailboxes/1', {})
     expect(r.status).toBe(400)
-    // Handler returns the error code 'nothing_to_update' (mailboxes.js:335).
-    expect((r.body as any)?.error).toMatch(/nothing.to.update/i)
+    expect((r.body as any)?.error).toMatch(/nothing to update/i)
   })
 
   it('PATCH with only null values → 400', async () => {
     // FIELD_MAP entries with undefined values are skipped; null is kept
     // but no actual update field is set → 400
-    queueRows([{ id: 1, status: 'active' }]) // pre-SELECT current state
     const r = await req('PATCH', '/api/mailboxes/1', { status: null })
     // status=null IS a valid body key update (null clears it) — may return 2xx or 400
     // The key invariant is: no server crash

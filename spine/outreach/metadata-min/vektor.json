@@ -1,0 +1,34 @@
+{
+  "identita": "Minimalizace metadat — velikost a čas přestanou nést stopu.",
+  "smysl": "Padding na size-class a bucketing timestampů zamezí korelaci podle velikosti obsahu a přesného času.",
+  "smer": "metamin.PadToSizeClass + timestamp bucketing — proměnná velikost a přesný čas se rozmažou do tříd.",
+  "duvod": "I šifrovaný obsah lze korelovat podle velikosti a přesného času odeslání — metamin tyto kanály uzavře.",
+  "myslenka": "Anonymní obsah v neanonymním obalu není anonymní — i metadata musí mlčet.",
+  "pillar": "reach",
+  "role": "supporting",
+  "promise": "Velikost a čas jsou rozmazány do tříd — žádný korelační kanál.",
+  "loreLine": "Padding a bucket — velikost ani čas už nic neprozradí.",
+  "proofSignal": [
+    {
+      "nazev": "size-class / timestamp-bucket distribution",
+      "zdroj": "features/outreach/relay/internal/transport/metamin",
+      "stav": "pending"
+    }
+  ],
+  "antiFeature": "Proměnná velikost obsahu nebo přesný timestamp projde — korelační útok podle metadat uspěje.",
+  "hotovo": {
+    "kdyzPlati": [
+      {
+        "kriterium": "PadToSizeClass i timestamp bucketing projdou (vč. property/fuzz testů) — velikost a čas nenesou korelovatelnou stopu.",
+        "check": "test:relay-metamin",
+        "stav": "pending",
+        "proof": {
+          "cmd": "cd features/outreach/relay && go test ./internal/transport/metamin/..."
+        }
+      }
+    ],
+    "vektorGate": "all-met"
+  },
+  "id": "metadata-min",
+  "story_axis": "outreach"
+}

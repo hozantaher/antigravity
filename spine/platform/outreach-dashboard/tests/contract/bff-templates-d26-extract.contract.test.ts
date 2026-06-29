@@ -222,19 +222,13 @@ describe('POST /api/templates', () => {
 
   it('200 returns inserted row when name provided', async () => {
     const inserted = { id: 42, name: 'welcome', subject: 'Hello', body: 'world', created_at: '2026-05-02T00:00:00Z' }
-    // POST is now transactional (templates.js:167-178): BEGIN → INSERT RETURNING
-    // → audit INSERT → COMMIT. This file's mock shifts the queue for every query
-    // (BEGIN/COMMIT included), so feed a slot per step.
-    queueRows([])          // BEGIN
-    queueRows([inserted])  // INSERT ... RETURNING
-    queueRows([])          // INSERT operator_audit_log
-    queueRows([])          // COMMIT
+    queueRows([inserted])
     const res = await send('POST', '/api/templates', { name: 'welcome', subject: 'Hello', body: 'world' })
     expect(res.status).toBe(200)
     expect(res.body).toEqual(inserted)
-    // SQL contract: INSERT now carries body_html as the 4th param (templates.js:169-171)
+    // SQL contract: INSERT with three params
     const insertCall = calls.find(c => /INSERT INTO email_templates/.test(c.sql))
-    expect(insertCall?.params).toEqual(['welcome', 'Hello', 'world', ''])
+    expect(insertCall?.params).toEqual(['welcome', 'Hello', 'world'])
   })
 
   it('500 on pg throw with valid body', async () => {
@@ -284,12 +278,7 @@ describe('POST /api/templates', () => {
 describe('PUT /api/templates/:id', () => {
   it('200 returns updated row', async () => {
     const updated = { id: 7, name: 'renamed', subject: 's', body: 'b', created_at: '2026-05-01T00:00:00Z' }
-    // PUT is now transactional (templates.js:218-238): BEGIN → UPDATE RETURNING
-    // → audit INSERT → COMMIT. Mock shifts the queue per query.
-    queueRows([])         // BEGIN
-    queueRows([updated])  // UPDATE ... RETURNING
-    queueRows([])         // INSERT operator_audit_log
-    queueRows([])         // COMMIT
+    queueRows([updated])
     const res = await send('PUT', '/api/templates/7', { name: 'renamed', subject: 's', body: 'b' })
     expect(res.status).toBe(200)
     expect(res.body).toEqual(updated)
@@ -297,19 +286,12 @@ describe('PUT /api/templates/:id', () => {
     expect(updateCall?.params).toEqual(['renamed', 's', 'b', '7'])
   })
 
-  it('handles missing subject/body (name required, defaults rest to empty strings)', async () => {
-    // PUT now requires a non-empty string name (templates.js:196-198) — a body
-    // with no name 400s. Provide name; subject/body still default to ''.
-    const updated = { id: 7, name: 'x', subject: '', body: '' }
-    queueRows([])         // BEGIN
-    queueRows([updated])  // UPDATE ... RETURNING
-    queueRows([])         // INSERT operator_audit_log
-    queueRows([])         // COMMIT
-    const res = await send('PUT', '/api/templates/7', { name: 'x' })
+  it('handles missing body (defaults subject/body to empty strings)', async () => {
+    queueRows([{ id: 7, name: undefined, subject: '', body: '' }])
+    const res = await send('PUT', '/api/templates/7')
     expect(res.status).toBe(200)
     const updateCall = calls.find(c => /UPDATE email_templates SET/.test(c.sql))
-    // name='x', subject='', body='', id='7'
-    expect(updateCall?.params?.[0]).toBe('x')
+    // name=undefined, subject='', body='', id='7'
     expect(updateCall?.params?.[1]).toBe('')
     expect(updateCall?.params?.[2]).toBe('')
     expect(updateCall?.params?.[3]).toBe('7')
@@ -371,14 +353,7 @@ describe('POST /api/templates/preview', () => {
 
 describe('DELETE /api/templates/:id', () => {
   it('200 returns { ok: true } on success', async () => {
-    // DELETE is now transactional (templates.js:264-292): BEGIN → pre-SELECT
-    // existence/audit fetch → DELETE → audit INSERT → COMMIT. Feed the pre-SELECT
-    // a row so the 404 branch is skipped; mock shifts the queue per query.
-    queueRows([])                                   // BEGIN
-    queueRows([{ id: 5, name: 'x', subject: 'y' }]) // pre-SELECT existence
-    queueRows([])                                   // DELETE
-    queueRows([])                                   // INSERT operator_audit_log
-    queueRows([])                                   // COMMIT
+    queueRows([])  // DELETE returns no rows
     const res = await send('DELETE', '/api/templates/5')
     expect(res.status).toBe(200)
     expect(res.body).toEqual({ ok: true })

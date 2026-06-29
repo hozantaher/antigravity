@@ -180,14 +180,14 @@ describe('HXX2 — Properties', () => {
           const v = classifyDelta(delta, epsilon)
           // For any delta and -delta, classification flips between
           // net_positive and net_negative (or both no_op)
-          const v2 = classifyDelta(-delta, epsilon)
+          const = classifyDelta(-delta, epsilon)
           if (v === COUNTERFACTUAL_VERDICTS.NET_POSITIVE) {
-            return v2 === COUNTERFACTUAL_VERDICTS.NET_NEGATIVE
+            return === COUNTERFACTUAL_VERDICTS.NET_NEGATIVE
           }
           if (v === COUNTERFACTUAL_VERDICTS.NET_NEGATIVE) {
-            return v2 === COUNTERFACTUAL_VERDICTS.NET_POSITIVE
+            return === COUNTERFACTUAL_VERDICTS.NET_POSITIVE
           }
-          return v === COUNTERFACTUAL_VERDICTS.NO_OP && v2 === COUNTERFACTUAL_VERDICTS.NO_OP
+          return v === COUNTERFACTUAL_VERDICTS.NO_OP && === COUNTERFACTUAL_VERDICTS.NO_OP
         }
       ),
       { numRuns: 200 }

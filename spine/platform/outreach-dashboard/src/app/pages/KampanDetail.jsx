@@ -509,6 +509,79 @@ function DangerSection({ c }) {
 }
 
 // ── Page ───────────────────────────────────────────────────────────────────
+// Machinery-priority tier rows. Labels mirror leadTierThresholds.js TIER_LABELS
+// (Czech-first) and the /api/campaigns/:id/priority-distribution response keys.
+const PRIORITY_TIER_ROWS = [
+  { key: 'A_top_0.90+',       label: 'A · top (≥ 0,90)',        cls: 'kd-tier--a' },
+  { key: 'B_high_0.78-0.89',  label: 'B · silný (0,78–0,89)',   cls: 'kd-tier--b' },
+  { key: 'C_mid_0.65-0.77',   label: 'C · solidní (0,65–0,77)', cls: 'kd-tier--c' },
+  { key: 'D_low_0.50-0.64',   label: 'D · okrajový (0,50–0,64)', cls: 'kd-tier--d' },
+  { key: 'E_dead_below_0.50', label: 'E · mimo (< 0,50)',       cls: 'kd-tier--e' },
+]
+
+// Priority / machinery-fit panel: shows the pending send-queue split by
+// machinery-probability tier and lets the operator re-score on demand
+// (POST /api/campaigns/:id/rescore-priority — the UX/UI-first replacement for
+// the migration-178 incident SQL). Reprice only; never skips contacts.
+function PrioritySection({ c, onSaved }) {
+  const toast = useToast()
+  const dist = useResource(`/api/campaigns/${c.id}/priority-distribution`, { pollMs: 0, parse: (r) => r })
+  const [busy, setBusy] = useState(false)
+
+  const rescore = async () => {
+    setBusy(true)
+    try {
+      const r = await mutate(`/api/campaigns/${c.id}/rescore-priority`, 'POST')
+      toast(`Priorita přepočítána — ${fmt(r.updated)} kontaktů aktualizováno`, 'ok')
+      dist.refresh?.()
+      onSaved?.()
+    } catch (e) {
+      toast(`Přepočet selhal: ${e.message}`, 'err')
+    } finally { setBusy(false) }
+  }
+
+  const d = dist.data
+  const total = d?.total_pending ?? 0
+  const mean = d?.mean_priority
+
+  return (
+    <Card icon={BarChart3} title="Priorita podle techniky" testid="kd-priority"
+      hint="Pořadí odesílání = pravděpodobnost těžké techniky k výkupu (0–1). Vyšší pásmo jde dřív.">
+      {dist.status === 'loading' || dist.status === 'idle' ? (
+        <div className="app-skel" style={{ height: 120 }} />
+      ) : dist.status === 'error' ? (
+        <div className="kd-muted" data-testid="kd-priority-error">Nepodařilo se načíst rozložení priorit.</div>
+      ) : (
+        <>
+          <div className="kd-tiers" data-testid="kd-priority-tiers">
+            {PRIORITY_TIER_ROWS.map((t) => {
+              const n = d?.tiers?.[t.key] ?? 0
+              const pct = total > 0 ? Math.round((n / total) * 100) : 0
+              return (
+                <div className={`kd-tier ${t.cls}`} key={t.key}>
+                  <span className="kd-tier__dot" />
+                  <span className="kd-tier__label">{t.label}</span>
+                  <span className="kd-tier__bar"><span className="kd-tier__fill" style={{ width: `${pct}%` }} /></span>
+                  <span className="kd-tier__n">{fmt(n)}</span>
+                </div>
+              )
+            })}
+          </div>
+          <div className="kd-readrows">
+            <div className="kd-readrow"><span className="kd-k">Čeká celkem</span><span className="kd-v">{fmt(total)}</span></div>
+            <div className="kd-readrow"><span className="kd-k">Průměrná priorita</span><span className="kd-v">{mean == null ? '—' : Number(mean).toFixed(2)}</span></div>
+          </div>
+          <div className="kd-actions">
+            <button type="button" className="kd-btn kd-btn--primary" onClick={rescore} disabled={busy} data-testid="kd-rescore">
+              {busy ? 'Přepočítávám…' : 'Přepočítat prioritu'}
+            </button>
+          </div>
+        </>
+      )}
+    </Card>
+  )
+}
+
 export default function KampanDetail() {
   const { id } = useParams()
   const toast = useToast()
@@ -605,6 +678,7 @@ export default function KampanDetail() {
           <SequenceSection c={c} locked={locked} onPauseEdit={onPauseEdit} pauseBusy={lifeBusy} templates={templates} onSaved={refresh} />
         </div>
         <div className="kd-col">
+          <PrioritySection c={c} onSaved={refresh} />
           <PacingSection c={c} onSaved={refresh} />
           <SendWindowSection c={c} onSaved={refresh} />
           <StaircaseSection c={c} locked={locked} onPauseEdit={onPauseEdit} pauseBusy={lifeBusy} onSaved={refresh} />
