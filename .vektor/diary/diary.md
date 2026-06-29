@@ -128,3 +128,10 @@ Tento log je automaticky spravován systémem Antigravity.
 - **Affected Nodes:** None
 - **Details:** Migrated old billing into spine using Jules Lift & Shift.
 
+
+## [2026-06-29T01:57:45.589Z] MANUAL_LOG
+
+- **Actor:** Human
+- **Affected Nodes:** None
+- **Details:** Zahájen automatizovaný běh (Hodinový Audit & Noční Jules).
+
