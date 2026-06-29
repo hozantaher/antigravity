@@ -1,0 +1,21 @@
+{
+  "seedResults": [
+    {
+      "seed": 42,
+      "caught": 1,
+      "healed": 100
+    },
+    {
+      "seed": 1337,
+      "caught": 0,
+      "healed": 100
+    },
+    {
+      "seed": 2026,
+      "caught": 0,
+      "healed": 100
+    }
+  ],
+  "avgCaught": 0.3333333333333333,
+  "avgHealedPct": 100
+}

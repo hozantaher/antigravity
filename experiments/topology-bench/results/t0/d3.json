@@ -1,0 +1,6 @@
+{
+  "coupling": 1.2,
+  "qModularity": 0.8,
+  "cycles": 0,
+  "maxDepth": 3
+}

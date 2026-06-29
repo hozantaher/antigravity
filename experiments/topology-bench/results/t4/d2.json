@@ -1,0 +1,6 @@
+{
+  "scenarios": 10,
+  "avgFilesMutated": 3.8,
+  "avgNodesMutated": 2,
+  "boundaryLeaks": 0
+}
