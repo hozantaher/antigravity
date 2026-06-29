@@ -77,3 +77,8 @@ Aby byla codebase bezpečná pro LLM interakce, agenti musí dodržovat následu
 2. **Core Types Node:** Sdílené byznysové typy (např. `ArbitrageOpportunity`) musí žít v dedikovaném radiálním uzlu `spine/domain/core-types`. Nevytvářejte ad-hoc `interface` v lokálních souborech front nebo workerů. Vždy naimportujte kontrakt z `core-types`.
 3. **Glossary-as-Code:** Když vytvoříte nový koncept nebo byznysový model v kódu, napište k němu TSDoc s tagem `@terminology NazevPojmu`. Náš `ag:map --glossary` skript to přečte a vygeneruje dokumentaci do `docs/reference/GLOSSARY.md`.
 4. **Type Drift:** Vyhýbejte se používání klíčového slova `any` na hranicích uzlů (uvnitř veřejných `index.ts`). Data opouštějící uzel musí být striktně typovaná.
+
+## 🏰 Architektura Frontiers (Hranice)
+Aplikace už neoznačujeme jako oddělené "produkty" (např. Auction24 nebo HozanTaher). Fyzické interfejsy a brány pro styk s vnějším světem se sdružují pod složku `frontiers/`.
+- **Pravidlo tlusté páteře a tenkých hranic:** Do `frontiers/` se **NIKDY nepíše byznysová logika**. Aplikace zde slouží jen jako hloupé I/O rozhraní (např. Nuxt/Vue view layer nebo Go endpoint), které si veškerou logiku a data natahuje ze složky `spine/`.
+- **Aktuální Hranice:** `marketplace-web` (dříve auction24), `operator-console` (dříve dashboard), `privacy-gateway`, `mail-relay`.
