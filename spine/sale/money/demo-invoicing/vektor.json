@@ -1,12 +1,11 @@
 {
-  "id": "sale",
+  "id": "demo-invoicing",
   "story_axis": "sale",
   "state": "pending",
   "facets": {
     "ui": [
-      "./sale.vue"
-    ],
-    "legacy_unmapped": []
+      "./demo-invoicing.vue"
+    ]
   },
   "edges": []
 }

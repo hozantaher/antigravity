@@ -1,5 +1,5 @@
 # 📦 Uzel: demand
-![Version](https://img.shields.io/badge/version-v1.6.1-blue)
+![Version](https://img.shields.io/badge/version-v1.7.5-blue)
 
 
 > **Osa (Story Axis):** demand

@@ -42,9 +42,10 @@ program
   .description('Spustí detekci architektonického driftu a vypíše report')
   .option('--heal', 'Automaticky opraví nalezené drifty')
   .option('--sweep', 'Detekuje osiřelé uzly (mrtvý kód) bez vazeb')
+  .option('--compress', 'Fyzicky smaže osiřelé uzly (mrtvý kód) z disku')
   .action(async (options) => {
     const root = process.cwd();
-    const governor = new CyberneticGovernor(root, options.heal, options.sweep);
+    const governor = new CyberneticGovernor(root, options.heal, options.sweep, options.compress);
     const report = await governor.audit();
 
     if (report.length === 0) {
@@ -197,10 +198,10 @@ program
 program
   .command('jules [action]')
   .description('Aktivuje autonomního AI Agenta (Jules)')
-  .action((action) => {
+  .action(async (action) => {
     const jules = new Jules();
-    if (action === 'nightwatch') {
-      jules.nightWatch();
+    if (action === 'nightwatch' || !action) {
+      await jules.nightWatch();
     } else if (action === 'discover') {
       const missing = jules.discoverMissingTests();
       console.log(`Uzly bez testů (${missing.length}):`);

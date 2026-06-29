@@ -7,7 +7,7 @@ export default tseslint.config(
   ...tseslint.configs.recommended,
   eslintConfigPrettier,
   {
-    ignores: ['dist/**', 'node_modules/**', 'vitest.config.ts', 'products/**', 'spine/platform/outreach-dashboard/**', 'spine/platform/platform/**', 'spine/legacy/**', 'docs/.vitepress/dist/**']
+    ignores: ['dist/**', 'node_modules/**', 'vitest.config.ts', 'docs/.vitepress/dist/**']
   },
   {
     rules: {

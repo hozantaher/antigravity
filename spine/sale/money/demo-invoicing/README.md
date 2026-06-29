@@ -1,8 +1,8 @@
-# 📦 Uzel: engine
-![Version](https://img.shields.io/badge/version-v1.5.1-blue)
+# 📦 Uzel: demo-invoicing
 
+![Version](https://img.shields.io/badge/version-v1.0.1-blue)
 
-> **Osa (Story Axis):** engine
+> **Osa (Story Axis):** sale
 > **Stav:** pending
 
 ## 📜 Byznys Koncept

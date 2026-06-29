@@ -4,8 +4,9 @@ Tento repozitář nepoužívá standardní adresářovou strukturu (MVC / FSD). 
 
 ## Klíčová pravidla pro agenty
 1. **Nikdy nevytvářejte složky nebo domény manuálně (např. přes `mkdir`).**
-2. **Kdykoliv potřebujete pochopit systém**, podívejte se do `ARCHITECTURE.md`, který obsahuje grafovou mapu všech domén a funkcí.
+2. **Kdykoliv potřebujete pochopit systém**, podívejte se do `docs/reference/topology-map.md` a `docs/reference/autodocs.md`, kde se nachází aktuální mapa všech domén a funkcí.
 3. **Kdykoliv pracujete s kódem**, použijte integrovaný MCP Server (Model Context Protocol).
+4. **Při načtení konverzace / session (Maximum Context):** Vždy si nejdříve přečtěte `docs/reference/topology-map.md` a `docs/reference/autodocs.md`, abyste měli 100% přehled o struktuře před započetím jakékoliv práce.
 
 ## Jak používat nástroje Antigravity (MCP Server)
 Projekt v sobě nativně obsahuje MCP Server, který Vám naservíruje kontext projektu (tzv. LLM Bubble) nebo Vám dovolí bezpečně provádět strukturální změny (Audit, Refactoring, Scaffolding).

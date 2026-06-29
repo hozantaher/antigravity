@@ -20,11 +20,13 @@ export class CyberneticGovernor {
   private rootDir: string;
   private autoHeal: boolean;
   private enableSweep: boolean;
+  private enableCompress: boolean;
 
-  constructor(rootDir: string, autoHeal: boolean = false, enableSweep: boolean = false) {
+  constructor(rootDir: string, autoHeal: boolean = false, enableSweep: boolean = false, enableCompress: boolean = false) {
     this.rootDir = rootDir;
     this.autoHeal = autoHeal;
     this.enableSweep = enableSweep;
+    this.enableCompress = enableCompress;
   }
 
   public async audit(): Promise<string[]> {
@@ -133,11 +135,16 @@ export class CyberneticGovernor {
               }
             }
 
-            if (bestMatch && lowestDist <= 3) {
+            // FP Prevention: Zpřísnění pro krátká slova
+            const maxAllowedDist = targetId.length < 4 ? 0 : (targetId.length < 6 ? 1 : 3);
+            
+            if (bestMatch && lowestDist <= maxAllowedDist && lowestDist > 0) {
               content = content.replace(match[0], match[0].replace(targetId, bestMatch));
               report.push(
                 `  -> HEALED (Fuzzy): Fixed typo in magic comment from '${targetId}' to '${bestMatch}'`
               );
+            } else if (bestMatch && lowestDist === 0) {
+              // Valid link, no heal needed (shouldn't happen here as we check validNodes.has, but just in case)
             } else {
               content = content.replace(match[0], '');
               report.push(`  -> HEALED (Destructive): Stripped orphaned magic comment`);
@@ -231,15 +238,20 @@ export class CyberneticGovernor {
               try {
                 const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
                 if (!manifest.facets) manifest.facets = {};
-                if (!manifest.facets.legacy_unmapped) manifest.facets.legacy_unmapped = [];
+                let facetName = 'legacy_unmapped';
+                if (file.endsWith('.vue')) facetName = 'ui';
+                else if (file.endsWith('.test.ts') || file.endsWith('.spec.ts')) facetName = 'tests';
+                else if (file.endsWith('.ts')) facetName = 'logic';
+                
+                if (!manifest.facets[facetName]) manifest.facets[facetName] = [];
                 
                 // Calculate relative path from manifest dir to file
                 const relPath = './' + path.relative(currentDir, path.join(this.rootDir, file));
                 
-                if (!manifest.facets.legacy_unmapped.includes(relPath)) {
-                  manifest.facets.legacy_unmapped.push(relPath);
+                if (!manifest.facets[facetName].includes(relPath)) {
+                  manifest.facets[facetName].push(relPath);
                   fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2) + '\n', 'utf8');
-                  report.push(`  -> HEALED: Added to legacy_unmapped facet in ${manifest.id}`);
+                  report.push(`  -> HEALED: Auto-kategorizován soubor do facetu '${facetName}' v uzlu ${manifest.id}`);
                 }
                 foundManifest = true;
                 break;
@@ -254,10 +266,13 @@ export class CyberneticGovernor {
     // Pass 6: Contract Drift Validation (Spine only)
     for (const file of tsFiles) {
       if (!file.includes('spine/')) continue;
+      // FP Prevention: Ignore tests and POCs
+      if (file.endsWith('.test.ts') || file.endsWith('.spec.ts') || file.includes('/poc/')) continue;
       
       const fullPath = path.join(this.rootDir, file);
       const dir = path.dirname(fullPath);
       const content = fs.readFileSync(fullPath, 'utf8');
+      let patchedContent = content;
       
       const importRegex = /import\s+(?:.+?\s+from\s+)?['"](.*?)['"]/g;
       const matches = content.matchAll(importRegex);
@@ -288,9 +303,20 @@ export class CyberneticGovernor {
                const isPublicContract = (resolvedTarget === closestNodeDir) || (resolvedTarget === path.join(closestNodeDir, 'index')) || (resolvedTarget === path.join(closestNodeDir, 'index.ts'));
                if (!isPublicContract) {
                   report.push(`DETECTED: Contract Drift v ${file} -> Importuje z vnitřností uzlu '${closestNodeId}' místo veřejného kontraktu.`);
+                  if (this.autoHeal) {
+                     let newRelPath = path.relative(dir, closestNodeDir);
+                     if (!newRelPath.startsWith('.')) newRelPath = './' + newRelPath;
+                     
+                     patchedContent = patchedContent.replace(importPath, newRelPath);
+                     report.push(`  -> HEALED (Contract): Import přesměrován na ${newRelPath}`);
+                  }
                }
             }
          }
+      }
+      
+      if (this.autoHeal && patchedContent !== content) {
+         fs.writeFileSync(fullPath, patchedContent, 'utf8');
       }
     }
 
@@ -302,7 +328,12 @@ export class CyberneticGovernor {
         if (nodeDir.includes('/spine/')) {
           const degree = inDegree.get(nodeId) || 0;
           if (degree === 0 && !rootAxes.includes(nodeId)) {
-            report.push(`SWEEP DETECTED: Osiřelý uzel '${nodeId}' (in-degree=0, cesta: ${nodeDir}). Zvažte jeho odstranění.`);
+            if (this.enableCompress) {
+               fs.rmSync(nodeDir, { recursive: true, force: true });
+               report.push(`COMPRESSED: Osiřelý uzel '${nodeId}' byl fyzicky smazán z disku.`);
+            } else {
+               report.push(`SWEEP DETECTED: Osiřelý uzel '${nodeId}' (in-degree=0, cesta: ${nodeDir}). Zvažte jeho odstranění.`);
+            }
             orphansFound++;
           }
         }

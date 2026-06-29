@@ -1,0 +1,15 @@
+{
+  "id": "legacy-invoice",
+  "story_axis": "spine",
+  "state": "pending",
+  "facets": {
+    "ui": [
+      "./legacy-invoice.vue"
+    ],
+    "legacy_unmapped": [
+      "./old_invoice.js",
+      "./OldInvoiceUi.vue"
+    ]
+  },
+  "edges": []
+}

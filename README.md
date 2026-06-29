@@ -6,8 +6,7 @@ Toto je primární monorepo, postavené na architektuře **Antigravity Vector-Tr
 
 Repozitář je striktně rozdělen pro udržení 100% architektonické čistoty:
 
-- **`/spine/` (Byznysová Páteř):** Srdce repozitáře. Zde sídlí 5 hlavních domén (`demand`, `supply`, `engine`, `sale`, `platform`). Kód je distribuován do logických uzlů, přičemž jeho historický původ (např. *Frontier*, *Auction24*) udržuje pole `"origin"` v manifestu.
-- **`/products/` (Karanténa / Legacy):** Zde sídlí surové sub-repozitáře a starý kód před tím, než je metodou "Lift & Shift" přenesen do byznysové páteře.
+- **`/spine/` (Byznysová Páteř):** Srdce repozitáře. Zde sídlí 5 hlavních domén (`demand`, `supply`, `engine`, `sale`, `platform`). Veškerý kód je 100% zkonsolidován do logických uzlů bez kompromisů (žádná karanténa).
 - **`/src/` a `/scripts/` (Engine Tooling):** Zdrojové kódy samotného nástroje Antigravity CLI, který strom automaticky řídí.
 - **`/@server/`:** Automaticky generované backendové stuby napojené přes reverzní vazby.
 
@@ -27,8 +26,8 @@ Antigravity Engine se skládá z 6 autonomních subsystémů:
 
 1. **Unified Vector Engine (Read & Context)**
    Algoritmicky prohledává strukturu do šířky (Graph BFS). Pokud AI agent potřebuje upravit uzel A, engine mu kromě uzlu A do kontextového okna automaticky přibalí i propojený uzel B (díky definovaným hranám). Také řeší "Rollup state" (šíření technologického dluhu ze spodních uzlů nahoru).
-2. **Cybernetic Governor (Drift Detection & Healing)**
-   Váš hlídač a léčitel. Skenuje AST a vyhledává architektonický drift. Našel v kódu import uzlu, který chybí v `vektor.json`? Detekoval smazaný soubor nebo "osiřelý" reverzní link? Nejenže na to upozorní, ale v režimu `--heal` strom **automaticky opraví**.
+2. **Cybernetic Governor (Drift Detection, Healing & Hard Compress)**
+   Váš hlídač a léčitel. Skenuje AST a vyhledává architektonický drift. Našel v kódu import uzlu, který chybí v `vektor.json`? Detekoval smazaný soubor nebo "osiřelý" reverzní link? Automaticky opraví importy (Contract Drift), provede Auto-Faceting a v režimu `--compress` navíc fyzicky a bezpečně maže starý osiřelý kód. Žádný technologický dluh.
 3. **Transactional Refactoring (Write & Mutation)**
    Přejmenování domén a přesun složek způsobují motýlí efekt. Tento engine využívá `git mv` a kaskádově patchuje jak reverzní linky (magic komentáře v kódu), tak cizí `vektor.json` manifesty. Refaktoring je proveden bezpečně v jedné transakci.
 4. **Genesis Scaffolder (Creation)**

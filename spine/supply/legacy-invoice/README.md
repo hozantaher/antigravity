@@ -1,8 +1,8 @@
-# 📦 Uzel: demo-invoicing
-![Version](https://img.shields.io/badge/version-v1.3.0-blue)
+# 📦 Uzel: legacy-invoice
 
+![Version](https://img.shields.io/badge/version-v1.0.1-blue)
 
-> **Osa (Story Axis):** sale
+> **Osa (Story Axis):** spine
 > **Stav:** pending
 
 ## 📜 Byznys Koncept

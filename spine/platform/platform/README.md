@@ -1,6 +1,6 @@
 # 📦 Uzel: platform
 
-![Version](https://img.shields.io/badge/version-v1.2.1-blue)
+![Version](https://img.shields.io/badge/version-v1.2.3-blue)
 
 > **Osa (Story Axis):** platform
 > **Stav:** Neznámý

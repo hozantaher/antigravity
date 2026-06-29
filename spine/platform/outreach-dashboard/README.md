@@ -1,5 +1,5 @@
 # React + Vite
-![Version](https://img.shields.io/badge/version-v1.1.1-blue)
+![Version](https://img.shields.io/badge/version-v1.2.3-blue)
 
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
