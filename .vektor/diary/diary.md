@@ -65,3 +65,10 @@ Tento log je automaticky spravován systémem Antigravity.
 - **Affected Nodes:** None
 - **Details:** Fáze 4: Optimalizace hubu auth-account (rozšípení na auth a account) dokončena.
 
+
+## [2026-06-29T00:41:54.639Z] MANUAL_LOG
+
+- **Actor:** Human
+- **Affected Nodes:** None
+- **Details:** Fáze 1 (Hardening) dokončena: Cybernetic Governor nyní umí validovat Contract Drift (zabrání importu z vnitřností jiných uzlů) a disponuje flagem --sweep pro detekci osiřelých uzlů.
+

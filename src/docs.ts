@@ -57,4 +57,55 @@ export class DocGenerator {
     fs.writeFileSync(path.join(this.rootDir, 'docs', 'reference', 'autodocs.md'), output, 'utf8');
     console.log('SUCCESS: Auto-documentation generated at docs/reference/autodocs.md');
   }
+
+  async generateNodeReadmes(): Promise<void> {
+    const jsonFiles = await glob('spine/**/vektor.json', { cwd: this.rootDir });
+    let createdCount = 0;
+
+    for (const file of jsonFiles) {
+      const fullPath = path.join(this.rootDir, file);
+      const dir = path.dirname(fullPath);
+      const readmePath = path.join(dir, 'README.md');
+
+      if (fs.existsSync(readmePath)) {
+        continue;
+      }
+
+      try {
+        const manifest = JSON.parse(fs.readFileSync(fullPath, 'utf8'));
+        
+        let md = `# 📦 Uzel: ${manifest.id}\n\n`;
+        md += `> **Osa (Story Axis):** ${manifest.story_axis || 'Neznámá'}\n`;
+        md += `> **Stav:** ${manifest.state || 'Neznámý'}\n\n`;
+        
+        md += `## 📜 Byznys Koncept\n`;
+        if (manifest.legacy_metadata) {
+          const m = manifest.legacy_metadata;
+          if (m.identita) md += `**Identita:** ${m.identita}\n\n`;
+          if (m.promise) md += `**Účel (Promise):** ${m.promise}\n\n`;
+          if (m.loreLine) md += `**Kontext:** ${m.loreLine}\n\n`;
+        } else {
+          md += `*Automaticky vygenerovaný README. Zde doplňte detailní byznys logiku uzlu.*\n\n`;
+        }
+
+        if (manifest.tags && manifest.tags.length > 0) {
+          md += `## 🏷️ Tagy\n`;
+          md += manifest.tags.map((t: string) => `\`${t}\``).join(', ') + '\n\n';
+        }
+
+        md += `## 🔗 Vazby (Edges)\n`;
+        if (manifest.edges && manifest.edges.length > 0) {
+          md += manifest.edges.map((e: string) => `- \`${e}\``).join('\n') + '\n\n';
+        } else {
+          md += `*Žádné explicitní výstupní vazby (edges) na jiné uzly.*\n\n`;
+        }
+
+        fs.writeFileSync(readmePath, md, 'utf8');
+        createdCount++;
+      } catch (e) {
+        console.warn(`Could not process manifest for README generation: ${file}`);
+      }
+    }
+    console.log(`SUCCESS: Vygenerováno ${createdCount} nových README.md souborů ve spine uzlech.`);
+  }
 }

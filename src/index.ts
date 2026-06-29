@@ -162,10 +162,24 @@ program
   .description(
     'Automaticky vygeneruje dokumentaci z vektorových manifestů (docs/reference/autodocs.md)'
   )
-  .action(async () => {
+  .option('--readme', 'Vygeneruje chybějící README.md soubory přímo do složek jednotlivých uzlů ve /spine/')
+  .action(async (options) => {
     const root = process.cwd();
     const generator = new DocGenerator(root);
-    await generator.generate();
+    if (options.readme) {
+      await generator.generateNodeReadmes();
+    } else {
+      await generator.generate();
+    }
+  });
+
+program
+  .command('migrate <legacyPath>')
+  .description('Automaticky vyhodnotí sémantiku legacy složky, přesune kód do /spine/ a opraví importy')
+  .action(async (legacyPath: string) => {
+    console.log(`Zahajuji experimentální Auto-Lift & Shift pro: ${legacyPath}`);
+    // TBD: Plná implementace AI migrace (Fáze 2.1) v migrate.ts
+    console.log(`Upozornění: Příkaz 'migrate' vyžaduje integraci na LLM klienta pro sémantickou analýzu.`);
   });
 
 program.parse(process.argv);
