@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/hozantaher/antigravity/compare/v1.2.0...v1.3.0) (2026-06-29)
+
+
+### Features
+
+* **architecture:** deep inventory, compress, consolidate and full jules automation ([7639bb7](https://github.com/hozantaher/antigravity/commit/7639bb7bd599ac9dd19053c192a8a67703fc3ce3))
+* **platform:** finalize outreach-dashboard UI sprint and remove legacy invoicing ([bbfc61b](https://github.com/hozantaher/antigravity/commit/bbfc61b1f93714f94665618dcddcfc2efe4bf31e))
+
 ## [1.2.0](https://github.com/hozantaher/antigravity/compare/v1.1.0...v1.2.0) (2026-06-29)
 
 
