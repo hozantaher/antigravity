@@ -1,13 +1,13 @@
 {
   "name": "antigravity",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "",
   "main": "dist/index.js",
   "bin": {
     "antigravity": "./dist/index.js"
   },
   "scripts": {
-    "build": "npm run test && tsc && npm run ag:audit && npm run notify",
+    "build": "npm run test && tsc && npm run ag:map && node dist/index.js docs && npm run ag:audit && npm run notify",
     "start": "ts-node src/index.ts",
     "test": "vitest run src",
     "ag:audit": "node dist/index.js audit",
@@ -47,6 +47,7 @@
   },
   "lint-staged": {
     "spine/**/*.{ts,vue,js,json}": [
+      "npm run ag:jules",
       "npm run build",
       "npm run ag:heal",
       "npm run ag:audit"
