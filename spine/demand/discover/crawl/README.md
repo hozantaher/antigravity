@@ -1,4 +1,6 @@
 # 📦 Uzel: demand-discover-crawl
+![Version](https://img.shields.io/badge/version-v1.3.0-blue)
+
 
 > **Osa (Story Axis):** demand
 > **Stav:** pending

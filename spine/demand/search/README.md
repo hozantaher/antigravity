@@ -1,4 +1,6 @@
 # 📦 Uzel: demand-search
+![Version](https://img.shields.io/badge/version-v1.2.0-blue)
+
 
 > **Osa (Story Axis):** spine
 > **Stav:** pending

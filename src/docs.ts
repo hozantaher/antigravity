@@ -1,6 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { glob } from 'glob';
+import { execSync } from 'child_process';
 
 export class DocGenerator {
   private rootDir: string;
@@ -58,54 +59,101 @@ export class DocGenerator {
     console.log('SUCCESS: Auto-documentation generated at docs/reference/autodocs.md');
   }
 
+  private calculateNodeVersion(nodeDir: string): string {
+    try {
+      const logOutput = execSync(`git log --oneline -- "${nodeDir}"`, { encoding: 'utf8', stdio: ['pipe', 'pipe', 'ignore'] });
+      const lines = logOutput.split('\n').filter(l => l.trim() !== '');
+      
+      let major = 1;
+      let minor = 0;
+      let patch = 0;
+      
+      for (const line of lines) {
+        if (line.includes('BREAKING')) {
+           major++;
+        } else if (line.toLowerCase().includes('feat')) {
+           minor++;
+        } else {
+           patch++;
+        }
+      }
+      
+      if (major === 1 && minor === 0 && patch === 0) {
+         patch = 1;
+      }
+      return `v${major}.${minor}.${patch}`;
+    } catch(e) {
+      return 'v1.0.0'; // Fallback if no git history yet
+    }
+  }
+
   async generateNodeReadmes(): Promise<void> {
     const jsonFiles = await glob('spine/**/vektor.json', { cwd: this.rootDir });
-    let createdCount = 0;
+    let updatedCount = 0;
 
     for (const file of jsonFiles) {
       const fullPath = path.join(this.rootDir, file);
       const dir = path.dirname(fullPath);
       const readmePath = path.join(dir, 'README.md');
 
-      if (fs.existsSync(readmePath)) {
-        continue;
-      }
+      const version = this.calculateNodeVersion(dir);
+      const versionBadge = `![Version](https://img.shields.io/badge/version-${version}-blue)`;
 
       try {
         const manifest = JSON.parse(fs.readFileSync(fullPath, 'utf8'));
-        
-        let md = `# 📦 Uzel: ${manifest.id}\n\n`;
-        md += `> **Osa (Story Axis):** ${manifest.story_axis || 'Neznámá'}\n`;
-        md += `> **Stav:** ${manifest.state || 'Neznámý'}\n\n`;
-        
-        md += `## 📜 Byznys Koncept\n`;
-        if (manifest.legacy_metadata) {
-          const m = manifest.legacy_metadata;
-          if (m.identita) md += `**Identita:** ${m.identita}\n\n`;
-          if (m.promise) md += `**Účel (Promise):** ${m.promise}\n\n`;
-          if (m.loreLine) md += `**Kontext:** ${m.loreLine}\n\n`;
+
+        if (fs.existsSync(readmePath)) {
+          // Update existing README
+          let content = fs.readFileSync(readmePath, 'utf8');
+          const badgeRegex = /!\[Version\]\(https:\/\/img\.shields\.io\/badge\/version-[v\d\.]+-blue\)/;
+          if (badgeRegex.test(content)) {
+             content = content.replace(badgeRegex, versionBadge);
+          } else {
+             // Insert badge on second line
+             const lines = content.split('\n');
+             if (lines.length > 0) {
+               lines.splice(1, 0, versionBadge, '');
+               content = lines.join('\n');
+             }
+          }
+          fs.writeFileSync(readmePath, content, 'utf8');
+          updatedCount++;
         } else {
-          md += `*Automaticky vygenerovaný README. Zde doplňte detailní byznys logiku uzlu.*\n\n`;
-        }
+          // Create new README
+          let md = `# 📦 Uzel: ${manifest.id}\n\n`;
+          md += `${versionBadge}\n\n`;
+          md += `> **Osa (Story Axis):** ${manifest.story_axis || 'Neznámá'}\n`;
+          md += `> **Stav:** ${manifest.state || 'Neznámý'}\n\n`;
+          
+          md += `## 📜 Byznys Koncept\n`;
+          if (manifest.legacy_metadata) {
+            const m = manifest.legacy_metadata;
+            if (m.identita) md += `**Identita:** ${m.identita}\n\n`;
+            if (m.promise) md += `**Účel (Promise):** ${m.promise}\n\n`;
+            if (m.loreLine) md += `**Kontext:** ${m.loreLine}\n\n`;
+          } else {
+            md += `*Automaticky vygenerovaný README. Zde doplňte detailní byznys logiku uzlu.*\n\n`;
+          }
 
-        if (manifest.tags && manifest.tags.length > 0) {
-          md += `## 🏷️ Tagy\n`;
-          md += manifest.tags.map((t: string) => `\`${t}\``).join(', ') + '\n\n';
-        }
+          if (manifest.tags && manifest.tags.length > 0) {
+            md += `## 🏷️ Tagy\n`;
+            md += manifest.tags.map((t: string) => `\`${t}\``).join(', ') + '\n\n';
+          }
 
-        md += `## 🔗 Vazby (Edges)\n`;
-        if (manifest.edges && manifest.edges.length > 0) {
-          md += manifest.edges.map((e: string) => `- \`${e}\``).join('\n') + '\n\n';
-        } else {
-          md += `*Žádné explicitní výstupní vazby (edges) na jiné uzly.*\n\n`;
-        }
+          md += `## 🔗 Vazby (Edges)\n`;
+          if (manifest.edges && manifest.edges.length > 0) {
+            md += manifest.edges.map((e: string) => `- \`${e}\``).join('\n') + '\n\n';
+          } else {
+            md += `*Žádné explicitní výstupní vazby (edges) na jiné uzly.*\n\n`;
+          }
 
-        fs.writeFileSync(readmePath, md, 'utf8');
-        createdCount++;
+          fs.writeFileSync(readmePath, md, 'utf8');
+          updatedCount++;
+        }
       } catch (e) {
         console.warn(`Could not process manifest for README generation: ${file}`);
       }
     }
-    console.log(`SUCCESS: Vygenerováno ${createdCount} nových README.md souborů ve spine uzlech.`);
+    console.log(`SUCCESS: Zkontrolováno a verze propasána do ${updatedCount} README.md souborů ve spine.`);
   }
 }

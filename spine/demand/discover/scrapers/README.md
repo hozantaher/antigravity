@@ -1,4 +1,6 @@
 # garaaage-scrapers
+![Version](https://img.shields.io/badge/version-v1.1.0-blue)
+
 
 Scrapers for Czech vehicle marketplaces, business directories, court decisions, and legislation. Each scraper follows a two-phase pipeline (discovery + detail), stores results in per-scraper SQLite databases in `data/`, and shares common utilities for rate limiting, retries, and progress tracking.
 

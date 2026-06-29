@@ -1,4 +1,6 @@
 # Garaaage MCP
+![Version](https://img.shields.io/badge/version-v1.1.0-blue)
+
 
 Node-based MCP server exposing tools and resources over stdio or authenticated HTTP mode.
 

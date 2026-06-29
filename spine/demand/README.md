@@ -1,4 +1,6 @@
 # 📦 Uzel: demand
+![Version](https://img.shields.io/badge/version-v1.5.0-blue)
+
 
 > **Osa (Story Axis):** demand
 > **Stav:** pending

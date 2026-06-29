@@ -1,4 +1,6 @@
 # 📦 Uzel: engine-drive
+![Version](https://img.shields.io/badge/version-v1.4.0-blue)
+
 
 > **Osa (Story Axis):** engine
 > **Stav:** met

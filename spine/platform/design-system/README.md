@@ -1,4 +1,6 @@
 # Design System (module)
+![Version](https://img.shields.io/badge/version-v1.1.0-blue)
+
 
 Vertical-axis module — see `plan.md` §2.
 

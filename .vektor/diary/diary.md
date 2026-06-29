@@ -79,3 +79,17 @@ Tento log je automaticky spravován systémem Antigravity.
 - **Affected Nodes:** None
 - **Details:** Fáze 2 (Akcelerace) dokončena: CLI příkaz 'docs --readme' úspěšně vygeneroval byznysovou dokumentaci pro 17 uzlů v páteři. Připraven experimentální stub pro 'migrate'.
 
+
+## [2026-06-29T00:45:20.079Z] MANUAL_LOG
+
+- **Actor:** Human
+- **Affected Nodes:** None
+- **Details:** Fáze 4 (Lift & Shift) dokončena: Skript migrate hromadně vyčistil Karanténu a přesunul více než 100 starých uzlů napřímo do páteře (/spine).
+
+
+## [2026-06-29T00:45:45.363Z] MANUAL_LOG
+
+- **Actor:** Human
+- **Affected Nodes:** None
+- **Details:** Fáze 5 dokončena: Aktualizován Git pre-commit hook (lint-staged) o blokaci commitů. Pokud vývojář zanechá osiřelý kód, commit selže a donutí ho k nápravě.
+

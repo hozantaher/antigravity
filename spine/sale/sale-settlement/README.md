@@ -1,4 +1,6 @@
 # Sale Settlement (module)
+![Version](https://img.shields.io/badge/version-v1.1.0-blue)
+
 
 Vertical-axis money module that **closes the money loop**: after a user *wins* an auction
 (`auctionCloser` → `items.sold/closed/winner`), the winner pays the **final price minus the held

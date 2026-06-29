@@ -1,4 +1,6 @@
 # 📦 Uzel: demo-invoicing
+![Version](https://img.shields.io/badge/version-v1.2.0-blue)
+
 
 > **Osa (Story Axis):** sale
 > **Stav:** pending
