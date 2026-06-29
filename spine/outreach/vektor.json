@@ -15,5 +15,12 @@
       "stav": "pending"
     }
   ],
-  "antiFeature": "Outreach jako jeden blok — dílčí selhání (rozbitý warmup, prosáklá metadata) se schová v zeleném celku a vyplave až jako blacklist."
+  "antiFeature": "Outreach jako jeden blok — dílčí selhání (rozbitý warmup, prosáklá metadata) se schová v zeleném celku a vyplave až jako blacklist.",
+  "id": "outreach",
+  "story_axis": "spine/outreach",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
+  }
 }

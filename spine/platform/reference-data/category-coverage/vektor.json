@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "category-coverage",
+  "story_axis": "spine/platform/reference-data/category-coverage",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

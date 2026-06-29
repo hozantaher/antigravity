@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "fakturoid-sync",
+  "story_axis": "spine/sale/invoicing/fakturoid-sync",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "suppression",
+  "story_axis": "spine/compliance/compliance/suppression",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

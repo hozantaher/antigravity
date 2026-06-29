@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "inquiry-roundtrip",
+  "story_axis": "spine/demand/contact-offers/inquiry-roundtrip",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

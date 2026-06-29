@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "sanitize",
+  "story_axis": "spine/outreach/anti-trace/sanitize",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

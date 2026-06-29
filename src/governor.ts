@@ -43,8 +43,12 @@ export class CyberneticGovernor {
       const fullPath = path.join(this.rootDir, file);
       try {
         const manifest = JSON.parse(fs.readFileSync(fullPath, 'utf8')) as VektorManifest;
-        validNodes.add(manifest.id);
-        nodePaths.set(path.dirname(fullPath), manifest.id);
+        if (manifest.id) {
+          validNodes.add(manifest.id);
+          nodePaths.set(path.dirname(fullPath), manifest.id);
+        } else {
+          report.push(`DETECTED: Missing ID in vektor.json: ${file}`);
+        }
       } catch (e: any) {
         report.push(`DETECTED: Neplatný JSON ve vektor.json: ${file} (${e.message})`);
       }
@@ -194,6 +198,14 @@ export class CyberneticGovernor {
         const manifest = JSON.parse(fs.readFileSync(fullPath, 'utf8'));
         if (!manifest.id || !manifest.story_axis) {
           report.push(`DETECTED: Invalid legacy manifest format in ${file}`);
+          if (this.autoHeal) {
+            const parts = path.dirname(file).split(path.sep);
+            manifest.id = manifest.id || parts[parts.length - 1];
+            manifest.story_axis = manifest.story_axis || parts.join('/');
+            manifest.facets = manifest.facets || { logic: [], ui: [], tests: [] };
+            fs.writeFileSync(fullPath, JSON.stringify(manifest, null, 2));
+            report.push(`  -> HEALED: Reconstructed missing ID/story_axis for ${file}`);
+          }
         }
       } catch (e) {
         report.push(`DETECTED: Unparsable manifest in ${file}`);

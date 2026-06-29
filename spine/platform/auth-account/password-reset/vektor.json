@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "password-reset",
+  "story_axis": "spine/platform/auth-account/password-reset",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

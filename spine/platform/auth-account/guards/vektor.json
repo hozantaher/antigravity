@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "guards",
+  "story_axis": "spine/platform/auth-account/guards",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

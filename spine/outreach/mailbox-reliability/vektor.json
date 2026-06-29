@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "mailbox-reliability",
+  "story_axis": "spine/outreach/mailbox-reliability",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

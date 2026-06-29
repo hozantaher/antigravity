@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "bounce-detect",
+  "story_axis": "spine/inbound/bounce-detect",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

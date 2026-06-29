@@ -9,13 +9,28 @@
   "promise": "Kauce zní jako pozvánka, ne jako poplatek.",
   "loreLine": "Vstupenka, ne poplatek — framing, co vítá vážné dražitele.",
   "proofSignal": [
-    { "nazev": "deposit framing coverage", "zdroj": "i18n-deposit", "stav": "live" }
+    {
+      "nazev": "deposit framing coverage",
+      "zdroj": "i18n-deposit",
+      "stav": "live"
+    }
   ],
   "antiFeature": "Kauce komunikovaná jako zámek, poplatek nebo chyba — bariéra místo pozvánky.",
   "hotovo": {
     "kdyzPlati": [
-      { "kriterium": "Kauce ve veřejných textech rámovaná jako vstupenka, ne poplatek", "check": "i18n:depositFraming", "stav": "met" }
+      {
+        "kriterium": "Kauce ve veřejných textech rámovaná jako vstupenka, ne poplatek",
+        "check": "i18n:depositFraming",
+        "stav": "met"
+      }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "framing",
+  "story_axis": "spine/sale/deposit-billing/framing",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

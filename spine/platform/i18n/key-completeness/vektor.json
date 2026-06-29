@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "key-completeness",
+  "story_axis": "spine/platform/i18n/key-completeness",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

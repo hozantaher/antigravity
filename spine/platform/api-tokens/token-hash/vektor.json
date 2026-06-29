@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "token-hash",
+  "story_axis": "spine/platform/api-tokens/token-hash",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "reconcile",
+  "story_axis": "spine/sale/deposit-billing/reconcile",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

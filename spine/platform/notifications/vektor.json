@@ -15,5 +15,17 @@
       "stav": "pending"
     }
   ],
-  "antiFeature": "Upozornění jen e-mailem, které dorazí pozdě — výhra, o které se kupec dozví po termínu."
+  "antiFeature": "Upozornění jen e-mailem, které dorazí pozdě — výhra, o které se kupec dozví po termínu.",
+  "facets": {
+    "ui": [
+      "./ui/NotificationItem.vue",
+      "./ui/NotificationFeed.vue",
+      "./ui/NotificationBell.vue"
+    ],
+    "logic": [
+      "./logic/useNotifications.ts"
+    ]
+  },
+  "id": "notifications",
+  "story_axis": "spine/platform/notifications"
 }

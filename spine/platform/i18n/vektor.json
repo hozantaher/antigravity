@@ -9,7 +9,18 @@
   "promise": "Mluvíme tvou řečí.",
   "loreLine": "Most přes hranice — 12 jazyků dělá z tahače v Brně nabídku pro Kyjev, Berlín i Dubaj.",
   "proofSignal": [
-    { "nazev": "most přes hranice — všechny dílčí sliby live", "zdroj": "track/i18n", "stav": "pending" }
+    {
+      "nazev": "most přes hranice — všechny dílčí sliby live",
+      "zdroj": "track/i18n",
+      "stav": "pending"
+    }
   ],
-  "antiFeature": "i18n jako jeden neprůhledný blok — dílčí selhání (chybějící klíč) se schová v zeleném celku."
+  "antiFeature": "i18n jako jeden neprůhledný blok — dílčí selhání (chybějící klíč) se schová v zeleném celku.",
+  "facets": {
+    "ui": [
+      "./ui/Language.vue"
+    ]
+  },
+  "id": "i18n",
+  "story_axis": "spine/platform/i18n"
 }

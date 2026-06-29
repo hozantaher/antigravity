@@ -10,7 +10,32 @@
   "promise": "Vydražená cena se zaplatí přesně a jen jednou.",
   "loreLine": "Vypořádání po dražbě — výherce doplatí přesně koncovou cenu minus kauci, přes Stripe a jen jednou.",
   "proofSignal": [
-    { "nazev": "vypořádání — všechny dílčí sliby live", "zdroj": "settlement-orchestration", "stav": "pending" }
+    {
+      "nazev": "vypořádání — všechny dílčí sliby live",
+      "zdroj": "settlement-orchestration",
+      "stav": "pending"
+    }
   ],
-  "antiFeature": "Vypořádání jako jeden neprůhledný blok — dvojí stržení skryté za zeleným checkoutem se schová v zeleném celku."
+  "antiFeature": "Vypořádání jako jeden neprůhledný blok — dvojí stržení skryté za zeleným checkoutem se schová v zeleném celku.",
+  "facets": {
+    "ui": [
+      "./sale-settlement.vue",
+      "./ui/settlement/SettlementWizard.vue",
+      "./ui/settlement/SettlementStepper.vue",
+      "./ui/settlement/SettlementStepVerifying.vue",
+      "./ui/settlement/SettlementStepSummary.vue",
+      "./ui/settlement/SettlementStepSuccess.vue",
+      "./ui/settlement/SettlementStepPayment.vue",
+      "./ui/settlement/SettlementStepMethod.vue",
+      "./ui/settlement/SettlementStepCard.vue",
+      "./ui/settlement/SettlementStepBilling.vue",
+      "./ui/settlement/SettlementCard.vue"
+    ],
+    "logic": [
+      "./contract.ts",
+      "./logic/useSettlement.ts"
+    ]
+  },
+  "id": "sale-settlement",
+  "story_axis": "spine/sale/sale-settlement"
 }

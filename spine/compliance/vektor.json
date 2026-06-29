@@ -15,5 +15,12 @@
       "stav": "pending"
     }
   ],
-  "antiFeature": "Compliance jako jeden blok — díra v suppression nebo ztracený audit se schová v zeleném celku a vyplave až jako stížnost u ÚOOÚ."
+  "antiFeature": "Compliance jako jeden blok — díra v suppression nebo ztracený audit se schová v zeleném celku a vyplave až jako stížnost u ÚOOÚ.",
+  "id": "compliance",
+  "story_axis": "spine/compliance",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
+  }
 }

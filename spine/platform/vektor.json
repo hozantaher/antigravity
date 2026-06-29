@@ -15,5 +15,48 @@
       "stav": "pending"
     }
   ],
-  "antiFeature": "Platforma jako jeden blok — tichý fallback BFF nebo hluchá sonda se schová v zeleném celku a výpadek se pozná pozdě."
+  "antiFeature": "Platforma jako jeden blok — tichý fallback BFF nebo hluchá sonda se schová v zeleném celku a výpadek se pozná pozdě.",
+  "facets": {
+    "logic": [
+      "./worker/vitest.config.ts",
+      "./worker/worker/web-search.ts",
+      "./worker/worker/sentry.ts",
+      "./worker/worker/queue.ts",
+      "./worker/worker/prompts.ts",
+      "./worker/worker/pdf.ts",
+      "./worker/worker/index.ts",
+      "./worker/worker/generate-odpor.ts",
+      "./worker/worker/firebase.ts",
+      "./worker/worker/email.ts",
+      "./worker/lib/logger.ts",
+      "./worker/lib/health.ts",
+      "./worker/scripts/lib/mcp-client.ts",
+      "./worker/scripts/lib/docx-writer.ts"
+    ],
+    "tests": [
+      "./worker/worker/web-search.test.ts",
+      "./worker/worker/shutdown.unit.test.ts",
+      "./worker/worker/queue.test.ts",
+      "./worker/worker/pdf.test.ts",
+      "./worker/worker/index.test.ts",
+      "./worker/worker/generate-odpor.timeout.test.ts",
+      "./worker/worker/generate-odpor.test.ts",
+      "./worker/worker/firebase.test.ts",
+      "./worker/worker/firebase.collision.test.ts",
+      "./worker/worker/email.test.ts",
+      "./worker/lib/health.test.ts",
+      "./worker/scripts/lib/docx-writer.test.ts"
+    ],
+    "legacy_unmapped": [
+      "./dashboard-core/src/sentryInit.js",
+      "./dashboard-core/src/index.js",
+      "./dashboard-core/src/lib/tokens.js",
+      "./dashboard-core/src/lib/sentryCapture.js",
+      "./dashboard-core/src/lib/scoring.js",
+      "./dashboard-core/src/lib/fetchWithSentry.js",
+      "./dashboard-core/src/lib/emailVerify.js"
+    ]
+  },
+  "id": "platform",
+  "story_axis": "spine/platform"
 }

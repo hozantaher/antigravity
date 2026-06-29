@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "a11y",
+  "story_axis": "spine/platform/design-system/a11y",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

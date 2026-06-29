@@ -9,13 +9,28 @@
   "promise": "Registraci dokončíš bez slepé uličky.",
   "loreLine": "Tok bez slepé uličky — kdo začne, ten dojde mezi vážné hráče.",
   "proofSignal": [
-    { "nazev": "registration completion-rate", "zdroj": "track/auth", "stav": "pending" }
+    {
+      "nazev": "registration completion-rate",
+      "zdroj": "track/auth",
+      "stav": "pending"
+    }
   ],
   "antiFeature": "Tok, který umře uprostřed — vážný zájemce odpadne na kroku bez cesty dál.",
   "hotovo": {
     "kdyzPlati": [
-      { "kriterium": "Registrace dokončitelná bez slepé uličky (completion ≥ cíl)", "check": "track:registration", "stav": "pending" }
+      {
+        "kriterium": "Registrace dokončitelná bez slepé uličky (completion ≥ cíl)",
+        "check": "track:registration",
+        "stav": "pending"
+      }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "registration",
+  "story_axis": "spine/platform/auth-account/registration",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

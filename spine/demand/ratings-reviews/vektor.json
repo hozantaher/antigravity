@@ -15,5 +15,12 @@
       "stav": "pending"
     }
   ],
-  "antiFeature": "Hvězdičky bez vazby na reálný obchod — reputace na prodej."
+  "antiFeature": "Hvězdičky bez vazby na reálný obchod — reputace na prodej.",
+  "id": "ratings-reviews",
+  "story_axis": "spine/demand/ratings-reviews",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
+  }
 }

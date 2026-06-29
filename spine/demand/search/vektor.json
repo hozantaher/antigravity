@@ -9,7 +9,30 @@
   "promise": "Co na trhu je, to jde najít — slovem, facetou i sdíleným odkazem.",
   "loreLine": "Faceted hledání napříč diakritikou a hranicemi — profík najde přesně ten stroj, který hledá.",
   "proofSignal": [
-    { "nazev": "nalezitelnost — všechny dílčí sliby live", "zdroj": "track/search", "stav": "pending" }
+    {
+      "nazev": "nalezitelnost — všechny dílčí sliby live",
+      "zdroj": "track/search",
+      "stav": "pending"
+    }
   ],
-  "antiFeature": "Hledání jako jeden neprůhledný blok — dílčí selhání (rozbitý facet-sync) se schová v zeleném celku."
+  "antiFeature": "Hledání jako jeden neprůhledný blok — dílčí selhání (rozbitý facet-sync) se schová v zeleném celku.",
+  "facets": {
+    "legacy_unmapped": [
+      "./searchService.test.js",
+      "./searchService.js",
+      "./searchController.test.js",
+      "./searchController.js"
+    ],
+    "ui": [
+      "./demand-search.vue",
+      "./ui/SearchResults.vue",
+      "./ui/SearchFilters.vue"
+    ],
+    "logic": [
+      "./contract.ts",
+      "./logic/useSearchFilters.ts"
+    ]
+  },
+  "id": "search",
+  "story_axis": "spine/demand/search"
 }

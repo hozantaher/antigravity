@@ -9,7 +9,27 @@
   "promise": "Nepřeplatíš, neukradnou ti to, souběh nerozhodí pořadí.",
   "loreLine": "Férová dražba — kůže ve hře plus soft-close, který nedovolí ukrást aukci v poslední vteřině.",
   "proofSignal": [
-    { "nazev": "férový ring — všechny dílčí sliby live", "zdroj": "track/bidding", "stav": "pending" }
+    {
+      "nazev": "férový ring — všechny dílčí sliby live",
+      "zdroj": "track/bidding",
+      "stav": "pending"
+    }
   ],
-  "antiFeature": "Bidding jako jeden neprůhledný blok — dílčí selhání (skrytý soft-close) se schová v zeleném celku."
+  "antiFeature": "Bidding jako jeden neprůhledný blok — dílčí selhání (skrytý soft-close) se schová v zeleném celku.",
+  "facets": {
+    "logic": [
+      "./contract.ts",
+      "./logic/useLiveItems.ts",
+      "./logic/useItemBids.ts"
+    ],
+    "ui": [
+      "./bidding.vue",
+      "./ui/PriceStatus.vue",
+      "./ui/ItemBids.vue",
+      "./ui/ItemBid.vue",
+      "./ui/BidRow.vue"
+    ]
+  },
+  "id": "bidding",
+  "story_axis": "spine/supply/bidding"
 }

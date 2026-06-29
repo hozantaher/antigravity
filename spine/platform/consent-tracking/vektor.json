@@ -15,5 +15,17 @@
       "stav": "live"
     }
   ],
-  "antiFeature": "Tracking, který běží bez souhlasu — měření za zády uživatele."
+  "antiFeature": "Tracking, který běží bez souhlasu — měření za zády uživatele.",
+  "facets": {
+    "ui": [
+      "./ui/CookiesBar.vue"
+    ],
+    "logic": [
+      "./logic/useTracking.ts",
+      "./logic/useDetailTracking.ts",
+      "./logic/useCookieConsent.ts"
+    ]
+  },
+  "id": "consent-tracking",
+  "story_axis": "spine/platform/consent-tracking"
 }

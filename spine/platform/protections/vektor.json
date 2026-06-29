@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "protections",
+  "story_axis": "spine/platform/protections",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "query-roundtrip",
+  "story_axis": "spine/demand/search/query-roundtrip",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

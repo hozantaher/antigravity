@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "decode-cache",
+  "story_axis": "spine/supply/vehicle-vin/decode-cache",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "classify-icp",
+  "story_axis": "spine/acquisition/acquisition/classify-icp",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

@@ -9,13 +9,28 @@
   "promise": "Výpis tě nebrzdí ani pod zátěží.",
   "loreLine": "Svižný list — kurátor listuje katalogem bez čekání.",
   "proofSignal": [
-    { "nazev": "list p95 latency", "zdroj": "observability", "stav": "live" }
+    {
+      "nazev": "list p95 latency",
+      "zdroj": "observability",
+      "stav": "live"
+    }
   ],
   "antiFeature": "Pomalý výpis — kurátor čeká a kvalita katalogu klesá.",
   "hotovo": {
     "kdyzPlati": [
-      { "kriterium": "List p95 latence pod rozpočtem", "check": "test:adminListP95", "stav": "pending" }
+      {
+        "kriterium": "List p95 latence pod rozpočtem",
+        "check": "test:adminListP95",
+        "stav": "pending"
+      }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "list-latency",
+  "story_axis": "spine/platform/admin/list-latency",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

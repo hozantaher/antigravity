@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "campaign-scheduler",
+  "story_axis": "spine/outreach/campaign-scheduler",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "amount-due",
+  "story_axis": "spine/sale/sale-settlement/amount-due",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

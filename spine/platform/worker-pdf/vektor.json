@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "worker-pdf",
+  "story_axis": "spine/platform/worker-pdf",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

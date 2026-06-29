@@ -9,7 +9,18 @@
   "promise": "Relevantní, ne spam.",
   "loreLine": "Auction24 se ozve — kurátorský mail přivede vážného kupce zpět ke stroji pro něj.",
   "proofSignal": [
-    { "nazev": "newsletter — oba dílčí sliby live", "zdroj": "track/newsletter", "stav": "pending" }
+    {
+      "nazev": "newsletter — oba dílčí sliby live",
+      "zdroj": "track/newsletter",
+      "stav": "pending"
+    }
   ],
-  "antiFeature": "Newsletter jako jeden neprůhledný blok — dílčí selhání (rozbitá kadence) se schová v zeleném celku."
+  "antiFeature": "Newsletter jako jeden neprůhledný blok — dílčí selhání (rozbitá kadence) se schová v zeleném celku.",
+  "id": "newsletter-email",
+  "story_axis": "spine/demand/newsletter-email",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
+  }
 }

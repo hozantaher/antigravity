@@ -9,13 +9,28 @@
   "promise": "Vidíš stroj na dost fotkách, ne na třech z dálky.",
   "loreLine": "Plná galerie — fotek nad minimem, stroj ze všech úhlů.",
   "proofSignal": [
-    { "nazev": "image completeness per item", "zdroj": "test/imageCompleteness", "stav": "live" }
+    {
+      "nazev": "image completeness per item",
+      "zdroj": "test/imageCompleteness",
+      "stav": "live"
+    }
   ],
   "antiFeature": "Inzerát s pár fotkami z dálky — kupec netuší, co kupuje.",
   "hotovo": {
     "kdyzPlati": [
-      { "kriterium": "Image completeness per item nad minimem", "check": "test:imageCompleteness", "stav": "pending" }
+      {
+        "kriterium": "Image completeness per item nad minimem",
+        "check": "test:imageCompleteness",
+        "stav": "pending"
+      }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "completeness",
+  "story_axis": "spine/supply/media-upload/completeness",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "facet-filter",
+  "story_axis": "spine/demand/search/facet-filter",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

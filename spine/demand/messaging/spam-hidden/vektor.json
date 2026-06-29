@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "spam-hidden",
+  "story_axis": "spine/demand/messaging/spam-hidden",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

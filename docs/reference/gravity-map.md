@@ -4,182 +4,302 @@ Tento graf ukazuje "gravitaci" (důležitost) jednotlivých uzlů na základě p
 
 ```mermaid
 graph TD
-  supply["supply (Links: 2)"]
-  style supply stroke:#00cc66,stroke-width:3px,fill:default
-  sale["sale (Links: 2)"]
-  style sale stroke:#ff9900,stroke-width:3px,fill:default
-  demand["demand (Links: 1)"]
-  style demand stroke:#ff9900,stroke-width:2px,fill:default
+  supply["supply (Links: 0)"]
+  style supply stroke:#00cc66,stroke-width:1px,fill:default
+  sale["sale (Links: 0)"]
+  style sale stroke:#00cc66,stroke-width:1px,fill:default
+  inbound["inbound (Links: 0)"]
+  style inbound stroke:#00cc66,stroke-width:1px,fill:default
+  outreach["outreach (Links: 0)"]
+  style outreach stroke:#00cc66,stroke-width:1px,fill:default
   engine["engine (Links: 1)"]
   style engine stroke:#ff9900,stroke-width:2px,fill:default
-  vehicle-vin["vehicle-vin (Links: 1)"]
-  style vehicle-vin stroke:#ff9900,stroke-width:2px,fill:default
+  platform["platform (Links: 0)"]
+  style platform stroke:#3399ff,stroke-width:1px,fill:default
+  demand["demand (Links: 0)"]
+  style demand stroke:#00cc66,stroke-width:1px,fill:default
+  compliance["compliance (Links: 0)"]
+  style compliance stroke:#00cc66,stroke-width:1px,fill:default
+  acquisition["acquisition (Links: 0)"]
+  style acquisition stroke:#00cc66,stroke-width:1px,fill:default
+  auction24["auction24 (Links: 1)"]
+  style auction24 stroke:#ff9900,stroke-width:2px,fill:default
+  hozan-taher["hozan-taher (Links: 1)"]
+  style hozan-taher stroke:#ff9900,stroke-width:2px,fill:default
   specs-before-bid["specs-before-bid (Links: 0)"]
   style specs-before-bid stroke:#00cc66,stroke-width:1px,fill:default
-  media-upload["media-upload (Links: 1)"]
-  style media-upload stroke:#ff9900,stroke-width:2px,fill:default
   soft-close["soft-close (Links: 0)"]
   style soft-close stroke:#00cc66,stroke-width:1px,fill:default
-  pano-360["pano-360 (Links: 0)"]
-  style pano-360 stroke:#00cc66,stroke-width:1px,fill:default
+  vehicle-vin["vehicle-vin (Links: 0)"]
+  style vehicle-vin stroke:#00cc66,stroke-width:1px,fill:default
   empty-state["empty-state (Links: 0)"]
   style empty-state stroke:#00cc66,stroke-width:1px,fill:default
+  media-upload["media-upload (Links: 0)"]
+  style media-upload stroke:#00cc66,stroke-width:1px,fill:default
   eligibility["eligibility (Links: 0)"]
   style eligibility stroke:#00cc66,stroke-width:1px,fill:default
+  detail-order["detail-order (Links: 0)"]
+  style detail-order stroke:#00cc66,stroke-width:1px,fill:default
   decode-cache["decode-cache (Links: 0)"]
   style decode-cache stroke:#00cc66,stroke-width:1px,fill:default
   concurrency["concurrency (Links: 0)"]
   style concurrency stroke:#00cc66,stroke-width:1px,fill:default
-  detail-order["detail-order (Links: 0)"]
-  style detail-order stroke:#00cc66,stroke-width:1px,fill:default
-  bidding["bidding (Links: 1)"]
-  style bidding stroke:#ff9900,stroke-width:2px,fill:default
-  card-order["card-order (Links: 0)"]
-  style card-order stroke:#00cc66,stroke-width:1px,fill:default
+  pano-360["pano-360 (Links: 0)"]
+  style pano-360 stroke:#00cc66,stroke-width:1px,fill:default
   completeness["completeness (Links: 0)"]
   style completeness stroke:#00cc66,stroke-width:1px,fill:default
-  auction-items["auction-items (Links: 1)"]
-  style auction-items stroke:#ff9900,stroke-width:2px,fill:default
-  outreach["outreach (Links: 0)"]
-  style outreach stroke:#00cc66,stroke-width:1px,fill:default
-  reconcile["reconcile (Links: 0)"]
-  style reconcile stroke:#00cc66,stroke-width:1px,fill:default
-  sale-settlement["sale-settlement (Links: 1)"]
-  style sale-settlement stroke:#ff9900,stroke-width:2px,fill:default
+  card-order["card-order (Links: 0)"]
+  style card-order stroke:#00cc66,stroke-width:1px,fill:default
+  bidding["bidding (Links: 0)"]
+  style bidding stroke:#00cc66,stroke-width:1px,fill:default
+  auction-items["auction-items (Links: 0)"]
+  style auction-items stroke:#00cc66,stroke-width:1px,fill:default
   resolution["resolution (Links: 0)"]
   style resolution stroke:#00cc66,stroke-width:1px,fill:default
-  invoice-list["invoice-list (Links: 0)"]
-  style invoice-list stroke:#00cc66,stroke-width:1px,fill:default
-  invoicing["invoicing (Links: 1)"]
-  style invoicing stroke:#ff9900,stroke-width:2px,fill:default
+  sale-settlement["sale-settlement (Links: 0)"]
+  style sale-settlement stroke:#00cc66,stroke-width:1px,fill:default
+  reconcile["reconcile (Links: 0)"]
+  style reconcile stroke:#00cc66,stroke-width:1px,fill:default
+  invoicing["invoicing (Links: 0)"]
+  style invoicing stroke:#00cc66,stroke-width:1px,fill:default
   fio-match["fio-match (Links: 0)"]
   style fio-match stroke:#00cc66,stroke-width:1px,fill:default
-  fakturoid-sync["fakturoid-sync (Links: 0)"]
-  style fakturoid-sync stroke:#00cc66,stroke-width:1px,fill:default
-  disputes-complaints["disputes-complaints (Links: 1)"]
-  style disputes-complaints stroke:#ff9900,stroke-width:2px,fill:default
+  invoice-list["invoice-list (Links: 0)"]
+  style invoice-list stroke:#00cc66,stroke-width:1px,fill:default
   framing["framing (Links: 0)"]
   style framing stroke:#00cc66,stroke-width:1px,fill:default
-  deposit-billing["deposit-billing (Links: 1)"]
-  style deposit-billing stroke:#ff9900,stroke-width:2px,fill:default
+  disputes-complaints["disputes-complaints (Links: 0)"]
+  style disputes-complaints stroke:#00cc66,stroke-width:1px,fill:default
+  fakturoid-sync["fakturoid-sync (Links: 0)"]
+  style fakturoid-sync stroke:#00cc66,stroke-width:1px,fill:default
   completion["completion (Links: 0)"]
   style completion stroke:#00cc66,stroke-width:1px,fill:default
-  case-open["case-open (Links: 0)"]
-  style case-open stroke:#00cc66,stroke-width:1px,fill:default
-  amount-due["amount-due (Links: 0)"]
-  style amount-due stroke:#00cc66,stroke-width:1px,fill:default
-  billing-capture["billing-capture (Links: 0)"]
-  style billing-capture stroke:#00cc66,stroke-width:1px,fill:default
+  deposit-billing["deposit-billing (Links: 0)"]
+  style deposit-billing stroke:#00cc66,stroke-width:1px,fill:default
   charge-once["charge-once (Links: 0)"]
   style charge-once stroke:#00cc66,stroke-width:1px,fill:default
+  case-open["case-open (Links: 0)"]
+  style case-open stroke:#00cc66,stroke-width:1px,fill:default
+  billing-capture["billing-capture (Links: 0)"]
+  style billing-capture stroke:#00cc66,stroke-width:1px,fill:default
+  thread-match["thread-match (Links: 0)"]
+  style thread-match stroke:#00cc66,stroke-width:1px,fill:default
+  amount-due["amount-due (Links: 0)"]
+  style amount-due stroke:#00cc66,stroke-width:1px,fill:default
+  reply-classify["reply-classify (Links: 0)"]
+  style reply-classify stroke:#00cc66,stroke-width:1px,fill:default
+  bounce-handle["bounce-handle (Links: 0)"]
+  style bounce-handle stroke:#00cc66,stroke-width:1px,fill:default
+  imap-poll["imap-poll (Links: 0)"]
+  style imap-poll stroke:#00cc66,stroke-width:1px,fill:default
+  bounce-detect["bounce-detect (Links: 0)"]
+  style bounce-detect stroke:#00cc66,stroke-width:1px,fill:default
+  warmup["warmup (Links: 0)"]
+  style warmup stroke:#00cc66,stroke-width:1px,fill:default
+  send-window["send-window (Links: 0)"]
+  style send-window stroke:#00cc66,stroke-width:1px,fill:default
+  send-dedup["send-dedup (Links: 0)"]
+  style send-dedup stroke:#00cc66,stroke-width:1px,fill:default
+  sanitize["sanitize (Links: 0)"]
+  style sanitize stroke:#00cc66,stroke-width:1px,fill:default
+  metadata-min["metadata-min (Links: 0)"]
+  style metadata-min stroke:#00cc66,stroke-width:1px,fill:default
+  mailbox-reliability["mailbox-reliability (Links: 0)"]
+  style mailbox-reliability stroke:#00cc66,stroke-width:1px,fill:default
+  content-render["content-render (Links: 0)"]
+  style content-render stroke:#00cc66,stroke-width:1px,fill:default
+  egress["egress (Links: 0)"]
+  style egress stroke:#00cc66,stroke-width:1px,fill:default
+  content-enc["content-enc (Links: 0)"]
+  style content-enc stroke:#00cc66,stroke-width:1px,fill:default
+  anti-trace["anti-trace (Links: 0)"]
+  style anti-trace stroke:#00cc66,stroke-width:1px,fill:default
+  engine-learn["engine-learn (Links: 2)"]
+  style engine-learn stroke:#3399ff,stroke-width:3px,fill:default
+  core-types["core-types (Links: 3)"]
+  style core-types stroke:#00cc66,stroke-width:4px,fill:default
+  engine-drive["engine-drive (Links: 1)"]
+  style engine-drive stroke:#3399ff,stroke-width:2px,fill:default
+  campaign-scheduler["campaign-scheduler (Links: 0)"]
+  style campaign-scheduler stroke:#00cc66,stroke-width:1px,fill:default
   token-lifecycle["token-lifecycle (Links: 0)"]
-  style token-lifecycle stroke:#3399ff,stroke-width:1px,fill:default
-  worker-pdf["worker-pdf (Links: 0)"]
-  style worker-pdf stroke:#3399ff,stroke-width:1px,fill:default
-  protections["protections (Links: 0)"]
-  style protections stroke:#3399ff,stroke-width:1px,fill:default
+  style token-lifecycle stroke:#00cc66,stroke-width:1px,fill:default
   token-hash["token-hash (Links: 0)"]
-  style token-hash stroke:#3399ff,stroke-width:1px,fill:default
+  style token-hash stroke:#00cc66,stroke-width:1px,fill:default
+  spec-validity["spec-validity (Links: 0)"]
+  style spec-validity stroke:#00cc66,stroke-width:1px,fill:default
+  sitemap["sitemap (Links: 0)"]
+  style sitemap stroke:#00cc66,stroke-width:1px,fill:default
+  rtl-parity["rtl-parity (Links: 0)"]
+  style rtl-parity stroke:#00cc66,stroke-width:1px,fill:default
+  save-success["save-success (Links: 0)"]
+  style save-success stroke:#00cc66,stroke-width:1px,fill:default
+  registration["registration (Links: 0)"]
+  style registration stroke:#00cc66,stroke-width:1px,fill:default
+  protections["protections (Links: 0)"]
+  style protections stroke:#00cc66,stroke-width:1px,fill:default
+  read-state["read-state (Links: 0)"]
+  style read-state stroke:#00cc66,stroke-width:1px,fill:default
   reference-data["reference-data (Links: 0)"]
-  style reference-data stroke:#3399ff,stroke-width:1px,fill:default
-  platform["platform (Links: 0)"]
-  style platform stroke:#3399ff,stroke-width:1px,fill:default
+  style reference-data stroke:#00cc66,stroke-width:1px,fill:default
+  password-reset["password-reset (Links: 0)"]
+  style password-reset stroke:#00cc66,stroke-width:1px,fill:default
+  notifications["notifications (Links: 0)"]
+  style notifications stroke:#00cc66,stroke-width:1px,fill:default
   outreach-dashboard["outreach-dashboard (Links: 1)"]
   style outreach-dashboard stroke:#3399ff,stroke-width:2px,fill:default
-  notifications["notifications (Links: 0)"]
-  style notifications stroke:#3399ff,stroke-width:1px,fill:default
-  i18n["i18n (Links: 0)"]
-  style i18n stroke:#3399ff,stroke-width:1px,fill:default
-  design-system["design-system (Links: 1)"]
-  style design-system stroke:#3399ff,stroke-width:2px,fill:default
-  dashboard-bff["dashboard-bff (Links: 1)"]
-  style dashboard-bff stroke:#ff9900,stroke-width:2px,fill:default
-  core["core (Links: 0)"]
-  style core stroke:#3399ff,stroke-width:1px,fill:default
-  consent-tracking["consent-tracking (Links: 0)"]
-  style consent-tracking stroke:#3399ff,stroke-width:1px,fill:default
   mcp["mcp (Links: 0)"]
-  style mcp stroke:#3399ff,stroke-width:1px,fill:default
+  style mcp stroke:#00cc66,stroke-width:1px,fill:default
+  list-latency["list-latency (Links: 0)"]
+  style list-latency stroke:#00cc66,stroke-width:1px,fill:default
+  key-events["key-events (Links: 0)"]
+  style key-events stroke:#00cc66,stroke-width:1px,fill:default
+  lcp["lcp (Links: 0)"]
+  style lcp stroke:#00cc66,stroke-width:1px,fill:default
+  key-completeness["key-completeness (Links: 0)"]
+  style key-completeness stroke:#00cc66,stroke-width:1px,fill:default
+  ingest["ingest (Links: 0)"]
+  style ingest stroke:#00cc66,stroke-width:1px,fill:default
+  guards["guards (Links: 0)"]
+  style guards stroke:#00cc66,stroke-width:1px,fill:default
+  design-system["design-system (Links: 0)"]
+  style design-system stroke:#00cc66,stroke-width:1px,fill:default
+  i18n["i18n (Links: 0)"]
+  style i18n stroke:#00cc66,stroke-width:1px,fill:default
+  dashboard-bff["dashboard-bff (Links: 0)"]
+  style dashboard-bff stroke:#00cc66,stroke-width:1px,fill:default
+  country-resolution["country-resolution (Links: 0)"]
+  style country-resolution stroke:#00cc66,stroke-width:1px,fill:default
+  core["core (Links: 0)"]
+  style core stroke:#00cc66,stroke-width:1px,fill:default
+  consent-gate["consent-gate (Links: 0)"]
+  style consent-gate stroke:#00cc66,stroke-width:1px,fill:default
+  contract-drift["contract-drift (Links: 0)"]
+  style contract-drift stroke:#00cc66,stroke-width:1px,fill:default
+  consent-tracking["consent-tracking (Links: 0)"]
+  style consent-tracking stroke:#00cc66,stroke-width:1px,fill:default
+  auth-account["auth-account (Links: 0)"]
+  style auth-account stroke:#00cc66,stroke-width:1px,fill:default
   brand-parity["brand-parity (Links: 0)"]
-  style brand-parity stroke:#3399ff,stroke-width:1px,fill:default
+  style brand-parity stroke:#00cc66,stroke-width:1px,fill:default
+  category-coverage["category-coverage (Links: 0)"]
+  style category-coverage stroke:#00cc66,stroke-width:1px,fill:default
   auth["auth (Links: 1)"]
   style auth stroke:#3399ff,stroke-width:2px,fill:default
-  auth-account["auth-account (Links: 0)"]
-  style auth-account stroke:#3399ff,stroke-width:1px,fill:default
-  api-docs["api-docs (Links: 0)"]
-  style api-docs stroke:#3399ff,stroke-width:1px,fill:default
   admin["admin (Links: 0)"]
-  style admin stroke:#3399ff,stroke-width:1px,fill:default
-  api-tokens["api-tokens (Links: 1)"]
-  style api-tokens stroke:#3399ff,stroke-width:2px,fill:default
-  a11y["a11y (Links: 0)"]
-  style a11y stroke:#3399ff,stroke-width:1px,fill:default
+  style admin stroke:#00cc66,stroke-width:1px,fill:default
+  api-docs["api-docs (Links: 0)"]
+  style api-docs stroke:#00cc66,stroke-width:1px,fill:default
+  api-tokens["api-tokens (Links: 0)"]
+  style api-tokens stroke:#00cc66,stroke-width:1px,fill:default
   account["account (Links: 1)"]
   style account stroke:#ff9900,stroke-width:2px,fill:default
-  url-state["url-state (Links: 0)"]
-  style url-state stroke:#00cc66,stroke-width:1px,fill:default
+  a11y["a11y (Links: 0)"]
+  style a11y stroke:#00cc66,stroke-width:1px,fill:default
   unsubscribe["unsubscribe (Links: 0)"]
   style unsubscribe stroke:#00cc66,stroke-width:1px,fill:default
+  url-state["url-state (Links: 0)"]
+  style url-state stroke:#00cc66,stroke-width:1px,fill:default
+  spam-hidden["spam-hidden (Links: 0)"]
+  style spam-hidden stroke:#00cc66,stroke-width:1px,fill:default
   toggle-roundtrip["toggle-roundtrip (Links: 0)"]
   style toggle-roundtrip stroke:#00cc66,stroke-width:1px,fill:default
-  send["send (Links: 0)"]
-  style send stroke:#00cc66,stroke-width:1px,fill:default
-  demand-search["demand-search (Links: 1)"]
-  style demand-search stroke:#ff9900,stroke-width:2px,fill:default
-  saved-search["saved-search (Links: 1)"]
-  style saved-search stroke:#00cc66,stroke-width:2px,fill:default
+  seller-visible["seller-visible (Links: 0)"]
+  style seller-visible stroke:#00cc66,stroke-width:1px,fill:default
+  worker-pdf["worker-pdf (Links: 0)"]
+  style worker-pdf stroke:#00cc66,stroke-width:1px,fill:default
+  send["send (Links: 1)"]
+  style send stroke:#00cc66,stroke-width:2px,fill:default
+  return-path["return-path (Links: 0)"]
+  style return-path stroke:#00cc66,stroke-width:1px,fill:default
+  saved-search["saved-search (Links: 0)"]
+  style saved-search stroke:#00cc66,stroke-width:1px,fill:default
+  search["search (Links: 0)"]
+  style search stroke:#00cc66,stroke-width:1px,fill:default
   recommendation["recommendation (Links: 0)"]
   style recommendation stroke:#00cc66,stroke-width:1px,fill:default
   relevance["relevance (Links: 0)"]
   style relevance stroke:#00cc66,stroke-width:1px,fill:default
+  ratings-reviews["ratings-reviews (Links: 0)"]
+  style ratings-reviews stroke:#00cc66,stroke-width:1px,fill:default
+  query-roundtrip["query-roundtrip (Links: 0)"]
+  style query-roundtrip stroke:#00cc66,stroke-width:1px,fill:default
+  rail-to-bid["rail-to-bid (Links: 0)"]
+  style rail-to-bid stroke:#00cc66,stroke-width:1px,fill:default
+  post-sale["post-sale (Links: 0)"]
+  style post-sale stroke:#00cc66,stroke-width:1px,fill:default
+  published-only["published-only (Links: 0)"]
+  style published-only stroke:#00cc66,stroke-width:1px,fill:default
   pagination["pagination (Links: 0)"]
   style pagination stroke:#00cc66,stroke-width:1px,fill:default
   ordering["ordering (Links: 0)"]
   style ordering stroke:#00cc66,stroke-width:1px,fill:default
-  ratings-reviews["ratings-reviews (Links: 0)"]
-  style ratings-reviews stroke:#00cc66,stroke-width:1px,fill:default
   owner-scoped["owner-scoped (Links: 0)"]
   style owner-scoped stroke:#00cc66,stroke-width:1px,fill:default
-  query-roundtrip["query-roundtrip (Links: 0)"]
-  style query-roundtrip stroke:#00cc66,stroke-width:1px,fill:default
   no-duplicate["no-duplicate (Links: 0)"]
   style no-duplicate stroke:#00cc66,stroke-width:1px,fill:default
   newsletter-email["newsletter-email (Links: 0)"]
   style newsletter-email stroke:#00cc66,stroke-width:1px,fill:default
-  favorites["favorites (Links: 1)"]
-  style favorites stroke:#00cc66,stroke-width:2px,fill:default
-  facet-filter["facet-filter (Links: 0)"]
-  style facet-filter stroke:#00cc66,stroke-width:1px,fill:default
-  create["create (Links: 0)"]
-  style create stroke:#00cc66,stroke-width:1px,fill:default
+  non-empty["non-empty (Links: 0)"]
+  style non-empty stroke:#00cc66,stroke-width:1px,fill:default
   messaging["messaging (Links: 0)"]
   style messaging stroke:#00cc66,stroke-width:1px,fill:default
+  inquiry-roundtrip["inquiry-roundtrip (Links: 0)"]
+  style inquiry-roundtrip stroke:#00cc66,stroke-width:1px,fill:default
+  facet-filter["facet-filter (Links: 0)"]
+  style facet-filter stroke:#00cc66,stroke-width:1px,fill:default
+  favorites["favorites (Links: 0)"]
+  style favorites stroke:#00cc66,stroke-width:1px,fill:default
+  ctr["ctr (Links: 0)"]
+  style ctr stroke:#00cc66,stroke-width:1px,fill:default
   diacritics["diacritics (Links: 0)"]
   style diacritics stroke:#00cc66,stroke-width:1px,fill:default
-  compare["compare (Links: 0)"]
-  style compare stroke:#00cc66,stroke-width:1px,fill:default
+  create["create (Links: 0)"]
+  style create stroke:#00cc66,stroke-width:1px,fill:default
+  compare-set["compare-set (Links: 0)"]
+  style compare-set stroke:#00cc66,stroke-width:1px,fill:default
   contact-offers["contact-offers (Links: 0)"]
   style contact-offers stroke:#00cc66,stroke-width:1px,fill:default
-  core-types["core-types (Links: 3)"]
-  style core-types stroke:#00cc66,stroke-width:4px,fill:default
-  suppression["suppression (Links: 1)"]
-  style suppression stroke:#00cc66,stroke-width:2px,fill:default
-  dsr["dsr (Links: 1)"]
-  style dsr stroke:#00cc66,stroke-width:2px,fill:default
-  inbound["inbound (Links: 0)"]
-  style inbound stroke:#00cc66,stroke-width:1px,fill:default
-  engine-learn["engine-learn (Links: 2)"]
-  style engine-learn stroke:#3399ff,stroke-width:3px,fill:default
-  engine-drive["engine-drive (Links: 1)"]
-  style engine-drive stroke:#3399ff,stroke-width:2px,fill:default
-  firmy-cz["firmy-cz (Links: 1)"]
-  style firmy-cz stroke:#00cc66,stroke-width:2px,fill:default
-  acquisition["acquisition (Links: 0)"]
-  style acquisition stroke:#00cc66,stroke-width:1px,fill:default
-  compliance["compliance (Links: 0)"]
-  style compliance stroke:#00cc66,stroke-width:1px,fill:default
-  undefined["undefined (Links: 0)"]
-  style undefined stroke:#00cc66,stroke-width:1px,fill:default
+  compare["compare (Links: 0)"]
+  style compare stroke:#00cc66,stroke-width:1px,fill:default
+  answer["answer (Links: 0)"]
+  style answer stroke:#00cc66,stroke-width:1px,fill:default
+  auto-publish["auto-publish (Links: 0)"]
+  style auto-publish stroke:#00cc66,stroke-width:1px,fill:default
+  cadence["cadence (Links: 0)"]
+  style cadence stroke:#00cc66,stroke-width:1px,fill:default
+  unsub-token["unsub-token (Links: 0)"]
+  style unsub-token stroke:#00cc66,stroke-width:1px,fill:default
+  ask["ask (Links: 0)"]
+  style ask stroke:#00cc66,stroke-width:1px,fill:default
+  gdpr-footer["gdpr-footer (Links: 0)"]
+  style gdpr-footer stroke:#00cc66,stroke-width:1px,fill:default
+  suppression["suppression (Links: 0)"]
+  style suppression stroke:#00cc66,stroke-width:1px,fill:default
+  dsr["dsr (Links: 0)"]
+  style dsr stroke:#00cc66,stroke-width:1px,fill:default
+  firmy-cz["firmy-cz (Links: 0)"]
+  style firmy-cz stroke:#00cc66,stroke-width:1px,fill:default
+  audit-log["audit-log (Links: 0)"]
+  style audit-log stroke:#00cc66,stroke-width:1px,fill:default
+  email-validation["email-validation (Links: 0)"]
+  style email-validation stroke:#00cc66,stroke-width:1px,fill:default
+  scrapers["scrapers (Links: 0)"]
+  style scrapers stroke:#00cc66,stroke-width:1px,fill:default
+  ares-source["ares-source (Links: 0)"]
+  style ares-source stroke:#00cc66,stroke-width:1px,fill:default
+  classify-icp["classify-icp (Links: 0)"]
+  style classify-icp stroke:#00cc66,stroke-width:1px,fill:default
+  shadow-broker["shadow-broker (Links: 1)"]
+  style shadow-broker stroke:#00cc66,stroke-width:2px,fill:default
+  arbitrage-miner["arbitrage-miner (Links: 1)"]
+  style arbitrage-miner stroke:#00cc66,stroke-width:2px,fill:default
+  relay["relay (Links: 2)"]
+  style relay stroke:#00cc66,stroke-width:3px,fill:default
+  worker["worker (Links: 1)"]
+  style worker stroke:#00cc66,stroke-width:2px,fill:default
+  symphony-queue["symphony-queue (Links: 4)"]
+  style symphony-queue stroke:#00cc66,stroke-width:5px,fill:default
   dashboard-core["dashboard-core (Links: 1)"]
   style dashboard-core stroke:#ff9900,stroke-width:2px,fill:default
   privacy-gateway["privacy-gateway (Links: 2)"]
@@ -188,29 +308,17 @@ graph TD
   style inbox-orchestrator stroke:#00cc66,stroke-width:2px,fill:default
   deep-inventory["deep-inventory (Links: 2)"]
   style deep-inventory stroke:#00cc66,stroke-width:3px,fill:default
-  relay["relay (Links: 2)"]
-  style relay stroke:#00cc66,stroke-width:3px,fill:default
-  arbitrage-miner["arbitrage-miner (Links: 1)"]
-  style arbitrage-miner stroke:#00cc66,stroke-width:2px,fill:default
-  shadow-broker["shadow-broker (Links: 1)"]
-  style shadow-broker stroke:#00cc66,stroke-width:2px,fill:default
-  worker["worker (Links: 1)"]
-  style worker stroke:#00cc66,stroke-width:2px,fill:default
-  symphony-queue["symphony-queue (Links: 4)"]
-  style symphony-queue stroke:#00cc66,stroke-width:5px,fill:default
-  search["search (Links: 0)"]
-  style search stroke:#00cc66,stroke-width:1px,fill:default
 ```
 
 ## 📈 Top Gravitačních Hubů
 
 1. **symphony-queue** (4 zpětných vazeb)
 2. **core-types** (3 zpětných vazeb)
-3. **supply** (2 zpětných vazeb)
-4. **sale** (2 zpětných vazeb)
-5. **engine-learn** (2 zpětných vazeb)
-6. **privacy-gateway** (2 zpětných vazeb)
-7. **deep-inventory** (2 zpětných vazeb)
-8. **relay** (2 zpětných vazeb)
-9. **demand** (1 zpětných vazeb)
-10. **engine** (1 zpětných vazeb)
+3. **engine-learn** (2 zpětných vazeb)
+4. **relay** (2 zpětných vazeb)
+5. **privacy-gateway** (2 zpětných vazeb)
+6. **deep-inventory** (2 zpětných vazeb)
+7. **engine** (1 zpětných vazeb)
+8. **auction24** (1 zpětných vazeb)
+9. **hozan-taher** (1 zpětných vazeb)
+10. **engine-drive** (1 zpětných vazeb)

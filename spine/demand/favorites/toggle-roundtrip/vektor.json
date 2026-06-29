@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "toggle-roundtrip",
+  "story_axis": "spine/demand/favorites/toggle-roundtrip",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

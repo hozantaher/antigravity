@@ -9,7 +9,25 @@
   "promise": "Žádná otázka o stroji nezůstane ve tmě.",
   "loreLine": "Veřejné Q&A u inzerátu — kupující se ptá nahlas a odpověď vidí každý další zájemce.",
   "proofSignal": [
-    { "nazev": "Q&A — všechny dílčí sliby live", "zdroj": "item_questions", "stav": "pending" }
+    {
+      "nazev": "Q&A — všechny dílčí sliby live",
+      "zdroj": "item_questions",
+      "stav": "pending"
+    }
   ],
-  "antiFeature": "Q&A jako jeden neprůhledný blok — dílčí selhání (skrytý spam) se schová v zeleném celku."
+  "antiFeature": "Q&A jako jeden neprůhledný blok — dílčí selhání (skrytý spam) se schová v zeleném celku.",
+  "facets": {
+    "logic": [
+      "./contract.ts",
+      "./logic/useItemQuestions.ts",
+      "./logic/useAdminQuestions.ts"
+    ],
+    "ui": [
+      "./ui/QuestionThread.vue",
+      "./ui/QuestionRow.vue",
+      "./ui/QuestionForm.vue"
+    ]
+  },
+  "id": "messaging",
+  "story_axis": "spine/demand/messaging"
 }

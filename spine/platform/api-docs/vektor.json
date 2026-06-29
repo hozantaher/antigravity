@@ -9,7 +9,18 @@
   "promise": "Integrovatelnost bez hádání.",
   "loreLine": "Otevřené papíry i pro stroje — veřejná OpenAPI dělá z platformy partnera, ne černou skříňku.",
   "proofSignal": [
-    { "nazev": "otevřené papíry — všechny dílčí sliby live", "zdroj": "module:contract", "stav": "pending" }
+    {
+      "nazev": "otevřené papíry — všechny dílčí sliby live",
+      "zdroj": "module:contract",
+      "stav": "pending"
+    }
   ],
-  "antiFeature": "Dokumentace jako jeden neprůhledný blok — dílčí selhání (contract drift) se schová v zeleném celku."
+  "antiFeature": "Dokumentace jako jeden neprůhledný blok — dílčí selhání (contract drift) se schová v zeleném celku.",
+  "id": "api-docs",
+  "story_axis": "spine/platform/api-docs",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
+  }
 }

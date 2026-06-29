@@ -36,5 +36,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "egress",
+  "story_axis": "spine/outreach/anti-trace/egress",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

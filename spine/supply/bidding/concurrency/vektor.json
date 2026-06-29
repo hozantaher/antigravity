@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "concurrency",
+  "story_axis": "spine/supply/bidding/concurrency",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

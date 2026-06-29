@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "pagination",
+  "story_axis": "spine/demand/search/pagination",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

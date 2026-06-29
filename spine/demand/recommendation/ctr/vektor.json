@@ -9,13 +9,28 @@
   "promise": "Víme, jestli doporučení proklikne.",
   "loreLine": "Každý proklik railu se počítá — CTR je signál, ne pocit.",
   "proofSignal": [
-    { "nazev": "reco CTR", "zdroj": "track/reco", "stav": "pending" }
+    {
+      "nazev": "reco CTR",
+      "zdroj": "track/reco",
+      "stav": "pending"
+    }
   ],
   "antiFeature": "Rail bez měření — nikdo neví, jestli vede k čemukoli.",
   "hotovo": {
     "kdyzPlati": [
-      { "kriterium": "reco CTR měřený přes /api/track", "check": "track:recoCtr", "stav": "pending" }
+      {
+        "kriterium": "reco CTR měřený přes /api/track",
+        "check": "track:recoCtr",
+        "stav": "pending"
+      }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "ctr",
+  "story_axis": "spine/demand/recommendation/ctr",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

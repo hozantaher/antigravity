@@ -9,7 +9,26 @@
   "promise": "Rychlost a nalezitelnost.",
   "loreLine": "Neviditelné jeviště — infra, SEO a consent drží svět Auction24 rychlý, dohledatelný a důvěryhodný.",
   "proofSignal": [
-    { "nazev": "neviditelné jeviště — všechny dílčí sliby live", "zdroj": "web-vitals", "stav": "pending" }
+    {
+      "nazev": "neviditelné jeviště — všechny dílčí sliby live",
+      "zdroj": "web-vitals",
+      "stav": "pending"
+    }
   ],
-  "antiFeature": "Jeviště jako jeden neprůhledný blok — dílčí selhání (inzerát mimo sitemapu) se schová v zeleném celku."
+  "antiFeature": "Jeviště jako jeden neprůhledný blok — dílčí selhání (inzerát mimo sitemapu) se schová v zeleném celku.",
+  "facets": {
+    "ui": [
+      "./ui/HowItWorks.vue",
+      "./ui/Header.vue",
+      "./ui/Footer.vue"
+    ],
+    "logic": [
+      "./logic/useSharedNow.ts",
+      "./logic/useSeo.ts",
+      "./logic/useItemListLd.ts",
+      "./logic/useInit.ts"
+    ]
+  },
+  "id": "core",
+  "story_axis": "spine/platform/core"
 }

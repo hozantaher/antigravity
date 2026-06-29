@@ -9,13 +9,28 @@
   "promise": "Neukradnou ti aukci v poslední vteřině.",
   "loreLine": "Soft-close, který nedovolí ukrást aukci na poslední chvíli — a je to vidět.",
   "proofSignal": [
-    { "nazev": "soft-close extensions surfaced", "zdroj": "track/bidding", "stav": "pending" }
+    {
+      "nazev": "soft-close extensions surfaced",
+      "zdroj": "track/bidding",
+      "stav": "pending"
+    }
   ],
   "antiFeature": "Soft-close skrytý — prodloužení countdownu vypadá jako bug, férovost nikdo nevidí.",
   "hotovo": {
     "kdyzPlati": [
-      { "kriterium": "Prodloužení soft-close je v UI vysvětlené (copy + vizuál)", "check": "test:softCloseSurfaced", "stav": "met" }
+      {
+        "kriterium": "Prodloužení soft-close je v UI vysvětlené (copy + vizuál)",
+        "check": "test:softCloseSurfaced",
+        "stav": "met"
+      }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "soft-close",
+  "story_axis": "spine/supply/bidding/soft-close",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

@@ -9,13 +9,28 @@
   "promise": "Arabsky to drží stejně jako latinkou.",
   "loreLine": "RTL bez trhlin — zrcadlené rozložení drží od Dubaje po Damašek.",
   "proofSignal": [
-    { "nazev": "RTL parity", "zdroj": "test/rtl", "stav": "pending" }
+    {
+      "nazev": "RTL parity",
+      "zdroj": "test/rtl",
+      "stav": "pending"
+    }
   ],
   "antiFeature": "Rozbitý RTL — arabský layout se rozsype a trh odpadne.",
   "hotovo": {
     "kdyzPlati": [
-      { "kriterium": "RTL parita (ar) bez rozbití layoutu", "check": "test:rtl", "stav": "met" }
+      {
+        "kriterium": "RTL parita (ar) bez rozbití layoutu",
+        "check": "test:rtl",
+        "stav": "met"
+      }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "rtl-parity",
+  "story_axis": "spine/platform/i18n/rtl-parity",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

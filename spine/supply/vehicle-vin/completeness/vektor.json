@@ -9,13 +9,28 @@
   "promise": "Vidíš celá vozidlová data, ne torzo.",
   "loreLine": "Plné papíry — kompletní VIN a specs nad cílem, ne pár vyplněných polí.",
   "proofSignal": [
-    { "nazev": "% items s kompletním VIN/specs", "zdroj": "test/vinCompleteness", "stav": "pending" }
+    {
+      "nazev": "% items s kompletním VIN/specs",
+      "zdroj": "test/vinCompleteness",
+      "stav": "pending"
+    }
   ],
   "antiFeature": "Inzeráty s torzem specs — pár polí vyplněno, zbytek prázdný, kupec zase neví.",
   "hotovo": {
     "kdyzPlati": [
-      { "kriterium": "% items s kompletním VIN/specs nad cílem", "check": "test:vinCompleteness", "stav": "pending" }
+      {
+        "kriterium": "% items s kompletním VIN/specs nad cílem",
+        "check": "test:vinCompleteness",
+        "stav": "pending"
+      }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "completeness",
+  "story_axis": "spine/supply/vehicle-vin/completeness",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

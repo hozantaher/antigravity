@@ -15,5 +15,12 @@
       "stav": "pending"
     }
   ],
-  "antiFeature": "Nábor jako jeden neprůhledný import — neověřené adresy a špatné zařazení se schovají v zeleném celku a vyplavou až jako bounce."
+  "antiFeature": "Nábor jako jeden neprůhledný import — neověřené adresy a špatné zařazení se schovají v zeleném celku a vyplavou až jako bounce.",
+  "id": "acquisition",
+  "story_axis": "spine/acquisition",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
+  }
 }

@@ -28,5 +28,15 @@
       }
     ],
     "vektorGate": "all-met"
-  }
+  },
+  "facets": {
+    "logic": [
+      "./logic.ts"
+    ],
+    "ui": [
+      "./dsr.vue"
+    ]
+  },
+  "id": "dsr",
+  "story_axis": "spine/compliance/dsr"
 }

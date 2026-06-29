@@ -9,7 +9,30 @@
   "promise": "Bezpečný účet, žádný anonymní šum.",
   "loreLine": "Vstup do dražby začíná tady — ověřená identita je první krok od diváka k vážnému účastníkovi.",
   "proofSignal": [
-    { "nazev": "brána do dražby — všechny dílčí sliby live", "zdroj": "track/auth", "stav": "pending" }
+    {
+      "nazev": "brána do dražby — všechny dílčí sliby live",
+      "zdroj": "track/auth",
+      "stav": "pending"
+    }
   ],
-  "antiFeature": "Auth jako jeden neprůhledný blok — dílčí selhání (prosáklý guard) se schová v zeleném celku."
+  "antiFeature": "Auth jako jeden neprůhledný blok — dílčí selhání (prosáklý guard) se schová v zeleném celku.",
+  "facets": {
+    "logic": [
+      "./contract.ts",
+      "./logic/useUser.ts",
+      "./logic/state.ts",
+      "./logic/firebaseClient.ts",
+      "./logic/authHeader.ts"
+    ],
+    "ui": [
+      "./ui/UserMenuAvatar.vue",
+      "./ui/ProfileTextValueEdit.vue",
+      "./ui/ProfileLanguageEdit.vue",
+      "./ui/ProfileEmailEdit.vue",
+      "./ui/ProfileAddressEdit.vue",
+      "./ui/LettersAvatar.vue"
+    ]
+  },
+  "id": "auth-account",
+  "story_axis": "spine/platform/auth-account"
 }

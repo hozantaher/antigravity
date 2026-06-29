@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "relevance",
+  "story_axis": "spine/demand/search/relevance",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

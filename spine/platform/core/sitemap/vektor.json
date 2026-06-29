@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "sitemap",
+  "story_axis": "spine/platform/core/sitemap",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

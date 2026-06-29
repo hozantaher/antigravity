@@ -9,13 +9,28 @@
   "promise": "Mail měřitelně vede k návratu a příhozu.",
   "loreLine": "Od mailu k příhozu — celá cesta změřená.",
   "proofSignal": [
-    { "nazev": "newsletter→return→bid", "zdroj": "track/newsletter", "stav": "pending" }
+    {
+      "nazev": "newsletter→return→bid",
+      "zdroj": "track/newsletter",
+      "stav": "pending"
+    }
   ],
   "antiFeature": "Měření, které končí u otevření a netuší, jestli vznikl návrat či příhoz.",
   "hotovo": {
     "kdyzPlati": [
-      { "kriterium": "newsletter→return→bid cesta měřená", "check": "track:newsletterReturn", "stav": "pending" }
+      {
+        "kriterium": "newsletter→return→bid cesta měřená",
+        "check": "track:newsletterReturn",
+        "stav": "pending"
+      }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "return-path",
+  "story_axis": "spine/demand/newsletter-email/return-path",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

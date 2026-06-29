@@ -9,7 +9,32 @@
   "promise": "Kauce je vstupenka a status, ne poplatek.",
   "loreLine": "Pozvánka do dražby — vratná kauce mění diváka ve vážného dražitele; peníze jsou jen mechanika důvěry.",
   "proofSignal": [
-    { "nazev": "kauce — všechny dílčí sliby live", "zdroj": "track/deposit", "stav": "pending" }
+    {
+      "nazev": "kauce — všechny dílčí sliby live",
+      "zdroj": "track/deposit",
+      "stav": "pending"
+    }
   ],
-  "antiFeature": "Kauce jako jeden neprůhledný blok — dílčí selhání (peníze bez protějšku) se schová v zeleném celku."
+  "antiFeature": "Kauce jako jeden neprůhledný blok — dílčí selhání (peníze bez protějšku) se schová v zeleném celku.",
+  "facets": {
+    "ui": [
+      "./deposit-billing.vue",
+      "./ui/deposit/DepositWizard.vue",
+      "./ui/deposit/DepositStepper.vue",
+      "./ui/deposit/DepositStepVerifying.vue",
+      "./ui/deposit/DepositStepSuccess.vue",
+      "./ui/deposit/DepositStepPayment.vue",
+      "./ui/deposit/DepositStepMethod.vue",
+      "./ui/deposit/DepositStepCurrency.vue",
+      "./ui/deposit/DepositStepCard.vue",
+      "./ui/deposit/DepositStepBilling.vue",
+      "./ui/deposit/DepositCard.vue"
+    ],
+    "logic": [
+      "./contract.ts",
+      "./logic/useDeposit.ts"
+    ]
+  },
+  "id": "deposit-billing",
+  "story_axis": "spine/sale/deposit-billing"
 }

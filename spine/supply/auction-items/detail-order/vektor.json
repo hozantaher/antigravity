@@ -9,13 +9,28 @@
   "promise": "Fakta o stroji potkáš dřív než cenu.",
   "loreLine": "Papers-first — VIN a specs stojí nad foldem, cena čeká pod nimi.",
   "proofSignal": [
-    { "nazev": "VIN/specs nad foldem před cenou", "zdroj": "test/detailOrder", "stav": "live" }
+    {
+      "nazev": "VIN/specs nad foldem před cenou",
+      "zdroj": "test/detailOrder",
+      "stav": "live"
+    }
   ],
   "antiFeature": "Detail s cenou nahoře a papíry pod foldem — číslo přebije důvěru.",
   "hotovo": {
     "kdyzPlati": [
-      { "kriterium": "VIN/specs sekce je nad foldem na detailu, před cenou", "check": "test:detailOrder", "stav": "met" }
+      {
+        "kriterium": "VIN/specs sekce je nad foldem na detailu, před cenou",
+        "check": "test:detailOrder",
+        "stav": "met"
+      }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "detail-order",
+  "story_axis": "spine/supply/auction-items/detail-order",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

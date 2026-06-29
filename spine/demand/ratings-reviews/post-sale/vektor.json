@@ -22,9 +22,18 @@
         "kriterium": "Hodnocení lze vložit jen po dokončeném (settled) obchodu",
         "check": "test:rating-post-sale",
         "stav": "met",
-        "proof": { "cmd": "pnpm exec vitest run --project server tests/server/api/rating.post.test.ts 2>&1 | grep -qE \"Test Files +1 passed\"" }
+        "proof": {
+          "cmd": "pnpm exec vitest run --project server tests/server/api/rating.post.test.ts 2>&1 | grep -qE \"Test Files +1 passed\""
+        }
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "post-sale",
+  "story_axis": "spine/demand/ratings-reviews/post-sale",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

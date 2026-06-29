@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "reply-classify",
+  "story_axis": "spine/inbound/reply-classify",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

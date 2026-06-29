@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "country-resolution",
+  "story_axis": "spine/platform/reference-data/country-resolution",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

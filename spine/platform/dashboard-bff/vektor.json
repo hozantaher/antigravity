@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
-  }
+  },
+  "facets": {
+    "ui": [
+      "./dashboard-bff.vue"
+    ]
+  },
+  "id": "dashboard-bff",
+  "story_axis": "spine/platform/dashboard-bff"
 }

@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "token-lifecycle",
+  "story_axis": "spine/platform/api-tokens/token-lifecycle",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

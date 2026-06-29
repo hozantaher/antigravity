@@ -44,5 +44,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "ordering",
+  "story_axis": "spine/demand/search/ordering",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

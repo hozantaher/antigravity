@@ -28,5 +28,42 @@
       }
     ],
     "vektorGate": "all-met"
-  }
+  },
+  "facets": {
+    "logic": [
+      "./vitest.config.ts",
+      "./mcp-server/version.ts",
+      "./mcp-server/tools.ts",
+      "./mcp-server/test-utils.ts",
+      "./mcp-server/sentry.ts",
+      "./mcp-server/index.ts",
+      "./mcp-server/http.ts",
+      "./mcp-server/db.ts",
+      "./mcp-server/auth.ts",
+      "./lib/utils.ts",
+      "./lib/types.ts",
+      "./lib/meilisearch.ts",
+      "./lib/logger.ts",
+      "./lib/fetch.ts",
+      "./lib/db-prefix.ts",
+      "./lib/cache.ts",
+      "./scripts/lib/mcp-client.ts"
+    ],
+    "tests": [
+      "./mcp-server/version.test.ts",
+      "./mcp-server/tools.test.ts",
+      "./mcp-server/http.test.ts",
+      "./mcp-server/e2e.test.ts",
+      "./mcp-server/db.test.ts",
+      "./mcp-server/auth.unit.test.ts",
+      "./mcp-server/auth.test.ts",
+      "./e2e/mcp-tools.test.ts",
+      "./lib/utils.test.ts",
+      "./lib/fetch.test.ts",
+      "./lib/cache.test.ts",
+      "./scripts/lib/mcp-client.test.ts"
+    ]
+  },
+  "id": "mcp",
+  "story_axis": "spine/platform/mcp"
 }

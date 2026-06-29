@@ -15,5 +15,12 @@
       "stav": "pending"
     }
   ],
-  "antiFeature": "Osa, která sdružuje domény bez společného prodejního smyslu."
+  "antiFeature": "Osa, která sdružuje domény bez společného prodejního smyslu.",
+  "facets": {
+    "ui": [
+      "./sale.vue"
+    ]
+  },
+  "id": "sale",
+  "story_axis": "spine/sale"
 }

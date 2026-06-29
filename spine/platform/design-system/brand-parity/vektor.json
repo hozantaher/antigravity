@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "brand-parity",
+  "story_axis": "spine/platform/design-system/brand-parity",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "ingest",
+  "story_axis": "spine/platform/consent-tracking/ingest",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

@@ -15,5 +15,16 @@
       "stav": "live"
     }
   ],
-  "antiFeature": "Platba bez faktury — peníze bez papíru, noční můra účetní."
+  "antiFeature": "Platba bez faktury — peníze bez papíru, noční můra účetní.",
+  "facets": {
+    "ui": [
+      "./invoicing.vue",
+      "./ui/Invoices.vue"
+    ],
+    "logic": [
+      "./logic/useInvoices.ts"
+    ]
+  },
+  "id": "invoicing",
+  "story_axis": "spine/sale/invoicing"
 }

@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "spec-validity",
+  "story_axis": "spine/platform/api-docs/spec-validity",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

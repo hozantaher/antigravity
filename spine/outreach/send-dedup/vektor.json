@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "send-dedup",
+  "story_axis": "spine/outreach/send-dedup",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

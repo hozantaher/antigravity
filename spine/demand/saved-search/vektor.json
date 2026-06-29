@@ -9,7 +9,27 @@
   "promise": "Novou shodu se dozvíš dřív než ostatní.",
   "loreLine": "Uložené hledání s alertem — vážnému kupci přijde nový odpovídající stroj sám do schránky.",
   "proofSignal": [
-    { "nazev": "alert-pipeline — všechny dílčí sliby live", "zdroj": "saved-search-alerts-job", "stav": "pending" }
+    {
+      "nazev": "alert-pipeline — všechny dílčí sliby live",
+      "zdroj": "saved-search-alerts-job",
+      "stav": "pending"
+    }
   ],
-  "antiFeature": "Alert jako jeden neprůhledný blok — dílčí selhání (duplicitní mail) se schová v zeleném celku."
+  "antiFeature": "Alert jako jeden neprůhledný blok — dílčí selhání (duplicitní mail) se schová v zeleném celku.",
+  "facets": {
+    "ui": [
+      "./saved-search.vue",
+      "./ui/SavedSearches.vue",
+      "./ui/SavedSearchCard.vue",
+      "./ui/SaveSearchButton.vue"
+    ],
+    "logic": [
+      "./logic.ts",
+      "./contract.ts",
+      "./logic/useSavedSearches.ts",
+      "./logic/useSaveCurrentSearch.ts"
+    ]
+  },
+  "id": "saved-search",
+  "story_axis": "spine/demand/saved-search"
 }

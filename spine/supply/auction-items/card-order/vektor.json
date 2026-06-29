@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "card-order",
+  "story_axis": "spine/supply/auction-items/card-order",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

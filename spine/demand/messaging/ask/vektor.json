@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "ask",
+  "story_axis": "spine/demand/messaging/ask",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

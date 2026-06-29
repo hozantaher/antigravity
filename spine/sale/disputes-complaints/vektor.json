@@ -15,5 +15,12 @@
       "stav": "pending"
     }
   ],
-  "antiFeature": "Reklamace přes obecný kontakt bez stavu — stížnost, která se ztratí."
+  "antiFeature": "Reklamace přes obecný kontakt bez stavu — stížnost, která se ztratí.",
+  "facets": {
+    "ui": [
+      "./disputes-complaints.vue"
+    ]
+  },
+  "id": "disputes-complaints",
+  "story_axis": "spine/sale/disputes-complaints"
 }

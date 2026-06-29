@@ -15,5 +15,12 @@
       "stav": "pending"
     }
   ],
-  "antiFeature": "Osa, která sdružuje domény bez společného poptávkového smyslu."
+  "antiFeature": "Osa, která sdružuje domény bez společného poptávkového smyslu.",
+  "facets": {
+    "ui": [
+      "./demand.vue"
+    ]
+  },
+  "id": "demand",
+  "story_axis": "spine/demand"
 }

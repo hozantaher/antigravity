@@ -36,5 +36,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "content-render",
+  "story_axis": "spine/outreach/content-render",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

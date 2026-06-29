@@ -8,7 +8,32 @@
   "role": "supporting",
   "promise": "Alert vypneš jedním klikem z mailu.",
   "loreLine": "HMAC odkaz — odhlášení bez loginu, jedním klikem.",
-  "proofSignal": [{ "nazev": "unsubscribe-success", "zdroj": "api-saved-search-unsubscribe", "stav": "pending" }],
+  "proofSignal": [
+    {
+      "nazev": "unsubscribe-success",
+      "zdroj": "api-saved-search-unsubscribe",
+      "stav": "pending"
+    }
+  ],
   "antiFeature": "Odhlášení za loginem — frustrace a spam-stížnost.",
-  "hotovo": { "kdyzPlati": [{ "kriterium": "1-click odhlášení přes HMAC token vypne alert bez přihlášení", "check": "test:saved-search-unsubscribe", "stav": "met", "proof": { "cmd": "pnpm exec vitest run --project server tests/server/api/savedSearchAlerts.cron.test.ts -t \"GET /api/saved-search/unsubscribe\" 2>&1 | grep -qE \"Test Files +1 passed\"" } }], "vektorGate": "all-met" }
+  "hotovo": {
+    "kdyzPlati": [
+      {
+        "kriterium": "1-click odhlášení přes HMAC token vypne alert bez přihlášení",
+        "check": "test:saved-search-unsubscribe",
+        "stav": "met",
+        "proof": {
+          "cmd": "pnpm exec vitest run --project server tests/server/api/savedSearchAlerts.cron.test.ts -t \"GET /api/saved-search/unsubscribe\" 2>&1 | grep -qE \"Test Files +1 passed\""
+        }
+      }
+    ],
+    "vektorGate": "all-met"
+  },
+  "id": "unsubscribe",
+  "story_axis": "spine/demand/saved-search/unsubscribe",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
+  }
 }

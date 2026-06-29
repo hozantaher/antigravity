@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "cadence",
+  "story_axis": "spine/demand/newsletter-email/cadence",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

@@ -15,5 +15,18 @@
       "stav": "pending"
     }
   ],
-  "antiFeature": "Osa, která sdružuje domény bez společného nabídkového smyslu."
+  "antiFeature": "Osa, která sdružuje domény bez společného nabídkového smyslu.",
+  "facets": {
+    "ui": [
+      "./supply.vue"
+    ],
+    "logic": [
+      "./logic.ts"
+    ],
+    "tests": [
+      "./logic.test.ts"
+    ]
+  },
+  "id": "supply",
+  "story_axis": "spine/supply"
 }

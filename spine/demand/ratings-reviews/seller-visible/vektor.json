@@ -22,9 +22,19 @@
         "kriterium": "Agregovaná reputace je vidět u prodejce a jeho vozů",
         "check": "test:rating-visible",
         "stav": "met",
-        "proof": { "cmd": "docker compose -f docker-compose.test.yml up -d --wait >/dev/null 2>&1 && POSTGRES_URL=postgresql://test:test@localhost:5434/test POSTGRES_SSL=disable pnpm exec vitest run --project integration tests/integration/ratingRepo.test.ts -t \"aggregates\" 2>&1 | grep -qE \"Test Files +1 passed\"", "timeout": 180000 }
+        "proof": {
+          "cmd": "docker compose -f docker-compose.test.yml up -d --wait >/dev/null 2>&1 && POSTGRES_URL=postgresql://test:test@localhost:5434/test POSTGRES_SSL=disable pnpm exec vitest run --project integration tests/integration/ratingRepo.test.ts -t \"aggregates\" 2>&1 | grep -qE \"Test Files +1 passed\"",
+          "timeout": 180000
+        }
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "seller-visible",
+  "story_axis": "spine/demand/ratings-reviews/seller-visible",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

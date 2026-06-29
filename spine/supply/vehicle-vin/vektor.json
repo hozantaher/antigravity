@@ -9,7 +9,24 @@
   "promise": "Vidíš všechno co při osobní prohlídce — a víc.",
   "loreLine": "Otevřené papíry — VIN dekód promění inzerát v ověřený technický životopis vozu.",
   "proofSignal": [
-    { "nazev": "technický životopis — všechny dílčí sliby live", "zdroj": "track/vin", "stav": "pending" }
+    {
+      "nazev": "technický životopis — všechny dílčí sliby live",
+      "zdroj": "track/vin",
+      "stav": "pending"
+    }
   ],
-  "antiFeature": "Životopis jako jeden neprůhledný blok — dílčí selhání (torzo specs) se schová v zeleném celku."
+  "antiFeature": "Životopis jako jeden neprůhledný blok — dílčí selhání (torzo specs) se schová v zeleném celku.",
+  "facets": {
+    "ui": [
+      "./vehicle-vin.vue",
+      "./ui/ItemVehicle.vue"
+    ],
+    "logic": [
+      "./contract.ts",
+      "./logic/vin.ts",
+      "./logic/vehicleStructuredData.ts"
+    ]
+  },
+  "id": "vehicle-vin",
+  "story_axis": "spine/supply/vehicle-vin"
 }

@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "thread-match",
+  "story_axis": "spine/inbound/thread-match",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

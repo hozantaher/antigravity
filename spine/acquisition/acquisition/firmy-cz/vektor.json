@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "firmy-cz",
+  "story_axis": "spine/acquisition/acquisition/firmy-cz",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

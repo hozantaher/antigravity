@@ -28,5 +28,15 @@
       }
     ],
     "vektorGate": "all-met"
-  }
+  },
+  "facets": {
+    "ui": [
+      "./suppression.vue"
+    ],
+    "logic": [
+      "./logic.ts"
+    ]
+  },
+  "id": "suppression",
+  "story_axis": "spine/compliance/suppression"
 }

@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "non-empty",
+  "story_axis": "spine/demand/recommendation/non-empty",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

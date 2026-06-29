@@ -15,5 +15,15 @@
       "stav": "live"
     }
   ],
-  "antiFeature": "Porovnání, které tiše vynechá nevýhodný parametr — srovnání, jež klame."
+  "antiFeature": "Porovnání, které tiše vynechá nevýhodný parametr — srovnání, jež klame.",
+  "facets": {
+    "ui": [
+      "./ui/CompareDock.vue"
+    ],
+    "logic": [
+      "./logic/useCompare.ts"
+    ]
+  },
+  "id": "compare",
+  "story_axis": "spine/demand/compare"
 }

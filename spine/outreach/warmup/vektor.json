@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "warmup",
+  "story_axis": "spine/outreach/warmup",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

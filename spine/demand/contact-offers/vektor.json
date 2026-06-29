@@ -15,5 +15,12 @@
       "stav": "live"
     }
   ],
-  "antiFeature": "Formulář, který odešle do prázdna — poptávka bez záznamu a bez upozornění."
+  "antiFeature": "Formulář, který odešle do prázdna — poptávka bez záznamu a bez upozornění.",
+  "facets": {
+    "ui": [
+      "./ui/ContactForm.vue"
+    ]
+  },
+  "id": "contact-offers",
+  "story_axis": "spine/demand/contact-offers"
 }

@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "unsub-token",
+  "story_axis": "spine/compliance/unsub-token",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

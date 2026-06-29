@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "content-enc",
+  "story_axis": "spine/outreach/anti-trace/content-enc",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

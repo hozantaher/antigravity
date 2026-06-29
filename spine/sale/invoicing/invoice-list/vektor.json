@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "invoice-list",
+  "story_axis": "spine/sale/invoicing/invoice-list",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

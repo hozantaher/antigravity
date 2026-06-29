@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "charge-once",
+  "story_axis": "spine/sale/sale-settlement/charge-once",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

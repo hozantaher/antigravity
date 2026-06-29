@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "eligibility",
+  "story_axis": "spine/supply/bidding/eligibility",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

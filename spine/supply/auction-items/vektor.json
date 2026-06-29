@@ -9,7 +9,38 @@
   "promise": "Každý stroj má příběh dřív než cenu.",
   "loreLine": "Výkladní skříň — karta i detail vyprávějí příběh každého stroje od fotky po historii, dřív než ukážou cenu.",
   "proofSignal": [
-    { "nazev": "výkladní skříň — všechny dílčí sliby live", "zdroj": "track/items", "stav": "pending" }
+    {
+      "nazev": "výkladní skříň — všechny dílčí sliby live",
+      "zdroj": "track/items",
+      "stav": "pending"
+    }
   ],
-  "antiFeature": "Výkladní skříň jako jeden neprůhledný blok — dílčí selhání (cena nad fotkou na kartě) se schová v zeleném celku."
+  "antiFeature": "Výkladní skříň jako jeden neprůhledný blok — dílčí selhání (cena nad fotkou na kartě) se schová v zeleném celku.",
+  "facets": {
+    "logic": [
+      "./contract.ts",
+      "./logic/usePagedItems.ts",
+      "./logic/useLiveItemStatus.ts",
+      "./logic/useItemDetail.ts",
+      "./logic/cardView.ts"
+    ],
+    "ui": [
+      "./auction-items.vue",
+      "./ui/StaticMap.vue",
+      "./ui/NoItems.vue",
+      "./ui/ItemsListing.vue",
+      "./ui/ItemsGridSkeletor.vue",
+      "./ui/ItemsGrid.vue",
+      "./ui/ItemStatus.vue",
+      "./ui/ItemSharing.vue",
+      "./ui/ItemLocation.vue",
+      "./ui/ItemInfo.vue",
+      "./ui/ItemDetailSkeletor.vue",
+      "./ui/ItemDescription.vue",
+      "./ui/ItemContact.vue",
+      "./ui/ItemCard.vue"
+    ]
+  },
+  "id": "auction-items",
+  "story_axis": "spine/supply/auction-items"
 }

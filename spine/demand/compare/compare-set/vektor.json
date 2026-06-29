@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "compare-set",
+  "story_axis": "spine/demand/compare/compare-set",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

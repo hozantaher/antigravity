@@ -9,13 +9,31 @@
   "promise": "Uložení projde, nebo to dá jasně vědět.",
   "loreLine": "Spolehlivý save — kurátor plní výlohu bez ztracených zápisů.",
   "proofSignal": [
-    { "nazev": "save success rate", "zdroj": "track/admin", "stav": "live" }
+    {
+      "nazev": "save success rate",
+      "zdroj": "track/admin",
+      "stav": "live"
+    }
   ],
   "antiFeature": "Tiše selhaný save — kurátor myslí, že uložil, katalog drží stará data.",
   "hotovo": {
     "kdyzPlati": [
-      { "kriterium": "Save success-rate u editace položky nad cílem", "check": "test:adminSave", "stav": "met", "proof": { "cmd": "pnpm exec vitest run --project server tests/server/api/adminCrud.test.ts -t \"PUT\" 2>&1 | grep -qE \"Test Files +1 passed\"" } }
+      {
+        "kriterium": "Save success-rate u editace položky nad cílem",
+        "check": "test:adminSave",
+        "stav": "met",
+        "proof": {
+          "cmd": "pnpm exec vitest run --project server tests/server/api/adminCrud.test.ts -t \"PUT\" 2>&1 | grep -qE \"Test Files +1 passed\""
+        }
+      }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "save-success",
+  "story_axis": "spine/platform/admin/save-success",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

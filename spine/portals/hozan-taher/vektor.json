@@ -5,6 +5,40 @@
   "facets": {
     "ui": [
       "./hozan-taher.vue"
+    ],
+    "legacy_unmapped": [
+      "./scripts/verify-launch.mjs",
+      "./scripts/triage-failures.mjs",
+      "./scripts/set-dashboard-password.js",
+      "./scripts/sentry-triage.mjs",
+      "./scripts/reprioritize.mjs",
+      "./scripts/rebuild-claude-knowledge.mjs",
+      "./scripts/daily-digest.mjs",
+      "./scripts/campaign-dry-run.mjs",
+      "./scripts/backfill-subject-decode.mjs",
+      "./scripts/backfill-prospect-scoring.js",
+      "./scripts/backfill-classify-unclassified.mjs",
+      "./scripts/backfill-classify-existing.js",
+      "./scripts/agent-claim.mjs",
+      "./tests/audit/repo_size_audit_test.js",
+      "./tests/audit/as6-as8-docs-valid.test.js",
+      "./scripts/operator-practice/seed-replies.mjs",
+      "./scripts/operator-practice/clear-inbox.mjs",
+      "./scripts/operator-practice/arrival-curve.mjs",
+      "./scripts/operator-practice/anonymize.mjs",
+      "./scripts/setup/backfill-tasks.mjs",
+      "./scripts/ops/metrics.mjs",
+      "./scripts/ops/link-issues.mjs",
+      "./scripts/lib/relay-probe.mjs",
+      "./scripts/funnel/backfill-from-existing.js",
+      "./scripts/codebase-awareness/self-validate.mjs",
+      "./scripts/dns-audit/check-all-domains.js",
+      "./scripts/audits/dedup-replay-validation.mjs",
+      "./scripts/audits/crm-import.mjs",
+      "./scripts/audits/crm-coverage-report.mjs",
+      "./scripts/audits/crm-backfill-contacts.mjs",
+      "./scripts/audits/classifier-score.mjs",
+      "./scripts/audits/classifier-accuracy.mjs"
     ]
   },
   "edges": []

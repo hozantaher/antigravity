@@ -9,7 +9,27 @@
   "promise": "Nic skrytého.",
   "loreLine": "Vůz i stroj ze všech úhlů — galerie a 360° prohlídka dají kupci oči, které by měl při osobní prohlídce.",
   "proofSignal": [
-    { "nazev": "oči kupce — všechny dílčí sliby live", "zdroj": "track/media", "stav": "pending" }
+    {
+      "nazev": "oči kupce — všechny dílčí sliby live",
+      "zdroj": "track/media",
+      "stav": "pending"
+    }
   ],
-  "antiFeature": "Oči kupce jako jeden neprůhledný blok — dílčí selhání (placeholder 360°) se schová v zeleném celku."
+  "antiFeature": "Oči kupce jako jeden neprůhledný blok — dílčí selhání (placeholder 360°) se schová v zeleném celku.",
+  "facets": {
+    "ui": [
+      "./media-upload.vue",
+      "./ui/Pano.vue",
+      "./ui/ItemLightbox.vue",
+      "./ui/ItemGallery.vue"
+    ],
+    "logic": [
+      "./contract.ts",
+      "./logic/useImageUpload.ts",
+      "./logic/useImageProcessing.ts",
+      "./logic/galleryNav.ts"
+    ]
+  },
+  "id": "media-upload",
+  "story_axis": "spine/supply/media-upload"
 }

@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "audit-log",
+  "story_axis": "spine/compliance/audit-log",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

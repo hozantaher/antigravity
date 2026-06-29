@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "metadata-min",
+  "story_axis": "spine/outreach/anti-trace/metadata-min",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

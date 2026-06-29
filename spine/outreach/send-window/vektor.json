@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "send-window",
+  "story_axis": "spine/outreach/send-window",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

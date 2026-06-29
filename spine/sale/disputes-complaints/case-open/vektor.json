@@ -22,9 +22,18 @@
         "kriterium": "Spor lze otevřít k dokončenému obchodu a má stavy",
         "check": "test:dispute-open",
         "stav": "met",
-        "proof": { "cmd": "pnpm exec vitest run --project server tests/server/api/disputes.test.ts -t \"open against a settled sale\" 2>&1 | grep -qE \"Test Files +1 passed\"" }
+        "proof": {
+          "cmd": "pnpm exec vitest run --project server tests/server/api/disputes.test.ts -t \"open against a settled sale\" 2>&1 | grep -qE \"Test Files +1 passed\""
+        }
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "case-open",
+  "story_axis": "spine/sale/disputes-complaints/case-open",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

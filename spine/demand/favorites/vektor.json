@@ -15,5 +15,16 @@
       "stav": "live"
     }
   ],
-  "antiFeature": "Oblíbené, která zmizí po odhlášení nebo se neukážou na kartě — slib, který nedrží."
+  "antiFeature": "Oblíbené, která zmizí po odhlášení nebo se neukážou na kartě — slib, který nedrží.",
+  "facets": {
+    "logic": [
+      "./logic.ts",
+      "./logic/useFavorites.ts"
+    ],
+    "ui": [
+      "./favorites.vue"
+    ]
+  },
+  "id": "favorites",
+  "story_axis": "spine/demand/favorites"
 }

@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "diacritics",
+  "story_axis": "spine/demand/search/diacritics",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

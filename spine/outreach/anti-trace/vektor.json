@@ -15,5 +15,12 @@
       "stav": "pending"
     }
   ],
-  "antiFeature": "Metadata prosáknou nešifrovaná nebo přímý SMTP obejde relay — korelace času/velikosti/hlaviček deanonymizuje odesílatele."
+  "antiFeature": "Metadata prosáknou nešifrovaná nebo přímý SMTP obejde relay — korelace času/velikosti/hlaviček deanonymizuje odesílatele.",
+  "id": "anti-trace",
+  "story_axis": "spine/outreach/anti-trace",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
+  }
 }

@@ -9,7 +9,26 @@
   "promise": "Stroj z jakékoli země je čitelný.",
   "loreLine": "Společný jazyk inventáře — kategorie, země a měny dělají z techniky napříč Evropou jeden čitelný katalog.",
   "proofSignal": [
-    { "nazev": "společný jazyk inventáře — všechny dílčí sliby live", "zdroj": "track/reference", "stav": "pending" }
+    {
+      "nazev": "společný jazyk inventáře — všechny dílčí sliby live",
+      "zdroj": "track/reference",
+      "stav": "pending"
+    }
   ],
-  "antiFeature": "Číselníky jako jeden neprůhledný blok — dílčí selhání (neznámá země) se schová v zeleném celku."
+  "antiFeature": "Číselníky jako jeden neprůhledný blok — dílčí selhání (neznámá země) se schová v zeleném celku.",
+  "facets": {
+    "logic": [
+      "./contract.ts",
+      "./logic/useLanguages.ts",
+      "./logic/useCurrencies.ts",
+      "./logic/useCountries.ts",
+      "./logic/useCategories.ts"
+    ],
+    "ui": [
+      "./ui/FlagBadge.vue",
+      "./ui/CategoriesGrid.vue"
+    ]
+  },
+  "id": "reference-data",
+  "story_axis": "spine/platform/reference-data"
 }

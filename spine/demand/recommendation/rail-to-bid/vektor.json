@@ -9,13 +9,28 @@
   "promise": "Doporučení měřitelně vede k příhozu.",
   "loreLine": "Od railu k příhozu — celá cesta změřená, ne jen první klik.",
   "proofSignal": [
-    { "nazev": "rail→bid path", "zdroj": "track/reco", "stav": "pending" }
+    {
+      "nazev": "rail→bid path",
+      "zdroj": "track/reco",
+      "stav": "pending"
+    }
   ],
   "antiFeature": "Měření, které končí u prokliku a netuší, jestli vznikl příhoz.",
   "hotovo": {
     "kdyzPlati": [
-      { "kriterium": "rail→bid cesta měřená", "check": "track:railToBid", "stav": "pending" }
+      {
+        "kriterium": "rail→bid cesta měřená",
+        "check": "track:railToBid",
+        "stav": "pending"
+      }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "rail-to-bid",
+  "story_axis": "spine/demand/recommendation/rail-to-bid",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

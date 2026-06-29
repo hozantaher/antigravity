@@ -15,5 +15,20 @@
       "stav": "live"
     }
   ],
-  "antiFeature": "Token v plaintextu nebo bez revoke — přístup, který nejde vzít zpět."
+  "antiFeature": "Token v plaintextu nebo bez revoke — přístup, který nejde vzít zpět.",
+  "facets": {
+    "logic": [
+      "./logic.ts",
+      "./logic/useApiTokens.ts"
+    ],
+    "tests": [
+      "./logic.test.ts"
+    ],
+    "ui": [
+      "./api-tokens.vue",
+      "./ui/ApiTokenCreateDialog.vue"
+    ]
+  },
+  "id": "api-tokens",
+  "story_axis": "spine/platform/api-tokens"
 }

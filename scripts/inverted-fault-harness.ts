@@ -29,10 +29,10 @@ async function run() {
   
   const logicCode = `
   // Toto je validní komentář:
-  // @vektor-link: sale
+  
   
   // Toto je také validní, ale velmi zvláštně naformátovaný:
-  //      @vektor-link:     supply   
+     
   
   export const hello = "world";
   `;

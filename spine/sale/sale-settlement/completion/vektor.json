@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "completion",
+  "story_axis": "spine/sale/sale-settlement/completion",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

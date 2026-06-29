@@ -9,7 +9,23 @@
   "promise": "Neutopíš se v inzerátech — z tisíců strojů ti podáme ten tvůj.",
   "loreLine": "Auction24 tě zná — z tisíců strojů podá ten tvůj na detailu, doma i v mailu.",
   "proofSignal": [
-    { "nazev": "kurátorství — všechny dílčí sliby live", "zdroj": "track/reco", "stav": "pending" }
+    {
+      "nazev": "kurátorství — všechny dílčí sliby live",
+      "zdroj": "track/reco",
+      "stav": "pending"
+    }
   ],
-  "antiFeature": "Doporučení jako jeden neprůhledný blok — dílčí selhání (prázdný rail) se schová v zeleném celku."
+  "antiFeature": "Doporučení jako jeden neprůhledný blok — dílčí selhání (prázdný rail) se schová v zeleném celku.",
+  "facets": {
+    "logic": [
+      "./contract.ts"
+    ],
+    "ui": [
+      "./ui/SimilarItems.vue",
+      "./ui/RecommendedItems.vue",
+      "./ui/ItemsRail.vue"
+    ]
+  },
+  "id": "recommendation",
+  "story_axis": "spine/demand/recommendation"
 }

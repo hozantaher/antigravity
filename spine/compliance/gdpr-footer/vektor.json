@@ -28,5 +28,12 @@
       }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "gdpr-footer",
+  "story_axis": "spine/compliance/gdpr-footer",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }

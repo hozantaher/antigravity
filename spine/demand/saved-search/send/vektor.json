@@ -8,7 +8,32 @@
   "role": "supporting",
   "promise": "Nová shoda přijde sama do schránky.",
   "loreLine": "Cron, který hlídá za tebe — nová shoda do schránky.",
-  "proofSignal": [{ "nazev": "alerts-sent", "zdroj": "saved-search-alerts-job", "stav": "pending" }],
+  "proofSignal": [
+    {
+      "nazev": "alerts-sent",
+      "zdroj": "saved-search-alerts-job",
+      "stav": "pending"
+    }
+  ],
   "antiFeature": "Due hledání, které cron neobešle — tichý alert.",
-  "hotovo": { "kdyzPlati": [{ "kriterium": "Cron obešle due uložená hledání e-mailem s novými shodami", "check": "test:saved-search-send", "stav": "met", "proof": { "cmd": "pnpm exec vitest run --project server tests/server/api/savedSearchAlerts.cron.test.ts -t \"sendDueSavedSearchAlerts\" 2>&1 | grep -qE \"Test Files +1 passed\"" } }], "vektorGate": "all-met" }
+  "hotovo": {
+    "kdyzPlati": [
+      {
+        "kriterium": "Cron obešle due uložená hledání e-mailem s novými shodami",
+        "check": "test:saved-search-send",
+        "stav": "met",
+        "proof": {
+          "cmd": "pnpm exec vitest run --project server tests/server/api/savedSearchAlerts.cron.test.ts -t \"sendDueSavedSearchAlerts\" 2>&1 | grep -qE \"Test Files +1 passed\""
+        }
+      }
+    ],
+    "vektorGate": "all-met"
+  },
+  "id": "send",
+  "story_axis": "spine/demand/saved-search/send",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
+  }
 }

@@ -9,13 +9,31 @@
   "promise": "Své hledání si uložíš a vrátíš se k němu.",
   "loreLine": "Pojmenovaný dotaz — záměr kupce uložený k hlídání.",
   "proofSignal": [
-    { "nazev": "saved-searches created", "zdroj": "saved_searches", "stav": "pending" }
+    {
+      "nazev": "saved-searches created",
+      "zdroj": "saved_searches",
+      "stav": "pending"
+    }
   ],
   "antiFeature": "Uložení bez limitu/validace — zaplevelený seznam, který nikdo nehlídá.",
   "hotovo": {
     "kdyzPlati": [
-      { "kriterium": "Uživatel uloží aktuální hledání (validace názvu + per-user limit)", "check": "test:saved-search-create", "stav": "met", "proof": { "cmd": "pnpm exec vitest run --project server tests/server/api/savedSearches.test.ts -t \"POST /api/saved-searches\" 2>&1 | grep -qE \"Test Files +1 passed\"" } }
+      {
+        "kriterium": "Uživatel uloží aktuální hledání (validace názvu + per-user limit)",
+        "check": "test:saved-search-create",
+        "stav": "met",
+        "proof": {
+          "cmd": "pnpm exec vitest run --project server tests/server/api/savedSearches.test.ts -t \"POST /api/saved-searches\" 2>&1 | grep -qE \"Test Files +1 passed\""
+        }
+      }
     ],
     "vektorGate": "all-met"
+  },
+  "id": "create",
+  "story_axis": "spine/demand/saved-search/create",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
   }
 }
