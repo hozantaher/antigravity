@@ -6,6 +6,9 @@ export interface VektorManifest {
   edges?: string[];
   tags?: string[];
   origin?: string;
+  loreLine?: string;
+  promise?: string;
+  antiFeature?: string;
 }
 
 export interface ResolvedNode {

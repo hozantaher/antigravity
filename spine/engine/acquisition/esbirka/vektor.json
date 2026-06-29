@@ -1,0 +1,18 @@
+{
+  "id": "engine-acquisition-esbirka",
+  "story_axis": "spine",
+  "state": "pending",
+  "facets": {
+    "ui": [
+      "./engine-acquisition-esbirka.vue"
+    ],
+    "logic": [
+      "./types.ts",
+      "./scraper.ts",
+      "./discovery.ts",
+      "./db.ts",
+      "./api.ts"
+    ]
+  },
+  "edges": []
+}

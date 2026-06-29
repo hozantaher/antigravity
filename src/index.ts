@@ -11,7 +11,9 @@ import { BatchMigrator } from './migrate';
 import path from 'path';
 import fs from 'fs';
 import { AutoHealer } from './healer';
+import { ContextGenerator } from './context';
 import { Jules } from './jules';
+import { DomainArchitect } from './architect';
 
 const program = new Command();
 
@@ -98,6 +100,20 @@ program
       console.log(report.join('\n'));
     } catch (e: any) {
       console.error(`Chyba při zakládání uzlu: ${e.message}`);
+      process.exit(1);
+    }
+  });
+
+program
+  .command('architect <nodeId>')
+  .description('Autonomně navrhne a vytvoří granulární podsložky (podle The Soul Framework) z plochého uzlu')
+  .action(async (nodeId: string) => {
+    const root = process.cwd();
+    const architect = new DomainArchitect(root);
+    try {
+      await architect.expandNode(nodeId);
+    } catch (e: any) {
+      console.error(`Chyba při expanzi uzlu: ${e.message}`);
       process.exit(1);
     }
   });
@@ -223,13 +239,36 @@ program
   .action(async () => {
     console.log('[Daemon] Startuji Antigravity Engine...');
     
-    // Načteme brokera, který se sám přihlásí k odběru BullMQ fronty
+    // Start Left Hemisphere (Shadow Broker)
     const { ShadowBroker } = require('../spine/engine/drive/shadow-broker/broker');
     const broker = new ShadowBroker();
     console.log('[Daemon] Shadow Broker aktivován. Čekám na příležitosti z levé hemisféry.');
     
+    // Start Right Hemisphere & Input (Crawler Worker & Scheduler)
+    const { startCrawlerWorker } = require('../spine/demand/acquisition/deep-inventory/worker');
+    const { CrawlerScheduler } = require('../spine/demand/acquisition/deep-inventory/scheduler');
+    
+    const crawler = startCrawlerWorker();
+    console.log('[Daemon] Deep Inventory CrawlerWorker aktivován.');
+    
+    await CrawlerScheduler.startDiscovery();
+    
+    // Test: Ručně hodíme jeden seed, ať to něco dělá
+    await CrawlerScheduler.seedManual('https://www.sauto.cz/inzerce/osobni');
+
     // Keep-alive
     process.stdin.resume();
+  });
+
+program
+  .command('context')
+  .description('Vygeneruje Dense Context Bundle pro AI Session')
+  .option('--dense', 'Aplikuje kompresi whitespace znaků')
+  .action((options) => {
+    const root = process.cwd();
+    const generator = new ContextGenerator(root);
+    const content = generator.generateDenseContext(options.dense);
+    console.log(content);
   });
 
 program.parse(process.argv);

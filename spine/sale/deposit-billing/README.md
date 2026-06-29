@@ -1,4 +1,6 @@
 # Deposit & Billing (module)
+![Version](https://img.shields.io/badge/version-v1.3.3-blue)
+
 
 Vertical-axis module — see `plan.md` §2.
 

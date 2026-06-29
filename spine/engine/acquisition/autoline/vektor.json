@@ -1,0 +1,17 @@
+{
+  "id": "engine-acquisition-autoline",
+  "story_axis": "spine",
+  "state": "pending",
+  "facets": {
+    "ui": [
+      "./engine-acquisition-autoline.vue"
+    ],
+    "logic": [
+      "./types.ts",
+      "./sitemap.ts",
+      "./scraper.ts",
+      "./db.ts"
+    ]
+  },
+  "edges": []
+}

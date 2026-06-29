@@ -1,0 +1,13 @@
+{
+  "id": "sitemap-watcher",
+  "story_axis": "demand",
+  "state": "met",
+  "loreLine": "Nespí a čte mapy — najde nové cesty k pokladu rychleji, než kdokoli začne klikat.",
+  "promise": "Zjistíme o novém inzerátu do pár vteřin čistě pomocí ETag a sitemap, bez spálení jediné proxy.",
+  "antiFeature": "Nikdy nestahuje HTML stránku inzerátu, loví pouze surová URL.",
+  "facets": {
+    "logic": [
+      "./sitemap-watcher.ts"
+    ]
+  }
+}

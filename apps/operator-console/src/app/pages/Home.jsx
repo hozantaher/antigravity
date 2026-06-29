@@ -3,6 +3,7 @@ import { Inbox, Truck, Megaphone, ShieldCheck, ArrowRight } from 'lucide-react'
 import { useResource } from '../../hooks/useResource'
 import { STAGES, stageMeta } from '../lib/vehicleMeta'
 import { campaignStatusMeta, bounceRate } from '../lib/campaignMeta'
+import { ScraperControlPanel } from '../../components/ScraperControlPanel'
 import './app-home.css'
 
 // Days since an ISO timestamp (for the aging-backlog urgency note).
@@ -137,6 +138,8 @@ export default function Home() {
           </div>
         </Card>
       </div>
+
+      <ScraperControlPanel />
     </div>
   )
 }

@@ -5,6 +5,15 @@
   "facets": {
     "ui": [
       "./engine.vue"
+    ],
+    "logic": [
+      "./acquisition/shared/utils.ts",
+      "./acquisition/shared/types.ts",
+      "./acquisition/shared/sitemap.ts",
+      "./acquisition/shared/fetch.ts",
+      "./acquisition/shared/daemon.ts",
+      "./acquisition/shared/cache.ts",
+      "./acquisition/shared/block-detector.ts"
     ]
   },
   "edges": []

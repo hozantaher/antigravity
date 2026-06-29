@@ -1,0 +1,13 @@
+{
+  "id": "b2b-miner",
+  "story_axis": "demand",
+  "state": "met",
+  "loreLine": "Nekliká po jednom — saje ceníky a katalogy ze sdílených disků dealerů naráz.",
+  "promise": "Vyčteme data ze surových PDF a Excelů, abychom z jednoho PDF získali 500 vozů pro Shadow Brokera.",
+  "antiFeature": "Neřeší web scraping, loví a čte pouze surové dokumenty.",
+  "facets": {
+    "logic": [
+      "./miner.ts"
+    ]
+  }
+}

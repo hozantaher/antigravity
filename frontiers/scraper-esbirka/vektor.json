@@ -1,0 +1,11 @@
+{
+  "id": "scraper-esbirka",
+  "story_axis": "frontiers",
+  "state": "pending",
+  "facets": {
+    "ui": [
+      "./scraper-esbirka.vue"
+    ]
+  },
+  "edges": []
+}

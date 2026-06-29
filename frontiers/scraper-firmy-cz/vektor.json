@@ -1,0 +1,11 @@
+{
+  "id": "scraper-firmy",
+  "story_axis": "frontiers",
+  "state": "pending",
+  "facets": {
+    "ui": [
+      "./scraper-firmy.vue"
+    ]
+  },
+  "edges": []
+}

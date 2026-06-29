@@ -1,0 +1,19 @@
+{
+  "id": "parser-compiler",
+  "story_axis": "spine/engine/intelligence",
+  "identita": "Kognitivní mozek překládající HTML do deterministického extraktoru.",
+  "smysl": "Analyzovat strukturu cizích webů přes LLM a vygenerovat bezpečný Cheerio skript.",
+  "smer": "Odděluje drahý kognitivní cyklus (LLM) od levného I/O (parsování).",
+  "duvod": "Škálovatelnost. Nechceme pouštět LLM na každý inzerát, ale na každou šablonu portálu.",
+  "myslenka": "LLM není worker, ale kompilátor.",
+  "pillar": "asymmetric-scale",
+  "role": "cognitive",
+  "promise": "Vygenerovat bezpečný AST selektor pro jakoukoliv HTML šablonu inzerce.",
+  "state": "met",
+  "facets": {
+    "logic": [
+      "./index.ts",
+      "./compiler.ts"
+    ]
+  }
+}

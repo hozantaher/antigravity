@@ -1,4 +1,6 @@
 # Saved Search (module)
+![Version](https://img.shields.io/badge/version-v1.3.3-blue)
+
 
 Vertical-axis module — a signed-in user saves a named search (the exact `SearchQuery` they were
 browsing with), manages the list from their profile, and opts into a weekly email alert. A cron

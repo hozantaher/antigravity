@@ -6,6 +6,8 @@ export const RawListingSchema = z.object({
   price: z.number().nonnegative("Cena nesmí být záporná"),
   sourceUrl: z.string().url("Neplatná URL inzerátu"),
   // Volitelná pole pro extrakci z LLM
+  make: z.string().optional(),
+  model: z.string().optional(),
   mileage: z.number().optional(),
   year: z.number().optional(),
 });

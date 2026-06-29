@@ -195,6 +195,7 @@ import { aggregatePlacementStats } from './src/lib/inboxSpamDetector.js'
 import { diffManifests, quickCheck as schemaQuickCheck } from './src/lib/schema-diff.js'
 // FUN-1.4 — funnel summary endpoint.
 import { mountFunnelSummaryRoute } from './src/server-routes/funnelSummary.js'
+import { mountScrapersRoutes } from './src/server-routes/scrapers.js'
 
 const IS_PROD = process.env.NODE_ENV === 'production'
 function safeError(e) {
@@ -3151,6 +3152,7 @@ mountTemplateMetricsRoutes(app, { pool, capture500, safeError })
 
 // FUN-1.4 — GET /api/funnel/summary?days=N&campaign_id=X&template_name=T
 mountFunnelSummaryRoute(app, { pool, capture500, safeError })
+mountScrapersRoutes(app)
 
 // Sprint 2.2 — operator reply with attachments. Multipart parser
 // (busboy) writes manual_reply_outbox + manual_reply_outbox_attachments;

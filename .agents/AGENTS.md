@@ -6,11 +6,12 @@ Tento repozitář nepoužívá standardní adresářovou strukturu (MVC / FSD). 
 
 Při spuštění jakékoliv nové session nebo přijetí nového komplexního úkolu nesmíte spoléhat na zastaralé a obří statické Markdown soubory (jako je `autodocs.md`), které neškálují. Místo toho **vždy a bez výjimky** postupujte podle tohoto třífázového protokolu:
 
-### Fáze 1: Boot (Pre-Flight Check)
-Před napsáním jakéhokoliv řádku kódu musíte validovat zdraví repozitáře a pochopit jeho "gravitaci":
+### Fáze 1: Boot (Pre-Flight Check & Prompt Caching)
+Před napsáním jakéhokoliv řádku kódu musíte validovat zdraví repozitáře a nasát Dense Kontext celé aplikace:
 1. **Zkontrolujte drift:** Spusťte `npx ts-node src/index.ts audit` (případně využijte MCP `antigravity_audit_drift`).
    - Pokud audit selže, **ZASTAVTE PRÁCI NA FEATURE** a nabídněte uživateli spuštění Healeru (`npx ts-node src/index.ts audit --heal`).
-2. **Pochopte Gravitaci:** Spusťte `npm run ag:map --gravity` a podívejte se do `docs/reference/gravity-map.md`. Zjistíte tak, které uzly jsou kritické huby s mnoha reverse linky. V těchto uzlech buďte extrémně opatrní.
+2. **Nasajte Dense Kontext (Super Brain):** Použijte MCP nástroj `antigravity_project_overview`. Tento nástroj Vám nevrátí jen mapu, ale na konec připojí `<dense_context>` blok (všechna rozhraní a Zod schémata). Tento krok je optimalizován pro LLM Prompt Caching, takže se ho nebojte volat. Získáte tak kontext celé aplikace okamžitě.
+3. **Pochopte Gravitaci:** Spusťte `npm run ag:map --gravity` a podívejte se do `docs/reference/gravity-map.md`. Zjistíte tak, které uzly jsou kritické huby s mnoha reverse linky. V těchto uzlech buďte extrémně opatrní.
 
 ### Fáze 2: Targeting (Identifikace cíle)
 Když vás uživatel požádá o úpravu určité domény nebo features:

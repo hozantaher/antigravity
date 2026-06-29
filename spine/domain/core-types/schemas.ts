@@ -9,7 +9,7 @@ export const ArbitrageOpportunitySchema = z.object({
   id: z.string().describe("Interní unikátní ID v systému"),
   assetId: z.string().describe("Původní ID na inzertním portálu"),
   expectedProfit: z.number().positive().describe("Očekávaný hrubý zisk v CZK"),
-  metadata: z.record(z.any()).describe("Doplňující data o inzerátu (url, title, atd.)")
+  metadata: z.record(z.string(), z.any()).describe("Doplňující data o inzerátu (url, title, atd.)")
 });
 
 export type ArbitrageOpportunity = z.infer<typeof ArbitrageOpportunitySchema>;

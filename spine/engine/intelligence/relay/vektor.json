@@ -6,15 +6,11 @@
     "ui": [
       "./relay.vue"
     ],
-    "logic": [
-      "./logic.ts"
-    ],
+    "logic": [],
     "public": [
       "./index.ts"
     ],
-    "tests": [
-      "./logic.test.ts"
-    ]
+    "tests": []
   },
   "edges": []
 }

@@ -3,6 +3,7 @@ import { CyberneticGovernor } from './governor';
 import { TransactionalRefactorEngine } from './refactor';
 import { ContextAwareScaffolder } from './scaffold';
 import { FuzzyVectorRouter } from './router';
+import { ContextGenerator } from './context';
 import { DiaryManager } from './diary';
 
 export class MCPServer {
@@ -218,11 +219,17 @@ export class MCPServer {
           const engine = new UnifiedVectorEngine(this.rootDir);
           await engine.scan();
           const md = engine.generateArchitectureMap();
+          
+          const contextGenerator = new ContextGenerator(this.rootDir);
+          const denseContext = contextGenerator.generateDenseContext(true);
+
+          const finalOutput = `${md}\n\n<dense_context>\n${denseContext}\n</dense_context>`;
+
           return {
             jsonrpc: '2.0',
             id: req.id,
             result: {
-              content: [{ type: 'text', text: md }],
+              content: [{ type: 'text', text: finalOutput }],
             },
           };
         }

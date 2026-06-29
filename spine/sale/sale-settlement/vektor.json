@@ -21,7 +21,6 @@
     "ui": [
       "./sale-settlement.vue",
       "./ui/settlement/SettlementWizard.vue",
-      "./ui/settlement/SettlementStepper.vue",
       "./ui/settlement/SettlementStepVerifying.vue",
       "./ui/settlement/SettlementStepSummary.vue",
       "./ui/settlement/SettlementStepSuccess.vue",

@@ -1,4 +1,6 @@
 # Messaging (module)
+![Version](https://img.shields.io/badge/version-v1.3.3-blue)
+
 
 Vertical-axis module — public Q&A on a listing. A signed-in user asks a question on an item detail
 page; an admin answers it from the item editor; the published thread renders on the listing under

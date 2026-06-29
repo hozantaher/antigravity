@@ -1,0 +1,13 @@
+{
+  "id": "network-interceptor",
+  "story_axis": "demand",
+  "state": "met",
+  "loreLine": "Naslouchá tepu sítě — krade surová data dřív, než se vůbec stihnou vykreslit.",
+  "promise": "Vyhneme se změnám CSS tříd tím, že se chytíme na skrytá JSON/GraphQL API.",
+  "antiFeature": "Neřeší vizuální prvky (DOM), analyzuje pouze datový HTTP provoz.",
+  "facets": {
+    "logic": [
+      "./interceptor.ts"
+    ]
+  }
+}

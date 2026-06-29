@@ -1,4 +1,6 @@
 # i18n (module)
+![Version](https://img.shields.io/badge/version-v1.3.3-blue)
+
 
 Vertical-axis module — see `plan.md` §2. i18n is a **data/asset module** (no UI/logic axis of its own).
 

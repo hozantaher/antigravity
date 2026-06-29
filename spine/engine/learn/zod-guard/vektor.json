@@ -1,0 +1,14 @@
+{
+  "id": "learn-zod-guard",
+  "origin": "Autonomně expandováno přes PoC",
+  "loreLine": "Obrněná stráž před LLM halucinacemi — propustí jen to, co sedí do kontraktu.",
+  "promise": "Nikdy neuložíme strukturovaný nesmysl vytvořený halucinací.",
+  "antiFeature": "Neopravuje data, pouze je nemilosrdně zahodí, pokud nesedí.",
+  "edges": [],
+  "story_axis": "spine/engine/learn/zod-guard",
+  "facets": {
+    "logic": [],
+    "ui": [],
+    "tests": []
+  }
+}

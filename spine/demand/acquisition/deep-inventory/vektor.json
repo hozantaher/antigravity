@@ -1,25 +1,27 @@
 {
   "id": "deep-inventory",
-  "story_axis": "spine",
+  "story_axis": "spine/demand/acquisition",
+  "identita": "Oči platformy, vidící tam, kam my nedosáhneme.",
+  "smysl": "Skrz proxy plošně stahovat inzeráty z autobazarů bez spuštění detekce Cloudflaru.",
+  "smer": "Stahovat asymetricky - 0 % vizuálu, 100 % strojových dat do SymphonyQueue.",
+  "duvod": "Inventář musí být nekonečný, ale akvizice dat nás nesmí limitovat náklady ani blokacemi.",
+  "myslenka": "Datové proudy nepotřebují headless prohlížeč. Tlak na HTTP propustnost.",
+  "pillar": "asymmetric-scale",
+  "role": "primary",
+  "promise": "Vyšle boty nasát HTML a poslat relevantní deltu do fronty k dalším zpracování.",
   "state": "met",
-  "tags": ["crawler", "queue", "delta-engine", "automation"],
   "facets": {
     "ui": [
       "./deep-inventory.vue"
     ],
     "logic": [
-      "./scraper.ts",
+      "./index.ts",
       "./worker.ts",
       "./scheduler.ts",
+      "./crawler.ts",
+      "./fast-extractor.ts",
       "./delta-engine.ts",
       "./queue.ts"
-    ],
-    "public": [
-      "./index.ts"
-    ],
-    "tests": [
-      "./scraper.test.ts"
     ]
-  },
-  "edges": []
+  }
 }

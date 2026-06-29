@@ -393,7 +393,32 @@ export const runDetailPhase = async (
                   listing.category = urlRow.category;
                 }
 
-                db.saveListing(listing);
+                // [ANTIGRAVITY FÁZE 3]: Přepojení DB na Symphony Queue
+                // Namísto synchronního zápisu do SQLite, zkontrolujeme přes DeltaEngine
+                const { DeltaEngine } = await import('../../../../demand/acquisition/deep-inventory/delta-engine.js');
+                const { SymphonyQueue } = await import('../../../../engine/automation/symphony-queue/index.js');
+                
+                const isNewOrDiscounted = await DeltaEngine.evaluateOpportunity(
+                  listing.mobile_id, 
+                  listing.price_czk || listing.price_eur || 0
+                );
+                
+                if (isNewOrDiscounted) {
+                   await SymphonyQueue.enqueue({
+                     id: `arb_${listing.mobile_id}`,
+                     assetId: listing.mobile_id,
+                     expectedProfit: (listing.price_czk || listing.price_eur || 0) * 0.15,
+                     metadata: {
+                       title: listing.title || 'Unknown',
+                       price: listing.price_czk || listing.price_eur || 0,
+                       url: listing.url
+                     }
+                   });
+                }
+                
+                // Keep db.saveListing for legacy fallback if necessary, but we are effectively migrating.
+                try { db.saveListing(listing); } catch(e) {}
+                
                 progress.increment();
                 rateLimiter.onSuccess();
               },

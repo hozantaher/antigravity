@@ -1,0 +1,13 @@
+{
+  "id": "stale-reaper",
+  "story_axis": "demand",
+  "state": "met",
+  "loreLine": "Nenechává nás prodávat duchy — kontroluje tep u rozehraných nabídek.",
+  "promise": "Pokud auto z cizího portálu zmizí, Magic Link v Auction24 u prodejce bude okamžitě zneplatněn.",
+  "antiFeature": "Nevytváří inzeráty, pouze je ničí v zájmu ochrany SLA a značky.",
+  "facets": {
+    "logic": [
+      "./reaper.ts"
+    ]
+  }
+}

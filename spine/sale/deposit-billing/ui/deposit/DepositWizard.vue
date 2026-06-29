@@ -191,7 +191,7 @@ watch(
     <template #heading>
       <div class="wizard-head" :class="{ 'is-bare': !showStepper }">
         <h3 class="wizard-title">{{ t('deposit.title') }}</h3>
-        <DepositStepper v-if="showStepper" :labels="stepperLabels" :step="stepIndex" />
+        <BaseStepper v-if="showStepper" :labels="stepperLabels" :step="stepIndex" />
       </div>
     </template>
 

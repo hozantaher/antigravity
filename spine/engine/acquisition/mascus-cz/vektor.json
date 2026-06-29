@@ -1,0 +1,17 @@
+{
+  "id": "engine-acquisition-mascus",
+  "story_axis": "spine",
+  "state": "pending",
+  "facets": {
+    "ui": [
+      "./engine-acquisition-mascus.vue"
+    ],
+    "logic": [
+      "./types.ts",
+      "./sitemap.ts",
+      "./scraper.ts",
+      "./db.ts"
+    ]
+  },
+  "edges": []
+}

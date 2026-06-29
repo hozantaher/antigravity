@@ -2,16 +2,24 @@
   "id": "shadow-broker",
   "story_axis": "spine",
   "state": "met",
+  "loreLine": "Levá hemisféra: Stínový vyjednavač. Uzavírá dealy asynchronně, dřív než uživatel ví, že chce prodat.",
+  "promise": "Konzumuje ArbitrageOpportunities a generuje bezpečné bezheslové Magic Linky (JWT).",
+  "antiFeature": "Zákaz používání synchronních REST API a vytváření uživatelských registrací. Vše jde stínově přes SymphonyQueue.",
   "facets": {
     "ui": [
       "./shadow-broker.vue"
     ],
     "logic": [
-      "./broker.ts"
+      "./broker.ts",
+      "./garaaage-adapter.ts"
     ],
     "tests": [
       "./broker.test.ts"
     ]
   },
-  "edges": []
+  "edges": [
+    "symphony-queue",
+    "marketplace-web",
+    "core-types"
+  ]
 }

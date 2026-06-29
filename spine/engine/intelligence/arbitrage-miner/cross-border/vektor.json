@@ -1,0 +1,13 @@
+{
+  "id": "cross-border-arbitrage",
+  "story_axis": "engine",
+  "state": "met",
+  "loreLine": "Nezná hranice — čte z cizích trhů, počítá clo a kurz, aby objevil zlatou žílu pro český trh.",
+  "promise": "Vygeneruje stínový draft pouze tehdy, když dovoz a marže dají smysl nad stanovený limit zisku.",
+  "antiFeature": "Nevytváří inzeráty bez zakomponování nákladů na dovoz a měnové konverze.",
+  "facets": {
+    "logic": [
+      "./scanner.ts"
+    ]
+  }
+}

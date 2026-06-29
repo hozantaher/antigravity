@@ -1,0 +1,1 @@
+export { RuleRegistry } from './cache';

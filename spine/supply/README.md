@@ -1,5 +1,5 @@
 # 📦 Uzel: supply
-![Version](https://img.shields.io/badge/version-v1.8.2-blue)
+![Version](https://img.shields.io/badge/version-v1.9.4-blue)
 
 
 > **Osa (Story Axis):** supply

@@ -1,4 +1,6 @@
 # Search (module)
+![Version](https://img.shields.io/badge/version-v1.6.3-blue)
+
 
 Vertical-axis module — see `plan.md` §2. Finds auction items: diacritic-insensitive fulltext (`q`)
 combined with structured facet filters over the existing `items` columns.

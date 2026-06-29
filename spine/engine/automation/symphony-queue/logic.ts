@@ -13,7 +13,7 @@ const QUEUE_NAME = 'SymphonyArbitrageQueue';
 
 // Vytvoření BullMQ fronty
 export const arbitrageQueue = new Queue<ArbitrageOpportunity>(QUEUE_NAME, {
-  connection: redisConnection,
+  connection: redisConnection as any,
   defaultJobOptions: {
     attempts: 3,
     backoff: {
@@ -25,7 +25,7 @@ export const arbitrageQueue = new Queue<ArbitrageOpportunity>(QUEUE_NAME, {
 });
 
 // Události pro logování / sledování (QueueEvents)
-const queueEvents = new QueueEvents(QUEUE_NAME, { connection: redisConnection });
+const queueEvents = new QueueEvents(QUEUE_NAME, { connection: redisConnection as any });
 queueEvents.on('failed', ({ jobId, failedReason }) => {
   console.error(`[SymphonyQueue] Job ${jobId} failed. Reason: ${failedReason}`);
   // DLQ (Dead Letter Queue) logika může reagovat zde, nebo se job automaticky přesouvá do 'failed' stavu v BullMQ
@@ -39,7 +39,7 @@ export class SymphonyQueue {
     console.log(`[SymphonyQueue] Enqueuing opportunity: ${opportunity.id} (Profit: ${opportunity.expectedProfit})`);
     
     // Uložíme do BullMQ
-    await arbitrageQueue.add('arbitrage-deal', opportunity);
+    await arbitrageQueue.add('arbitrage-deal' as any, opportunity);
   }
 
   /**
@@ -56,7 +56,7 @@ export class SymphonyQueue {
         await handler(job.data);
       },
       { 
-        connection: redisConnection,
+        connection: redisConnection as any,
         concurrency: 5 // Řízení zátěže - kolik úloh se zpracovává naráz
       }
     );

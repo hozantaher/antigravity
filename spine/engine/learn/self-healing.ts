@@ -1,6 +1,6 @@
 import * as cheerio from 'cheerio';
 // @vektor-link: core-types
-import { RawListingSchema, RawListing } from '../../../domain/core-types/index';
+import { RawListingSchema, RawListing } from '../../domain/core-types/index';
 
 /**
  * @terminology SelfHealingEngine

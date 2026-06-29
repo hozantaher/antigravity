@@ -181,6 +181,15 @@ export class UnifiedVectorEngine {
       if (node.manifest.origin) {
         md += `- **Původ (Origin):** ${node.manifest.origin}\n`;
       }
+      if (node.manifest.loreLine) {
+        md += `- **Duše (LoreLine):** ${node.manifest.loreLine}\n`;
+      }
+      if (node.manifest.promise) {
+        md += `- **Slib (Promise):** ${node.manifest.promise}\n`;
+      }
+      if (node.manifest.antiFeature) {
+        md += `- **Anti-Pattern (Zakázáno):** ${node.manifest.antiFeature}\n`;
+      }
       if (node.manifest.tags && node.manifest.tags.length > 0) {
         md += `- **Tagy:** ${node.manifest.tags.join(', ')}\n`;
       }

@@ -1,6 +1,6 @@
 # 📦 Uzel: relay
 
-![Version](https://img.shields.io/badge/version-v1.1.0-blue)
+![Version](https://img.shields.io/badge/version-v1.2.1-blue)
 
 > **Osa (Story Axis):** spine
 > **Stav:** met

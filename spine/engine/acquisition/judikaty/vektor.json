@@ -1,0 +1,38 @@
+{
+  "id": "engine-acquisition-judikaty",
+  "story_axis": "spine",
+  "state": "pending",
+  "facets": {
+    "ui": [
+      "./engine-acquisition-judikaty.vue"
+    ],
+    "logic": [
+      "./utils.ts",
+      "./types.ts",
+      "./logger.ts",
+      "./detail-runner.ts",
+      "./db.ts",
+      "./sources/usoud/scraper.ts",
+      "./sources/usoud/discovery.ts",
+      "./sources/nssoud/scraper.ts",
+      "./sources/nssoud/discovery.ts",
+      "./sources/nsoud/scraper.ts",
+      "./sources/nsoud/discovery.ts",
+      "./sources/justice/scraper.ts",
+      "./sources/justice/discovery.ts",
+      "./sources/justice/api.ts"
+    ],
+    "tests": [
+      "./sources/usoud/scraper.test.ts",
+      "./sources/usoud/discovery.test.ts",
+      "./sources/nssoud/scraper.test.ts",
+      "./sources/nssoud/discovery.test.ts",
+      "./sources/nsoud/scraper.test.ts",
+      "./sources/nsoud/discovery.test.ts",
+      "./sources/justice/scraper.test.ts",
+      "./sources/justice/discovery.test.ts",
+      "./sources/justice/api.test.ts"
+    ]
+  },
+  "edges": []
+}

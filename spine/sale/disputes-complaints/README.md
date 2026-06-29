@@ -1,6 +1,6 @@
 # 📦 Uzel: disputes-complaints
 
-![Version](https://img.shields.io/badge/version-v1.1.0-blue)
+![Version](https://img.shields.io/badge/version-v1.3.2-blue)
 
 > **Osa (Story Axis):** spine
 > **Stav:** pending

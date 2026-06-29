@@ -1,0 +1,18 @@
+{
+  "id": "engine-acquisition-firmy",
+  "story_axis": "spine",
+  "state": "pending",
+  "facets": {
+    "ui": [
+      "./engine-acquisition-firmy.vue"
+    ],
+    "logic": [
+      "./types.ts",
+      "./sitemap.ts",
+      "./scraper.ts",
+      "./db.ts",
+      "./cron.ts"
+    ]
+  },
+  "edges": []
+}

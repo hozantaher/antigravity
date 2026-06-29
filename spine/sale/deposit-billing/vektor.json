@@ -20,7 +20,6 @@
     "ui": [
       "./deposit-billing.vue",
       "./ui/deposit/DepositWizard.vue",
-      "./ui/deposit/DepositStepper.vue",
       "./ui/deposit/DepositStepVerifying.vue",
       "./ui/deposit/DepositStepSuccess.vue",
       "./ui/deposit/DepositStepPayment.vue",

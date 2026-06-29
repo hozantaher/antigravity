@@ -2,16 +2,24 @@
   "id": "arbitrage-miner",
   "story_axis": "spine",
   "state": "met",
+  "loreLine": "Pravá hemisféra: Mozek hledající asymetrické příležitosti v datech.",
+  "promise": "Filtruje masivní objemy inzerátů a identifikuje podhodnocená aktiva pro Shadow Brokera.",
+  "antiFeature": "Nesmí kontaktovat uživatele napřímo. Nesmí držet stav (stateless).",
   "facets": {
     "ui": [
       "./arbitrage-miner.vue"
     ],
     "logic": [
+      "./index.ts",
       "./miner.ts"
     ],
     "tests": [
       "./miner.test.ts"
     ]
   },
-  "edges": []
+  "edges": [
+    "symphony-queue",
+    "deep-inventory",
+    "core-types"
+  ]
 }

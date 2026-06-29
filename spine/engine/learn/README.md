@@ -1,5 +1,5 @@
 # 📦 Uzel: engine-learn
-![Version](https://img.shields.io/badge/version-v1.5.1-blue)
+![Version](https://img.shields.io/badge/version-v1.6.2-blue)
 
 
 > **Osa (Story Axis):** engine

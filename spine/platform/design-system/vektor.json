@@ -23,6 +23,7 @@
       "./ui/Loading.vue",
       "./ui/BaseTransition.vue",
       "./ui/BaseTextarea.vue",
+      "./ui/BaseStepper.vue",
       "./ui/BaseSelect.vue",
       "./ui/BaseRadio.vue",
       "./ui/BasePagination.vue",

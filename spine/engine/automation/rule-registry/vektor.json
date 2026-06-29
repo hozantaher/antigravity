@@ -1,0 +1,19 @@
+{
+  "id": "rule-registry",
+  "story_axis": "spine/engine/automation",
+  "identita": "Paměťový subsystém ukládající funkční AST skripty.",
+  "smysl": "Distribuovaná Redis paměť chránící LLM před zbytečným voláním.",
+  "smer": "Vydávat extraktory bleskově.",
+  "duvod": "Lokální parsery přes Cheerio nestojí nic a provedou se za 2 ms.",
+  "myslenka": "Rychlá data žijí blízko exekuce.",
+  "pillar": "asymmetric-scale",
+  "role": "storage",
+  "promise": "Poskytnout uložené pravidlo pro parsování konkrétní domény.",
+  "state": "met",
+  "facets": {
+    "logic": [
+      "./index.ts",
+      "./cache.ts"
+    ]
+  }
+}

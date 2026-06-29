@@ -1,5 +1,5 @@
 # Auth & Account (module)
-![Version](https://img.shields.io/badge/version-v1.5.2-blue)
+![Version](https://img.shields.io/badge/version-v1.5.3-blue)
 
 
 Vertical-axis module — see `plan.md` §2.
