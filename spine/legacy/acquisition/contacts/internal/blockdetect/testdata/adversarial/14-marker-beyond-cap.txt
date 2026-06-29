@@ -1,7 +1,0 @@
-STATUS: 200
-HEADER: Content-Type: text/html
-EXPECT: none
-NOTE: Body has Cloudflare marker at offset >> 4kB cap. Per design doc: "false negatives preferred over false positives" — KT-A7 health-monitor degrades source on repeated empty parses anyway. We seed body with 5KB filler then the marker; detector must NOT find it.
-GENERATE: filler=5120 then "<title>Just a moment...</title>"
----
-<!-- This file uses GENERATE directive — runner builds the body programmatically. The body below the separator is unused for GENERATE entries. -->

@@ -1,5 +1,5 @@
 # 📦 Uzel: sale
-![Version](https://img.shields.io/badge/version-v1.3.0-blue)
+![Version](https://img.shields.io/badge/version-v1.4.1-blue)
 
 
 > **Osa (Story Axis):** sale

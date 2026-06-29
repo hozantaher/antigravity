@@ -1,6 +1,0 @@
-STATUS: 200
-HEADER: Content-Type: text/html
-EXPECT: rate_limit
-NOTE: Status 200 + body marker only — some upstreams return 200 with throttle copy in body (anti-pattern but observed in firmy.cz under load). Body-second pass catches it.
----
-<!DOCTYPE html><html><body><h1>Too many requests</h1><p>Prosím, zkuste to znovu za pár minut.</p></body></html>

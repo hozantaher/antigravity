@@ -1,5 +1,5 @@
 # 📦 Uzel: account
-![Version](https://img.shields.io/badge/version-v1.2.0-blue)
+![Version](https://img.shields.io/badge/version-v1.3.0-blue)
 
 
 > **Osa (Story Axis):** spine

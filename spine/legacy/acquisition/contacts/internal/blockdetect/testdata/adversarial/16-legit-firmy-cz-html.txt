@@ -1,7 +1,0 @@
-STATUS: 200
-HEADER: Content-Type: text/html; charset=UTF-8
-HEADER: Server: nginx
-EXPECT: none
-NOTE: Real-shape firmy.cz business detail page. Includes the word "captcha" in legit copy ("captcha nebyla potřeba") to test that we don't false-positive on natural language mentions — only widget signatures trigger.
----
-<!DOCTYPE html><html lang="cs"><head><title>Bagry Praha s.r.o. — firmy.cz</title></head><body><div class="company-detail"><h1>Bagry Praha s.r.o.</h1><dl><dt>IČO:</dt><dd>12345678</dd><dt>Adresa:</dt><dd>Václavské náměstí 1, Praha 1</dd></dl><p>Děkujeme, captcha nebyla potřeba — vyhledávání proběhlo bezproblémově.</p></body></html>

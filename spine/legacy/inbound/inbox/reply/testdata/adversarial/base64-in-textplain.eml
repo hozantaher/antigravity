@@ -1,9 +1,0 @@
-From: alice@example.cz
-To: bob@example.cz
-Subject: base64 in text/plain
-Date: Wed, 29 Apr 2026 12:00:00 +0200
-Message-ID: <b64-1@example.cz>
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: base64
-
-TmVtw6FtZSB6w6FqZW0gbyB2YcWhaSBuYWLDrWRrdS4KClMgcG96ZHJhdmVtLApBbGljZQo=

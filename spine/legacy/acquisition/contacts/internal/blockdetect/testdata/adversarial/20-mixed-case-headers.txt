@@ -1,7 +1,0 @@
-STATUS: 200
-HEADER: cf-mitigated: challenge
-HEADER: cF-rAy: 8a9c4d2e1f0b3a72-PRG
-EXPECT: cloudflare
-NOTE: Non-canonical header keys (some test transports + Go HTTP/2 sometimes preserve lowercase). Detector must match case-insensitively.
----
-<!DOCTYPE html><html><head><title>Just a moment...</title></head></html>

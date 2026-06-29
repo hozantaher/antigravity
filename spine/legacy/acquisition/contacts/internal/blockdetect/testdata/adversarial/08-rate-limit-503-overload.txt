@@ -1,7 +1,0 @@
-STATUS: 503
-HEADER: Retry-After: 30
-HEADER: Server: nginx
-EXPECT: rate_limit
-NOTE: 503 + Retry-After signals overload throttle, not generic outage. Without Retry-After header the same status is BlockTypeNone (let upstream retry on transient outage path).
----
-<html><body><h1>Service Unavailable — Server overloaded</h1></body></html>

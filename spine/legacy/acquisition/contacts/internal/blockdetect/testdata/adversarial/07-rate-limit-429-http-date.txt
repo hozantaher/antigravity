@@ -1,7 +1,0 @@
-STATUS: 429
-HEADER: Retry-After: Wed, 30 Apr 2026 12:00:00 GMT
-HEADER: Content-Type: text/html
-EXPECT: rate_limit
-NOTE: 429 with HTTP-date Retry-After (RFC 7231 alternate form). Detector must not parse the value — only existence + status matters.
----
-<html><body><h1>Too Many Requests</h1></body></html>

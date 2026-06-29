@@ -1,7 +1,0 @@
-# Sandboxed Claude data (contains auth tokens, chat history)
-sandboxed-home/
-
-# VM disk images and ISOs (large binary files)
-vm/*.img
-vm/*.qcow2
-vm/*.iso

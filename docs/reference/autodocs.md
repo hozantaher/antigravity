@@ -9,6 +9,59 @@ Tento dokument je plně generován automaticky na základě fyzických uzlů a j
 - **Fyzické soubory:**
   - *ui*: ./supply.vue
 
+### Uzel: `vehicle-vin`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *legacy_unmapped*: ./contract.ts, ./ui/ItemVehicle.vue, ./logic/vin.ts, ./logic/vehicleStructuredData.ts
+
+### Uzel: `bidding`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *legacy_unmapped*: ./contract.ts, ./logic/useLiveItems.ts, ./logic/useItemBids.ts, ./ui/PriceStatus.vue, ./ui/ItemBids.vue, ./ui/ItemBid.vue, ./ui/BidRow.vue
+
+### Uzel: `media-upload`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *legacy_unmapped*: ./contract.ts, ./ui/Pano.vue, ./ui/ItemLightbox.vue, ./ui/ItemGallery.vue, ./logic/useImageUpload.ts, ./logic/useImageProcessing.ts, ./logic/galleryNav.ts
+
+### Uzel: `auction-items`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *legacy_unmapped*: ./contract.ts, ./logic/usePagedItems.ts, ./logic/useLiveItemStatus.ts, ./logic/useItemDetail.ts, ./logic/cardView.ts, ./ui/StaticMap.vue, ./ui/NoItems.vue, ./ui/ItemsListing.vue, ./ui/ItemsGridSkeletor.vue, ./ui/ItemsGrid.vue, ./ui/ItemStatus.vue, ./ui/ItemSharing.vue, ./ui/ItemLocation.vue, ./ui/ItemInfo.vue, ./ui/ItemDetailSkeletor.vue, ./ui/ItemDescription.vue, ./ui/ItemContact.vue, ./ui/ItemCard.vue
+
+### Uzel: `specs-before-bid`
+- **Stav:** undefined
+
+### Uzel: `decode-cache`
+- **Stav:** undefined
+
+### Uzel: `completeness`
+- **Stav:** undefined
+
+### Uzel: `soft-close`
+- **Stav:** undefined
+
+### Uzel: `eligibility`
+- **Stav:** undefined
+
+### Uzel: `concurrency`
+- **Stav:** undefined
+
+### Uzel: `pano-360`
+- **Stav:** undefined
+
+### Uzel: `completeness`
+- **Stav:** undefined
+
+### Uzel: `empty-state`
+- **Stav:** undefined
+
+### Uzel: `detail-order`
+- **Stav:** undefined
+
+### Uzel: `card-order`
+- **Stav:** undefined
+
 ## 🪐 Osa: SALE
 
 ### Uzel: `sale`
@@ -16,11 +69,62 @@ Tento dokument je plně generován automaticky na základě fyzických uzlů a j
 - **Fyzické soubory:**
   - *ui*: ./sale.vue
 
+### Uzel: `sale-settlement`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *legacy_unmapped*: ./contract.ts, ./logic/useSettlement.ts, ./ui/settlement/SettlementWizard.vue, ./ui/settlement/SettlementStepper.vue, ./ui/settlement/SettlementStepVerifying.vue, ./ui/settlement/SettlementStepSummary.vue, ./ui/settlement/SettlementStepSuccess.vue, ./ui/settlement/SettlementStepPayment.vue, ./ui/settlement/SettlementStepMethod.vue, ./ui/settlement/SettlementStepCard.vue, ./ui/settlement/SettlementStepBilling.vue, ./ui/settlement/SettlementCard.vue
+
+### Uzel: `invoicing`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *legacy_unmapped*: ./logic/useInvoices.ts, ./ui/Invoices.vue
+
 ### Uzel: `demo-invoicing`
 - **Stav:** pending
 - **Fyzické soubory:**
   - *ui*: ./demo-invoicing.vue
   - *fake*: 
+
+### Uzel: `disputes-complaints`
+- **Stav:** undefined
+
+### Uzel: `deposit-billing`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *legacy_unmapped*: ./contract.ts, ./logic/useDeposit.ts, ./ui/deposit/DepositWizard.vue, ./ui/deposit/DepositStepper.vue, ./ui/deposit/DepositStepVerifying.vue, ./ui/deposit/DepositStepSuccess.vue, ./ui/deposit/DepositStepPayment.vue, ./ui/deposit/DepositStepMethod.vue, ./ui/deposit/DepositStepCurrency.vue, ./ui/deposit/DepositStepCard.vue, ./ui/deposit/DepositStepBilling.vue, ./ui/deposit/DepositCard.vue
+
+### Uzel: `completion`
+- **Stav:** undefined
+
+### Uzel: `charge-once`
+- **Stav:** undefined
+
+### Uzel: `billing-capture`
+- **Stav:** undefined
+
+### Uzel: `amount-due`
+- **Stav:** undefined
+
+### Uzel: `invoice-list`
+- **Stav:** undefined
+
+### Uzel: `resolution`
+- **Stav:** undefined
+
+### Uzel: `fakturoid-sync`
+- **Stav:** undefined
+
+### Uzel: `case-open`
+- **Stav:** undefined
+
+### Uzel: `reconcile`
+- **Stav:** undefined
+
+### Uzel: `framing`
+- **Stav:** undefined
+
+### Uzel: `fio-match`
+- **Stav:** undefined
 
 ## 🪐 Osa: ENGINE
 
@@ -36,7 +140,7 @@ Tento dokument je plně generován automaticky na základě fyzických uzlů a j
   - *ui*: ./engine-learn.vue
 
 ### Uzel: `engine-drive`
-- **Stav:** pending
+- **Stav:** met
 - **Identita:** Drive — proveď akce proti portálu: read (čti inzeráty) i write (řiď NAŠE účty).
 - **Fyzické soubory:**
   - *ui*: ./engine-drive.vue
@@ -75,12 +179,117 @@ Tento dokument je plně generován automaticky na základě fyzických uzlů a j
 - **Fyzické soubory:**
   - *ui*: ./demand.vue
 
+### Uzel: `url-state`
+- **Stav:** undefined
+
+### Uzel: `relevance`
+- **Stav:** undefined
+
+### Uzel: `ratings-reviews`
+- **Stav:** undefined
+
+### Uzel: `recommendation`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *legacy_unmapped*: ./contract.ts, ./ui/SimilarItems.vue, ./ui/RecommendedItems.vue, ./ui/ItemsRail.vue
+
+### Uzel: `saved-search`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *legacy_unmapped*: ./contract.ts, ./logic/useSavedSearches.ts, ./logic/useSaveCurrentSearch.ts, ./ui/SavedSearches.vue, ./ui/SavedSearchCard.vue, ./ui/SaveSearchButton.vue
+
+### Uzel: `query-roundtrip`
+- **Stav:** undefined
+
+### Uzel: `pagination`
+- **Stav:** undefined
+
+### Uzel: `ordering`
+- **Stav:** undefined
+
+### Uzel: `messaging`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *legacy_unmapped*: ./contract.ts, ./ui/QuestionThread.vue, ./ui/QuestionRow.vue, ./ui/QuestionForm.vue, ./logic/useItemQuestions.ts, ./logic/useAdminQuestions.ts
+
+### Uzel: `favorites`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *legacy_unmapped*: ./logic/useFavorites.ts
+
+### Uzel: `facet-filter`
+- **Stav:** undefined
+
 ### Uzel: `demand-discover`
 - **Stav:** pending
 - **Identita:** Discover — zmapuj povrch cizí aplikace: stránky, formuláře, toky, autentizaci.
 - **Fyzické soubory:**
   - *ui*: ./demand-discover.vue
   - *logic*: ./crawl
+
+### Uzel: `diacritics`
+- **Stav:** undefined
+
+### Uzel: `contact-offers`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *legacy_unmapped*: ./ui/ContactForm.vue
+
+### Uzel: `newsletter-email`
+- **Stav:** undefined
+
+### Uzel: `compare`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *legacy_unmapped*: ./logic/useCompare.ts, ./ui/CompareDock.vue
+
+### Uzel: `seller-visible`
+- **Stav:** undefined
+
+### Uzel: `post-sale`
+- **Stav:** undefined
+
+### Uzel: `rail-to-bid`
+- **Stav:** undefined
+
+### Uzel: `non-empty`
+- **Stav:** undefined
+
+### Uzel: `ctr`
+- **Stav:** undefined
+
+### Uzel: `unsubscribe`
+- **Stav:** undefined
+
+### Uzel: `owner-scoped`
+- **Stav:** undefined
+
+### Uzel: `no-duplicate`
+- **Stav:** undefined
+
+### Uzel: `send`
+- **Stav:** undefined
+
+### Uzel: `create`
+- **Stav:** undefined
+
+### Uzel: `spam-hidden`
+- **Stav:** undefined
+
+### Uzel: `ask`
+- **Stav:** undefined
+
+### Uzel: `auto-publish`
+- **Stav:** undefined
+
+### Uzel: `published-only`
+- **Stav:** undefined
+
+### Uzel: `answer`
+- **Stav:** undefined
+
+### Uzel: `toggle-roundtrip`
+- **Stav:** undefined
 
 ### Uzel: `demand-discover-crawl`
 - **Stav:** pending
@@ -91,7 +300,57 @@ Tento dokument je plně generován automaticky na základě fyzických uzlů a j
   - *logic*: ./crawl.mjs
   - *test*: ./crawl.test.mjs
 
+### Uzel: `inquiry-roundtrip`
+- **Stav:** undefined
+
+### Uzel: `cadence`
+- **Stav:** undefined
+
+### Uzel: `return-path`
+- **Stav:** undefined
+
+### Uzel: `demand-discover-scrapers`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *legacy_unmapped*: ./vitest.config.ts, ./eslint.config.js, ./src/index.ts, ./scripts/sqlite-to-postgres.ts, ./scripts/optimize-db.ts, ./scripts/migrate.ts, ./scripts/mcp-benchmark.ts, ./scripts/index-meilisearch.ts, ./scripts/generate-terms.ts, ./scripts/extract-makes-models.ts, ./scripts/extract-categories.ts, ./scripts/e2e-worker-run.ts, ./scripts/e2e-worker-prompt.ts, ./scripts/compress-raw.ts, ./lib/utils.ts, ./lib/utils.test.ts, ./lib/types.ts, ./lib/sitemap.ts, ./lib/meilisearch.ts, ./lib/meilisearch.test.ts, ./lib/logger.ts, ./lib/logger.test.ts, ./lib/health.ts, ./lib/health.test.ts, ./lib/fetch.ts, ./lib/fetch.test.ts, ./lib/db-prefix.ts, ./lib/db-prefix.test.ts, ./lib/cache.ts, ./lib/block-detector.ts, ./lib/block-detector.test.ts, ./src/util/rate-limiter.ts, ./src/util/rate-limiter.test.ts, ./src/queue/scrape-worker.ts, ./src/queue/scrape-queue.ts, ./scrapers/mascus-cz/types.ts, ./scrapers/mascus-cz/sitemap.ts, ./scrapers/mascus-cz/sitemap.test.ts, ./scrapers/mascus-cz/scraper.ts, ./scrapers/mascus-cz/scraper.test.ts, ./scrapers/mascus-cz/index.ts, ./scrapers/mascus-cz/db.ts, ./scrapers/mascus-cz/db.test.ts, ./scrapers/mobile-de/types.ts, ./scrapers/mobile-de/search.ts, ./scrapers/mobile-de/search.test.ts, ./scrapers/mobile-de/scraper.ts, ./scrapers/mobile-de/scraper.test.ts, ./scrapers/mobile-de/index.ts, ./scrapers/mobile-de/db.ts, ./scrapers/mobile-de/db.test.ts, ./scrapers/mobile-de/browser.ts, ./scrapers/mobile-de/browser.test.ts, ./scrapers/judikaty/utils.ts, ./scrapers/judikaty/utils.test.ts, ./scrapers/judikaty/types.ts, ./scrapers/judikaty/logger.ts, ./scrapers/judikaty/logger.test.ts, ./scrapers/judikaty/index.ts, ./scrapers/judikaty/detail-runner.ts, ./scrapers/judikaty/detail-runner.test.ts, ./scrapers/judikaty/db.ts, ./scrapers/judikaty/db.test.ts, ./scrapers/esbirka/types.ts, ./scrapers/esbirka/scraper.ts, ./scrapers/esbirka/scraper.test.ts, ./scrapers/esbirka/index.ts, ./scrapers/esbirka/discovery.ts, ./scrapers/esbirka/discovery.test.ts, ./scrapers/esbirka/db.ts, ./scrapers/esbirka/db.test.ts, ./scrapers/esbirka/api.ts, ./scrapers/esbirka/api.test.ts, ./scrapers/autoline/types.ts, ./scrapers/autoline/sitemap.ts, ./scrapers/autoline/sitemap.test.ts, ./scrapers/autoline/scraper.ts, ./scrapers/autoline/scraper.test.ts, ./scrapers/autoline/index.ts, ./scrapers/autoline/db.ts, ./scrapers/autoline/db.test.ts, ./scrapers/firmy-cz/types.ts, ./scrapers/firmy-cz/sitemap.ts, ./scrapers/firmy-cz/sitemap.test.ts, ./scrapers/firmy-cz/scraper.ts, ./scrapers/firmy-cz/scraper.test.ts, ./scrapers/firmy-cz/index.ts, ./scrapers/firmy-cz/db.ts, ./scrapers/firmy-cz/db.test.ts, ./scrapers/firmy-cz/cron.ts, ./scrapers/firmy-cz/cron.test.ts, ./scripts/lib/mcp-client.ts, ./scripts/lib/mcp-client.timeout.test.ts, ./scripts/lib/docx-writer.ts, ./scripts/lib/docx-writer.test.ts, ./scrapers/judikaty/sources/usoud/scraper.ts, ./scrapers/judikaty/sources/usoud/scraper.test.ts, ./scrapers/judikaty/sources/usoud/discovery.ts, ./scrapers/judikaty/sources/usoud/discovery.test.ts, ./scrapers/judikaty/sources/nssoud/scraper.ts, ./scrapers/judikaty/sources/nssoud/scraper.test.ts, ./scrapers/judikaty/sources/nssoud/discovery.ts, ./scrapers/judikaty/sources/nssoud/discovery.test.ts, ./scrapers/judikaty/sources/nsoud/scraper.ts, ./scrapers/judikaty/sources/nsoud/scraper.test.ts, ./scrapers/judikaty/sources/nsoud/discovery.ts, ./scrapers/judikaty/sources/nsoud/discovery.test.ts, ./scrapers/judikaty/sources/justice/scraper.ts, ./scrapers/judikaty/sources/justice/scraper.test.ts, ./scrapers/judikaty/sources/justice/discovery.ts, ./scrapers/judikaty/sources/justice/discovery.test.ts, ./scrapers/judikaty/sources/justice/api.ts, ./scrapers/judikaty/sources/justice/api.test.ts
+
+### Uzel: `compare-set`
+- **Stav:** undefined
+
 ## 🪐 Osa: PLATFORM
+
+### Uzel: `reference-data`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *legacy_unmapped*: ./contract.ts, ./ui/FlagBadge.vue, ./ui/CategoriesGrid.vue, ./logic/useLanguages.ts, ./logic/useCurrencies.ts, ./logic/useCountries.ts, ./logic/useCategories.ts
+
+### Uzel: `notifications`
+- **Stav:** undefined
+
+### Uzel: `platform`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *legacy_unmapped*: ./worker/vitest.config.ts, ./worker/worker/web-search.ts, ./worker/worker/web-search.test.ts, ./worker/worker/shutdown.unit.test.ts, ./worker/worker/sentry.ts, ./worker/worker/queue.ts, ./worker/worker/queue.test.ts, ./worker/worker/prompts.ts, ./worker/worker/pdf.ts, ./worker/worker/pdf.test.ts, ./worker/worker/index.ts, ./worker/worker/index.test.ts, ./worker/worker/generate-odpor.ts, ./worker/worker/generate-odpor.timeout.test.ts, ./worker/worker/generate-odpor.test.ts, ./worker/worker/firebase.ts, ./worker/worker/firebase.test.ts, ./worker/worker/firebase.collision.test.ts, ./worker/worker/email.ts, ./worker/worker/email.test.ts, ./worker/lib/logger.ts, ./worker/lib/health.ts, ./worker/lib/health.test.ts, ./dashboard-core/src/sentryInit.js, ./dashboard-core/src/index.js, ./worker/scripts/lib/mcp-client.ts, ./worker/scripts/lib/docx-writer.ts, ./worker/scripts/lib/docx-writer.test.ts, ./dashboard-core/src/lib/tokens.js, ./dashboard-core/src/lib/sentryCapture.js, ./dashboard-core/src/lib/scoring.js, ./dashboard-core/src/lib/fetchWithSentry.js, ./dashboard-core/src/lib/emailVerify.js
+
+### Uzel: `design-system`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *legacy_unmapped*: ./contract.ts, ./ui/TableBodySkeletor.vue, ./ui/Loading.vue, ./ui/BaseTransition.vue, ./ui/BaseTextarea.vue, ./ui/BaseSelect.vue, ./ui/BaseRadio.vue, ./ui/BasePagination.vue, ./ui/BaseModal.vue, ./ui/BaseInput.vue, ./ui/BaseImage.vue, ./ui/BaseGeoInput.vue, ./ui/BaseForm.vue, ./ui/BaseEditingArea.vue, ./ui/BaseConfirmation.vue, ./ui/BaseCheckbox.vue, ./logic/useValidators.ts, ./logic/useScrollArrows.ts, ./logic/usePointerKind.ts, ./logic/usePlayground.ts, ./ui/playground/fixtures.ts, ./ui/playground/Swatch.vue, ./ui/playground/Specimen.vue, ./ui/playground/Section.vue, ./ui/playground/Overlays.vue, ./ui/playground/HeadlessUi.vue, ./ui/playground/Foundations.vue, ./ui/playground/Forms.vue, ./ui/playground/Domain.vue, ./ui/playground/Deposit.vue, ./ui/playground/DataDisplay.vue, ./ui/playground/Controls.vue, ./ui/playground/Chrome.vue
+
+### Uzel: `i18n`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *legacy_unmapped*: ./ui/Language.vue
+
+### Uzel: `consent-tracking`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *legacy_unmapped*: ./ui/CookiesBar.vue, ./logic/useTracking.ts, ./logic/useDetailTracking.ts, ./logic/useCookieConsent.ts
+
+### Uzel: `core`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *legacy_unmapped*: ./logic/useSharedNow.ts, ./logic/useSeo.ts, ./logic/useInit.ts, ./ui/HowItWorks.vue, ./ui/Header.vue, ./ui/Footer.vue
 
 ### Uzel: `outreach-dashboard`
 - **Stav:** pending
@@ -99,11 +358,201 @@ Tento dokument je plně generován automaticky na základě fyzických uzlů a j
   - *ui*: ./outreach-dashboard.vue
   - *logic*: ./vitest.config.ts, ./vite.config.js, ./stryker.conf.mjs, ./staleGuard.js, ./server.js, ./sentry.server.js, ./proxyWatchdog.js, ./proxyExhaustAlert.js, ./proxyDiagnostics.js, ./proxyCacheLogic.js, ./probe-campaign-cards.mjs, ./preflight-check-cli.mjs, ./poolTrend.js, ./playwright.prod.config.js, ./playwright.config.js, ./outreach-dashboard.vue, ./mailboxBounceThrottle.js, ./eslint.config.js, ./dry-run.mjs, ./configDrift.js, ./campaignPreflight.js, ./campaign-send-batch.mjs, ./authCache.js, ./tests/unit/sendClaim.test.js, ./tests/unit/replies-repository.test.js, ./tests/unit/fun-1-funnel-summary.test.js, ./tests/unit/d1-m6-reputation-sparkline.test.ts, ./tests/unit/d1-k3-domain-concentration.test.ts, ./tests/unit/d1-k2-dry-run-enrollment.test.ts, ./tests/unit/d1-j3-email-status-filters.test.ts, ./tests/unit/d1-j2-per-mx-rate-limit.test.ts, ./tests/unit/ar10-ar14-human-behavior.test.js, ./tests/unit/styles/tokens-claude.test.js, ./tests/unit/server-routes/warmup-cap.test.js, ./tests/unit/server-routes/verifyHealth.test.js, ./tests/unit/server-routes/todayUsage.test.js, ./tests/unit/server-routes/sprintJ-verify-tier-priority.test.js, ./tests/unit/server-routes/poolCapacityMonitor.test.js, ./tests/unit/server-routes/p0-review-bundle.test.js, ./tests/unit/server-routes/operatorRotateApiKey.test.js, ./tests/unit/server-routes/mailboxesRepin.test.js, ./tests/unit/server-routes/mailboxStatus.test.js, ./tests/unit/server-routes/mailboxLifecyclePhase.test.js, ./tests/unit/server-routes/mailboxHealthHistory.test.js, ./tests/unit/server-routes/icp_sectors.test.js, ./tests/unit/server-routes/highRiskDomains.test.js, ./tests/unit/server-routes/failedSends.test.js, ./tests/unit/server-routes/egressChaosDetectionPeekAck.test.js, ./tests/unit/server-routes/egressChaosDetection.test.js, ./tests/unit/server-routes/dashboardSummary.test.js, ./tests/unit/server-routes/dailySummary.test.js, ./tests/unit/server-routes/contactVerifyCron.test.js, ./tests/unit/server-routes/clusterRateLive.test.js, ./tests/unit/server-routes/aw8-2-bff-endpoints.test.js, ./tests/unit/server-routes/aw6-3-cycle3-endpoints.test.js, ./tests/unit/server-routes/auditRecent.test.js, ./tests/unit/server-routes/as7-label-validation.test.js, ./tests/unit/server-routes/as3-mailbox-creation-race.test.js, ./tests/unit/server-routes/ar8-aggregate-volume-cap.test.js, ./tests/unit/server-routes/ar15-endpoint-reputation.test.js, ./tests/unit/server-routes/ar13-engagement-cap.test.js, ./tests/unit/server-routes/ar11-bounce-rate-monitor.test.js, ./tests/unit/server-routes/ap5_boot_env_boundary.test.js, ./tests/unit/server-routes/ao6-egress-chaos-sentry-fingerprint.test.js, ./tests/unit/server-routes/ad4_bulk_password_rate_limit.test.js, ./tests/unit/scripts/verify-launch.test.mjs, ./tests/unit/scripts/system-report-window.test.mjs, ./tests/unit/scripts/system-report-bottlenecks.test.mjs, ./tests/unit/scripts/sentinel-monitor.test.mjs, ./tests/unit/scripts/relay-probe.test.mjs, ./tests/unit/scripts/prod-snapshot-size-cap.test.mjs, ./tests/unit/scripts/prod-snapshot-capture.test.mjs, ./tests/unit/scripts/pre-launch-check.test.mjs, ./tests/unit/scripts/personalization.test.mjs, ./tests/unit/scripts/per-mailbox-password.test.mjs, ./tests/unit/scripts/mailbox-warmup-ramp.test.mjs, ./tests/unit/scripts/launch-monitor.test.mjs, ./tests/unit/scripts/inverted-fault-harness.test.mjs, ./tests/unit/scripts/hallucination-score.test.mjs, ./tests/unit/scripts/halluc-precommit.test.mjs, ./tests/unit/scripts/fixture-prod-diff.test.mjs, ./tests/unit/scripts/campaign-send-batch.h2.test.mjs, ./tests/unit/scripts/assertion-density.test.mjs, ./tests/unit/lib/widgetFormatters.test.js, ./tests/unit/lib/webScrape.test.js, ./tests/unit/lib/vvz.test.js, ./tests/unit/lib/vehicleExtractor.test.js, ./tests/unit/lib/vehicleCapture.test.js, ./tests/unit/lib/validators.test.js, ./tests/unit/lib/unsubToken.test.ts, ./tests/unit/lib/unsubToken.test.js, ./tests/unit/lib/undeliverableFilter.test.js, ./tests/unit/lib/tokens.test.js, ./tests/unit/lib/time-chaos.test.js, ./tests/unit/lib/template-preview.test.js, ./tests/unit/lib/suppressionUnionSql.test.js, ./tests/unit/lib/suppressionFilter.test.js, ./tests/unit/lib/suppression-union.test.js, ./tests/unit/lib/state-machine.test.js, ./tests/unit/lib/stale.test.js, ./tests/unit/lib/spintax.test.js, ./tests/unit/lib/spintax.props.test.js, ./tests/unit/lib/spintax.monkey.test.js, ./tests/unit/lib/spintax.extreme.test.js, ./tests/unit/lib/smtp-send-ao6.test.mjs, ./tests/unit/lib/sentryCapture.test.js, ./tests/unit/lib/selector-resilience.test.js, ./tests/unit/lib/scoringBreakdown.test.js, ./tests/unit/lib/scoring.test.js, ./tests/unit/lib/scoring.property.test.js, ./tests/unit/lib/scoring.hardening.test.js, ./tests/unit/lib/scoreLearner.test.js, ./tests/unit/lib/schema-diff.test.js, ./tests/unit/lib/reverify-budget.test.js, ./tests/unit/lib/replyTime.test.js, ./tests/unit/lib/replyClassifierLlmIntegration.test.js, ./tests/unit/lib/replyClassifier.test.js, ./tests/unit/lib/repliesRepository.test.js, ./tests/unit/lib/relayClient.test.js, ./tests/unit/lib/relay-probe-mailbox-id.test.js, ./tests/unit/lib/refreshPolicy.test.js, ./tests/unit/lib/readiness.test.js, ./tests/unit/lib/rateLimitMiddleware.test.js, ./tests/unit/lib/prospectScorer.test.js, ./tests/unit/lib/preflightChecks.truthtable.test.js, ./tests/unit/lib/preflightChecks.test.js, ./tests/unit/lib/passwordValidator.test.js, ./tests/unit/lib/parseSignature.test.js, ./tests/unit/lib/ollamaVehicleExtract.test.js, ./tests/unit/lib/ollamaClassifyClient.test.js, ./tests/unit/lib/no-action-getbytext.test.js, ./tests/unit/lib/mxLookup.test.js, ./tests/unit/lib/mineReplySignals.test.js, ./tests/unit/lib/mimeDecode.test.js, ./tests/unit/lib/mailboxUtils.test.js, ./tests/unit/lib/mailboxUtils.props.test.js, ./tests/unit/lib/mailboxUtils.fuzz.test.js, ./tests/unit/lib/mailboxOpRateLimit.test.js, ./tests/unit/lib/mailboxFormHelpers.test.js, ./tests/unit/lib/mailboxAlerts.test.js, ./tests/unit/lib/mailbox-auto-resume.test.js, ./tests/unit/lib/machineryDict.test.js, ./tests/unit/lib/lookalike.test.js, ./tests/unit/lib/llmRunnerClient.test.js, ./tests/unit/lib/llmReplyClassifierPrompt.test.js, ./tests/unit/lib/llmReplyClassifier.test.js, ./tests/unit/lib/lifecyclePhaseCaps.test.js, ./tests/unit/lib/lia-scope.test.js, ./tests/unit/lib/leadTierThresholds.test.js, ./tests/unit/lib/justiceCz.test.js, ./tests/unit/lib/jobs.test.js, ./tests/unit/lib/invariant.test.js, ./tests/unit/lib/inboxSpamDetector.test.js, ./tests/unit/lib/imapPollCron-env-guard.test.js, ./tests/unit/lib/imap-via-socks5.test.js, ./tests/unit/lib/imap-uid-validity-normalize.test.js, ./tests/unit/lib/imap-delta.test.js, ./tests/unit/lib/htmlToText.test.js, ./tests/unit/lib/heal-state-guard.test.js, ./tests/unit/lib/heal-rootcause.test.js, ./tests/unit/lib/heal-rollback.test.js, ./tests/unit/lib/heal-region-failover.test.js, ./tests/unit/lib/heal-quorum.test.js, ./tests/unit/lib/heal-predictive.test.js, ./tests/unit/lib/heal-pid.test.js, ./tests/unit/lib/heal-permissions.test.js, ./tests/unit/lib/heal-invariant-rollback.test.js, ./tests/unit/lib/heal-explanations.test.js, ./tests/unit/lib/heal-escalation.test.js, ./tests/unit/lib/heal-deduper.test.js, ./tests/unit/lib/heal-counterfactual.test.js, ./tests/unit/lib/heal-coordinator.test.js, ./tests/unit/lib/heal-cascade.test.js, ./tests/unit/lib/heal-budget.test.js, ./tests/unit/lib/heal-backoff.test.js, ./tests/unit/lib/heal-api-guards.test.js, ./tests/unit/lib/greylist-retry.test.js, ./tests/unit/lib/getMailboxSOCKS5Addr-null-mailbox.test.js, ./tests/unit/lib/filterSerializer.test.js, ./tests/unit/lib/errorMiddleware.test.js, ./tests/unit/lib/envconfig.test.js, ./tests/unit/lib/enrichment.test.js, ./tests/unit/lib/emailVerify.test.js, ./tests/unit/lib/dual-mailbox-pool.test.mjs, ./tests/unit/lib/dnsCheck.test.js, ./tests/unit/lib/diagnostics.test.js, ./tests/unit/lib/dbMutate.test.js, ./tests/unit/lib/dataQuality.test.js, ./tests/unit/lib/dashboardAuth.test.js, ./tests/unit/lib/daily-fire.test.js, ./tests/unit/lib/czech-plural.test.js, ./tests/unit/lib/crmExport.test.js, ./tests/unit/lib/contactVerifyHelpers.test.js, ./tests/unit/lib/companiesApi.test.js, ./tests/unit/lib/cohort.test.js, ./tests/unit/lib/clampInt.test.js, ./tests/unit/lib/cidRewrite.test.js, ./tests/unit/lib/campaignTimeline.test.js, ./tests/unit/lib/campaign-watchdog.test.js, ./tests/unit/lib/campaign-send-batch-priority.test.js, ./tests/unit/lib/blacklistCheck.test.js, ./tests/unit/lib/bff-boot-parallel.test.js, ./tests/unit/lib/automation.test.js, ./tests/unit/lib/automation.property.test.js, ./tests/unit/lib/authMiddleware.test.js, ./tests/unit/lib/assert-never.test.js, ./tests/unit/lib/ar7-send-window-batch.test.js, ./tests/unit/lib/ar17-phase-window.test.js, ./tests/unit/lib/api.test.ts, ./tests/unit/lib/anonymityAnalyzer.test.js, ./tests/unit/legacy/store.test.js, ./tests/unit/legacy/store.resilient.test.js, ./tests/unit/legacy/server.test.js, ./tests/unit/legacy/server.integration.test.js, ./tests/unit/legacy/server.automation.test.js, ./tests/unit/legacy/sentryInit.test.js, ./tests/unit/legacy/security.test.js, ./tests/unit/legacy/security.audit.test.js, ./tests/unit/legacy/secrets.scan.test.js, ./tests/unit/legacy/s7.s8.cron.test.js, ./tests/unit/legacy/replay.diff.test.js, ./tests/unit/legacy/race.matrix.test.js, ./tests/unit/legacy/proxy.watchdog.test.js, ./tests/unit/legacy/proxy.sources.test.js, ./tests/unit/legacy/proxy.exhaust.test.js, ./tests/unit/legacy/proxy.diagnostics.test.js, ./tests/unit/legacy/proxy.cache.ttl.test.js, ./tests/unit/legacy/production.readiness.test.js, ./tests/unit/legacy/pool.trend.test.js, ./tests/unit/legacy/outreachHealth.test.ts, ./tests/unit/legacy/migrations.lint.test.js, ./tests/unit/legacy/mailbox.bounce.throttle.test.js, ./tests/unit/legacy/lighthouse.budget.test.js, ./tests/unit/legacy/kpi.diff.test.js, ./tests/unit/legacy/idempotency.test.js, ./tests/unit/legacy/flaky.detector.test.js, ./tests/unit/legacy/dead.code.test.js, ./tests/unit/legacy/db.constraints.test.js, ./tests/unit/legacy/chaos.test.js, ./tests/unit/legacy/campaign.preflight.test.js, ./tests/unit/legacy/bundle.budget.test.js, ./tests/unit/legacy/auth.cache.test.js, ./tests/unit/legacy/api.snapshot.test.js, ./tests/unit/legacy/api.nplus1.test.js, ./tests/unit/legacy/api.differential.test.js, ./tests/unit/legacy/api.contracts.test.js, ./tests/unit/hooks/useWatchdogSnooze.test.js, ./tests/unit/hooks/useToggleState.test.js, ./tests/unit/hooks/usePollEndpoint.test.js, ./tests/unit/hooks/useOperatorSetting.test.ts, ./tests/unit/hooks/useCompanyFilters.test.js, ./tests/unit/helpers/state-machine.test.js, ./tests/unit/helpers/slo-helpers.test.js, ./tests/unit/helpers/heal-fixtures.test.js, ./tests/unit/helpers/flaky-quarantine.test.js, ./tests/unit/helpers/chaos-sim.test.js, ./tests/unit/crons/runProspectScoringCron.test.js, ./tests/unit/crons/runCampaignContactsStaleReclaim.test.js, ./tests/unit/crons/runBounceAnomalyCron.test.js, ./tests/unit/crons/imap-inbox-audit.test.js, ./tests/unit/app/vehicleMeta.test.js, ./tests/unit/app/vehicleDraft.test.js, ./tests/unit/app/replyMeta.test.js, ./tests/unit/app/ollamaVehicleExtract.test.js, ./tests/unit/app/ollamaReplyDraft.test.js, ./tests/unit/app/odpovediListUrl.test.js, ./tests/unit/app/factsRow.test.js, ./tests/unit/app/crmMeta.test.js, ./tests/unit/app/contactMeta.test.js, ./tests/unit/app/companyMeta.test.js, ./tests/unit/app/campaignMeta.test.js, ./tests/synthetic/prod-smoke.test.js, ./tests/setup/no-prod-egress.js, ./tests/regression/schema-drift.test.ts, ./tests/regression/_template.test.ts, ./tests/integration/reply-pipeline-roundtrip.test.js, ./tests/integration/replies-stream-sse.test.js, ./tests/integration/real-backend-smoke.test.ts, ./tests/integration/postgres-container.test.ts, ./tests/integration/migration-008-integration.test.ts, ./tests/integration/mailboxOpRateLimit.test.mjs, ./tests/integration/imap-socks5-end-to-end.test.ts, ./tests/integration/campaign-lifecycle.test.js, ./tests/integration/bff-replies-integration.test.ts, ./tests/integration/aw8-3-cycle3-endpoints.test.js, ./tests/integration/_setup/postgres-container.ts, ./tests/helpers/system-sim.js, ./tests/helpers/slo-helpers.js, ./tests/helpers/heal-fixtures.js, ./tests/helpers/flaky-quarantine.js, ./tests/helpers/chaos-sim.js, ./tests/e2e-prod/positive.spec.ts, ./tests/e2e-prod/negative.spec.ts, ./tests/e2e-prod/auth.setup.ts, ./tests/e2e-prod/_guard/safety-guard.unit.spec.ts, ./tests/e2e-prod/_guard/safety-guard.ts, ./tests/e2e-prod/_guard/fixtures.ts, ./tests/e2e/visual.spec.ts, ./tests/e2e/visual-regression.spec.ts, ./tests/e2e/verify-queue-health.spec.ts, ./tests/e2e/today-shipped-surfaces.smoke.spec.ts, ./tests/e2e/thread-detail.spec.ts, ./tests/e2e/thread-detail-y3.spec.ts, ./tests/e2e/thread-detail-chat-bubble.smoke.spec.ts, ./tests/e2e/thread-detail-bottom-dock.smoke.spec.ts, ./tests/e2e/thread-detail-anchor.smoke.spec.ts, ./tests/e2e/templates.spec.ts, ./tests/e2e/templates-spintax.spec.ts, ./tests/e2e/templates-page.spec.ts, ./tests/e2e/sentry-tunnel.spec.ts, ./tests/e2e/responsivity-density.smoke.spec.ts, ./tests/e2e/reply-send-e2e.spec.ts, ./tests/e2e/replies-rank4-keystroke-hints.smoke.spec.ts, ./tests/e2e/replies-od-cell-domain.spec.ts, ./tests/e2e/replies-focusidx-dom-sync.smoke.spec.ts, ./tests/e2e/replies-av-f3-extract-vehicles.smoke.spec.ts, ./tests/e2e/replies-av-f2-auto-classify.smoke.spec.ts, ./tests/e2e/replies-au-f3-vehicle-modal.smoke.spec.ts, ./tests/e2e/replies-at-f2.smoke.spec.ts, ./tests/e2e/replies-as-f3-thread-polish.smoke.spec.ts, ./tests/e2e/replies-ap-f5-composer-flow.smoke.spec.ts, ./tests/e2e/replies-ap-f4-bubble-truncation.smoke.spec.ts, ./tests/e2e/navigation.spec.ts, ./tests/e2e/m3-carve-smoke.spec.ts, ./tests/e2e/live-cluster-rate.spec.ts, ./tests/e2e/iter62-monkey.spec.ts, ./tests/e2e/iter54-story-18-toast-stack.spec.ts, ./tests/e2e/iter53-story-14-audit-log-ratchet.spec.ts, ./tests/e2e/iter52-story-6-theme-toggle.spec.ts, ./tests/e2e/iter51-story-3-bff-outage.spec.ts, ./tests/e2e/iter47-live-activity-freshness.smoke.spec.ts, ./tests/e2e/iter45-sidebar-inspect.spec.ts, ./tests/e2e/iter45-actual-look.spec.ts, ./tests/e2e/iter26-home.spec.ts, ./tests/e2e/home-yesterday-widget.spec.ts, ./tests/e2e/home-verify-widget.spec.ts, ./tests/e2e/home-dashboard.spec.ts, ./tests/e2e/full-ui-sweep.spec.ts, ./tests/e2e/full-reply-pipeline.spec.ts, ./tests/e2e/dashboard-auth.smoke.spec.ts, ./tests/e2e/console-errors.spec.ts, ./tests/e2e/command-palette.spec.ts, ./tests/e2e/campaign-preflight.spec.ts, ./tests/e2e/campaign-preflight-happy-path.spec.ts, ./tests/e2e/campaign-preflight-gate.spec.ts, ./tests/e2e/campaign-detail-y1-y5.spec.ts, ./tests/e2e/auth-reset-endpoint.spec.ts, ./tests/e2e/auth-fail-alert-banner.spec.ts, ./tests/e2e/auth-fail-alert-banner-cross-page.spec.ts, ./tests/e2e/app-vozidla.smoke.spec.ts, ./tests/e2e/app-vozidla-parity.smoke.spec.ts, ./tests/e2e/app-toptargets.smoke.spec.ts, ./tests/e2e/app-shell.smoke.spec.ts, ./tests/e2e/app-segmenty.smoke.spec.ts, ./tests/e2e/app-segment-builder.smoke.spec.ts, ./tests/e2e/app-schranky.smoke.spec.ts, ./tests/e2e/app-reply-draft.smoke.spec.ts, ./tests/e2e/app-reply-attachments.smoke.spec.ts, ./tests/e2e/app-prehled.smoke.spec.ts, ./tests/e2e/app-odpovedi.smoke.spec.ts, ./tests/e2e/app-odpovedi-triage.smoke.spec.ts, ./tests/e2e/app-odpovedi-parity.smoke.spec.ts, ./tests/e2e/app-nastaveni.smoke.spec.ts, ./tests/e2e/app-monkey.smoke.spec.ts, ./tests/e2e/app-kvalita.smoke.spec.ts, ./tests/e2e/app-kontakty.smoke.spec.ts, ./tests/e2e/app-kampane.smoke.spec.ts, ./tests/e2e/app-kampan-detail.smoke.spec.ts, ./tests/e2e/app-kampan-create.smoke.spec.ts, ./tests/e2e/app-kampan-a11y.spec.ts, ./tests/e2e/app-interconnect.smoke.spec.ts, ./tests/e2e/app-hledat.smoke.spec.ts, ./tests/e2e/app-forward-email.smoke.spec.ts, ./tests/e2e/app-firmy.smoke.spec.ts, ./tests/e2e/app-firmy-parity.smoke.spec.ts, ./tests/e2e/app-discoverability.smoke.spec.ts, ./tests/e2e/app-dedup.smoke.spec.ts, ./tests/e2e/app-crm.smoke.spec.ts, ./tests/e2e/app-crm-parity.smoke.spec.ts, ./tests/e2e/app-contact-timing.smoke.spec.ts, ./tests/e2e/app-capture.smoke.spec.ts, ./tests/e2e/app-anonymita.smoke.spec.ts, ./tests/e2e/app-analytika.smoke.spec.ts, ./tests/e2e/a11y.spec.ts, ./tests/e2e/fixtures/jobs.ts, ./tests/e2e/_fixtures/console-guard.ts, ./tests/contract/vitest-setup.ts, ./tests/contract/verify-loop.contract.test.js, ./tests/contract/templates-seed.contract.test.ts, ./tests/contract/structural-invariants.test.ts, ./tests/contract/setup.ts, ./tests/contract/repliesStats.test.js, ./tests/contract/repliesStats-bounce-filter.test.js, ./tests/contract/replies-union-pagination.test.js, ./tests/contract/mailbox-diagnose.contract.test.js, ./tests/contract/launch-sanity.spec.js, ./tests/contract/launch-readiness.contract.test.ts, ./tests/contract/launch-readiness-extended.contract.test.ts, ./tests/contract/input-fuzzing.test.ts, ./tests/contract/dedup-guard.contract.test.ts, ./tests/contract/dashboardAuth-e2e.test.ts, ./tests/contract/crm-import.contract.test.js, ./tests/contract/category-tree.contract.test.ts, ./tests/contract/bulk-verify.contract.test.js, ./tests/contract/bff-watchdog-health.contract.test.ts, ./tests/contract/bff-vehicles-patch.contract.test.js, ./tests/contract/bff-unsubscribe.contract.test.ts, ./tests/contract/bff-unsubscribe-thread-cascade.contract.test.ts, ./tests/contract/bff-unsubscribe-fail-closed.contract.test.ts, ./tests/contract/bff-threads-stream.contract.test.ts, ./tests/contract/bff-threads-g3-extract.contract.test.ts, ./tests/contract/bff-thread-message-body.contract.test.ts, ./tests/contract/bff-templates.contract.test.ts, ./tests/contract/bff-templates-d26-extract.contract.test.ts, ./tests/contract/bff-template-preview.contract.test.ts, ./tests/contract/bff-template-metrics.contract.test.js, ./tests/contract/bff-synthetic-runs.contract.test.ts, ./tests/contract/bff-suppressions-kt-a13.contract.test.ts, ./tests/contract/bff-suppressions-domain-aj10a.contract.test.js, ./tests/contract/bff-suppression.contract.test.ts, ./tests/contract/bff-suppression-f3-extract.contract.test.ts, ./tests/contract/bff-state-change-audit.contract.test.ts, ./tests/contract/bff-sentry-tunnel-dsn.contract.test.ts, ./tests/contract/bff-sentry-tags.contract.test.ts, ./tests/contract/bff-sentry-monkey.contract.test.ts, ./tests/contract/bff-sentry-localdev.contract.test.ts, ./tests/contract/bff-sentry-fingerprint.contract.test.ts, ./tests/contract/bff-sentry-context.contract.test.ts, ./tests/contract/bff-sentry-breadcrumbs.contract.test.ts, ./tests/contract/bff-send-test-relay.contract.test.ts, ./tests/contract/bff-segments.contract.test.ts, ./tests/contract/bff-segment-preview.contract.test.js, ./tests/contract/bff-security-headers.contract.test.ts, ./tests/contract/bff-scraper-healing.contract.test.ts, ./tests/contract/bff-scoring.contract.test.ts, ./tests/contract/bff-scoring-extended.contract.test.ts, ./tests/contract/bff-scoring-d25-extract.contract.test.ts, ./tests/contract/bff-schema-check.contract.test.ts, ./tests/contract/bff-run-preflight.contract.test.ts, ./tests/contract/bff-reply-multipart.contract.test.js, ./tests/contract/bff-reply-inbox-attachments.contract.test.js, ./tests/contract/bff-reply-forward.contract.test.js, ./tests/contract/bff-replies-undeliverable-filter.contract.test.ts, ./tests/contract/bff-replies-stats.contract.test.ts, ./tests/contract/bff-replies-sentry.contract.test.ts, ./tests/contract/bff-replies-include-bounces.contract.test.ts, ./tests/contract/bff-replies-forward.contract.test.ts, ./tests/contract/bff-replies-flag.contract.test.js, ./tests/contract/bff-replies-company-icos.contract.test.ts, ./tests/contract/bff-replies-bulk-handled.contract.test.js, ./tests/contract/bff-relay-client.contract.test.ts, ./tests/contract/bff-proxy-sources.contract.test.ts, ./tests/contract/bff-proxy-pool.contract.test.ts, ./tests/contract/bff-protections-d28-extract.contract.test.ts, ./tests/contract/bff-property-fuzz.contract.test.ts, ./tests/contract/bff-privacy-public-route.contract.test.ts, ./tests/contract/bff-patch-campaign-preflight.contract.test.ts, ./tests/contract/bff-operator-settings.contract.test.ts, ./tests/contract/bff-operator-metrics.contract.test.ts, ./tests/contract/bff-operator-approval.contract.test.ts, ./tests/contract/bff-notifications.contract.test.js, ./tests/contract/bff-monkey.contract.test.ts, ./tests/contract/bff-monkey-input.contract.test.ts, ./tests/contract/bff-meta-d27-extract.contract.test.ts, ./tests/contract/bff-mailboxes.contract.test.ts, ./tests/contract/bff-mailboxes-repin-ap2.contract.test.ts, ./tests/contract/bff-mailboxes-has-valid-password.contract.test.ts, ./tests/contract/bff-mailboxes-g1-extract.contract.test.ts, ./tests/contract/bff-mailboxes-extended2.contract.test.ts, ./tests/contract/bff-mailboxes-extended.contract.test.ts, ./tests/contract/bff-mailboxes-environment.contract.test.ts, ./tests/contract/bff-mailboxes-as3-pool-gate.contract.test.ts, ./tests/contract/bff-mailbox-spam-complaint-stats.contract.test.js, ./tests/contract/bff-mailbox-reputation-score.contract.test.js, ./tests/contract/bff-mailbox-refresh-imap.contract.test.ts, ./tests/contract/bff-mailbox-healing-cron.contract.test.ts, ./tests/contract/bff-mailbox-egress-history.contract.test.ts, ./tests/contract/bff-mailbox-delivery-time-stats.contract.test.js, ./tests/contract/bff-mailbox-campaigns.contract.test.ts, ./tests/contract/bff-mailbox-bounce-warnings.contract.test.js, ./tests/contract/bff-mailbox-bounce-stats.contract.test.js, ./tests/contract/bff-mailbox-blacklist-alerts.contract.test.js, ./tests/contract/bff-mailbox-auth-lock-ap6.contract.test.ts, ./tests/contract/bff-leads.contract.test.ts, ./tests/contract/bff-leads-post.contract.test.ts, ./tests/contract/bff-ingest-freshness.contract.test.js, ./tests/contract/bff-health.contract.test.ts, ./tests/contract/bff-healing-protections.contract.test.ts, ./tests/contract/bff-halt-advisory.contract.test.js, ./tests/contract/bff-go-orchestrator.contract.test.ts, ./tests/contract/bff-go-fetch-timeout.contract.test.ts, ./tests/contract/bff-funnel-summary.contract.test.js, ./tests/contract/bff-full-check.contract.test.ts, ./tests/contract/bff-fault-injection.contract.test.ts, ./tests/contract/bff-email-reverify-cron.contract.test.js, ./tests/contract/bff-e2e-failure.contract.test.ts, ./tests/contract/bff-dual-axis.contract.test.ts, ./tests/contract/bff-dsr.contract.test.ts, ./tests/contract/bff-dsr-erase-rollback.contract.test.ts, ./tests/contract/bff-diagnostics.contract.test.ts, ./tests/contract/bff-delete-audit-log.contract.test.ts, ./tests/contract/bff-data-quality.contract.test.js, ./tests/contract/bff-dashboard-metrics.contract.test.ts, ./tests/contract/bff-cron-heartbeats.contract.test.ts, ./tests/contract/bff-create-campaign-preflight.contract.test.ts, ./tests/contract/bff-contacts.contract.test.ts, ./tests/contract/bff-contacts-dnt.contract.test.ts, ./tests/contract/bff-contacts-d29-extract.contract.test.ts, ./tests/contract/bff-contact-audit.contract.test.ts, ./tests/contract/bff-company-timeline-pagination.contract.test.ts, ./tests/contract/bff-companies.contract.test.ts, ./tests/contract/bff-companies-score-trends.contract.test.ts, ./tests/contract/bff-companies-extended.contract.test.ts, ./tests/contract/bff-companies-exclusion.contract.test.ts, ./tests/contract/bff-companies-d22-extract.contract.test.ts, ./tests/contract/bff-classifier-overrides.contract.test.ts, ./tests/contract/bff-categories.contract.test.ts, ./tests/contract/bff-categories-diagnostics-g4-extract.contract.test.ts, ./tests/contract/bff-campaigns.contract.test.ts, ./tests/contract/bff-campaigns-unskip.contract.test.js, ./tests/contract/bff-campaigns-timeline.contract.test.js, ./tests/contract/bff-campaigns-skip-by-domains.contract.test.js, ./tests/contract/bff-campaigns-sequence.contract.test.js, ./tests/contract/bff-campaigns-send-test.contract.test.ts, ./tests/contract/bff-campaigns-send-batch.contract.test.ts, ./tests/contract/bff-campaigns-send-batch-rate-limit.contract.test.ts, ./tests/contract/bff-campaigns-run.contract.test.ts, ./tests/contract/bff-campaigns-reset-next-send-at.contract.test.ts, ./tests/contract/bff-campaigns-priority-distribution.contract.test.js, ./tests/contract/bff-campaigns-preflight.contract.test.ts, ./tests/contract/bff-campaigns-pause-all.contract.test.ts, ./tests/contract/bff-campaigns-pacing.contract.test.ts, ./tests/contract/bff-campaigns-filter-tier.contract.test.js, ./tests/contract/bff-campaigns-extended.contract.test.ts, ./tests/contract/bff-campaigns-dry-run.contract.test.js, ./tests/contract/bff-campaigns-config.contract.test.ts, ./tests/contract/bff-campaigns-actions.contract.test.ts, ./tests/contract/bff-campaign-templates.contract.test.ts, ./tests/contract/bff-campaign-expand-segments.contract.test.ts, ./tests/contract/bff-campaign-contact-reset.contract.test.js, ./tests/contract/bff-bulk-password.contract.test.ts, ./tests/contract/bff-brand-label.contract.test.ts, ./tests/contract/bff-auth-middleware-enabled.contract.test.ts, ./tests/contract/bff-auth-fail-alerts.contract.test.ts, ./tests/contract/bff-audit-gap-fixes.contract.test.ts, ./tests/contract/bff-audit-coverage.contract.test.ts, ./tests/contract/bff-attachments.contract.test.ts, ./tests/contract/bff-ap3-ap6-wiring-gaps.contract.test.ts, ./tests/contract/bff-analytics.contract.test.ts, ./tests/contract/auth-matrix.test.ts, ./tests/contract/auth-bypass.contract.test.ts, ./tests/contract/api-route-inventory.snapshot.test.ts, ./tests/contract/api-response-envelope.contract.test.ts, ./tests/contract/anonymity-latest.contract.test.ts, ./tests/chaos/heal-h6-authcache-ttl.test.js, ./tests/chaos/heal-h2-proxy-watchdog.test.js, ./tests/chaos/heal-h1-mailbox-cycle.test.js, ./tests/chaos/chaos-7day.test.js, ./tests/audit/workflow-sentry.test.ts, ./tests/audit/ui-page-needs-smoke-row.test.js, ./tests/audit/trigger_functions_column_safe.test.js, ./tests/audit/test-scripts-shape.test.js, ./tests/audit/test-quality-workflow-audit.test.js, ./tests/audit/sticky-thead.test.js, ./tests/audit/sql_query_drift.test.js, ./tests/audit/page_loc_ceiling.test.js, ./tests/audit/operator-practice-smoke-shape.test.js, ./tests/audit/operator-practice-seed-shape.test.js, ./tests/audit/operator-practice-replay.test.js, ./tests/audit/operator-practice-playbook-shape.test.js, ./tests/audit/operator-practice-anonymizer.test.js, ./tests/audit/observability-audit.test.js, ./tests/audit/notify_reply_trigger_safe.test.js, ./tests/audit/no_raw_smtp_socket.test.js, ./tests/audit/no_raw_imap_socket.test.js, ./tests/audit/no_railway_hosting.test.js, ./tests/audit/no_partial_relay_submit.test.js, ./tests/audit/no_deleted_pages.test.js, ./tests/audit/no-prod-egress.test.js, ./tests/audit/no-bare-clampint.test.js, ./tests/audit/migration_runner_audit.test.js, ./tests/audit/memory_tier_audit.test.mjs, ./tests/audit/mail-lab-ci-shape.test.js, ./tests/audit/mail-lab-chaos-shape.test.js, ./tests/audit/lab-feedback-loop-shape.test.js, ./tests/audit/heal-slo.test.js, ./tests/audit/heal-explanation-audit.test.js, ./tests/audit/harden-audit.test.js, ./tests/audit/gdpr-cascade-shape.test.js, ./tests/audit/fixture-reset.test.js, ./tests/audit/drawer-overlay.test.js, ./tests/audit/cron-safe-no-bare-setinterval-async.test.js, ./tests/audit/campaigns-no-fallback.test.js, ./tests/audit/cad-a5-rebuild-audit.test.js, ./tests/audit/bff-resilience.test.js, ./tests/audit/ar6-cron-jitter.test.js, ./tests/audit/ar2-template-signal-audit.test.js, ./tests/audit/ap5_no_unfiltered_mailbox_query.test.js, ./src/store.js, ./src/sentryInit.js, ./src/firebaseInit.js, ./src/test/setup.js, ./src/test/polyfill.js, ./src/store/outreachHealth.ts, ./src/store/outreachHealth.test.ts, ./src/store/authStore.js, ./src/server-routes/verifyLoop.js, ./src/server-routes/vehicles.js, ./src/server-routes/unsubscribe.js, ./src/server-routes/todayUsage.js, ./src/server-routes/threads.js, ./src/server-routes/templates.js, ./src/server-routes/templatePreview.js, ./src/server-routes/templateMetrics.js, ./src/server-routes/suppression.js, ./src/server-routes/segments.js, ./src/server-routes/segmentPreview.js, ./src/server-routes/search.js, ./src/server-routes/scoring.js, ./src/server-routes/runPreflight.js, ./src/server-routes/replyTemplates.js, ./src/server-routes/replyMultipart.js, ./src/server-routes/replyForward.js, ./src/server-routes/replyDraft.js, ./src/server-routes/replyClassifyEndpoint.js, ./src/server-routes/repliesStats.js, ./src/server-routes/repliesExtract.js, ./src/server-routes/replies.js, ./src/server-routes/relayQueueDepth.js, ./src/server-routes/relayPoolCapacity.js, ./src/server-routes/protections.js, ./src/server-routes/prospects.js, ./src/server-routes/privacy.js, ./src/server-routes/poolCapacityMonitor.js, ./src/server-routes/operatorSettings.js, ./src/server-routes/operatorRotateApiKey.js, ./src/server-routes/operatorMetrics.js, ./src/server-routes/notifications.js, ./src/server-routes/meta.js, ./src/server-routes/messageAttachments.js, ./src/server-routes/mailboxesRepin.js, ./src/server-routes/mailboxes.js, ./src/server-routes/mailboxSpamComplaintStats.js, ./src/server-routes/mailboxReputationScore.js, ./src/server-routes/mailboxReputationHistory.js, ./src/server-routes/mailboxEgressHistory.js, ./src/server-routes/mailboxDeliveryTimeStats.js, ./src/server-routes/mailboxBounceWarnings.js, ./src/server-routes/mailboxBounceStats.js, ./src/server-routes/mailboxBlacklistAlerts.js, ./src/server-routes/leads.js, ./src/server-routes/ingestFreshness.js, ./src/server-routes/icpSectors.js, ./src/server-routes/highRiskDomains.js, ./src/server-routes/health.js, ./src/server-routes/haltAdvisory.js, ./src/server-routes/funnelSummary.js, ./src/server-routes/failedSends.js, ./src/server-routes/engagementCapAdjustment.js, ./src/server-routes/endpointHealth.js, ./src/server-routes/egressChaosDetection.js, ./src/server-routes/dsr.js, ./src/server-routes/dnsAudit.js, ./src/server-routes/diagnostics.js, ./src/server-routes/dedupGuard.js, ./src/server-routes/dataQualityFix.js, ./src/server-routes/dataQualityChecks.js, ./src/server-routes/dashboardSummary.js, ./src/server-routes/dashboardLiveActivity.js, ./src/server-routes/crm.js, ./src/server-routes/contacts.js, ./src/server-routes/contactVerifyCron.js, ./src/server-routes/companies.js, ./src/server-routes/categoryTree.js, ./src/server-routes/categories.js, ./src/server-routes/campaigns.js, ./src/server-routes/campaignTimeline.js, ./src/server-routes/campaignSegmentExpansion.js, ./src/server-routes/campaignDryRun.js, ./src/server-routes/bulkPassword.js, ./src/server-routes/bounceRateMonitor.js, ./src/server-routes/auditRecent.js, ./src/server-routes/attachments.js, ./src/server-routes/anonymityLatest.js, ./src/server-routes/alertStream.js, ./src/lib/widgetFormatters.js, ./src/lib/webScrape.js, ./src/lib/vvz.js, ./src/lib/verifyLoopPaused.js, ./src/lib/vehicleExtractor.js, ./src/lib/vehicleCapture.js, ./src/lib/validators.js, ./src/lib/unsubToken.js, ./src/lib/undeliverableFilter.js, ./src/lib/tokens.js, ./src/lib/time-chaos.js, ./src/lib/thresholdDefaults.js, ./src/lib/template-preview.js, ./src/lib/suppressionUnionSql.js, ./src/lib/suppressionFilter.js, ./src/lib/suppression-union.js, ./src/lib/state-machine.js, ./src/lib/stale.js, ./src/lib/spintax.js, ./src/lib/sentryCapture.js, ./src/lib/sendClaim.js, ./src/lib/scoring.js, ./src/lib/scoreLearner.js, ./src/lib/schema-diff.js, ./src/lib/replyTime.js, ./src/lib/replyClassifier.js, ./src/lib/repliesRepository.js, ./src/lib/relayClient.js, ./src/lib/refreshPolicy.js, ./src/lib/readiness.js, ./src/lib/rateLimitMiddleware.js, ./src/lib/quoteStrip.js, ./src/lib/prospectScorer.js, ./src/lib/preflightChecks.js, ./src/lib/passwordValidator.js, ./src/lib/parseSignature.js, ./src/lib/ollamaVehicleExtract.js, ./src/lib/ollamaReplyDraft.js, ./src/lib/ollamaClassifyClient.js, ./src/lib/mxLookup.js, ./src/lib/mineReplySignals.js, ./src/lib/mimeDecode.js, ./src/lib/mailboxUtils.js, ./src/lib/mailboxPassword.js, ./src/lib/mailboxOpRateLimit.js, ./src/lib/mailboxFormHelpers.js, ./src/lib/mailboxAuthFailGuard.js, ./src/lib/mailboxAlerts.js, ./src/lib/machineryDict.js, ./src/lib/lookalike.js, ./src/lib/llmRunnerClient.js, ./src/lib/llmReplyClassifierPrompt.js, ./src/lib/llmReplyClassifier.js, ./src/lib/lifecyclePhaseCaps.js, ./src/lib/leadTierThresholds.js, ./src/lib/keystrokeDiscovery.js, ./src/lib/justiceCz.js, ./src/lib/jobs.js, ./src/lib/invariant.js, ./src/lib/inboxSpamDetector.js, ./src/lib/humanBehaviorSimulation.js, ./src/lib/htmlToText.js, ./src/lib/heal-state-guard.js, ./src/lib/heal-rootcause.js, ./src/lib/heal-rollback.js, ./src/lib/heal-region-failover.js, ./src/lib/heal-quorum.js, ./src/lib/heal-predictive.js, ./src/lib/heal-pid.js, ./src/lib/heal-permissions.js, ./src/lib/heal-invariant-rollback.js, ./src/lib/heal-explanations.js, ./src/lib/heal-escalation.js, ./src/lib/heal-deduper.js, ./src/lib/heal-counterfactual.js, ./src/lib/heal-coordinator.js, ./src/lib/heal-cascade.js, ./src/lib/heal-budget.js, ./src/lib/heal-backoff.js, ./src/lib/heal-api-guards.js, ./src/lib/filterSerializer.js, ./src/lib/errorMiddleware.js, ./src/lib/envconfig.js, ./src/lib/enrichment.js, ./src/lib/emailVerify.js, ./src/lib/emailProbe.js, ./src/lib/dnsCheck.js, ./src/lib/diagnostics.js, ./src/lib/dbMutate.js, ./src/lib/dataQuality.js, ./src/lib/dashboardAuth.js, ./src/lib/czech-plural.js, ./src/lib/crmExport.js, ./src/lib/crmBackfill.js, ./src/lib/companiesApi.js, ./src/lib/cohort.js, ./src/lib/clampInt.js, ./src/lib/cidRewrite.js, ./src/lib/campaignTimeline.js, ./src/lib/campaign-send-batch.js, ./src/lib/blacklistCheck.js, ./src/lib/automation.js, ./src/lib/authMiddleware.js, ./src/lib/assert-never.js, ./src/lib/api.js, ./src/lib/anonymityAnalyzer.js, ./src/hooks/useWatchdogSnooze.js, ./src/hooks/useUrlState.js, ./src/hooks/useToggleState.js, ./src/hooks/useResource.js, ./src/hooks/useProtectionAlerts.js, ./src/hooks/usePollEndpoint.js, ./src/hooks/useOperatorSetting.ts, ./src/hooks/useMediaQuery.js, ./src/hooks/useKeyboardShortcuts.js, ./src/hooks/useInfiniteReplies.js, ./src/hooks/useFilterPresets.js, ./src/hooks/useFacets.js, ./src/hooks/useEventStream.js, ./src/hooks/useDashboardMetrics.js, ./src/hooks/useCompanyFilters.js, ./src/crons/runWarmupAdvanceCron.js, ./src/crons/runVehicleAutoCaptureCron.js, ./src/crons/runStaleHealthCheckCron.js, ./src/crons/runScoringRecomputeCron.js, ./src/crons/runProspectScoringCron.js, ./src/crons/runOutboundReplyCron.js, ./src/crons/runMailboxHealthCycleCron.js, ./src/crons/runMailboxHealingCron.js, ./src/crons/runMailboxBounceThrottleCron.js, ./src/crons/runImapPollCron.js, ./src/crons/runImapInboxAuditCron.js, ./src/crons/runImapIdleKeepAliveCron.js, ./src/crons/runHumanBehaviorSimulationCron.js, ./src/crons/runGreylistRetryCron.js, ./src/crons/runFullInboxScanCron.js, ./src/crons/runFolderOperationsCron.js, ./src/crons/runEnrichmentMVRefreshCron.js, ./src/crons/runEmailReverifyCron.js, ./src/crons/runDailyReportCron.js, ./src/crons/runCrmBackfillCron.js, ./src/crons/runContactStaleReverifyCron.js, ./src/crons/runCampaignWatchdogCron.js, ./src/crons/runCampaignContactsStaleReclaim.js, ./src/crons/runBounceFlipCron.js, ./src/crons/runBounceAnomalyCron.js, ./src/crons/runBlacklistCheckCron.js, ./src/crons/runAuditLogRetentionCron.js, ./src/crons/runAdaptiveRefreshCron.js, ./src/app/lib/vehicleMeta.js, ./src/app/lib/vehicleDraft.js, ./src/app/lib/replyMeta.js, ./src/app/lib/factsRow.js, ./src/app/lib/crmMeta.js, ./src/app/lib/contactMeta.js, ./src/app/lib/companyMeta.js, ./src/app/lib/campaignMeta.js, ./src/app/lib/breakpoints.js, ./src/app/components/schranky/schrankyLib.js, ./src/app/components/odpovedi/useReplyBulk.js, ./scripts/test-prod-linkage.mjs, ./scripts/system-report.mjs, ./scripts/shadow-capture.mjs, ./scripts/sentry-to-regression-test.mjs, ./scripts/sentinel-monitor.mjs, ./scripts/security.mjs, ./scripts/run-scorecard.mjs, ./scripts/refresh-schema-baseline.mjs, ./scripts/reclassify-backfill.mjs, ./scripts/purge-junk-campaigns.mjs, ./scripts/prod-snapshot-capture.mjs, ./scripts/pre-launch-check.mjs, ./scripts/mutation-propose-tests.mjs, ./scripts/mailbox-warmup-ramp.mjs, ./scripts/load.mjs, ./scripts/lighthouse.mjs, ./scripts/launch-monitor.mjs, ./scripts/kpi.mjs, ./scripts/kpi-snapshot.mjs, ./scripts/inverted-fault-harness.mjs, ./scripts/health.js, ./scripts/hallucination-score.mjs, ./scripts/halluc-precommit.mjs, ./scripts/flaky.mjs, ./scripts/flaky-ci-update.mjs, ./scripts/fixture-prod-diff.mjs, ./scripts/explain.mjs, ./scripts/explain-gate.mjs, ./scripts/end-of-day-report.mjs, ./scripts/dns-prefilter-companies.mjs, ./scripts/bundle.mjs, ./scripts/breadth-audit.mjs, ./scripts/backfill-reply-mined.js, ./scripts/assertion-density.mjs, ./eslint-rules/no-action-getbytext.test.js, ./eslint-rules/no-action-getbytext.js, ./e2e/fixtures/jobs.ts
 
+### Uzel: `api-tokens`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *legacy_unmapped*: ./ui/ApiTokenCreateDialog.vue, ./logic/useApiTokens.ts
+
+### Uzel: `auth`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *legacy_unmapped*: ./contract.ts, ./logic/useUser.ts, ./logic/state.ts, ./logic/firebaseClient.ts, ./logic/authHeader.ts
+
+### Uzel: `api-docs`
+- **Stav:** undefined
+
+### Uzel: `admin`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *legacy_unmapped*: ./ui/LocaleTabs.vue, ./ui/ItemDetailVehicle.vue, ./ui/ItemDetailQuestions.vue, ./ui/ItemDetailImages.vue, ./ui/ItemDetailHighlights.vue, ./ui/ItemDetailGeneral.vue, ./ui/ItemDetailDescription.vue, ./ui/ItemDetailBids.vue, ./ui/ItemDetail.vue, ./logic/useUserList.ts, ./logic/useUserDetail.ts, ./logic/useItemList.ts, ./logic/useExternalTranslate.ts, ./logic/useAdminSearch.ts, ./logic/useAdminPagedResource.ts, ./logic/useAdminPagedList.ts, ./logic/useAdminItemVinDecode.ts, ./logic/useAdminItem.ts, ./logic/useAdminCategoryLabel.ts, ./ui/highlights/HighlightInput.vue
+
+### Uzel: `country-resolution`
+- **Stav:** undefined
+
+### Uzel: `category-coverage`
+- **Stav:** undefined
+
+### Uzel: `read-state`
+- **Stav:** undefined
+
+### Uzel: `worker-pdf`
+- **Stav:** undefined
+
+### Uzel: `key-events`
+- **Stav:** undefined
+
+### Uzel: `protections`
+- **Stav:** undefined
+
+### Uzel: `mcp`
+- **Stav:** undefined
+- **Fyzické soubory:**
+  - *legacy_unmapped*: ./vitest.config.ts, ./mcp-server/version.ts, ./mcp-server/version.test.ts, ./mcp-server/tools.ts, ./mcp-server/tools.test.ts, ./mcp-server/test-utils.ts, ./mcp-server/sentry.ts, ./mcp-server/index.ts, ./mcp-server/http.ts, ./mcp-server/http.test.ts, ./mcp-server/e2e.test.ts, ./mcp-server/db.ts, ./mcp-server/db.test.ts, ./mcp-server/auth.unit.test.ts, ./mcp-server/auth.ts, ./mcp-server/auth.test.ts, ./lib/utils.ts, ./lib/utils.test.ts, ./lib/types.ts, ./lib/meilisearch.ts, ./lib/logger.ts, ./lib/fetch.ts, ./lib/fetch.test.ts, ./lib/db-prefix.ts, ./lib/cache.ts, ./lib/cache.test.ts, ./e2e/mcp-tools.test.ts, ./scripts/lib/mcp-client.ts, ./scripts/lib/mcp-client.test.ts
+
+### Uzel: `dashboard-bff`
+- **Stav:** undefined
+
+### Uzel: `brand-parity`
+- **Stav:** undefined
+
+### Uzel: `a11y`
+- **Stav:** undefined
+
+### Uzel: `rtl-parity`
+- **Stav:** undefined
+
+### Uzel: `key-completeness`
+- **Stav:** undefined
+
+### Uzel: `ingest`
+- **Stav:** undefined
+
+### Uzel: `consent-gate`
+- **Stav:** undefined
+
+### Uzel: `sitemap`
+- **Stav:** undefined
+
+### Uzel: `lcp`
+- **Stav:** undefined
+
+### Uzel: `token-lifecycle`
+- **Stav:** undefined
+
+### Uzel: `token-hash`
+- **Stav:** undefined
+
+### Uzel: `registration`
+- **Stav:** undefined
+
+### Uzel: `guards`
+- **Stav:** undefined
+
+### Uzel: `spec-validity`
+- **Stav:** undefined
+
+### Uzel: `password-reset`
+- **Stav:** undefined
+
+### Uzel: `contract-drift`
+- **Stav:** undefined
+
+### Uzel: `save-success`
+- **Stav:** undefined
+
+### Uzel: `list-latency`
+- **Stav:** undefined
+
 ## 🪐 Osa: SPINE
+
+### Uzel: `account`
+- **Stav:** pending
+- **Fyzické soubory:**
+  - *ui*: ./account.vue
+  - *legacy_unmapped*: ./ui/UserMenuAvatar.vue, ./ui/ProfileTextValueEdit.vue, ./ui/ProfileLanguageEdit.vue, ./ui/ProfileEmailEdit.vue, ./ui/ProfileAddressEdit.vue, ./ui/LettersAvatar.vue
 
 ### Uzel: `demand-search`
 - **Stav:** pending
 - **Fyzické soubory:**
   - *ui*: ./demand-search.vue
   - *logic*: ./searchService.js, ./searchController.js
+
+## 🪐 Osa: LEGACY
+
+### Uzel: `inbound`
+- **Stav:** undefined
+
+### Uzel: `outreach`
+- **Stav:** undefined
+
+### Uzel: `compliance`
+- **Stav:** undefined
+
+### Uzel: `acquisition`
+- **Stav:** undefined
+
+### Uzel: `reply-classify`
+- **Stav:** undefined
+
+### Uzel: `thread-match`
+- **Stav:** undefined
+
+### Uzel: `imap-poll`
+- **Stav:** undefined
+
+### Uzel: `bounce-detect`
+- **Stav:** undefined
+
+### Uzel: `bounce-handle`
+- **Stav:** undefined
+
+### Uzel: `warmup`
+- **Stav:** undefined
+
+### Uzel: `send-window`
+- **Stav:** undefined
+
+### Uzel: `send-dedup`
+- **Stav:** undefined
+
+### Uzel: `content-render`
+- **Stav:** undefined
+
+### Uzel: `mailbox-reliability`
+- **Stav:** undefined
+
+### Uzel: `campaign-scheduler`
+- **Stav:** undefined
+
+### Uzel: `unsub-token`
+- **Stav:** undefined
+
+### Uzel: `suppression`
+- **Stav:** undefined
+
+### Uzel: `anti-trace`
+- **Stav:** undefined
+
+### Uzel: `dsr`
+- **Stav:** undefined
+
+### Uzel: `gdpr-footer`
+- **Stav:** undefined
+
+### Uzel: `audit-log`
+- **Stav:** undefined
+
+### Uzel: `firmy-cz`
+- **Stav:** undefined
+
+### Uzel: `email-validation`
+- **Stav:** undefined
+
+### Uzel: `ares-source`
+- **Stav:** undefined
+
+### Uzel: `classify-icp`
+- **Stav:** undefined
+
+### Uzel: `sanitize`
+- **Stav:** undefined
+
+### Uzel: `metadata-min`
+- **Stav:** undefined
+
+### Uzel: `content-enc`
+- **Stav:** undefined
+
+### Uzel: `egress`
+- **Stav:** undefined
 
