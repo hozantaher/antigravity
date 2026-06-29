@@ -1,9 +1,9 @@
-# 📦 Uzel: sale
-![Version](https://img.shields.io/badge/version-v1.7.2-blue)
+# 📦 Uzel: worker
 
+![Version](https://img.shields.io/badge/version-v1.1.0-blue)
 
-> **Osa (Story Axis):** sale
-> **Stav:** pending
+> **Osa (Story Axis):** spine
+> **Stav:** met
 
 ## 📜 Byznys Koncept
 *Automaticky vygenerovaný README. Zde doplňte detailní byznys logiku uzlu.*

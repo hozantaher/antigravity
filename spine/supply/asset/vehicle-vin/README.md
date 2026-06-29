@@ -1,8 +1,8 @@
-# 📦 Uzel: sale
-![Version](https://img.shields.io/badge/version-v1.7.2-blue)
+# 📦 Uzel: vehicle-vin
 
+![Version](https://img.shields.io/badge/version-v1.1.0-blue)
 
-> **Osa (Story Axis):** sale
+> **Osa (Story Axis):** spine
 > **Stav:** pending
 
 ## 📜 Byznys Koncept

@@ -2,13 +2,38 @@
 
 Tento repozitář nepoužívá standardní adresářovou strukturu (MVC / FSD). Namísto toho používá **Antigravity Vector-Tree Engine**, kde fyzické složky tvoří sémantické uzly (Nodes).
 
-## Klíčová pravidla pro agenty
-1. **Nikdy nevytvářejte složky nebo domény manuálně (např. přes `mkdir`).**
-2. **Kdykoliv potřebujete pochopit systém**, podívejte se do `docs/reference/topology-map.md` a `docs/reference/autodocs.md`, kde se nachází aktuální mapa všech domén a funkcí.
-3. **Kdykoliv pracujete s kódem**, použijte integrovaný MCP Server (Model Context Protocol).
-4. **Při načtení konverzace / session (Maximum Context):** Vždy si nejdříve přečtěte `docs/reference/topology-map.md` a `docs/reference/autodocs.md`, abyste měli 100% přehled o struktuře před započetím jakékoliv práce.
+## 🚀 SURGICAL BOOT SEQUENCE (Klíčová pravidla pro agenty)
 
-## Jak používat nástroje Antigravity (MCP Server)
+Při spuštění jakékoliv nové session nebo přijetí nového komplexního úkolu nesmíte spoléhat na zastaralé a obří statické Markdown soubory (jako je `autodocs.md`), které neškálují. Místo toho **vždy a bez výjimky** postupujte podle tohoto třífázového protokolu:
+
+### Fáze 1: Boot (Pre-Flight Check)
+Před napsáním jakéhokoliv řádku kódu musíte validovat zdraví repozitáře a pochopit jeho "gravitaci":
+1. **Zkontrolujte drift:** Spusťte `npx ts-node src/index.ts audit` (případně využijte MCP `antigravity_audit_drift`).
+   - Pokud audit selže, **ZASTAVTE PRÁCI NA FEATURE** a nabídněte uživateli spuštění Healeru (`npx ts-node src/index.ts audit --heal`).
+2. **Pochopte Gravitaci:** Spusťte `npm run ag:map --gravity` a podívejte se do `docs/reference/gravity-map.md`. Zjistíte tak, které uzly jsou kritické huby s mnoha reverse linky. V těchto uzlech buďte extrémně opatrní.
+
+### Fáze 2: Targeting (Identifikace cíle)
+Když vás uživatel požádá o úpravu určité domény nebo features:
+1. Nečtěte celý repozitář. Místo toho fuzzy-vyhledejte příslušný uzel pomocí:
+   `npx ts-node src/index.ts search "<uživatelův zadný pojem>"` (nebo použijte MCP `antigravity_search_nodes`).
+2. Získejte přesné Node ID (např. `outreach-dashboard`, `engine-learn`).
+
+### Fáze 3: Surgical Context (Přesný Řez)
+Nyní, když znáte cílový uzel:
+1. Získejte izolovanou bublinu kontextu pouze pro tento uzel spuštěním:
+   `npx ts-node src/index.ts resolve <nodeId>` (nebo použijte MCP `antigravity_resolve_node`).
+2. Tento výstup vám dá:
+   - Seznam fyzických souborů, které tento uzel tvoří.
+   - Sousední uzly (Edges).
+   - **Reverse Links:** Seznam všech souborů v aplikaci, které na tento uzel závisí. Do těchto závislostí nesmíte zasáhnout tak, abyste je rozbili.
+
+---
+
+## 🛠️ Jak provádět strukturální změny (Antigravity Nástroje)
+1. **Nikdy nevytvářejte složky nebo domény manuálně (např. přes `mkdir`).**
+2. **Kdykoliv pracujete s kódem**, použijte CLI enginu (`src/index.ts`) nebo integrovaný MCP Server (Model Context Protocol).
+
+### Dostupné CLI / MCP Nástroje pro strukturální zásahy:
 Projekt v sobě nativně obsahuje MCP Server, který Vám naservíruje kontext projektu (tzv. LLM Bubble) nebo Vám dovolí bezpečně provádět strukturální změny (Audit, Refactoring, Scaffolding).
 
 ### Spuštění serveru
