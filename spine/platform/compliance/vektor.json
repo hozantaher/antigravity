@@ -1,0 +1,11 @@
+{
+  "id": "platform-compliance",
+  "story_axis": "spine",
+  "state": "pending",
+  "facets": {
+    "ui": [
+      "./platform-compliance.vue"
+    ]
+  },
+  "edges": []
+}

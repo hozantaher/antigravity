@@ -14,6 +14,9 @@
       "./schemas.ts",
       "./listing.dto.ts",
       "./index.ts"
+    ],
+    "tests": [
+      "./schemas.test.ts"
     ]
   },
   "semantic_layer": "CORE"

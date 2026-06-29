@@ -1,7 +1,7 @@
 import { Worker } from 'bullmq';
 import { redisConnection, handsQueue } from './queues';
-import { LeadSchema } from '../../../domain/core-types/schemas';
-import { calculateArbitrageScore } from '../../intelligence/arbitrage-miner/logic';
+import { LeadSchema } from '../../../domain/core-types';
+import { calculateArbitrageScore } from '../../intelligence/arbitrage-miner';
 
 // Dummy trh pro kalkulaci (V produkci se načítá z DB)
 const DUMMY_MARKET = [

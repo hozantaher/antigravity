@@ -1,7 +1,7 @@
 import { Worker } from 'bullmq';
 import { redisConnection } from './queues';
-import { ArbitrageOpportunitySchema } from '../../../domain/core-types/schemas';
-import { dispatchShadowDraft } from '../../drive/shadow-broker/logic';
+import { ArbitrageOpportunitySchema } from '../../../domain/core-types';
+import { dispatchShadowDraft } from '../../drive/shadow-broker';
 import { z } from 'zod';
 
 const PayloadSchema = z.object({

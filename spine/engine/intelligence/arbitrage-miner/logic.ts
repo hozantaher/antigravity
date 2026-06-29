@@ -1,4 +1,4 @@
-import { Vehicle, ArbitrageOpportunity } from '../../../domain/core-types/schemas';
+import { Vehicle, ArbitrageOpportunity } from '../../../domain/core-types';
 
 /**
  * Zhodnotí, zda je dané vozidlo arbitrážní příležitostí (na základě The Antigravity Matrix algoritmu).

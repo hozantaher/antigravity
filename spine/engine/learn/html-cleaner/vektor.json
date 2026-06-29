@@ -7,9 +7,13 @@
   "edges": [],
   "story_axis": "spine/engine/learn/html-cleaner",
   "facets": {
-    "logic": [],
+    "logic": [
+      "./logic.ts"
+    ],
     "ui": [],
-    "tests": []
+    "tests": [
+      "./logic.test.ts"
+    ]
   },
   "semantic_layer": "BRAIN"
 }

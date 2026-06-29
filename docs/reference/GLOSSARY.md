@@ -42,6 +42,14 @@ Sleduje sitemap.xml soubory cílových platforem pomocí hlaviček ETag a Last-M
 
 ---
 
+### Lead
+Datový payload, který jde ze scrapingu (Deep Inventory) směrem do Arbitrage Mineru.
+
+*Odkazy (Zdroj pravdy):*
+- `spine/domain/core-types/schemas.ts`
+
+---
+
 ### ReverseAPIInterceptor
 Namísto parsování DOM struktur přes selektory poslouchá `response` eventy na úrovni prohlížeče (Playwright). Pokud detekuje odpověď ze serveru, která obsahuje JSON nebo GraphQL odpovídající inzerátu,  data přímo vyextrahuje a ihned převede na RawListing.
 
@@ -71,6 +79,14 @@ Reaper pravidelně prochází aktivní Shadow Drafts, ke kterým jsme vytvořili
 
 *Odkazy (Zdroj pravdy):*
 - `spine/demand/acquisition/deep-inventory/stale-reaper/reaper.ts`
+
+---
+
+### Vehicle
+Normalizovaná reprezentace stroje v našem katalogu.
+
+*Odkazy (Zdroj pravdy):*
+- `spine/domain/core-types/schemas.ts`
 
 ---
 

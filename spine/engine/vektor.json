@@ -13,7 +13,13 @@
       "./acquisition/shared/fetch.ts",
       "./acquisition/shared/daemon.ts",
       "./acquisition/shared/cache.ts",
-      "./acquisition/shared/block-detector.ts"
+      "./acquisition/shared/block-detector.ts",
+      "./automation/symphony/worker.hands.ts",
+      "./automation/symphony/worker.brain.ts",
+      "./automation/symphony/queues.ts"
+    ],
+    "tests": [
+      "./automation/symphony/symphony.test.ts"
     ]
   },
   "edges": [],

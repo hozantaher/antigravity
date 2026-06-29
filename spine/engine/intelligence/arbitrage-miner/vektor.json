@@ -11,10 +11,12 @@
     ],
     "logic": [
       "./index.ts",
-      "./miner.ts"
+      "./miner.ts",
+      "./logic.ts"
     ],
     "tests": [
-      "./miner.test.ts"
+      "./miner.test.ts",
+      "./logic.test.ts"
     ]
   },
   "edges": [

@@ -11,10 +11,12 @@
     ],
     "logic": [
       "./broker.ts",
-      "./garaaage-adapter.ts"
+      "./garaaage-adapter.ts",
+      "./logic.ts"
     ],
     "tests": [
-      "./broker.test.ts"
+      "./broker.test.ts",
+      "./integration.test.ts"
     ]
   },
   "edges": [

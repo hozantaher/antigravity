@@ -1,4 +1,4 @@
-import { ArbitrageOpportunity, ShadowDraft } from '../../../domain/core-types/schemas';
+import { ArbitrageOpportunity, ShadowDraft } from '../../../domain/core-types';
 import crypto from 'crypto';
 
 /**
