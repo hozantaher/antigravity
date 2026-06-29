@@ -28,3 +28,14 @@ Připojte se k tomuto serveru a využijte tyto nástroje, než začnete psát ja
 ## Testování a Nasazování
 - Pokud měníte logiku samotného enginu v adresáři `src/`, vždy ověřte integritu spuštěním `npm run test` (Vitest).
 - Při větších aktualizacích a dokončení features nezapomeňte aktualizovat changelog a verze. Dělá se to plně automaticky příkazem `npm run release` (Standard Version), který vše potřebné upraví, vydá a obstará Git Tagy.
+
+## 🧠 Závazný Byznysový Mindset (+100M Scale)
+Projekt Antigravity není pasivní software. Je to "zbraňová platforma", která asymetricky těží příležitosti z trhu pomocí hluboké integrace cizího portfolia (Hozan-Taher / Outreach) s vlastní konverzí (Auction24). 
+
+Kdykoliv autonomní agenti (Jules, Gemini a další) pracují na tomto projektu a vymýšlí řešení, **musí striktně dodržovat tyto zákony asymetrického škálování**:
+1. **Nulové CAC (Customer Acquisition Cost):** Zakažte konvenční marketingové myšlení. Místo čekání na uživatele vytvářejte uzly pro **Deep Inventory** (agresivní sběr existujících inzerátů a entit z celého internetu).
+2. **The Infinite Supply Machine:** Poptávku agregujte u sebe, nabídku si vytěžte ze světa automaticky. Parazitujte na cizích inzertních sítích.
+3. **Deep Research & Arbitráž:** Pokud aplikujete business logiku, vždy zapojte vrstvu inteligence (např. LLM worker). Používejte "Arbitrage Scoring" (hledání nedoceněných aktiv, ležáků, zoufalých prodejců, nebo B2B flotilových výprodejů).
+4. **Shadow Execution (Stínová Integrace):** Extrémní snížení tření u uživatele. Prodejci nesmí narazit na prázdný formulář. Vygenerujte jim na pozadí přes API rovnou hotový **"Shadow Draft"** (včetně fotek) a přes Privacy Gateway jim doručte "Magický Link" na jedno kliknutí.
+
+**Default Agent Behavior:** Při každém úkolu od uživatele musíte defaultně přemýšlet v rámci tohoto +100M modelu. Generujte asymetrické synergie, nenavrhujte hloupé CRUD aplikace, ale automatizované stroje na generování zisku.

@@ -1,0 +1,11 @@
+{
+  "id": "deep-inventory",
+  "story_axis": "spine",
+  "state": "pending",
+  "facets": {
+    "ui": [
+      "./deep-inventory.vue"
+    ]
+  },
+  "edges": []
+}

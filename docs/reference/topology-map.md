@@ -16,60 +16,66 @@ graph TD
   style demand stroke:#ff9900,stroke-width:2px
   platform["platform (platform)"]
   style platform stroke:#00cc66,stroke-width:1px
-  outreach-dashboard["outreach-dashboard (platform)"]
-  style outreach-dashboard stroke:#00cc66,stroke-width:1px
   auth["auth (platform)"]
   style auth stroke:#00cc66,stroke-width:1px
-  engine-learn["engine-learn (engine)"]
-  style engine-learn stroke:#3399ff,stroke-width:3px,fill:#cce5ff,color:#333
-  engine-drive["engine-drive (engine)"]
-  style engine-drive stroke:#3399ff,stroke-width:3px,fill:#cce5ff,color:#333
   account["account (spine)"]
   style account stroke:#ff9900,stroke-width:2px
+  outreach-dashboard["outreach-dashboard (platform)"]
+  style outreach-dashboard stroke:#00cc66,stroke-width:1px
+  engine-drive["engine-drive (engine)"]
+  style engine-drive stroke:#3399ff,stroke-width:3px,fill:#cce5ff,color:#333
+  engine-learn["engine-learn (engine)"]
+  style engine-learn stroke:#3399ff,stroke-width:3px,fill:#cce5ff,color:#333
   demand-search["demand-search (spine)"]
   style demand-search stroke:#ff9900,stroke-width:2px
-  bidding["bidding (spine)"]
-  style bidding stroke:#ff9900,stroke-width:2px
   auction-items["auction-items (spine)"]
   style auction-items stroke:#ff9900,stroke-width:2px
-  vehicle-vin["vehicle-vin (spine)"]
-  style vehicle-vin stroke:#ff9900,stroke-width:2px
+  bidding["bidding (spine)"]
+  style bidding stroke:#ff9900,stroke-width:2px
   media-upload["media-upload (spine)"]
   style media-upload stroke:#ff9900,stroke-width:2px
   sale-settlement["sale-settlement (spine)"]
   style sale-settlement stroke:#ff9900,stroke-width:2px
+  disputes-complaints["disputes-complaints (spine)"]
+  style disputes-complaints stroke:#ff9900,stroke-width:2px
+  vehicle-vin["vehicle-vin (spine)"]
+  style vehicle-vin stroke:#ff9900,stroke-width:2px
+  invoicing["invoicing (spine)"]
+  style invoicing stroke:#ff9900,stroke-width:2px
   design-system["design-system (spine)"]
   style design-system stroke:#00cc66,stroke-width:1px
-  dashboard-core["dashboard-core (spine)"]
-  style dashboard-core stroke:#ff9900,stroke-width:2px
+  deposit-billing["deposit-billing (spine)"]
+  style deposit-billing stroke:#ff9900,stroke-width:2px
   dashboard-bff["dashboard-bff (spine)"]
   style dashboard-bff stroke:#ff9900,stroke-width:2px
   privacy-gateway["privacy-gateway (spine)"]
   style privacy-gateway stroke:#00cc66,stroke-width:1px
-  disputes-complaints["disputes-complaints (spine)"]
-  style disputes-complaints stroke:#ff9900,stroke-width:2px
   api-tokens["api-tokens (spine)"]
   style api-tokens stroke:#00cc66,stroke-width:1px
-  invoicing["invoicing (spine)"]
-  style invoicing stroke:#ff9900,stroke-width:2px
-  deposit-billing["deposit-billing (spine)"]
-  style deposit-billing stroke:#ff9900,stroke-width:2px
+  dashboard-core["dashboard-core (spine)"]
+  style dashboard-core stroke:#ff9900,stroke-width:2px
   suppression["suppression (spine)"]
   style suppression stroke:#00cc66,stroke-width:1px
   dsr["dsr (spine)"]
   style dsr stroke:#00cc66,stroke-width:1px
-  favorites["favorites (spine)"]
-  style favorites stroke:#00cc66,stroke-width:1px
+  shadow-broker["shadow-broker (spine)"]
+  style shadow-broker stroke:#ff9900,stroke-width:2px
   worker["worker (spine)"]
   style worker stroke:#00cc66,stroke-width:1px
   relay["relay (spine)"]
   style relay stroke:#00cc66,stroke-width:1px
   saved-search["saved-search (spine)"]
   style saved-search stroke:#00cc66,stroke-width:1px
-  firmy-cz["firmy-cz (spine)"]
-  style firmy-cz stroke:#00cc66,stroke-width:1px
+  arbitrage-miner["arbitrage-miner (spine)"]
+  style arbitrage-miner stroke:#ff9900,stroke-width:2px
+  favorites["favorites (spine)"]
+  style favorites stroke:#00cc66,stroke-width:1px
   inbox-orchestrator["inbox-orchestrator (spine)"]
   style inbox-orchestrator stroke:#00cc66,stroke-width:1px
+  firmy-cz["firmy-cz (spine)"]
+  style firmy-cz stroke:#00cc66,stroke-width:1px
+  deep-inventory["deep-inventory (spine)"]
+  style deep-inventory stroke:#ff9900,stroke-width:2px
 ```
 
 ## 🗂️ Seznam Uzlů
@@ -99,16 +105,28 @@ graph TD
 - **Osa příběhu (Story Axis):** platform
 - **Stav:** met
 
+### `auth`
+- **Cesta:** `spine/platform/auth`
+- **Osa příběhu (Story Axis):** platform
+- **Stav:** met
+
+### `account`
+- **Cesta:** `spine/platform/account`
+- **Osa příběhu (Story Axis):** spine
+- **Stav:** pending
+
 ### `outreach-dashboard`
 - **Cesta:** `spine/platform/outreach-dashboard`
 - **Osa příběhu (Story Axis):** platform
 - **Stav:** met
 - **Původ (Origin):** hozan-taher/features/platform
 
-### `auth`
-- **Cesta:** `spine/platform/auth`
-- **Osa příběhu (Story Axis):** platform
-- **Stav:** met
+### `engine-drive`
+- **Cesta:** `spine/engine/drive`
+- **Osa příběhu (Story Axis):** engine
+- **Stav:** pending
+- **Původ (Origin):** frontier
+- **Tagy:** session, read, write, rate-policy
 
 ### `engine-learn`
 - **Cesta:** `spine/engine/learn`
@@ -117,25 +135,8 @@ graph TD
 - **Původ (Origin):** frontier
 - **Tagy:** action-graph, selectors, replay-model
 
-### `engine-drive`
-- **Cesta:** `spine/engine/drive`
-- **Osa příběhu (Story Axis):** engine
-- **Stav:** met
-- **Původ (Origin):** frontier
-- **Tagy:** session, read, write, rate-policy
-
-### `account`
-- **Cesta:** `spine/platform/account`
-- **Osa příběhu (Story Axis):** spine
-- **Stav:** pending
-
 ### `demand-search`
 - **Cesta:** `spine/demand/search`
-- **Osa příběhu (Story Axis):** spine
-- **Stav:** pending
-
-### `bidding`
-- **Cesta:** `spine/supply/market/bidding`
 - **Osa příběhu (Story Axis):** spine
 - **Stav:** pending
 
@@ -144,8 +145,8 @@ graph TD
 - **Osa příběhu (Story Axis):** spine
 - **Stav:** pending
 
-### `vehicle-vin`
-- **Cesta:** `spine/supply/asset/vehicle-vin`
+### `bidding`
+- **Cesta:** `spine/supply/market/bidding`
 - **Osa příběhu (Story Axis):** spine
 - **Stav:** pending
 
@@ -159,13 +160,28 @@ graph TD
 - **Osa příběhu (Story Axis):** spine
 - **Stav:** pending
 
+### `disputes-complaints`
+- **Cesta:** `spine/sale/support/disputes-complaints`
+- **Osa příběhu (Story Axis):** spine
+- **Stav:** pending
+
+### `vehicle-vin`
+- **Cesta:** `spine/supply/asset/vehicle-vin`
+- **Osa příběhu (Story Axis):** spine
+- **Stav:** pending
+
+### `invoicing`
+- **Cesta:** `spine/sale/checkout/invoicing`
+- **Osa příběhu (Story Axis):** spine
+- **Stav:** pending
+
 ### `design-system`
 - **Cesta:** `spine/platform/ui/design-system`
 - **Osa příběhu (Story Axis):** spine
 - **Stav:** met
 
-### `dashboard-core`
-- **Cesta:** `spine/platform/ui/dashboard-core`
+### `deposit-billing`
+- **Cesta:** `spine/sale/checkout/deposit-billing`
 - **Osa příběhu (Story Axis):** spine
 - **Stav:** pending
 
@@ -179,23 +195,13 @@ graph TD
 - **Osa příběhu (Story Axis):** spine
 - **Stav:** met
 
-### `disputes-complaints`
-- **Cesta:** `spine/sale/support/disputes-complaints`
-- **Osa příběhu (Story Axis):** spine
-- **Stav:** pending
-
 ### `api-tokens`
 - **Cesta:** `spine/platform/security/api-tokens`
 - **Osa příběhu (Story Axis):** spine
 - **Stav:** met
 
-### `invoicing`
-- **Cesta:** `spine/sale/checkout/invoicing`
-- **Osa příběhu (Story Axis):** spine
-- **Stav:** pending
-
-### `deposit-billing`
-- **Cesta:** `spine/sale/checkout/deposit-billing`
+### `dashboard-core`
+- **Cesta:** `spine/platform/ui/dashboard-core`
 - **Osa příběhu (Story Axis):** spine
 - **Stav:** pending
 
@@ -209,10 +215,10 @@ graph TD
 - **Osa příběhu (Story Axis):** spine
 - **Stav:** met
 
-### `favorites`
-- **Cesta:** `spine/demand/user/favorites`
+### `shadow-broker`
+- **Cesta:** `spine/engine/drive/shadow-broker`
 - **Osa příběhu (Story Axis):** spine
-- **Stav:** met
+- **Stav:** pending
 
 ### `worker`
 - **Cesta:** `spine/engine/automation/worker`
@@ -229,8 +235,13 @@ graph TD
 - **Osa příběhu (Story Axis):** spine
 - **Stav:** met
 
-### `firmy-cz`
-- **Cesta:** `spine/demand/acquisition/firmy-cz`
+### `arbitrage-miner`
+- **Cesta:** `spine/engine/intelligence/arbitrage-miner`
+- **Osa příběhu (Story Axis):** spine
+- **Stav:** pending
+
+### `favorites`
+- **Cesta:** `spine/demand/user/favorites`
 - **Osa příběhu (Story Axis):** spine
 - **Stav:** met
 
@@ -238,4 +249,14 @@ graph TD
 - **Cesta:** `spine/demand/inbound/inbox-orchestrator`
 - **Osa příběhu (Story Axis):** spine
 - **Stav:** met
+
+### `firmy-cz`
+- **Cesta:** `spine/demand/acquisition/firmy-cz`
+- **Osa příběhu (Story Axis):** spine
+- **Stav:** met
+
+### `deep-inventory`
+- **Cesta:** `spine/demand/acquisition/deep-inventory`
+- **Osa příběhu (Story Axis):** spine
+- **Stav:** pending
 

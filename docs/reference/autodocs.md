@@ -11,6 +11,14 @@ Tento dokument je plně generován automaticky na základě fyzických uzlů a j
   - *logic*: ./logic.ts
   - *tests*: ./logic.test.ts
 
+## 🪐 Osa: SALE
+
+### Uzel: `sale`
+- **Stav:** pending
+- **Fyzické soubory:**
+  - *ui*: ./sale.vue
+  - *legacy_unmapped*: 
+
 ## 🪐 Osa: ENGINE
 
 ### Uzel: `engine`
@@ -29,14 +37,6 @@ Tento dokument je plně generován automaticky na základě fyzických uzlů a j
 - **Identita:** Drive — proveď akce proti portálu: read (čti inzeráty) i write (řiď NAŠE účty).
 - **Fyzické soubory:**
   - *ui*: ./engine-drive.vue
-
-## 🪐 Osa: SALE
-
-### Uzel: `sale`
-- **Stav:** pending
-- **Fyzické soubory:**
-  - *ui*: ./sale.vue
-  - *legacy_unmapped*: 
 
 ## 🪐 Osa: DEMAND
 
@@ -81,4 +81,135 @@ Tento dokument je plně generován automaticky na základě fyzických uzlů a j
   - *ui*: ./demand-search.vue
   - *logic*: ./searchService.js, ./searchController.js
   - *tests*: ./searchService.test.js, ./searchController.test.js
+
+### Uzel: `bidding`
+- **Stav:** pending
+- **Fyzické soubory:**
+  - *ui*: ./bidding.vue
+
+### Uzel: `auction-items`
+- **Stav:** pending
+- **Fyzické soubory:**
+  - *ui*: ./auction-items.vue
+
+### Uzel: `vehicle-vin`
+- **Stav:** pending
+- **Fyzické soubory:**
+  - *ui*: ./vehicle-vin.vue
+
+### Uzel: `media-upload`
+- **Stav:** pending
+- **Fyzické soubory:**
+  - *ui*: ./media-upload.vue
+
+### Uzel: `disputes-complaints`
+- **Stav:** pending
+- **Fyzické soubory:**
+  - *ui*: ./disputes-complaints.vue
+
+### Uzel: `sale-settlement`
+- **Stav:** pending
+- **Fyzické soubory:**
+  - *ui*: ./sale-settlement.vue
+
+### Uzel: `invoicing`
+- **Stav:** pending
+- **Fyzické soubory:**
+  - *ui*: ./invoicing.vue
+
+### Uzel: `deposit-billing`
+- **Stav:** pending
+- **Fyzické soubory:**
+  - *ui*: ./deposit-billing.vue
+
+### Uzel: `design-system`
+- **Stav:** met
+- **Fyzické soubory:**
+  - *ui*: ./design-system.vue, ./tokens.css
+
+### Uzel: `dashboard-bff`
+- **Stav:** pending
+- **Fyzické soubory:**
+  - *ui*: ./dashboard-bff.vue
+
+### Uzel: `privacy-gateway`
+- **Stav:** met
+- **Fyzické soubory:**
+  - *ui*: ./privacy-gateway.vue
+  - *logic*: ./logic.ts
+
+### Uzel: `api-tokens`
+- **Stav:** met
+- **Fyzické soubory:**
+  - *ui*: ./api-tokens.vue
+  - *logic*: ./logic.ts
+  - *tests*: ./logic.test.ts
+
+### Uzel: `dashboard-core`
+- **Stav:** pending
+- **Fyzické soubory:**
+  - *ui*: ./dashboard-core.vue
+
+### Uzel: `relay`
+- **Stav:** met
+- **Fyzické soubory:**
+  - *ui*: ./relay.vue
+  - *logic*: ./logic.ts
+
+### Uzel: `arbitrage-miner`
+- **Stav:** pending
+- **Fyzické soubory:**
+  - *ui*: ./arbitrage-miner.vue
+
+### Uzel: `suppression`
+- **Stav:** met
+- **Fyzické soubory:**
+  - *ui*: ./suppression.vue
+  - *logic*: ./logic.ts
+
+### Uzel: `worker`
+- **Stav:** met
+- **Fyzické soubory:**
+  - *ui*: ./worker.vue
+  - *logic*: ./logic.ts
+
+### Uzel: `shadow-broker`
+- **Stav:** pending
+- **Fyzické soubory:**
+  - *ui*: ./shadow-broker.vue
+
+### Uzel: `saved-search`
+- **Stav:** met
+- **Fyzické soubory:**
+  - *ui*: ./saved-search.vue
+  - *logic*: ./logic.ts
+
+### Uzel: `dsr`
+- **Stav:** met
+- **Fyzické soubory:**
+  - *ui*: ./dsr.vue
+  - *logic*: ./logic.ts
+
+### Uzel: `inbox-orchestrator`
+- **Stav:** met
+- **Fyzické soubory:**
+  - *ui*: ./inbox-orchestrator.vue
+  - *logic*: ./logic.ts
+
+### Uzel: `favorites`
+- **Stav:** met
+- **Fyzické soubory:**
+  - *ui*: ./favorites.vue
+  - *logic*: ./logic.ts
+
+### Uzel: `firmy-cz`
+- **Stav:** met
+- **Fyzické soubory:**
+  - *ui*: ./firmy-cz.vue
+  - *logic*: ./logic.ts
+
+### Uzel: `deep-inventory`
+- **Stav:** pending
+- **Fyzické soubory:**
+  - *ui*: ./deep-inventory.vue
 

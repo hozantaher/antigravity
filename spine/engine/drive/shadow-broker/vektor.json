@@ -1,0 +1,11 @@
+{
+  "id": "shadow-broker",
+  "story_axis": "spine",
+  "state": "pending",
+  "facets": {
+    "ui": [
+      "./shadow-broker.vue"
+    ]
+  },
+  "edges": []
+}
