@@ -38,9 +38,10 @@ program
   .command('audit')
   .description('Spustí detekci architektonického driftu a vypíše report')
   .option('--heal', 'Automaticky opraví nalezené drifty')
+  .option('--sweep', 'Detekuje osiřelé uzly (mrtvý kód) bez vazeb')
   .action(async (options) => {
     const root = process.cwd();
-    const governor = new CyberneticGovernor(root, options.heal);
+    const governor = new CyberneticGovernor(root, options.heal, options.sweep);
     const report = await governor.audit();
 
     if (report.length === 0) {

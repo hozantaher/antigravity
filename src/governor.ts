@@ -19,10 +19,12 @@ function levenshtein(a: string, b: string): number {
 export class CyberneticGovernor {
   private rootDir: string;
   private autoHeal: boolean;
+  private enableSweep: boolean;
 
-  constructor(rootDir: string, autoHeal: boolean = false) {
+  constructor(rootDir: string, autoHeal: boolean = false, enableSweep: boolean = false) {
     this.rootDir = rootDir;
     this.autoHeal = autoHeal;
+    this.enableSweep = enableSweep;
   }
 
   public async audit(): Promise<string[]> {
@@ -32,6 +34,7 @@ export class CyberneticGovernor {
       ignore: 'node_modules/**',
     });
     const validNodes = new Set<string>();
+    const nodePaths = new Map<string, string>(); // path -> nodeId
 
     // Pass 1: Collect nodes
     for (const file of jsonFiles) {
@@ -39,6 +42,7 @@ export class CyberneticGovernor {
       try {
         const manifest = JSON.parse(fs.readFileSync(fullPath, 'utf8')) as VektorManifest;
         validNodes.add(manifest.id);
+        nodePaths.set(path.dirname(fullPath), manifest.id);
       } catch (e) {}
     }
 
@@ -74,7 +78,10 @@ export class CyberneticGovernor {
       }
     }
 
-    // Pass 3: Orphaned Magic Comments
+    // Pass 3: Orphaned Magic Comments & In-Degree Tracking
+    const inDegree = new Map<string, number>();
+    for (const node of validNodes) inDegree.set(node, 0);
+
     const tsFiles = await glob('**/*.{ts,vue,js}', {
       cwd: this.rootDir,
       ignore: 'node_modules/**',
@@ -85,6 +92,9 @@ export class CyberneticGovernor {
       const matches = content.matchAll(/\/\/\s*@vektor-link:\s*([\w-]+)/g);
       for (const match of matches) {
         const targetId = match[1];
+        if (inDegree.has(targetId)) {
+          inDegree.set(targetId, inDegree.get(targetId)! + 1);
+        }
         if (!validNodes.has(targetId)) {
           report.push(`DETECTED: Orphaned link in ${file}: Node '${targetId}' does not exist`);
           if (this.autoHeal) {
@@ -183,6 +193,51 @@ export class CyberneticGovernor {
             currentDir = path.dirname(currentDir);
           }
         }
+      }
+    }
+
+    // Pass 6: Contract Drift Validation (Spine only)
+    for (const file of tsFiles) {
+      if (!file.includes('spine/')) continue;
+      
+      const fullPath = path.join(this.rootDir, file);
+      const dir = path.dirname(fullPath);
+      const content = fs.readFileSync(fullPath, 'utf8');
+      
+      const importRegex = /import\s+(?:.+?\s+from\s+)?['"](.*?)['"]/g;
+      const matches = content.matchAll(importRegex);
+      for (const match of matches) {
+         const importPath = match[1];
+         if (importPath.startsWith('.')) {
+            const resolvedTarget = path.normalize(path.join(dir, importPath));
+            
+            for (const [nodeDir, nodeId] of nodePaths.entries()) {
+               if (nodeDir.includes('spine') && resolvedTarget.startsWith(nodeDir) && !fullPath.startsWith(nodeDir)) {
+                  const isPublicContract = (resolvedTarget === nodeDir) || (resolvedTarget === path.join(nodeDir, 'index')) || (resolvedTarget === path.join(nodeDir, 'index.ts'));
+                  if (!isPublicContract) {
+                     report.push(`DETECTED: Contract Drift v ${file} -> Importuje z vnitřností uzlu '${nodeId}' místo veřejného kontraktu.`);
+                  }
+               }
+            }
+         }
+      }
+    }
+
+    // Pass 7: Orphan Sweeper
+    if (this.enableSweep) {
+      const rootAxes = ['supply', 'sale', 'engine', 'demand', 'platform'];
+      let orphansFound = 0;
+      for (const [nodeDir, nodeId] of nodePaths.entries()) {
+        if (nodeDir.includes('/spine/')) {
+          const degree = inDegree.get(nodeId) || 0;
+          if (degree === 0 && !rootAxes.includes(nodeId)) {
+            report.push(`SWEEP DETECTED: Osiřelý uzel '${nodeId}' (in-degree=0, cesta: ${nodeDir}). Zvažte jeho odstranění.`);
+            orphansFound++;
+          }
+        }
+      }
+      if (orphansFound === 0) {
+        report.push(`SWEEP OK: Ve spine nebyly nalezeny žádné osiřelé uzly.`);
       }
     }
 
