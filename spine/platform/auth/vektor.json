@@ -27,6 +27,12 @@
       "./logic/state.ts",
       "./logic/firebaseClient.ts",
       "./logic/authHeader.ts"
+    ],
+    "tests": [
+      "./useUser.test.ts",
+      "./state.test.ts",
+      "./firebaseClient.test.ts",
+      "./authHeader.test.ts"
     ]
   }
 }

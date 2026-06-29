@@ -11,6 +11,7 @@ import { BatchMigrator } from './migrate';
 import path from 'path';
 import fs from 'fs';
 import { AutoHealer } from './healer';
+import { Jules } from './jules';
 
 const program = new Command();
 
@@ -191,6 +192,22 @@ program
   .action(() => {
     const healer = new AutoHealer();
     healer.heal();
+  });
+
+program
+  .command('jules [action]')
+  .description('Aktivuje autonomního AI Agenta (Jules)')
+  .action((action) => {
+    const jules = new Jules();
+    if (action === 'nightwatch') {
+      jules.nightWatch();
+    } else if (action === 'discover') {
+      const missing = jules.discoverMissingTests();
+      console.log(`Uzly bez testů (${missing.length}):`);
+      console.log(missing.map(x => ` - ${x}`).join('\n'));
+    } else {
+      console.log('Dostupné akce: nightwatch, discover');
+    }
   });
 
 program.parse(process.argv);
