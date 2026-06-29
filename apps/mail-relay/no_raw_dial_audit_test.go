@@ -12,14 +12,14 @@ import (
 	"testing"
 )
 
-// TestNoRawDialInRelay — P2 audit ratchet for services/relay.
+// TestNoRawDialInRelay — P2 audit ratchet for mail-relay.
 // Blocks net.Dialer, net.Dial, socks.DialContext outside whitelist.
 // Baseline: 0 violations.
 func TestNoRawDialInRelay(t *testing.T) {
 	relayDir := "."
-	if wd, err := os.Getwd(); err == nil && !strings.Contains(wd, "services/relay") {
-		// Running from repo root
-		relayDir = "./services/relay"
+	if wd, err := os.Getwd(); err == nil && !strings.Contains(wd, "mail-relay") {
+		// Try from root
+		relayDir = "./apps/mail-relay"
 	}
 
 	violations := []string{}

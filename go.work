@@ -1,0 +1,16 @@
+go 1.25.5
+
+use (
+	./apps/mail-relay
+	./apps/privacy-gateway
+	./spine/acquisition/contacts
+	./spine/inbound/inbox
+	./spine/inbound/orchestrator
+	./spine/outreach/anti-trace-relay/wgsocks
+	./spine/outreach/campaigns
+	./spine/outreach/mailboxes
+	./spine/platform/common
+	./spine/platform/llm-runner
+	./spine/platform/mail-lab-api
+	./spine/platform/operator-practice
+)

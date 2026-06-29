@@ -1,5 +1,5 @@
 {
-  "name": "garaaage-auction",
+  "name": "marketplace-web",
   "private": true,
   "packageManager": "pnpm@10.11.0",
   "engines": {

@@ -23,7 +23,7 @@ import (
 	"testing"
 )
 
-// allowedCallSites lists relative paths (under services/relay/) that
+// allowedCallSites lists relative paths (under mail-relay/) that
 // MAY construct SOCKS5Transport with proxyAddr matching the
 // 127.0.0.1:108x pattern. Any new caller must justify itself in PR
 // review and either route through wgpool.Transport or land here with

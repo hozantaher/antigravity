@@ -10,4 +10,4 @@ require (
 	golang.org/x/text v0.36.0 // indirect
 )
 
-replace common => ../../platform/common
+replace common => ../../spine/platform/common

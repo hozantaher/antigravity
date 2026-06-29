@@ -32,8 +32,8 @@ import (
 // and IMAP outbound TLS must use SMTPParrotTLS / SMTPParrotTLSInsecure.
 func TestNoDirectTLSConfigInRelay(t *testing.T) {
 	relayDir := "."
-	if wd, err := os.Getwd(); err == nil && !strings.Contains(wd, "services/relay") {
-		relayDir = "./services/relay"
+	if wd, err := os.Getwd(); err == nil && !strings.Contains(wd, "mail-relay") {
+		relayDir = "./apps/mail-relay"
 	}
 
 	violations := []string{}
