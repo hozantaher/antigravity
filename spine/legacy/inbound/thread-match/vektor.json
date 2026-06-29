@@ -1,0 +1,34 @@
+{
+  "identita": "Atribuce k vláknu — odpověď se napojí na konkrétní odchozí zprávu nebo kampaň.",
+  "smysl": "In-Reply-To/References → konkrétní vlákno; fallback žebřík (přesný e-mail → firemní doména) drží konverzaci v kontextu.",
+  "smer": "matchToThread: lookup přes In-Reply-To, pak References; fallback na e-mail/doménu; odmítnutí freemail/webmail a ambiguity.",
+  "duvod": "Selhání parsování hlaviček = odpověď osiří bez thread_id a dashboard konverzace se rozpadne.",
+  "myslenka": "Odpověď bez vlákna je věta bez kontextu — atribuce drží konverzaci pohromadě.",
+  "pillar": "conversation",
+  "role": "supporting",
+  "promise": "Každá odpověď je napojená na své vlákno — konverzace v kontextu.",
+  "loreLine": "In-Reply-To, References, fallback — odpověď vždy najde své vlákno.",
+  "proofSignal": [
+    {
+      "nazev": "attribution hit-rate / orphan rate",
+      "zdroj": "features/inbound/orchestrator/thread",
+      "stav": "pending"
+    }
+  ],
+  "antiFeature": "Parsování hlaviček selže, matchToThread vrátí nil a odpověď osiří bez thread_id — rozbije se konverzační pohled.",
+  "hotovo": {
+    "kdyzPlati": [
+      {
+        "kriterium": "matchToThread (Message-ID, References, fallback na e-mail/doménu, odmítnutí freemail, řešení ambiguity) projde — atribuce je deterministická.",
+        "check": "test:thread-match",
+        "stav": "pending",
+        "proof": {
+          "cmd": "cd features/inbound/orchestrator && go test ./thread/..."
+        }
+      }
+    ],
+    "vektorGate": "all-met"
+  },
+  "id": "thread-match",
+  "story_axis": "legacy"
+}

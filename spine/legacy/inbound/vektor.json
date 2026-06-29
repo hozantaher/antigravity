@@ -1,0 +1,21 @@
+{
+  "identita": "Inbound — každá odpověď i odraz se zachytí, zařadí k vláknu a uklidí do stavu. Nic nezapadne.",
+  "smysl": "Z IMAP příchodu přes klasifikaci a atribuci k vláknu až po detekci bounce a suppression — kompletní zpětný kanál.",
+  "smer": "poller → bounce-gate → klasifikace → atribuce k vláknu → zápis stavu/suppression. Každý uzel se svým důkazem.",
+  "duvod": "Nezachycená odpověď je ztracený lead; nezachycený bounce je spálená kvóta a poškozená reputace.",
+  "myslenka": "Odpověď bez stavu je ztracená odpověď — zpětný kanál musí být stejně poctivý jako odchozí.",
+  "pillar": "conversation",
+  "role": "primary",
+  "promise": "Každá odpověď i odraz se zachytí, zařadí a uklidí do stavu.",
+  "loreLine": "Z IMAP schránky na stav vlákna — reply zařazený, bounce odstavený, nic ztracené.",
+  "proofSignal": [
+    {
+      "nazev": "inbound — všechny dílčí sliby live",
+      "zdroj": "features/inbound/orchestrator",
+      "stav": "pending"
+    }
+  ],
+  "antiFeature": "Inbound jako jeden blok — tiše spadlý poller nebo přehlédnutý bounce se schová v zeleném celku a leady mizí.",
+  "id": "inbound",
+  "story_axis": "legacy"
+}

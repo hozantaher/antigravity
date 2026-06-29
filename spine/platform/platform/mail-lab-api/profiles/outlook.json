@@ -1,0 +1,13 @@
+{
+  "domain": "outlook.lab",
+  "max_message_size_bytes": 36700160,
+  "mailbox_quota_bytes": 52428800,
+  "rate_limit_per_hour": 30,
+  "reject_non_cz_origin": false,
+  "greylist_unknown_sender": true,
+  "spam_classify_link_ratio": 0.4,
+  "reject_proxy_ips_cidr": [],
+  "bounce_kind_on_reject": "5.7.606",
+  "dkim_strictness": "relaxed",
+  "auto_reply_enabled": false
+}

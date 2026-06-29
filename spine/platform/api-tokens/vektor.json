@@ -1,0 +1,21 @@
+{
+  "identita": "API tokeny — programový přístup, který je vidět a dá se odvolat.",
+  "smysl": "Admin vydá partnerovi token, vidí kdy se použil a může ho zneplatnit.",
+  "smer": "Token lifecycle: vydání (zobrazí se jednou), hashed úložiště, last-used audit, revoke.",
+  "duvod": "Třetí strany potřebují přístup; bez auditovatelného a odvolatelného tokenu je to bezpečnostní díra.",
+  "myslenka": "Přístup, který je vidět, se dá uřídit.",
+  "pillar": "transparency",
+  "role": "primary",
+  "promise": "Programový přístup vydáš, uvidíš a kdykoli odvoláš.",
+  "loreLine": "Token se ukáže jednou, žije jako hash a padne na jedno kliknutí.",
+  "proofSignal": [
+    {
+      "nazev": "token hash + lifecycle",
+      "zdroj": "test/apiTokens",
+      "stav": "live"
+    }
+  ],
+  "antiFeature": "Token v plaintextu nebo bez revoke — přístup, který nejde vzít zpět.",
+  "id": "api-tokens",
+  "story_axis": "platform"
+}

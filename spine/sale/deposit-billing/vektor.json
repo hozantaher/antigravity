@@ -1,0 +1,21 @@
+{
+  "identita": "Pozvánka do dražby — vratná kauce, fakturace a platby, držené třemi dílčími sliby.",
+  "smysl": "Kauce je vstupenka a status, ne poplatek — a že to platí, drží tři oddělené důkazy.",
+  "smer": "Kauce jako skupina: reconcile (každá platba má protějšek), framing (kauce rámovaná jako vstupenka), fio-match (převody se párují) — každý uzel se svým vlastním důkazem.",
+  "duvod": "Kauce není jeden test, ale tři oddělené sliby; rozdělené uzly je drží poctivě každý zvlášť.",
+  "myslenka": "Peníze jsou jen mechanika důvěry; framing je produkt — a skupina platí, jen když platí všechny její dílčí sliby.",
+  "pillar": "serious-community",
+  "role": "primary",
+  "promise": "Kauce je vstupenka a status, ne poplatek.",
+  "loreLine": "Pozvánka do dražby — vratná kauce mění diváka ve vážného dražitele; peníze jsou jen mechanika důvěry.",
+  "proofSignal": [
+    {
+      "nazev": "kauce — všechny dílčí sliby live",
+      "zdroj": "track/deposit",
+      "stav": "pending"
+    }
+  ],
+  "antiFeature": "Kauce jako jeden neprůhledný blok — dílčí selhání (peníze bez protějšku) se schová v zeleném celku.",
+  "id": "deposit-billing",
+  "story_axis": "sale"
+}

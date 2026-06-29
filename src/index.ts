@@ -7,6 +7,7 @@ import { ContextAwareScaffolder } from './scaffold';
 import { FuzzyVectorRouter } from './router';
 import { DiaryManager } from './diary';
 import { DocGenerator } from './docs';
+import { BatchMigrator } from './migrate';
 import path from 'path';
 import fs from 'fs';
 
@@ -174,12 +175,13 @@ program
   });
 
 program
-  .command('migrate <legacyPath>')
-  .description('Automaticky vyhodnotí sémantiku legacy složky, přesune kód do /spine/ a opraví importy')
-  .action(async (legacyPath: string) => {
-    console.log(`Zahajuji experimentální Auto-Lift & Shift pro: ${legacyPath}`);
-    // TBD: Plná implementace AI migrace (Fáze 2.1) v migrate.ts
-    console.log(`Upozornění: Příkaz 'migrate' vyžaduje integraci na LLM klienta pro sémantickou analýzu.`);
+  .command('migrate')
+  .description('Automaticky přesune a přepojí všechny staré uzly z karantény (/products) do páteře (/spine)')
+  .action(async () => {
+    console.log(`Zahajuji plný Batch Lift & Shift...`);
+    const root = process.cwd();
+    const migrator = new BatchMigrator(root);
+    await migrator.migrateAllLegacy();
   });
 
 program.parse(process.argv);

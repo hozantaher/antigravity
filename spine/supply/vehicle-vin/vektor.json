@@ -1,0 +1,21 @@
+{
+  "identita": "Technický životopis vozu — VIN dekód a vozidlová pole.",
+  "smysl": "Vidíš všechno co při osobní prohlídce a víc — tři dílčí sliby životopisu pod jednou střechou.",
+  "smer": "Životopis jako skupina: completeness (kompletní VIN/specs), specs-before-bid (data čtená před příhozem) a decode-cache (opakovaný VIN zdarma) — každý uzel se svým vlastním důkazem.",
+  "duvod": "Technický životopis není jeden test, ale tři oddělené sliby; rozdělené uzly je drží poctivě každý zvlášť.",
+  "myslenka": "Ověřená data jsou nejsilnější prodejce — a skupina platí, jen když platí všechny dílčí sliby.",
+  "pillar": "transparency",
+  "role": "primary",
+  "promise": "Vidíš všechno co při osobní prohlídce — a víc.",
+  "loreLine": "Otevřené papíry — VIN dekód promění inzerát v ověřený technický životopis vozu.",
+  "proofSignal": [
+    {
+      "nazev": "technický životopis — všechny dílčí sliby live",
+      "zdroj": "track/vin",
+      "stav": "pending"
+    }
+  ],
+  "antiFeature": "Životopis jako jeden neprůhledný blok — dílčí selhání (torzo specs) se schová v zeleném celku.",
+  "id": "vehicle-vin",
+  "story_axis": "supply"
+}

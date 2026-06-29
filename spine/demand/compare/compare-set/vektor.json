@@ -1,0 +1,34 @@
+{
+  "identita": "Set — porovnávací sada, která drží.",
+  "smysl": "Vozy přidané do porovnání drží set a vykreslí se vedle sebe i po smazání jednoho.",
+  "smer": "Set v URL (?ids=), odolný vůči smazanému vozu, sdílitelný odkazem.",
+  "duvod": "Set, který spadne při jednom chybějícím autě, znehodnotí celé srovnání.",
+  "myslenka": "Sada, která vydrží.",
+  "pillar": "transparency",
+  "role": "primary",
+  "promise": "Tvoje srovnání vydrží, i když jeden vůz zmizí.",
+  "loreLine": "Smažeš jeden, zbytek stojí — tabulka se nerozsype.",
+  "proofSignal": [
+    {
+      "nazev": "set holds + resilient render",
+      "zdroj": "test/useCompare",
+      "stav": "live"
+    }
+  ],
+  "antiFeature": "Porovnání, které spadne celé, když jeden vůz mezitím zmizel.",
+  "hotovo": {
+    "kdyzPlati": [
+      {
+        "kriterium": "Vozy v porovnání drží set a vykreslí side-by-side i po odebrání jednoho",
+        "check": "test:compare-set",
+        "stav": "met",
+        "proof": {
+          "cmd": "TMPDIR=/tmp pnpm exec vitest run --project nuxt tests/nuxt/useCompare.test.ts"
+        }
+      }
+    ],
+    "vektorGate": "all-met"
+  },
+  "id": "compare-set",
+  "story_axis": "demand"
+}

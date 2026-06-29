@@ -1,0 +1,34 @@
+{
+  "identita": "ARES — právní identita firmy z oficiálního registru, ne z domněnky.",
+  "smysl": "IČO, právní forma, NACE a datum vzniku ze státního registru drží company-data pravdivá a aktuální.",
+  "smer": "Klient ARES stáhne entitu → sync zapíše do companies (UPSERT) → healing-log hlídá mezery v obnově.",
+  "duvod": "Bez čerstvého ARES je ICP-matching nespolehlivý a oslovení míří na zaniklé nebo špatně zařazené firmy.",
+  "myslenka": "Identita firmy patří státnímu registru, ne odhadu scraperu.",
+  "pillar": "data",
+  "role": "primary",
+  "promise": "Každá firma má pravdivé IČO, právní formu a NACE z ARES.",
+  "loreLine": "Oficiální registr jako zdroj pravdy — IČO, NACE, právní forma, beze stáří.",
+  "proofSignal": [
+    {
+      "nazev": "ARES sync čerstvost / healing-gap",
+      "zdroj": "features/acquisition/contacts/ares",
+      "stav": "pending"
+    }
+  ],
+  "antiFeature": "Tichý výpadek ARES fetch — stará company-data >7 dní, ICP-matching se rozjede mimo a nikdo nealertuje.",
+  "hotovo": {
+    "kdyzPlati": [
+      {
+        "kriterium": "ARES fetch i persistence do companies projdou (UPSERT, NACE i bez-NACE větev) — sync je deterministický a auditovatelný.",
+        "check": "test:ares-sync",
+        "stav": "pending",
+        "proof": {
+          "cmd": "cd features/acquisition/contacts && go test ./ares/..."
+        }
+      }
+    ],
+    "vektorGate": "all-met"
+  },
+  "id": "ares-source",
+  "story_axis": "legacy"
+}

@@ -1,0 +1,8 @@
+STATUS: 200
+HEADER: Server: cloudflare
+HEADER: Cf-Ray: 8a9c4d2e1f0b3a72-PRG
+HEADER: Content-Type: text/html; charset=UTF-8
+EXPECT: cloudflare
+NOTE: Status=200 + Cloudflare body marker — the worst class of false-success because the wire layer succeeded. Pre-KT-A8 these reached parseDetailPage as empty BusinessData rows. body marker "just a moment..." is the only signal.
+---
+<!DOCTYPE html><html lang="en-US"><head><title>Just a moment...</title></head><body><div class="main-content"><h2>Checking your browser before accessing the site.</h2><p>This process is automatic. Your browser will redirect to your requested content shortly.</p></div></body></html>

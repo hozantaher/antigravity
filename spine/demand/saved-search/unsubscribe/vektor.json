@@ -1,0 +1,34 @@
+{
+  "identita": "Odhlášení — 1-click přes HMAC token, bez přihlášení.",
+  "smysl": "Vypnout alert jde jedním klikem z mailu, bez loginu.",
+  "smer": "1-click odhlášení přes HMAC token v mailu vypne alert bez přihlášení.",
+  "duvod": "Těžké odhlášení = spam-stížnost a ztráta důvěry.",
+  "myslenka": "Odejít musí jít stejně snadno jako přijít.",
+  "pillar": "serious-community",
+  "role": "supporting",
+  "promise": "Alert vypneš jedním klikem z mailu.",
+  "loreLine": "HMAC odkaz — odhlášení bez loginu, jedním klikem.",
+  "proofSignal": [
+    {
+      "nazev": "unsubscribe-success",
+      "zdroj": "api-saved-search-unsubscribe",
+      "stav": "pending"
+    }
+  ],
+  "antiFeature": "Odhlášení za loginem — frustrace a spam-stížnost.",
+  "hotovo": {
+    "kdyzPlati": [
+      {
+        "kriterium": "1-click odhlášení přes HMAC token vypne alert bez přihlášení",
+        "check": "test:saved-search-unsubscribe",
+        "stav": "met",
+        "proof": {
+          "cmd": "pnpm exec vitest run --project server tests/server/api/savedSearchAlerts.cron.test.ts -t \"GET /api/saved-search/unsubscribe\" 2>&1 | grep -qE \"Test Files +1 passed\""
+        }
+      }
+    ],
+    "vektorGate": "all-met"
+  },
+  "id": "unsubscribe",
+  "story_axis": "demand"
+}

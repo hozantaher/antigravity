@@ -1,0 +1,31 @@
+{
+  "identita": "Prázdný listing s hlasem — ne prázdná stránka.",
+  "smysl": "Když nic nesedí filtru, kupec nepotká bílou plochu, ale větu, která ho vede dál.",
+  "smer": "Empty-state listingu nese hlas přes i18n, ne prázdno.",
+  "duvod": "Prázdná stránka mlčky shodí důvěru — kupec si myslí, že je rozbitá, ne že jen nic nesedí.",
+  "myslenka": "Prázdno bez slova je horší než žádný výsledek.",
+  "pillar": "transparency",
+  "role": "supporting",
+  "promise": "Prázdný výsledek ti něco řekne, nenechá tě v tichu.",
+  "loreLine": "Když listing nic nenajde, promluví — hlas místo bílé plochy.",
+  "proofSignal": [
+    {
+      "nazev": "empty-state listingu má i18n hlas",
+      "zdroj": "i18n/noItems",
+      "stav": "live"
+    }
+  ],
+  "antiFeature": "Prázdný listing jako bílá stránka — vypadá rozbitě, mlčky bere důvěru.",
+  "hotovo": {
+    "kdyzPlati": [
+      {
+        "kriterium": "Empty-state listingu nese hlas, ne prázdnou stránku",
+        "check": "i18n:noItems",
+        "stav": "met"
+      }
+    ],
+    "vektorGate": "all-met"
+  },
+  "id": "empty-state",
+  "story_axis": "supply"
+}

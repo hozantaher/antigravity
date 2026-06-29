@@ -1,0 +1,21 @@
+{
+  "identita": "Souhlas a měření — sledujeme jen se svolením, transparentně.",
+  "smysl": "Bez tvého souhlasu neměříme; s ním ti to vrací lepší doporučení.",
+  "smer": "Consent-gated pipeline: cookie lišta, first-party vid, /api/track ingest, GDPR brána.",
+  "duvod": "Měření bez souhlasu je porušení důvěry i GDPR; souhlas dělá z dat férový vstup.",
+  "myslenka": "Měřit smíš jen to, k čemu máš svolení.",
+  "pillar": "transparency",
+  "role": "primary",
+  "promise": "Měříme tě jen s tvým souhlasem.",
+  "loreLine": "Cookie lišta drží bránu — bez souhlasu se neměří, s ním se vrací lepší výběr.",
+  "proofSignal": [
+    {
+      "nazev": "consent-gated ingest",
+      "zdroj": "test/track+useTracking",
+      "stav": "live"
+    }
+  ],
+  "antiFeature": "Tracking, který běží bez souhlasu — měření za zády uživatele.",
+  "id": "consent-tracking",
+  "story_axis": "platform"
+}

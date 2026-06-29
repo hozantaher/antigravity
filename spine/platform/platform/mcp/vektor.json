@@ -1,0 +1,34 @@
+{
+  "identita": "MCP server — nástroje pro dotazování dat přes Railway interní síť.",
+  "smysl": "Služby komunikují přes FIRMY_DSN (interní DNS), MCP vystavuje dotazovací nástroje nad daty.",
+  "smer": "mcp-server vystaví query nástroje; networking přes Railway interní DNS, nikdy hardcoded hostname.",
+  "duvod": "Hardcoded hostname rozbije komunikaci při přesunu služby; interní DNS drží mesh propojený.",
+  "myslenka": "Adresa služby patří DNS, ne kódu — propojení musí přežít přesun.",
+  "pillar": "platform",
+  "role": "supporting",
+  "promise": "Data jdou dotazovat přes MCP nástroje po stabilní interní síti.",
+  "loreLine": "Dotazovací nástroje nad daty — propojené interním DNS, ne hardcoded adresou.",
+  "proofSignal": [
+    {
+      "nazev": "MCP tool correctness / DSN resolution",
+      "zdroj": "features/platform/mcp",
+      "stav": "pending"
+    }
+  ],
+  "antiFeature": "Hardcoded hostname místo interního DNS — komunikace se rozpadne při přesunu služby a nikdo neví proč.",
+  "hotovo": {
+    "kdyzPlati": [
+      {
+        "kriterium": "MCP server testy (nástroje, lib) projdou vitest během (mimo e2e) — dotazovací vrstva je deterministická.",
+        "check": "test:mcp",
+        "stav": "pending",
+        "proof": {
+          "cmd": "cd features/platform/mcp && pnpm test"
+        }
+      }
+    ],
+    "vektorGate": "all-met"
+  },
+  "id": "mcp",
+  "story_axis": "platform"
+}

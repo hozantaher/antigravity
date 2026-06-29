@@ -1,0 +1,21 @@
+{
+  "identita": "Kurátorský mail — Auction24 se ozve vážnému kupci, držené dvěma dílčími sliby.",
+  "smysl": "Relevantní, ne spam — a že to platí, drží dva oddělené důkazy.",
+  "smer": "Newsletter jako skupina: return-path (cesta mail→návrat→příhoz měřená), cadence (dodržená kadence weekly-per-user) — každý uzel se svým vlastním důkazem.",
+  "duvod": "Relevance mailu není jeden test, ale dva oddělené sliby; rozdělené uzly je drží poctivě každý zvlášť.",
+  "myslenka": "Jeden relevantní mail je víc než deset hromadných — a skupina platí, jen když platí oba dílčí sliby.",
+  "pillar": "curated",
+  "role": "supporting",
+  "promise": "Relevantní, ne spam.",
+  "loreLine": "Auction24 se ozve — kurátorský mail přivede vážného kupce zpět ke stroji pro něj.",
+  "proofSignal": [
+    {
+      "nazev": "newsletter — oba dílčí sliby live",
+      "zdroj": "track/newsletter",
+      "stav": "pending"
+    }
+  ],
+  "antiFeature": "Newsletter jako jeden neprůhledný blok — dílčí selhání (rozbitá kadence) se schová v zeleném celku.",
+  "id": "newsletter-email",
+  "story_axis": "demand"
+}

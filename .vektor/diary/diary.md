@@ -72,3 +72,10 @@ Tento log je automaticky spravován systémem Antigravity.
 - **Affected Nodes:** None
 - **Details:** Fáze 1 (Hardening) dokončena: Cybernetic Governor nyní umí validovat Contract Drift (zabrání importu z vnitřností jiných uzlů) a disponuje flagem --sweep pro detekci osiřelých uzlů.
 
+
+## [2026-06-29T00:42:32.752Z] MANUAL_LOG
+
+- **Actor:** Human
+- **Affected Nodes:** None
+- **Details:** Fáze 2 (Akcelerace) dokončena: CLI příkaz 'docs --readme' úspěšně vygeneroval byznysovou dokumentaci pro 17 uzlů v páteři. Připraven experimentální stub pro 'migrate'.
+

@@ -1,0 +1,34 @@
+{
+  "identita": "Klasifikace odpovědi — interested/meeting/later/objection/negative/auto-reply deterministicky.",
+  "smysl": "Operátor triáží reakce tak, že skutečné leady nesplynou s auto-reply; keyword baseline + volitelný LLM override.",
+  "smer": "ClassifyReply (keyword baseline) → ClassifySentiment (LLM override); vždy fallback na keyword při chybě/nil.",
+  "duvod": "LLM timeout nebo nečitelný JSON bez fallbacku = prázdná klasifikace a operátor vidí prázdný řádek.",
+  "myslenka": "Klasifikace musí mít deterministické dno — LLM zlepšuje, ale nikdy není jediná cesta.",
+  "pillar": "conversation",
+  "role": "primary",
+  "promise": "Každá odpověď je zařazená — skutečné leady oddělené od auto-reply.",
+  "loreLine": "Keyword dno, LLM strop — žádná odpověď nezůstane bez zařazení.",
+  "proofSignal": [
+    {
+      "nazev": "classify coverage / LLM-fallback rate",
+      "zdroj": "features/inbound/inbox/reply",
+      "stav": "pending"
+    }
+  ],
+  "antiFeature": "LLM klasifikátor selže, ale fallback se nezavolá — klasifikace zůstane null a operátor vidí prázdný řádek.",
+  "hotovo": {
+    "kdyzPlati": [
+      {
+        "kriterium": "Reply klasifikace (normalizace, fallback na unknown při neplatném vstupu) projde — zařazení je deterministické i bez LLM.",
+        "check": "test:reply-classify",
+        "stav": "pending",
+        "proof": {
+          "cmd": "cd features/inbound/inbox && go test ./reply/..."
+        }
+      }
+    ],
+    "vektorGate": "all-met"
+  },
+  "id": "reply-classify",
+  "story_axis": "legacy"
+}

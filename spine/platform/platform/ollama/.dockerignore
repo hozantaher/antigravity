@@ -1,0 +1,6 @@
+# Build context je `services/ollama/`. Ignoruj všechno kromě Dockerfile a
+# entrypoint.sh — model cache (`/root/.ollama`) je Railway volume, nikdy
+# nepatří do image.
+*
+!Dockerfile
+!entrypoint.sh

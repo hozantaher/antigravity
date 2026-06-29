@@ -1,0 +1,21 @@
+{
+  "identita": "Compliance — každé oslovení stojí na legitimním zájmu, dá se odvolat a nechává auditní stopu. GDPR/ÚOOÚ je základ, ne dodatek.",
+  "smysl": "Suppression, odvolání souhlasu, DSR (čl. 15/17), auditní log a povinná patička drží oslovení v právu i v důvěře.",
+  "smer": "Suppression union → ověřený unsubscribe token → DSR cascade → auditní log → patička s identitou správce. Každý uzel se svým důkazem.",
+  "duvod": "Recipienti jsou CZ firmy → jurisdikce ÚOOÚ; bez compliance vrstvy je celý produkt právní expozice, ne byznys.",
+  "myslenka": "Bez práva a důvěry není outreach byznys, ale riziko — compliance je nosný pilíř, ne formalita.",
+  "pillar": "trust",
+  "role": "primary",
+  "promise": "Každé oslovení je legitimní, odvolatelné a auditovatelné.",
+  "loreLine": "Legitimní zájem, odvolatelný souhlas, auditní stopa — GDPR jako základ, ne dodatek.",
+  "proofSignal": [
+    {
+      "nazev": "compliance — všechny dílčí sliby live",
+      "zdroj": "features/platform/common",
+      "stav": "pending"
+    }
+  ],
+  "antiFeature": "Compliance jako jeden blok — díra v suppression nebo ztracený audit se schová v zeleném celku a vyplave až jako stížnost u ÚOOÚ.",
+  "id": "compliance",
+  "story_axis": "legacy"
+}

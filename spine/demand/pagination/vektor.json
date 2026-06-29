@@ -1,0 +1,34 @@
+{
+  "identita": "Stránkování — strana 2 navazuje na stranu 1, deterministicky.",
+  "smysl": "Výsledky se nepřehází mezi stránkami; nic se neduplikuje ani nevynechá.",
+  "smer": "Stránkování drží deterministické pořadí napříč stránkami.",
+  "duvod": "Přeházené stránky = duplicitní/chybějící výsledky a nedůvěra v hledání.",
+  "myslenka": "Pořadí je slib, ne náhoda.",
+  "pillar": "curated",
+  "role": "supporting",
+  "promise": "Strana 2 navazuje na stranu 1.",
+  "loreLine": "Deterministické pořadí — žádné duplicity ani vynechané stroje mezi stránkami.",
+  "proofSignal": [
+    {
+      "nazev": "pagination order stability",
+      "zdroj": "repo-search-query",
+      "stav": "pending"
+    }
+  ],
+  "antiFeature": "Stránkování, co přehází pořadí — duplikuje nebo vynechává výsledky.",
+  "hotovo": {
+    "kdyzPlati": [
+      {
+        "kriterium": "Stránkování drží deterministické pořadí napříč stránkami",
+        "check": "test:search-pagination",
+        "stav": "met",
+        "proof": {
+          "cmd": "pnpm exec vitest run --project unit tests/unit/searchQuery.test.ts"
+        }
+      }
+    ],
+    "vektorGate": "all-met"
+  },
+  "id": "pagination",
+  "story_axis": "demand"
+}

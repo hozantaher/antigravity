@@ -1,0 +1,50 @@
+{
+  "identita": "Řazení — profík si výsledky srovná podle ceny nebo data, ne jen výchozím pořadím.",
+  "smysl": "Z nalezených strojů vyplave ten nejlevnější, nejdražší nebo nejnovější přesně podle volby.",
+  "smer": "Volba řazení (nejnovější, cena↑, cena↓) přepíše sdílené listing pořadí; default ('relevance') ho drží beze změny — žádný parametr navíc.",
+  "duvod": "Bez řazení projde profík vše ve fixním pořadí a nejlevnější stroj se ztratí na páté stránce — neviditelná nabídka.",
+  "myslenka": "Pořadí výsledků je volba uživatele, ne jen výchozí stav.",
+  "pillar": "curated",
+  "role": "supporting",
+  "promise": "Srovnáš si výsledky podle ceny i data — nebo necháš výchozí pořadí.",
+  "loreLine": "Cena vzestupně, sestupně, nejnovější — pořadí, co si profík zvolí sám.",
+  "proofSignal": [
+    {
+      "nazev": "sort usage / non-default share",
+      "zdroj": "search-filters-composable",
+      "stav": "pending"
+    }
+  ],
+  "antiFeature": "Řazení jen jako dekorace — volba se nepropíše do dotazu ani URL, sdílený odkaz pořadí zahodí; nebo default, co posílá zbytečný ?sort a rozbije sdílené listing pořadí.",
+  "hotovo": {
+    "kdyzPlati": [
+      {
+        "kriterium": "Volba řazení se propíše do dotazu pro výpis (usePagedItems) i do URL a default ('relevance') se elimuje — sdílené listing pořadí zůstává beze změny a sdílitelné.",
+        "check": "test:search-ordering-wiring",
+        "stav": "met",
+        "proof": {
+          "cmd": "pnpm exec vitest run --project nuxt tests/nuxt/useSearchFilters.test.ts"
+        }
+      },
+      {
+        "kriterium": "Řazení se parsuje bezpečně a vybírá deterministický klíč pořadí: explicitní volba → dedikovaný klíč (newest/priceAsc/priceDesc), 'relevance' → null = sdílené listing pořadí.",
+        "check": "test:search-ordering-key",
+        "stav": "met",
+        "proof": {
+          "cmd": "pnpm exec vitest run --project unit tests/unit/searchSort.test.ts"
+        }
+      },
+      {
+        "kriterium": "Endpoint /api/search parsuje sort odděleně od facet a předává ho do searchPage; neznámý ?sort spadne na 'relevance'.",
+        "check": "test:search-ordering-forward",
+        "stav": "met",
+        "proof": {
+          "cmd": "pnpm exec vitest run --project server tests/server/api/publicReads2.test.ts"
+        }
+      }
+    ],
+    "vektorGate": "all-met"
+  },
+  "id": "ordering",
+  "story_axis": "demand"
+}

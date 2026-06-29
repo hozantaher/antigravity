@@ -1,0 +1,31 @@
+{
+  "identita": "Soft-close — aukci ti neukradnou v poslední vteřině.",
+  "smysl": "Příhoz na konci prodlouží countdown, sniping nefunguje.",
+  "smer": "Prodloužení je v UI vysvětlené (copy + vizuál), ne jako bug.",
+  "duvod": "Skrytý soft-close vypadá jako chyba — férovost, kterou nikdo nevidí, neplní slib fair-price.",
+  "myslenka": "Spravedlnost musí být vidět, ne jen běžet na backendu.",
+  "pillar": "fair-price",
+  "role": "primary",
+  "promise": "Neukradnou ti aukci v poslední vteřině.",
+  "loreLine": "Soft-close, který nedovolí ukrást aukci na poslední chvíli — a je to vidět.",
+  "proofSignal": [
+    {
+      "nazev": "soft-close extensions surfaced",
+      "zdroj": "track/bidding",
+      "stav": "pending"
+    }
+  ],
+  "antiFeature": "Soft-close skrytý — prodloužení countdownu vypadá jako bug, férovost nikdo nevidí.",
+  "hotovo": {
+    "kdyzPlati": [
+      {
+        "kriterium": "Prodloužení soft-close je v UI vysvětlené (copy + vizuál)",
+        "check": "test:softCloseSurfaced",
+        "stav": "met"
+      }
+    ],
+    "vektorGate": "all-met"
+  },
+  "id": "soft-close",
+  "story_axis": "supply"
+}

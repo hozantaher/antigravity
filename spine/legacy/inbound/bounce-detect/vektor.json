@@ -1,0 +1,34 @@
+{
+  "identita": "Detekce bounce — DSN se zachytí jako brána PŘED klasifikací sentimentu.",
+  "smysl": "RFC 3464 DSN se rozpozná dřív, než ho klasifikátor splete s „interested\" leadem; hard (5.x) vs soft (4.x).",
+  "smer": "DetectBounce (regex parser RFC 3464, From envelope heuristika + Status kód) jako gate R2 před vstupem do klasifikátoru.",
+  "duvod": "Pokud se DSN gate přeskočí, MAILER-DAEMON „we tried to deliver\" se splete s interested a vznikne ghost lead.",
+  "myslenka": "Odraz není odpověď — musí se odchytit dřív, než ho cokoli začne číst jako sentiment.",
+  "pillar": "conversation",
+  "role": "supporting",
+  "promise": "Bounce se rozpozná dřív, než ho cokoli splete s leadem.",
+  "loreLine": "Brána před klasifikací — MAILER-DAEMON se nikdy nevydává za zájem.",
+  "proofSignal": [
+    {
+      "nazev": "DSN detect precision / ghost-lead rate",
+      "zdroj": "features/inbound/orchestrator/thread",
+      "stav": "pending"
+    }
+  ],
+  "antiFeature": "DSN dorazí, ale DetectBounce gate se přeskočí — „we tried to deliver\" se klasifikuje jako interested a vznikne ghost lead.",
+  "hotovo": {
+    "kdyzPlati": [
+      {
+        "kriterium": "DetectBounce (hard 5.x vs soft 4.x, MAILER-DAEMON envelope, Status kód, Action:delayed downgrade) projde — bounce se odchytí před klasifikací.",
+        "check": "test:bounce-detect",
+        "stav": "pending",
+        "proof": {
+          "cmd": "cd features/inbound/orchestrator && go test ./thread/..."
+        }
+      }
+    ],
+    "vektorGate": "all-met"
+  },
+  "id": "bounce-detect",
+  "story_axis": "legacy"
+}

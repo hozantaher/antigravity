@@ -1,0 +1,34 @@
+{
+  "identita": "Odpověď — admin/prodávající odpoví na otázku kupujícího.",
+  "smysl": "Pochybnost o stroji dostane odpověď od toho, kdo ji zná.",
+  "smer": "Admin/prodávající může odpovědět na položenou otázku.",
+  "duvod": "Nezodpovězená otázka = ztracená důvěra a ztracený příhoz.",
+  "myslenka": "Na otázku má kdo odpovědět.",
+  "pillar": "transparency",
+  "role": "supporting",
+  "promise": "Na otázku přijde odpověď od znalce.",
+  "loreLine": "Admin/prodávající odpoví — pochybnost dostane odpověď.",
+  "proofSignal": [
+    {
+      "nazev": "answered-rate + time-to-answer",
+      "zdroj": "item_questions",
+      "stav": "pending"
+    }
+  ],
+  "antiFeature": "Otázka bez možnosti odpovědi — tazatel tápe.",
+  "hotovo": {
+    "kdyzPlati": [
+      {
+        "kriterium": "Admin/prodávající odpoví na položenou otázku",
+        "check": "test:question-answer",
+        "stav": "met",
+        "proof": {
+          "cmd": "pnpm exec vitest run --project nuxt tests/nuxt/useAdminQuestions.test.ts"
+        }
+      }
+    ],
+    "vektorGate": "all-met"
+  },
+  "id": "answer",
+  "story_axis": "demand"
+}

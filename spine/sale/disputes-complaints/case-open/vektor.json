@@ -1,0 +1,34 @@
+{
+  "identita": "Otevření — případ vázaný na obchod.",
+  "smysl": "Spor lze otevřít k dokončenému obchodu a má jasné stavy.",
+  "smer": "Case otevřený k settled obchodu, stavový automat (open→review→resolved).",
+  "duvod": "Spor bez vazby na obchod a bez stavu je jen e-mail, který nikam nevede.",
+  "myslenka": "Každý spor má svůj obchod a svůj stav.",
+  "pillar": "fair-price",
+  "role": "primary",
+  "promise": "Reklamaci otevřeš k obchodu a uvidíš, kde je.",
+  "loreLine": "Případ s číslem a stavem — ne stížnost do prázdna.",
+  "proofSignal": [
+    {
+      "nazev": "case bound + stateful",
+      "zdroj": "vektor-tree",
+      "stav": "pending"
+    }
+  ],
+  "antiFeature": "Spor bez vazby na obchod a bez stavu — ztracená stížnost.",
+  "hotovo": {
+    "kdyzPlati": [
+      {
+        "kriterium": "Spor lze otevřít k dokončenému obchodu a má stavy",
+        "check": "test:dispute-open",
+        "stav": "met",
+        "proof": {
+          "cmd": "pnpm exec vitest run --project server tests/server/api/disputes.test.ts -t \"open against a settled sale\" 2>&1 | grep -qE \"Test Files +1 passed\""
+        }
+      }
+    ],
+    "vektorGate": "all-met"
+  },
+  "id": "case-open",
+  "story_axis": "sale"
+}

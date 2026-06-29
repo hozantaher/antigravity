@@ -1,0 +1,21 @@
+{
+  "identita": "Reklamace a spory — když něco selže, je cesta ven.",
+  "smysl": "Nesedí vůz s popisem? Otevřeš spor a řešíš ho v jasném procesu, ne v prázdnu.",
+  "smer": "Dispute flow: otevření případu k obchodu, stavy, doklady, rozhodnutí ops.",
+  "duvod": "Tržiště bez řešení sporů ztrácí důvěru po první špatné zkušenosti.",
+  "myslenka": "Důvěra se pozná, až když něco selže.",
+  "pillar": "fair-price",
+  "role": "primary",
+  "promise": "Když něco nesedí, máš jasnou cestu k nápravě.",
+  "loreLine": "Spor není slepá ulička — případ, stavy, rozhodnutí, náprava.",
+  "proofSignal": [
+    {
+      "nazev": "dispute case lifecycle",
+      "zdroj": "vektor-tree",
+      "stav": "pending"
+    }
+  ],
+  "antiFeature": "Reklamace přes obecný kontakt bez stavu — stížnost, která se ztratí.",
+  "id": "disputes-complaints",
+  "story_axis": "sale"
+}

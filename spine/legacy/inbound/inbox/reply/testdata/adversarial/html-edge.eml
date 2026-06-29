@@ -1,0 +1,17 @@
+From: alice@example.cz
+To: bob@example.cz
+Subject: HTML edge cases
+Date: Wed, 29 Apr 2026 12:00:00 +0200
+Message-ID: <html-edge-1@example.cz>
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: 8bit
+
+<!DOCTYPE html><!DOCTYPE html>
+<html><head>
+<style>@import url('http://attacker.invalid/x.css');</style>
+<script>alert('xss');</script>
+</head><body>
+<p>Děkuji za nabídku, <b>nemáme zájem<i>.</p>
+<img src=x onerror=alert(1)>
+<a href="javascript:alert(2)">link</a>
+</body>

@@ -1,0 +1,682 @@
+title: Mes enchères
+auction: Enchère
+hiw: Comment ça marche
+contact: Contacter
+findVehicle: Trouver un véhicule
+login: Connexion
+footerTerms: Conditions
+minBid: Enchère minimale
+previewAuctionStarts: L'enchère commence dans
+previewJoinAuction: Rejoindre l'enchère
+categories: catégories
+carCategory: Voitures
+motoCategory: Motocyclettes
+motorhomeCategory: Campeur
+vut75Category: Vans / Camions jusqu'à 7.5T
+to75Category: Camions de plus de 7,5T
+avCategory: Véhicules agricoles
+sttCategory: Camion-Semi-remorque
+tCategory: Remorques
+stCategory: Semi-remorques
+cmCategory: Machines de construction
+busCategory: Autobus
+ftCategory: Chariots élévateurs
+othersCategory: Autres
+formTitle: Voulez-vous vendre
+formDescription: Si vous avez un véhicule, une machine ou un autre article à vendre, veuillez nous laisser un message avec une description et vos coordonnées afin que nous puissions vous contacter. Nous organiserons l'inspection, l'expertise et tous les documents administratifs pour la vente aux enchères. Merci d'utiliser Auction24. Votre équipe Auction24.
+formCallUs: Appelez-nous maintenant
+formAgree: Je suis d'accord avec
+formTerms: les termes et conditions
+formSubmit: Envoyez-nous un message
+allAuctions: Toutes les enchères
+addAuction: Ajouter une enchère
+auctionsCount.none: Enchères
+auctionsCount.singular: Enchères
+auctionsCount.plural: Enchères
+numberOfItems: Nombre d'éléments
+itemsCount.none: Articles
+itemsCount.singular: Article
+itemsCount.plural: Articles
+viewItems: Afficher les éléments
+editAuction: Modifier l'enchère
+noAuctionsYet: Aucune enchère n'a encore lieu
+backToAuctions: Retour à l'aperçu des enchères
+backToAuction: Retour à l'aperçu des enchères
+addItem: Ajouter un élément
+listOfItems: Liste des éléments
+prevItem: Élément précédent
+nextItem: Élément suivant
+editItem: Modifier l'élément
+bidContainerTitle: Actuel / Acheter maintenant
+yourBid: Votre offre
+placeBid: Placer une enchère
+createNewItem: Créer un nouvel élément
+dialogCategory: Catégories
+dialogTitle: Titre
+dialogPrice: Prix
+startingPrice: Prix de départ
+taxIncluded: Taxe incluse
+priceBuyNow: Prix Acheter maintenant
+dialogDescription: Description
+dialogDescriptionPlaceholder: Description de l'élément ...
+dialogHighlights: Surlignements
+highlightTitlePlaceholder: Titre
+highlightValuePlaceholder: Valeur
+dialogVideo: Vidéo
+dialogVideoPlaceholder: Renseignez uniquement l'identifiant, pas l'URL entière
+dialogPhotos: Photos
+dialogAuctionTitleAdd: Ajouter une enchère
+dialogAuctionTitleEdit: Modifier l'enchère
+auctionTitle: Titre de l'enchère
+startOfAuction: L'enchère commence
+endOfAuction: Fin de l'enchère
+deleteAuction: Supprimer l'enchère
+hiwTitle1: Inscription
+hiwDesc1: Inscrivez-vous et après avoir rempli le formulaire d'inscription, vous recevrez une confirmation d'inscription par e-mail. Une fois connecté, vous aurez accès gratuitement à l'offre de véhicules et de machines qui sont dans notre vente aux enchères.
+hiwDesc2: Pour une participation active à l'enchère et la possibilité d'enchérir sur les articles sélectionnés, un acompte remboursable est requis. Les instructions se trouvent dans votre profil. Le dépôt est remboursable et peut être utilisé pour payer le prix d'achat de l'article mis aux enchères ou retourné sur votre compte.
+hiwTitle3: Enchérir et gagner
+hiwDesc3: Si le prix minimum est atteint et que votre offre est la plus élevée, vous devenez le gagnant de l'enchère et vous recevrez un e-mail avec des instructions pour le paiement et la collecte de l'article mis aux enchères.
+copyright: Tous droits réservés
+ICO: numéro d’identification
+DIC: numéro de TVA
+contacts: Contacts
+phone: Téléphone
+mobile: Mobile
+address: Adresse
+accountTitle: Mon compte
+balance: Mon solde
+amountPlaceholder: Montant à ajouter
+fundBalance: Financez votre solde
+invoices: Factures
+invoiceReqDate: Date de demande
+invoiceStatus: Statut
+invoiceStatusUnpaid: Impayé
+invoiceStatusPaid: Payé
+invoiceStatusCanceled: Annulé
+invoiceDueDate: Date d'échéance
+invoice: Facturer
+invoiceCreatedDate: Date de création
+invoiceCreating: Création d'une nouvelle facture, cela peut prendre un moment...
+myAuctions: Mes Enchères
+details: Détails du compte
+name: Nom
+namePlaceholder: Votre nom
+companyName: Nom de l'entreprise
+companyNamePlaceholder: Nom de l'entreprise
+bankAccount: Compte bancaire
+PSC: Code postal
+city: Ville
+country: Pays
+saveDetails: Enregistrer les modifications
+changePw: Modifier le mot de passe
+currentPw: Mot de passe actuel
+password: Mot de passe
+pwAgain: Retaper le mot de passe
+deleteAccount: Supprimer le compte
+deleteAccountDesc: Si vous souhaitez supprimer votre compte et ne laisser aucune trace
+logout: Déconnexion
+signUp: S'inscrire
+invoicementCurrency: Devise de facturation
+loginWGoogle: Se connecter avec Google
+loginWFacebook: Connexion via Facebook
+dontHaveAccount: Je n'ai pas de compte
+forgotPw: Mot de passe oublié
+alreadyHaveAccount: Vous avez déjàavoir un compte
+whatToSell: Que voulez-vous vendre?
+vehicleLocation: Emplacement du véhicule
+emailPlaceholder: Votre e-mail
+phonePlaceholder: Votre téléphone
+auctionNamePlaceholder: Nom de l'enchère
+searchResult: Résultat de la recherche
+resetPassword: Réinitialiser le mot de passe
+newPw: Nouveau mot de passe
+newPwAgain: Nouveau mot de passe
+auctionTitlePlaceholder: Titre
+deleteItem: Supprimer l'élément
+toastDetailsSaved: Détails enregistrés
+toastInvoiceListed: Facture spécifiée
+toastWrongPass: Mot de passe erroné
+toastPassChanged: Mot de passe modifié
+toastAuctionSaved: Enchère enregistrée
+toastAuctionCreated: Enchère créée
+toastAuctionDeleted: Enchère supprimée
+toastLoggedIn: Connecté
+toastWrongCredentials: Mauvais email ou mot de passe
+toastRegistered: Enregistré
+toastEmailSent: E-mail envoyé
+toastError: Quelque chose s'est mal passé
+toastBidError: Vous devez être connecté pour enchérir
+toastBalanceError: Vous devez d'abord payer votre solde
+toastMinBidError: Entrez l'enchère minimum
+toastBidSaved: Offre enregistrée
+toastNoPhotoError: Veuillez télécharger au moins une photo
+toastItemUpdated: Élément mis à jour
+toastItemCreated: Élément créé
+formSentSuccessTitle: Envoyé avec succès
+formSentSuccessMsg: Merci de votre intérêt pour la vente aux enchères. Votre offre a été envoyée et sera soumise pour traitement à notre personnel, qui vous contactera sous peu.
+cz: Tchèque
+en: Anglais
+de: Allemand
+fr: Français
+pl: Polonais
+nl: Néerlandais
+ru: Russie
+rs: Serbe
+hr: Croate
+me: Monténégrin
+ua: Ukrainien
+ar: Arabe
+accountTax: Impôt
+hidden: Caché
+hiddenItems: Objets cachés
+bidsHistory: Historique des enchères
+noBidsYet: Offres zéro
+assignAuction: Attribuer aux enchères
+chooseAuction: Choisissez une enchère
+recentItems: Articles récents
+auctionEndsIn: L'enchère se termine dans
+soldItems: Articles vendus
+soldLabel: Vendu
+username: Nom d'utilisateur
+usernameHint: Ce nom d'utilisateur sera visible par les autres.
+favorite: Favori
+itemDescription: Descriptif du véhicule
+itemHighlights: Données techniques
+auctionLive: En direct
+auctionSoon: Bientôt
+auctionEnded: Vendu
+buyItem: Acheter
+infoEnded: Cette enchère est terminée
+infoProcessing: Développement
+infoNoWinner: Pas de gagnant
+infoYouWon: Tu as gagné !
+infoWon: A gagné
+firebase:
+  auth/invalid-credential: 'E-mail ou mot de passe incorrect.'
+  auth/invalid-email: 'E-mail ou mot de passe incorrect.'
+  auth/missing-password: 'Veuillez saisir votre mot de passe.'
+  auth/weak-password: 'Le mot de passe est trop faible (utilisez au moins 6 caractères).'
+  auth/network-request-failed: 'Erreur réseau. Vérifiez votre connexion et réessayez.'
+  auth/no-user: 'Vous devez être connecté.'
+  auth/not-configured: 'La connexion est temporairement indisponible.'
+  auth/user-disabled: 'Ce compte a été désactivé.'
+  auth/expired-action-code: 'Ce lien a expiré.'
+  auth/invalid-action-code: 'Ce lien est invalide ou a déjà été utilisé.'
+  auth/email-already-in-use: cet e-mail est déjà utilisé
+  auth/requires-recent-login: pour mettre à jour votre adresse e-mail, veuillez vous déconnecter et vous reconnecter
+  auth/wrong-password: Mot de passe incorrect
+  auth/user-not-found: utilisateur introuvable
+  auth/too-many-requests: Trop de requêtes, veuillez réessayer plus tard
+  auth/error: Quelque chose s'est mal passé
+noBidsYetDesc: Il n'y a pas encore d'enchères
+noContactInfo: Aucune information de contact
+minBidValidator: l'enchère minimale est de {minBid}
+signInFirst: Veuillez d'abord vous connecter
+enterAmount: saisissez le montant (par exemple, {amount})
+itemStatus:
+  buyNow: Acheter
+  auctionSoon: Bientôt
+  auctionLive: Direct
+  auctionProcessing: l'enchère est en cours de traitement, veuillez patienter.
+  auctionEnd: le gagnant est {name}
+  auctionEndNoWinner: l'enchère s'est terminée sans gagnant
+  sold: Cet article est vendu
+companyInfo: informations sur la société
+confirm:
+  title: Êtes-vous sûr ?
+  desc: Voulez-vous continuer ?
+  cta: Confirmer
+  cancel: Annuler
+accountDesc: les informations de base sur votre compte
+billingTitle: informations de facturation et factures
+billingDesc: vos informations de facturation et votre historique de facturation
+invoicesTitle: Factures
+invoicesDesc: historique complet des factures
+sendMeLinkPassword: envoyez-moi un e-mail pour modifier le mot de passe
+sendMeVerificationLink: envoyer un e-mail de vérification
+update: mise à jour
+emailSentTo: l'e-mail a été envoyé à {email}
+proceedPayment: Procéder au paiement
+showPDF: Afficher le PDF
+createNewAccount: Créer un nouveau compte
+signIn: Connectez-vous à votre compte
+noItems: Aucun élément trouvé
+noItemsDesc: Désolé, nous n'avons trouvé aucun article.
+cookies: Nous utilisons des cookies pour améliorer votre expérience sur notre site et pour vous montrer des publicités pertinentes. Pour en savoir plus, lisez notre
+accept: Accepter
+privacyPolicy: Politique de confidentialité
+registerAsCompany: S'inscrire en tant qu'entreprise
+notEligibleToBid: Vous n'êtes pas éligible pour enchérir, veuillez contacter l'assistance
+bidEmailAndPhone: Veuillez vérifier votre e-mail et remplir votre téléphone pour pouvoir enchérir
+emailSent: L'e-mail a été envoyé à {email}
+emailUpdated: L'e-mail a été mis à jour avec succès
+termsValidator: Vous devez accepter les termes et conditions
+accountCreated: Le compte a été créé
+requiredField: Ce champ est requis We use cookies to improve your experience on our site and to show you relevant advertisting. To find out more, read our
+cpBrand: Marque
+cpModel: Modèle
+cpYear: An
+cpVolume: Le volume
+cpPower: Puissance
+cpFuel: Le carburant
+cpTransmission: Transmission
+cpMileage: Kilométrage
+cpColour: Couleur
+cpVIN: VIN
+cpEquip: Équipement
+cpLocation: Emplacement
+cpAxles: Essieux
+cpState: État
+cpNetWeight: Poids net
+cpSuspensions: Suspensions
+cpWorkingHours: Heures d'ouverture
+cpSeats: Des places
+cpForkliftAttach: Accessoires de chariot élévateur
+cpSleepPlaces: Nombre de places de sommeil
+cpType: Tapez
+you: Tu
+form:
+  validator:
+    min: La valeur minimale est {min}
+    max: La valeur maximale est {max}
+    minlength: La longueur minimale est {min}
+    maxlength: La longueur maximale est {max}
+    email: Mauvais format d'e-mail
+    phone: Mauvais format de téléphone
+    wrongMatch: Les mots de passe doivent être identiques
+minBidNotMet: Enchère minimum non atteinte
+buyNow: Acheter maintenant
+offerPrice: Prix de l'offre
+enterOffer: Entrer le montant
+sendOffer: Envoyer une offre
+onRequest: Sur demande
+sold: Vendu
+resetPasswordSent: The email has been sent to {email}
+yourBidIs: Votre enchère est de
+confirmBid: Voulez-vous vraiment miser ce montant ?
+copyLink: Copier le lien
+share: Partager
+Invoices: Factures
+accountDeleted: Le compte a été supprimé
+acountTax: Taxe
+bids: Enchères
+clipboardCopied: Copié dans le presse-papier
+close: Fermer
+cancel: Annuler
+save: Enregistrer
+searchPlace: Rechercher un lieu...
+openMainMenu: Ouvrir le menu principal
+panorama: Panorama 360°
+aboutTitle: À propos
+aboutText: Auction24.cz — enchères et petites annonces de véhicules.
+selectTab: Sélectionnez un onglet
+itemPreviewVideo: Vidéo de présentation de l'article
+contactEmail: E-mail de contact
+contactPhone: Téléphone de contact
+depositFirst: Veuillez d'abord effectuer un dépôt
+email: E-mail
+errorHidden: L'article que vous recherchiez n'est plus disponible
+errorPasswordLength: Le mot de passe doit comporter au moins 6 caractères
+errorPasswordMatch: Les mots de passe ne correspondent pas
+errorTerms: Veuillez accepter nos conditions générales
+formNews: M'envoyer la newsletter
+hiwTitle2: Enchérisseur
+invoiceAmount: Montant
+items: Articles
+language: Langue
+location: Localisation
+minimalPrice: Prix minimal
+noFavorites: Vous n'avez aucun article favori
+not-found: Page introuvable
+notSoldLabel: Non vendu
+titleError: Le titre est vide
+toastRequiredDate: Veuillez renseigner les dates
+type: Type
+typeAd: Annonce
+typeAuction: Enchère
+visibility: Visibilité
+visible: Visible
+withoutTax: hors taxe
+galleryPrevious: Photo précédente
+galleryNext: Photo suivante
+galleryZoomIn: Agrandir
+galleryZoomOut: Réduire
+galleryViewAll: Voir toutes les photos
+galleryPhotoOf: Photo {current} sur {total}
+
+authFlow:
+  verifying: 'Vérification…'
+  verifiedTitle: 'E-mail vérifié'
+  verifiedBody: 'Votre e-mail {email} a été vérifié.'
+  pendingTitle: 'Vérification de l''e-mail'
+  invalidCode: 'Ce lien est invalide ou a expiré.'
+  resend: 'Renvoyer l''e-mail de vérification'
+  resending: 'Envoi en cours…'
+  resendSuccess: 'Nous vous avons envoyé un nouvel e-mail de vérification.'
+  resendError: 'Échec de l''envoi de l''e-mail. Veuillez réessayer.'
+  backToLogin: 'Retour à la connexion'
+  resetLead: 'Choisissez un nouveau mot de passe pour votre compte.'
+  newPassword: 'Nouveau mot de passe'
+  resetSubmit: 'Définir le nouveau mot de passe'
+  resetSuccess: 'Votre mot de passe a été modifié. Vous pouvez maintenant vous connecter.'
+  resetFailed: 'Une erreur s''est produite. Veuillez réessayer.'
+  getNewResetLink: 'Demander un nouveau lien'
+  emailSentReset: 'Nous avons envoyé un lien de réinitialisation du mot de passe à {email}.'
+
+pagination:
+  previous: Précédent
+  next: Suivant
+  showing: "Affichage de {from} à {to} sur {total}"
+  label: Pagination
+
+vehicle:
+  title: Caractéristiques techniques
+  brand: Marque
+  model: Modèle
+  year: Année
+  firstRegistration: Première immatriculation
+  fuelType: Carburant
+  transmission: Transmission
+  bodyType: Carrosserie
+  driveType: Roues motrices
+  color: Couleur
+  power: Puissance
+  displacement: Cylindrée
+  gears: Rapports
+  emission: Norme antipollution
+  co2: Émissions de CO₂
+  doors: Portes
+  seats: Places
+  axles: Essieux
+  length: Longueur
+  width: Largeur
+  height: Hauteur
+  wheelbase: Empattement
+  weight: Poids à vide
+  maxSpeed: Vitesse maximale
+  vin: VIN
+  fuel:
+    petrol: Essence
+    diesel: Diesel
+    electric: Électrique
+    hybrid: Hybride
+    phev: Hybride rechargeable
+    lpg: GPL
+    cng: GNV
+    hydrogen: Hydrogène
+    other: Autre
+  trans:
+    manual: Manuelle
+    automatic: Automatique
+    semi_automatic: Semi-automatique
+    cvt: CVT
+    dct: Double embrayage (DCT)
+  body:
+    sedan: Berline
+    wagon: Break
+    hatchback: Hatchback
+    suv: SUV
+    coupe: Coupé
+    convertible: Cabriolet
+    van: Fourgon
+    pickup: Pick-up
+    minibus: Minibus
+    other: Autre
+  drive:
+    fwd: Traction avant
+    rwd: Propulsion
+    awd: Quatre roues motrices
+    4x4: 4×4
+  colors:
+    white: Blanc
+    black: Noir
+    silver: Argent
+    grey: Gris
+    blue: Bleu
+    red: Rouge
+    green: Vert
+    brown: Marron
+    beige: Beige
+    yellow: Jaune
+    orange: Orange
+    gold: Or
+    other: Autre
+
+reco:
+  similarTitle: Annonces similaires
+  forYouTitle: Sélection pour vous
+savedSearch:
+  title: Recherches enregistrées
+  empty: Vous n'avez pas encore de recherche enregistrée.
+  save: Enregistrer cette recherche
+  nameLabel: Nommez cette recherche
+  namePlaceholder: ex. SUV diesel à moins de 300k
+  create: Enregistrer la recherche
+  delete: Supprimer
+  deleteConfirm: Supprimer cette recherche enregistrée ?
+  alertOn: Alertes e-mail activées
+  alertOff: Alertes e-mail désactivées
+  alertHint: Nous vous enverrons un e-mail dès qu'une annonce correspondante, nouvelle ou bientôt terminée, apparaît.
+  filterSummary: "{count} filtres"
+  created: Recherche enregistrée créée
+  removed: Recherche enregistrée supprimée
+messaging:
+  title: Questions
+  ask: Poser une question
+  placeholder: Posez une question au vendeur…
+  submit: Envoyer la question
+  submitted: Votre question a été envoyée et est en attente de validation.
+  signInFirst: Connectez-vous pour poser une question
+  empty: Aucune question pour le moment
+  emptyDesc: Soyez le premier à poser une question au vendeur.
+  answer: Réponse du vendeur
+  asker: Acheteur
+  pending: En attente de validation
+  you: Vous
+  error: L'envoi de votre question a échoué. Veuillez réessayer.
+compare:
+  title: Comparer les véhicules
+  pageTitle: Comparaison de véhicules
+  hint: "Comparez jusqu'à {max} véhicules côte à côte."
+  empty: Aucun véhicule à comparer
+  emptyHint: Ajoutez des véhicules avec l'icône de comparaison sur n'importe quelle annonce.
+  failedToLoad: "{count} véhicule(s) n'ont pas pu être chargés — ils ont probablement été supprimés."
+  add: Ajouter au comparateur
+  remove: Retirer du comparateur
+  removeAria: "Retirer {title} du comparateur"
+  open: Ouvrir la comparaison
+  clear: Effacer
+  count: "{count}/{max}"
+  addedToast: "Ajouté au comparateur ({count}/{max})"
+  removedToast: Retiré du comparateur
+  fullToast: "Vous pouvez comparer jusqu'à {max} véhicules."
+  price: Prix
+
+settlement:
+  title: "Finalisez votre achat"
+  cardTitle: "Vous avez gagné — payez le prix final"
+  finalPrice: "Prix final"
+  depositCredit: "Caution déduite"
+  amountDue: "Montant dû"
+  fullyCoveredByDeposit: "Entièrement couvert par votre caution"
+  back: "Retour"
+  continue: "Continuer"
+  confirmFree: "Confirmer l'achat"
+  summaryHeading: "Récapitulatif de l'achat"
+  summaryIntro: "Payez le prix final moins la caution déjà déposée."
+  billingHeading: "Coordonnées de facturation"
+  billingIntro: "Nous utilisons ces informations sur la facture."
+  billingName: "Nom"
+  billingEmail: "E-mail"
+  billingStreet: "Rue et numéro"
+  billingZip: "Code postal"
+  billingCity: "Ville"
+  billingCountry: "Pays"
+  billingError: "L'enregistrement a échoué. Veuillez réessayer."
+  methodHeading: "Choisissez un mode de paiement"
+  methodIntro: "Les deux modes finalisent votre achat automatiquement dès réception du paiement."
+  methodCard: "Carte"
+  methodCardHint: "Instantané via Stripe"
+  methodTransfer: "Virement bancaire"
+  methodTransferHint: "Paiement QR, généralement sous 1 jour ouvré"
+  payByCard: "Payer par carte"
+  cardDesc: "Nous vous redirigeons vers la page de paiement sécurisée Stripe."
+  cardSecure: "Le paiement est traité par Stripe — vos données de carte ne nous parviennent jamais."
+  redirecting: "Redirection…"
+  payByTransfer: "Payer par virement"
+  transferIntro: "Envoyez le montant exact avec le symbole variable ci-dessous pour un rapprochement automatique."
+  recipient: "Bénéficiaire"
+  account: "Numéro de compte"
+  iban: "IBAN"
+  variableSymbol: "Symbole variable"
+  paymentMessage: "Référence du paiement"
+  scanToPay: "Scanner pour payer"
+  transferWaiting: "En attente de votre paiement — cette page se rafraîchit automatiquement."
+  viewInvoice: "Voir la facture"
+  copy: "Copier les coordonnées"
+  copied: "Coordonnées de paiement copiées"
+  loadingPayment: "Préparation des coordonnées de paiement…"
+  verifyingTitle: "Confirmation de votre paiement…"
+  verifyingSlow: "Cela prend plus de temps que d'habitude — votre paiement est en sécurité."
+  successTitle: "Achat finalisé"
+  successBody: "Votre facture arrive par e-mail. Merci !"
+  successFeatures:
+    invoice: "Facture par e-mail"
+    complete: "Achat finalisé"
+  notWinner: "Seul le gagnant de l'enchère peut régler cet achat."
+  alreadyPaid: "Cet achat est déjà payé."
+  toastError: "Impossible de démarrer le paiement. Veuillez réessayer."
+  toastPaid: "Paiement reçu — merci !"
+  steps:
+    summary: "Récapitulatif de l'achat"
+    billing: "Coordonnées de facturation"
+    method: "Choisissez un mode de paiement"
+    payment: "Payer par virement"
+    success: "Achat finalisé"
+  card:
+    paidTitle: "Achat finalisé"
+    paidDesc: "Votre facture a été envoyée par e-mail."
+    pendingTitle: "En attente de votre paiement"
+    pendingDesc: "Dès réception de votre paiement de {amount}, l'achat sera finalisé automatiquement."
+    dueDesc: "Vous avez gagné — payez {amount} pour finaliser l'achat."
+    showDetails: "Finaliser le paiement"
+    cta: "Payer"
+
+deposit:
+  title: Caution d'enchères
+  continue: Continuer
+  back: Retour
+  stepper:
+    currency: Devise
+    details: Coordonnées
+    payment: Paiement
+    done: Terminé
+    method: Méthode
+  currency:
+    heading: Choisissez la devise de la caution
+    intro: La caution est une garantie remboursable qui débloque les enchères dans toutes les ventes. Payez-la par simple virement bancaire.
+    czkSub: paiement en CZK depuis un compte tchèque
+    eurSub: paiement en EUR (SEPA)
+  billing:
+    heading: Coordonnées de facturation
+    intro: Nous utiliserons ces informations sur la facture proforma de la caution.
+    name: Nom
+    email: E-mail
+    street: Rue et numéro
+    city: Ville
+    zip: Code postal
+    country: Pays
+    error: L'enregistrement a échoué. Veuillez réessayer.
+  payment:
+    heading: Payez par virement bancaire
+    intro: Envoyez le montant exact avec le symbole variable ci-dessous pour que nous puissions associer votre paiement automatiquement.
+    recipient: Bénéficiaire
+    account: Numéro de compte
+    iban: IBAN
+    amount: Montant
+    vs: Symbole variable
+    message: Référence du paiement
+    qrHint: Scannez le code QR avec votre application bancaire
+    copy: Copier les données
+    copied: Données de paiement copiées
+    waiting: En attente de votre paiement — cet écran se met à jour automatiquement.
+    invoice: Voir la facture proforma
+    note: Nous associons votre paiement grâce au symbole variable {vs}. Les virements arrivent généralement en quelques minutes, jusqu'à 1 jour ouvré.
+    error: Impossible de charger les données de paiement. Fermez la fenêtre et réessayez.
+    loading: Préparation des données de paiement…
+  method:
+    heading: Choisissez le mode de paiement
+    intro: Les deux modes activent la caution automatiquement dès réception du paiement.
+    card: Paiement par carte
+    cardHint: Instantané via Stripe
+    transfer: Virement bancaire
+    transferHint: Paiement QR, réception généralement sous 1 jour ouvré
+  cardPay:
+    heading: Paiement par carte
+    desc: Nous allons vous rediriger vers la page de paiement sécurisée de Stripe.
+    secure: Le paiement est traité par Stripe — vos données de carte ne nous parviennent jamais.
+    pay: Payer par carte
+    redirecting: Redirection…
+    error: Impossible de démarrer le paiement par carte. Réessayez ou choisissez le virement.
+  verifying:
+    slowNote: Cela prend plus de temps que d'habitude. Nous finaliserons le paiement en arrière-plan — vous pouvez fermer cette fenêtre, la caution s'activera automatiquement.
+  return:
+    cancelled: Le paiement par carte a été annulé. Vous pouvez réessayer ou payer par virement.
+  success:
+    processing: Vérification du paiement…
+    title: Caution payée !
+    note: La confirmation et le reçu ont été envoyés par e-mail. Bonnes enchères !
+    features:
+      bidding: Enchères débloquées
+      refundable: Entièrement remboursable
+      invoice: Reçu par e-mail
+      instant: Activation immédiate
+    back: Retour à la vente
+    browse: Parcourir les enchères
+    close: Fermer
+  card:
+    title: Caution d'enchères
+    desc: Pour enchérir, déposez une caution remboursable de {czk} ou {eur}.
+    cta: Déposer la caution
+    pendingTitle: En attente du paiement de la caution
+    pendingDesc: Dès réception de votre paiement de {amount}, la caution sera activée automatiquement.
+    showDetails: Finaliser le paiement
+    invoice: Facture proforma
+    paidTitle: Caution payée
+    paidDesc: Vous pouvez enchérir dans toutes les ventes.
+
+seo:
+  homeTitle: "Enchères en ligne de véhicules et de machines"
+  homeDescription: "Enchères et vente directe de camions, voitures, machines et équipements. Parcourez les annonces vérifiées et enchérissez en ligne sur Auction24.cz."
+  categoryDescription: "Enchères et annonces actuelles dans la catégorie {category}. Parcourez l'offre et enchérissez en ligne sur Auction24.cz."
+  auctionsDescription: "Enchères en direct de véhicules et de machines — camions, voitures et équipements. Enchérissez en ligne et suivez les clôtures sur Auction24.cz."
+  buyNowDescription: "Véhicules et machines à l'achat immédiat à prix fixe. Parcourez les annonces achat immédiat sur Auction24.cz."
+  soldDescription: "Véhicules et machines récemment vendus — prix atteints et enchères clôturées sur Auction24.cz."
+  home: "Accueil"
+search:
+  title: Recherche
+  placeholder: Rechercher des enchères…
+  resultsCount: "{count} résultats"
+  noResults: Aucune annonce correspondante
+  noResultsHint: Essayez de retirer un filtre ou d'élargir votre recherche
+  filters: Filtres
+  clearFilters: Tout effacer
+  facetType: Type
+  facetTypeAuction: Enchère
+  facetTypeAd: Achat immédiat
+  facetCategory: Catégorie
+  facetPriceMin: Prix min
+  facetPriceMax: Prix max
+  facetFuel: Carburant
+  facetBody: Carrosserie
+  facetTransmission: Boîte de vitesses
+  facetDrive: Transmission
+  facetColor: Couleur
+  facetYearFrom: Année de
+  facetYearTo: Année à
+  sortLabel: Tri
+  sortRelevance: Pertinence
+  sortNewest: Plus récents
+  sortPriceAsc: "Prix : croissant"
+  sortPriceDesc: "Prix : décroissant"
+  activeFilter: "Filtre : {label}"

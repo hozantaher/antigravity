@@ -1,0 +1,34 @@
+{
+  "identita": "Send-window — český byznys kalendář brání odesílání mimo pracovní okno.",
+  "smysl": "Svátky (zákon 245/2000 Sb.), redukované dny a mrtvé zóny (22.12.–2.1.) gateují eligibilitu odeslání.",
+  "smer": "calendar/cz.go IsSendableDay + InSendWindow gateují runner (gate R4/R14), timezone Europe/Prague.",
+  "duvod": "Oslovení o víkendu nebo o svátcích působí bezohledně a snižuje odpověď; mrtvé zóny jsou reputační riziko.",
+  "myslenka": "Kdy oslovit je stejně důležité jako co — okno respektuje příjemce i právo.",
+  "pillar": "reach",
+  "role": "supporting",
+  "promise": "Odesílá se jen v českém pracovním okně — žádné svátky a mrtvé zóny.",
+  "loreLine": "Pracovní den, otevřené okno, žádný svátek — kdy oslovit rozhoduje kalendář, ne náhoda.",
+  "proofSignal": [
+    {
+      "nazev": "off-window send rate / holiday adherence",
+      "zdroj": "features/platform/common/calendar",
+      "stav": "pending"
+    }
+  ],
+  "antiFeature": "Hardcoded seznam svátků se rozejde s realitou (nový svátek, DST) — odesílá se v blackout dnech bez alertu.",
+  "hotovo": {
+    "kdyzPlati": [
+      {
+        "kriterium": "IsSendableDay i InSendWindow (svátky, redukované dny, mrtvé zóny, timezone) projdou — gate okna je deterministický.",
+        "check": "test:send-window",
+        "stav": "pending",
+        "proof": {
+          "cmd": "cd features/platform/common && go test ./calendar/..."
+        }
+      }
+    ],
+    "vektorGate": "all-met"
+  },
+  "id": "send-window",
+  "story_axis": "legacy"
+}

@@ -1,0 +1,21 @@
+{
+  "identita": "Fakturace — každá platba má dohledatelný daňový doklad.",
+  "smysl": "Za kauci i nákup dostaneš fakturu; ve svém účtu ji najdeš s číslem a stavem.",
+  "smer": "Doklad přes Fakturoid: proforma u kauce, řádná faktura u prodeje, sync stavu placeno, storno.",
+  "duvod": "Bez dokladu není důvěra ani účetnictví; faktura je most mezi platbou a daní.",
+  "myslenka": "Každá platba má svůj papír.",
+  "pillar": "serious-community",
+  "role": "primary",
+  "promise": "Za každou platbu máš dohledatelný doklad.",
+  "loreLine": "Proforma, faktura, storno — daňová stopa, která sedí.",
+  "proofSignal": [
+    {
+      "nazev": "invoice list + fakturoid sync",
+      "zdroj": "test/invoices+fakturoid",
+      "stav": "live"
+    }
+  ],
+  "antiFeature": "Platba bez faktury — peníze bez papíru, noční můra účetní.",
+  "id": "invoicing",
+  "story_axis": "sale"
+}

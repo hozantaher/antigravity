@@ -1,0 +1,6 @@
+STATUS: 200
+HEADER: Content-Type: text/html
+EXPECT: captcha
+NOTE: hCaptcha widget — alternate class.
+---
+<!DOCTYPE html><html><head></head><body><form><div class="h-captcha" data-sitekey="10000000-ffff-ffff-ffff-000000000001"></div></form></body></html>

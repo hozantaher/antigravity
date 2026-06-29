@@ -1,0 +1,21 @@
+{
+  "identita": "Platforma — operátorská paluba, ze které jde všechno spustit, a hlídky, co poznají výpadek dřív než operátor.",
+  "smysl": "Dashboard BFF, ochranné sondy, PDF worker a MCP server drží mašinu provozuschopnou a operovatelnou.",
+  "smer": "Dashboard (BFF → Go proxy) → ochrany (L2/L3 sondy + eskalace) → worker (async PDF) → MCP (nástroje). Každý uzel se svým důkazem.",
+  "duvod": "Bez operovatelné paluby a hlídek je i dokonalá pipeline neřiditelná — výpadek se pozná až podle ztráty.",
+  "myslenka": "Stroj, který nejde operovat a hlídat, není hotový produkt — je to jen kód.",
+  "pillar": "platform",
+  "role": "primary",
+  "promise": "Vše jde spustit z paluby a výpadek se pozná dřív, než uškodí.",
+  "loreLine": "Paluba a hlídky — operátor vidí stav a stiskne tlačítko dřív, než něco spadne.",
+  "proofSignal": [
+    {
+      "nazev": "platform — všechny dílčí sliby live",
+      "zdroj": "features/platform/outreach-dashboard",
+      "stav": "pending"
+    }
+  ],
+  "antiFeature": "Platforma jako jeden blok — tichý fallback BFF nebo hluchá sonda se schová v zeleném celku a výpadek se pozná pozdě.",
+  "id": "platform",
+  "story_axis": "platform"
+}

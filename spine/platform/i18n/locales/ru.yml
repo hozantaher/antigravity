@@ -1,0 +1,682 @@
+title: Мои аукционы
+auction: Aукцион
+hiw: Как это работает
+contact: Контакт
+findVehicle: Найти автомобиль
+login: Войти
+footerTerms: Условия
+minBid: Минимальная ставка
+previewAuctionStarts: Аукцион начнется через
+previewJoinAuction: Присоединиться к аукциону
+categories: категории
+carCategory: Автомобили
+motoCategory: Мотоциклы
+motorhomeCategory: Караваны
+vut75Category: Фургоны/Грузовики до 7,5 т
+to75Category: Грузовые автомобили полной массой более 7,5 т
+avCategory: Сельхозтехника
+sttCategory: Tягачи
+tCategory: Прицепы
+stCategory: Полуприцепы
+cmCategory: Строительная техника
+busCategory: Автобусы
+ftCategory: Вилочные погрузчики
+othersCategory: Другой
+formTitle: Вы хотите продать
+formDescription: Если у вас есть автомобиль, машина или другой предмет для продажи, пожалуйста, оставьте нам сообщение с описанием и контактными данными, чтобы мы могли связаться с вами. Мы организуем осмотр, оценку и все административные документы для продажи на аукционе. Благодарим вас за использование Аукцион24. Ваша команда Аукцион24.
+formCallUs: Позвоните нам сейчас
+formAgree: Я согласен с
+formTerms: условиями
+formSubmit: Отправьте нам сообщение
+allAuctions: Все аукционы
+addAuction: Добавить аукцион
+auctionsCount.none: Аукционы
+auctionsCount.singular: Аукционы
+auctionsCount.plural: Аукционы
+numberOfItems: Количество элементов
+itemsCount.none: Предметы
+itemsCount.singular: Элемент
+itemsCount.plural: Предметы
+viewItems: Просмотреть элементы
+editAuction: Редактировать аукцион
+noAuctionsYet: Аукционы пока не проводятся
+backToAuctions: Вернуться к обзору аукциона
+backToAuction: Вернуться к обзору аукциона
+addItem: Добавить элемент
+listOfItems: Список элементов
+prevItem: Предыдущий элемент
+nextItem: Следующий элемент
+editItem: Редактировать элемент
+bidContainerTitle: Текущий/Купить сейчас
+yourBid: Ваше предложение
+placeBid: Сделать ставку
+createNewItem: Создать новый элемент
+dialogCategory: Категории
+dialogTitle: Заголовок
+dialogPrice: Цена
+startingPrice: Стартовая цена
+taxIncluded: Налоги включены
+withoutTax: без налога
+priceBuyNow: Цена Купить сейчас
+dialogDescription: Описание
+dialogDescriptionPlaceholder: Описание элемента...
+dialogHighlights: Основные моменты
+highlightTitlePlaceholder: Заголовок
+highlightValuePlaceholder: Значение
+dialogVideo: Видео
+dialogVideoPlaceholder: Укажите только идентификатор, а не весь URL-адрес
+dialogPhotos: Фотографии
+dialogAuctionTitleAdd: Добавить аукцион
+dialogAuctionTitleEdit: Редактировать аукцион
+auctionTitle: Название аукциона
+startOfAuction: Аукцион начинается
+endOfAuction: Завершить аукцион
+deleteAuction: Удалить аукцион
+hiwTitle1: Регистрация
+hiwDesc1: Зарегистрируйтесь и после заполнения регистрационной формы вы получите подтверждение регистрации по электронной почте. После входа в систему вы получите бесплатный доступ к предложению транспортных средств и машин, которые находятся на нашем аукционе.
+hiwTitle2: Аукционист
+hiwDesc2: Для активного участия в аукционе и возможности делать ставки на выбранные предметы требуется возвратный депозит. Инструкцию можно найти в вашем профиле. Депозит подлежит возврату и может быть использован для оплаты покупной цены предмета, выставленного на аукцион, или возвращен на ваш счет.
+hiwTitle3: Торги и выигрыш
+hiwDesc3: Если достигнута минимальная цена и ваша ставка самая высокая, вы становитесь победителем аукциона, и вам будет отправлено электронное письмо с инструкциями по оплате и получению выставленного на аукцион предмета.
+copyright: Все права защищены
+ICO: ОГРН
+DIC: ИНН
+contacts: Контакты
+phone: Телефон
+mobile: Мобильный
+address: Адрес
+accountTitle: Мой аккаунт
+balance: Мой баланс
+amountPlaceholder: Сумма для добавления
+fundBalance: Пополнить баланс
+invoices: счета
+invoiceReqDate: Дата запроса
+invoiceAmount: Сумма
+invoiceStatus: Статус
+invoiceStatusUnpaid: Не оплачено
+invoiceStatusPaid: Оплачено
+invoiceStatusCanceled: Отменено
+invoiceDueDate: Дата оплаты
+invoice: Счет
+invoiceCreatedDate: Дата Создания
+invoiceCreating: Создание нового счёта, это может занять некоторое время...
+myAuctions: Мои аукционы
+details: Детали учетной записи
+name: Имя
+namePlaceholder: Ваше имя
+companyName: Название компании
+companyNamePlaceholder: Название компании
+bankAccount: Банковский счет
+PSC: почтовый индекс
+city: Город
+country: Страна
+saveDetails: Сохранить изменения
+changePw: Изменить пароль
+currentPw: Текущий пароль
+password: Пароль
+pwAgain: Повторите пароль
+deleteAccount: Удалить аккаунт
+deleteAccountDesc: Если вы хотите удалить свой аккаунт и не оставить следов
+logout: Выйти
+signUp: Зарегистрироваться
+invoicementCurrency: Валюта счета
+loginWGoogle: Войти через Google
+loginWFacebook: Войти через Facebook
+dontHaveAccount: У меня нет учетной записи
+forgotPw: Забыли пароль
+alreadyHaveAccount: Вы ужеИметь аккаунт
+whatToSell: Что вы хотите продать?
+vehicleLocation: Местоположение автомобиля
+emailPlaceholder: Ваш адрес электронной почты
+phonePlaceholder: Ваш телефон
+auctionNamePlaceholder: Название аукциона
+searchResult: Результат поиска
+resetPassword: Сбросить пароль
+newPw: Новый пароль
+newPwAgain: Новый пароль
+auctionTitlePlaceholder: Заголовок
+deleteItem: Удалить элемент
+toastDetailsSaved: Детали сохранены
+toastInvoiceListed: Указанный счет-фактура
+toastWrongPass: Неверный пароль
+toastPassChanged: Пароль изменен
+toastAuctionSaved: Аукцион сохранен
+toastAuctionCreated: Аукцион создан
+toastAuctionDeleted: Аукцион удален
+toastLoggedIn: Выполнен вход
+toastWrongCredentials: Неверный адрес электронной почты или пароль
+toastRegistered: Зарегистрировано
+toastEmailSent: Электронное письмо отправлено
+toastError: Что-то пошло не так
+toastBidError: Чтобы делать ставки, вы должны войти в систему
+toastBalanceError: Сначала вы должны оплатить свой баланс
+toastMinBidError: Введите минимальную ставку
+toastBidSaved: Предложение сохранено
+toastNoPhotoError: Пожалуйста, загрузите хотя бы одно фото
+toastItemUpdated: Элемент обновлен
+toastItemCreated: Элемент создан
+formSentSuccessTitle: Отправлено успешно
+formSentSuccessMsg: Благодарим вас за интерес к продаже через аукцион. Ваше предложение отправлено и будет передано на обработку нашим сотрудникам, которые свяжутся с вами в ближайшее время.
+close: Закрыть
+cancel: Отмена
+save: Сохранить
+searchPlace: Поиск места...
+openMainMenu: Открыть главное меню
+panorama: Панорама 360°
+aboutTitle: О нас
+aboutText: Auction24.cz — автомобильные аукционы и объявления.
+selectTab: Выберите вкладку
+itemPreviewVideo: Превью-видео объекта
+cz: Чешский
+en: Aнглийский
+de: Немецкий
+fr: Французский
+pl: Польский
+nl: Нидерландский
+ru: Pусский
+rs: Cербский
+hr: Xорватский
+me: Черногорский
+ua: Украинский
+ar: Aрабский
+accountTax: налог
+hidden: Скрытый
+hiddenItems: Скрытые предметы
+bidsHistory: История ставок
+noBidsYet: Нулевые ставки
+assignAuction: Назначить на аукцион
+chooseAuction: Выбрать аукцион
+recentItems: последние элементы
+auctionEndsIn: Аукцион заканчивается через
+soldItems: Продано товаров
+soldLabel: Продал
+username: Имя пользователя
+usernameHint: Это имя пользователя будет видно другим.
+favorite: Избранное
+itemDescription: Описание автомобиля
+itemHighlights: Технические данные
+auctionSoon: Скоро
+auctionLive: В ходе
+auctionEnded: Продано
+buyItem: Купить сейчас
+infoEnded: Аукцион закрыт
+infoNoWinner: Никто не выиграл
+infoProcessing: Обработка
+infoYouWon: Вы победитель аукциона
+infoWon: Bыиграл
+firebase:
+  auth/invalid-credential: 'Неверный e-mail или пароль.'
+  auth/invalid-email: 'Неверный e-mail или пароль.'
+  auth/missing-password: 'Введите пароль.'
+  auth/weak-password: 'Пароль слишком простой (используйте не менее 6 символов).'
+  auth/network-request-failed: 'Ошибка сети. Проверьте подключение и попробуйте снова.'
+  auth/no-user: 'Необходимо войти в систему.'
+  auth/not-configured: 'Вход временно недоступен.'
+  auth/user-disabled: 'Эта учётная запись отключена.'
+  auth/expired-action-code: 'Срок действия этой ссылки истёк.'
+  auth/invalid-action-code: 'Эта ссылка недействительна или уже использована.'
+  auth/email-already-in-use: Этот адрес электронной почты уже используется
+  auth/requires-recent-login: Чтобы обновить адрес электронной почты, выйдите из системы и войдите снова.
+  auth/wrong-password: Неверный пароль
+  auth/user-not-found: пользователь не найден
+  auth/too-many-requests: слишком много запросов, попробуйте позже
+  auth/error: Что-то пошло не так
+noBidsYetDesc: Ставок пока нет
+noContactInfo: нет контактной информации
+minBidValidator: минимальная ставка {minBid}
+signInFirst: Сначала войдите в систему
+depositFirst: Сначала внесите депозит
+enterAmount: Введите сумму (например, {amount})
+itemStatus:
+  buyNow: Kупить
+  auctionSoon: Скоро
+  auctionLive: Oнлайн
+  sold: Этот товар продан
+  auctionEnd: Победитель — {name}
+  auctionEndNoWinner: Аукцион завершён, минимальная цена не достигнута
+  auctionProcessing: Аукцион обрабатывается, пожалуйста, подождите..
+companyInfo: Информация о компании
+confirm:
+  title: Вы уверены?
+  desc: Вы хотите продолжить?
+  cta: Подтвердить
+  cancel: отменить
+accountDesc: основная информация о вашей учетной записи
+billingTitle: Платежная информация и счета
+billingDesc: Ваша платежная информация и история счетов.
+invoicesTitle: Инвойсы
+invoicesDesc: Полная история выставления счетов
+sendMeLinkPassword: Отправьте мне электронное письмо, чтобы изменить пароль
+sendMeVerificationLink: отправить электронное письмо с подтверждением
+update: обновление
+emailSentTo: Электронное письмо было отправлено на {email}
+proceedPayment: Оплатить
+showPDF: Показать PDF
+createNewAccount: Создать новый аккаунт
+signIn: Войдите в свой аккаунт
+noItems: Элемент не найден
+noItemsDesc: Извините, мы не смогли найти ни одного элемента.
+cookies: Мы используем файлы cookie, чтобы улучшить ваше взаимодействие с нашим сайтом и показать вам релевантную рекламу. Чтобы узнать больше, прочитайте нашу
+accept: Принимать
+privacyPolicy: Политика конфиденциальности
+registerAsCompany: Зарегистрироваться как компания
+notEligibleToBid: Вы не имеете права делать ставки, обратитесь в службу поддержки
+bidEmailAndPhone: Пожалуйста, подтвердите свою электронную почту и заполните телефон, чтобы иметь возможность делать ставки
+emailSent: Письмо отправлено на адрес {email}
+emailUpdated: Электронная почта успешно обновлена
+termsValidator: Вы должны согласиться с условиями
+accountCreated: Аккаунт создан
+requiredField: Это поле обязательно к заполнению We use cookies to improve your experience on our site and to show you relevant advertisting. To find out more, read our
+cpBrand: Бренд
+cpModel: Модель
+cpYear: Год
+cpVolume: Объем
+cpPower: Сила
+cpFuel: Топливо
+cpTransmission: Kоробка передач
+cpMileage: Пробег
+cpColour: Цвет
+cpVIN: VIN
+cpEquip: Оборудование/Особенности
+cpLocation: Расположение
+cpAxles: Оси
+cpState: Состояние
+cpNetWeight: Вес нетто
+cpSuspensions: Подвеска
+cpWorkingHours: Рабочее время
+cpSeats: Сиденья
+cpForkliftAttach: Навесное оборудование для погрузчика
+cpSleepPlaces: Количество спальных мест
+cpType: Тип
+you: Tы
+form:
+  validator:
+    min: Минимальное значение {min}
+    max: Максимальное значение {max}
+    minlength: Минимальная длина {min}
+    maxlength: Максимальная длина {max}
+    email: Неправильный формат электронной почты
+    phone: Неверный формат телефона
+    wrongMatch: Пароли должны совпадать
+minBidNotMet: Минимальная ставка не достигнута
+buyNow: Kупить сейчас
+offerPrice: Предложение цены
+enterOffer: Введите сумму
+sendOffer: Отправить предложение
+onRequest: По требованию
+sold: Продано
+resetPasswordSent: The email has been sent to {email}
+yourBidIs: Ваша ставка составляет
+confirmBid: Вы уверены, что хотите сделать ставку на эту сумму?
+copyLink: Копировать ссылку
+share: Поделиться
+Invoices: Счета
+accountDeleted: Аккаунт удалён
+acountTax: Налог
+bids: Ставки
+clipboardCopied: Скопировано в буфер обмена
+contactEmail: Контактный e-mail
+contactPhone: Контактный телефон
+email: E-mail
+errorHidden: Искомый товар больше недоступен
+errorPasswordLength: Пароль должен содержать не менее 6 символов
+errorPasswordMatch: Пароли не совпадают
+errorTerms: Пожалуйста, примите наши условия использования
+formNews: Отправлять мне новостную рассылку
+items: Лоты
+language: Язык
+location: Местоположение
+minimalPrice: Минимальная цена
+noFavorites: У вас нет избранных товаров
+not-found: Страница не найдена
+notSoldLabel: Не продано
+titleError: Заголовок не заполнен
+toastRequiredDate: Пожалуйста, заполните даты
+type: Тип
+typeAd: Объявление
+typeAuction: Аукцион
+visibility: Видимость
+visible: Видимый
+galleryPrevious: Предыдущее фото
+galleryNext: Следующее фото
+galleryZoomIn: Увеличить
+galleryZoomOut: Уменьшить
+galleryViewAll: Показать все фото
+galleryPhotoOf: Фото {current} из {total}
+
+authFlow:
+  verifying: 'Проверка…'
+  verifiedTitle: 'E-mail подтверждён'
+  verifiedBody: 'Ваш e-mail {email} подтверждён.'
+  pendingTitle: 'Подтверждение e-mail'
+  invalidCode: 'Эта ссылка недействительна или её срок действия истёк.'
+  resend: 'Отправить письмо подтверждения повторно'
+  resending: 'Отправка…'
+  resendSuccess: 'Мы отправили вам новое письмо для подтверждения.'
+  resendError: 'Не удалось отправить письмо. Попробуйте снова.'
+  backToLogin: 'Назад к входу'
+  resetLead: 'Выберите новый пароль для вашего аккаунта.'
+  newPassword: 'Новый пароль'
+  resetSubmit: 'Установить новый пароль'
+  resetSuccess: 'Ваш пароль изменён. Теперь вы можете войти.'
+  resetFailed: 'Что-то пошло не так. Попробуйте снова.'
+  getNewResetLink: 'Запросить новую ссылку'
+  emailSentReset: 'Мы отправили ссылку для сброса пароля на {email}.'
+
+pagination:
+  previous: Предыдущая
+  next: Следующая
+  showing: "Показано {from}–{to} из {total}"
+  label: Пагинация
+
+vehicle:
+  title: Технические характеристики
+  brand: Марка
+  model: Модель
+  year: Год выпуска
+  firstRegistration: Первая регистрация
+  fuelType: Топливо
+  transmission: Коробка передач
+  bodyType: Кузов
+  driveType: Привод
+  color: Цвет
+  power: Мощность
+  displacement: Объём двигателя
+  gears: Число передач
+  emission: Экологический класс
+  co2: Выбросы CO₂
+  doors: Число дверей
+  seats: Число мест
+  axles: Оси
+  length: Длина
+  width: Ширина
+  height: Высота
+  wheelbase: Колёсная база
+  weight: Снаряжённая масса
+  maxSpeed: Максимальная скорость
+  vin: VIN
+  fuel:
+    petrol: Бензин
+    diesel: Дизель
+    electric: Электро
+    hybrid: Гибрид
+    phev: Подключаемый гибрид
+    lpg: СУГ (LPG)
+    cng: Метан (CNG)
+    hydrogen: Водород
+    other: Другое
+  trans:
+    manual: Механическая
+    automatic: Автоматическая
+    semi_automatic: Полуавтоматическая
+    cvt: Вариатор (CVT)
+    dct: Робот (DCT)
+  body:
+    sedan: Седан
+    wagon: Универсал
+    hatchback: Хэтчбек
+    suv: Внедорожник
+    coupe: Купе
+    convertible: Кабриолет
+    van: Фургон
+    pickup: Пикап
+    minibus: Микроавтобус
+    other: Другое
+  drive:
+    fwd: Передний (FWD)
+    rwd: Задний (RWD)
+    awd: Полный (AWD)
+    4x4: 4×4
+  colors:
+    white: Белый
+    black: Чёрный
+    silver: Серебристый
+    grey: Серый
+    blue: Синий
+    red: Красный
+    green: Зелёный
+    brown: Коричневый
+    beige: Бежевый
+    yellow: Жёлтый
+    orange: Оранжевый
+    gold: Золотой
+    other: Другое
+
+reco:
+  similarTitle: Похожие объявления
+  forYouTitle: Подобрано для вас
+savedSearch:
+  title: Сохранённые запросы
+  empty: У вас пока нет сохранённых запросов.
+  save: Сохранить этот запрос
+  nameLabel: Название запроса
+  namePlaceholder: напр. Дизельные внедорожники до 300 тыс.
+  create: Сохранить запрос
+  delete: Удалить
+  deleteConfirm: Удалить этот сохранённый запрос?
+  alertOn: Уведомления по e-mail включены
+  alertOff: Уведомления по e-mail выключены
+  alertHint: Мы пришлём вам письмо, когда появятся новые или скоро завершающиеся подходящие объявления.
+  filterSummary: "{count} фильтров"
+  created: Сохранённый запрос создан
+  removed: Сохранённый запрос удалён
+messaging:
+  title: Вопросы
+  ask: Задать вопрос
+  placeholder: Задайте вопрос продавцу…
+  submit: Отправить вопрос
+  submitted: Ваш вопрос отправлен и ожидает проверки.
+  signInFirst: Войдите, чтобы задать вопрос
+  empty: Пока нет вопросов
+  emptyDesc: Задайте продавцу вопрос первым.
+  answer: Ответ продавца
+  asker: Покупатель
+  pending: Ожидает проверки
+  you: Вы
+  error: Не удалось отправить вопрос. Попробуйте ещё раз.
+compare:
+  title: Сравнить автомобили
+  pageTitle: Сравнение автомобилей
+  hint: "Сравните до {max} автомобилей рядом."
+  empty: Нет автомобилей для сравнения
+  emptyHint: Добавляйте автомобили значком сравнения в любом объявлении.
+  failedToLoad: "Не удалось загрузить {count} автомобилей — вероятно, они были удалены."
+  add: Добавить к сравнению
+  remove: Убрать из сравнения
+  removeAria: "Убрать {title} из сравнения"
+  open: Открыть сравнение
+  clear: Очистить
+  count: "{count}/{max}"
+  addedToast: "Добавлено к сравнению ({count}/{max})"
+  removedToast: Убрано из сравнения
+  fullToast: "Можно сравнить не более {max} автомобилей."
+  price: Цена
+
+settlement:
+  title: "Завершите покупку"
+  cardTitle: "Вы выиграли — оплатите финальную цену"
+  finalPrice: "Финальная цена"
+  depositCredit: "Зачтённый депозит"
+  amountDue: "К оплате"
+  fullyCoveredByDeposit: "Полностью покрыто вашим депозитом"
+  back: "Назад"
+  continue: "Продолжить"
+  confirmFree: "Подтвердить покупку"
+  summaryHeading: "Итог покупки"
+  summaryIntro: "Оплатите финальную цену за вычетом уже внесённого депозита."
+  billingHeading: "Платёжные данные"
+  billingIntro: "Эти данные мы используем в счёте."
+  billingName: "Имя"
+  billingEmail: "Эл. почта"
+  billingStreet: "Улица и номер"
+  billingZip: "Индекс"
+  billingCity: "Город"
+  billingCountry: "Страна"
+  billingError: "Не удалось сохранить данные. Попробуйте снова."
+  methodHeading: "Выберите способ оплаты"
+  methodIntro: "Оба способа автоматически завершают покупку после поступления платежа."
+  methodCard: "Карта"
+  methodCardHint: "Мгновенно через Stripe"
+  methodTransfer: "Банковский перевод"
+  methodTransferHint: "QR-платёж, обычно в течение 1 рабочего дня"
+  payByCard: "Оплатить картой"
+  cardDesc: "Мы перенаправим вас на защищённую страницу оплаты Stripe."
+  cardSecure: "Платёж обрабатывает Stripe — данные карты к нам не попадают."
+  redirecting: "Перенаправление…"
+  payByTransfer: "Оплатить переводом"
+  transferIntro: "Отправьте точную сумму с переменным символом ниже, чтобы мы автоматически сопоставили платёж."
+  recipient: "Получатель"
+  account: "Номер счёта"
+  iban: "IBAN"
+  variableSymbol: "Переменный символ"
+  paymentMessage: "Назначение платежа"
+  scanToPay: "Отсканируйте для оплаты"
+  transferWaiting: "Ожидаем ваш платёж — страница обновится автоматически."
+  viewInvoice: "Посмотреть счёт"
+  copy: "Копировать данные"
+  copied: "Платёжные данные скопированы"
+  loadingPayment: "Готовим платёжные данные…"
+  verifyingTitle: "Подтверждаем ваш платёж…"
+  verifyingSlow: "Это занимает больше времени, чем обычно — ваш платёж в безопасности."
+  successTitle: "Покупка завершена"
+  successBody: "Счёт уже отправлен на эл. почту. Спасибо!"
+  successFeatures:
+    invoice: "Счёт по эл. почте"
+    complete: "Покупка завершена"
+  notWinner: "Оплатить покупку может только победитель аукциона."
+  alreadyPaid: "Эта покупка уже оплачена."
+  toastError: "Не удалось начать оплату. Попробуйте снова."
+  toastPaid: "Платёж получен — спасибо!"
+  steps:
+    summary: "Итог покупки"
+    billing: "Платёжные данные"
+    method: "Выберите способ оплаты"
+    payment: "Оплатить переводом"
+    success: "Покупка завершена"
+  card:
+    paidTitle: "Покупка завершена"
+    paidDesc: "Ваш счёт отправлен на эл. почту."
+    pendingTitle: "Ожидаем ваш платёж"
+    pendingDesc: "Как только поступит ваш платёж {amount}, покупка завершится автоматически."
+    dueDesc: "Вы выиграли — оплатите {amount}, чтобы завершить покупку."
+    showDetails: "Завершить оплату"
+    cta: "Оплатить"
+
+deposit:
+  title: Аукционный депозит
+  continue: Продолжить
+  back: Назад
+  stepper:
+    currency: Валюта
+    details: Данные
+    payment: Оплата
+    done: Готово
+    method: Способ
+  currency:
+    heading: Выберите валюту депозита
+    intro: Депозит — возвратная гарантия, открывающая участие в торгах во всех аукционах. Оплатите его обычным банковским переводом.
+    czkSub: оплата в CZK с чешского счёта
+    eurSub: оплата в EUR (SEPA)
+  billing:
+    heading: Данные для счёта
+    intro: Эти данные будут указаны в проформа-счёте на депозит.
+    name: Имя
+    email: E-mail
+    street: Улица и номер дома
+    city: Город
+    zip: Индекс
+    country: Страна
+    error: Не удалось сохранить данные. Попробуйте ещё раз.
+  payment:
+    heading: Оплатите банковским переводом
+    intro: Отправьте точную сумму с указанным вариабельным символом, чтобы мы автоматически сопоставили платёж.
+    recipient: Получатель
+    account: Номер счёта
+    iban: IBAN
+    amount: Сумма
+    vs: Вариабельный символ
+    message: Назначение платежа
+    qrHint: Отсканируйте QR-код в банковском приложении
+    copy: Скопировать реквизиты
+    copied: Реквизиты скопированы
+    waiting: Ожидаем зачисление платежа — экран обновится автоматически.
+    invoice: Открыть проформа-счёт
+    note: Платёж сопоставляется по вариабельному символу {vs}. Перевод обычно занимает от нескольких минут до 1 рабочего дня.
+    error: Не удалось загрузить платёжные реквизиты. Закройте окно и попробуйте снова.
+    loading: Готовим платёжные реквизиты…
+  method:
+    heading: Выберите способ оплаты
+    intro: Оба способа активируют депозит автоматически после поступления платежа.
+    card: Оплата картой
+    cardHint: Мгновенно через Stripe
+    transfer: Банковский перевод
+    transferHint: QR-платёж, зачисление обычно до 1 рабочего дня
+  cardPay:
+    heading: Оплата картой
+    desc: Мы перенаправим вас на защищённую платёжную страницу Stripe.
+    secure: Платёж обрабатывает Stripe — данные карты к нам не попадают.
+    pay: Оплатить картой
+    redirecting: Перенаправляем…
+    error: Не удалось начать оплату картой. Попробуйте ещё раз или выберите перевод.
+  verifying:
+    slowNote: Это занимает больше времени, чем обычно. Мы завершим платёж в фоновом режиме — окно можно закрыть, депозит активируется автоматически.
+  return:
+    cancelled: Оплата картой была отменена. Попробуйте ещё раз или оплатите переводом.
+  success:
+    processing: Проверяем платёж…
+    title: Депозит внесён!
+    note: Подтверждение и документ отправлены на ваш e-mail. Удачных торгов!
+    features:
+      bidding: Ставки разблокированы
+      refundable: Полностью возвратный
+      invoice: Документ на e-mail
+      instant: Мгновенная активация
+    back: Вернуться к аукциону
+    browse: Смотреть аукционы
+    close: Закрыть
+  card:
+    title: Аукционный депозит
+    desc: Чтобы делать ставки, внесите возвратный депозит {czk} или {eur}.
+    cta: Внести депозит
+    pendingTitle: Ожидаем оплату депозита
+    pendingDesc: Как только платёж {amount} поступит, депозит активируется автоматически.
+    showDetails: Завершить оплату
+    invoice: Проформа-счёт
+    paidTitle: Депозит внесён
+    paidDesc: Вы можете делать ставки во всех аукционах.
+
+seo:
+  homeTitle: "Онлайн-аукционы транспорта и техники"
+  homeDescription: "Аукционы и прямая продажа грузовых и легковых автомобилей, техники и оборудования. Смотрите проверенные объявления и делайте ставки онлайн на Auction24.cz."
+  categoryDescription: "Актуальные аукционы и объявления в категории {category}. Смотрите предложения и делайте ставки онлайн на Auction24.cz."
+  auctionsDescription: "Аукционы транспорта и техники в реальном времени — грузовые и легковые автомобили, оборудование. Делайте ставки онлайн и следите за завершением на Auction24.cz."
+  buyNowDescription: "Транспорт и техника для немедленной покупки по фиксированной цене. Смотрите объявления «Купить сейчас» на Auction24.cz."
+  soldDescription: "Недавно проданные транспорт и техника — достигнутые цены и завершённые аукционы на Auction24.cz."
+  home: "Главная"
+search:
+  title: Поиск
+  placeholder: Искать аукционы…
+  resultsCount: "{count} результатов"
+  noResults: Нет подходящих объявлений
+  noResultsHint: Попробуйте убрать фильтр или расширить поиск
+  filters: Фильтры
+  clearFilters: Очистить всё
+  facetType: Тип
+  facetTypeAuction: Аукцион
+  facetTypeAd: Купить сейчас
+  facetCategory: Категория
+  facetPriceMin: Цена от
+  facetPriceMax: Цена до
+  facetFuel: Топливо
+  facetBody: Кузов
+  facetTransmission: Коробка передач
+  facetDrive: Привод
+  facetColor: Цвет
+  facetYearFrom: Год от
+  facetYearTo: Год до
+  sortLabel: Сортировка
+  sortRelevance: Релевантность
+  sortNewest: Новейшие
+  sortPriceAsc: "Цена: по возрастанию"
+  sortPriceDesc: "Цена: по убыванию"
+  activeFilter: "Фильтр: {label}"

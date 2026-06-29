@@ -1,0 +1,34 @@
+{
+  "identita": "Šifrování obsahu — relay operátor nepřečte, co prochází.",
+  "smysl": "X25519-HKDF + AES-256-GCM zapečetí obsah tak, že je čitelný jen pro koncový bod, ne pro relay.",
+  "smer": "contentenc.Sealer zapečetí obsah; klíče přes X25519+HKDF, šifra AES-256-GCM.",
+  "duvod": "Pokud obsah čte relay operátor, žádná transportní anonymita to nezachrání — důvěra k relay nesmí být potřeba.",
+  "myslenka": "Anonymita bez šifry je jen přesměrování — relay nesmí být schopen číst.",
+  "pillar": "reach",
+  "role": "supporting",
+  "promise": "Obsah je zapečetěný — relay vidí jen šifrotext.",
+  "loreLine": "X25519 + AES-GCM — relay přepošle, ale nepřečte.",
+  "proofSignal": [
+    {
+      "nazev": "seal/unseal correctness",
+      "zdroj": "features/outreach/relay/internal/delivery/contentenc",
+      "stav": "pending"
+    }
+  ],
+  "antiFeature": "Obsah je čitelný pro relay operátora — transportní anonymita je k ničemu, když je payload otevřený.",
+  "hotovo": {
+    "kdyzPlati": [
+      {
+        "kriterium": "Sealer (X25519-HKDF + AES-256-GCM) projde testy (vč. property/fuzz) — obsah je čitelný jen pro koncový bod.",
+        "check": "test:relay-contentenc",
+        "stav": "pending",
+        "proof": {
+          "cmd": "cd features/outreach/relay && go test ./internal/delivery/contentenc/..."
+        }
+      }
+    ],
+    "vektorGate": "all-met"
+  },
+  "id": "content-enc",
+  "story_axis": "legacy"
+}

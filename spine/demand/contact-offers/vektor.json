@@ -1,0 +1,21 @@
+{
+  "identita": "Kontakt a nabídky — vážné poptávky a protinabídky doputují k nám.",
+  "smysl": "Napíšeš nám dotaz nebo dáš na buy-now protinabídku a víš, že se ozveme.",
+  "smer": "Lead i offer jedním kanálem: contact form, make-an-offer u buy-now, admin přehled s notifikací ops.",
+  "duvod": "Poptávka bez záznamu a notifikace je ztracený obchod; vážná komunita potřebuje doručení.",
+  "myslenka": "Žádná poptávka nezapadne.",
+  "pillar": "serious-community",
+  "role": "primary",
+  "promise": "Tvůj dotaz i nabídka dorazí a nezapadnou.",
+  "loreLine": "Kontakt i protinabídka jedním kanálem — ops to vidí, nic se neztratí.",
+  "proofSignal": [
+    {
+      "nazev": "inquiry + offer roundtrip",
+      "zdroj": "test/contact",
+      "stav": "live"
+    }
+  ],
+  "antiFeature": "Formulář, který odešle do prázdna — poptávka bez záznamu a bez upozornění.",
+  "id": "contact-offers",
+  "story_axis": "demand"
+}

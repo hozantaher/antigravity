@@ -1,0 +1,6 @@
+STATUS: 200
+HEADER: Content-Type: text/html; charset=windows-1250
+EXPECT: none
+NOTE: ARES legacy responses are sometimes Windows-1250 not UTF-8. Body contains Czech diacritics in cp1250 byte form. No block markers (which are ASCII anyway), so classifies as none.
+---
+<html><head><meta charset="windows-1250"></head><body><h1>Bagry s.r.o. - Ostravsk\xe1 stavebn\xed firma</h1></body></html>

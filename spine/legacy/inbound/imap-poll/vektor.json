@@ -1,0 +1,34 @@
+{
+  "identita": "IMAP poll — odpovědi dorazí do systému do pár minut, bez zásahu operátora.",
+  "smysl": "Daemon polluje monitorovanou schránku, UID watermark + Message-ID LRU dedup zabrání dvojímu zpracování.",
+  "smer": "PollDaemon/PollOnce → fetchNewMessages → runWithReconnect (exponenciální backoff); zapojeno v main.go boot.",
+  "duvod": "Tiše zastavený reconnect = odpovědi zákazníků nikdy nevyplavou, dokud operátor ručně nerestartuje.",
+  "myslenka": "Příchod musí být samoběžný a odolný vůči výpadku spojení, ne závislý na restartu.",
+  "pillar": "conversation",
+  "role": "primary",
+  "promise": "Odpovědi dorazí do systému do pár minut, samy.",
+  "loreLine": "Tichý poller, co se sám zotaví — odpověď je vidět dřív, než si jí operátor všimne.",
+  "proofSignal": [
+    {
+      "nazev": "poll latency / reconnect recovery",
+      "zdroj": "features/inbound/orchestrator/imap",
+      "stav": "pending"
+    }
+  ],
+  "antiFeature": "Reconnect tiše selže a polling se zastaví — odpovědi nevyplavou až do ručního restartu.",
+  "hotovo": {
+    "kdyzPlati": [
+      {
+        "kriterium": "Poller (audit wiring, context cancellation, nil-mailbox short-circuit, reconnect backoff) projde — příchod je odolný a deduplikovaný.",
+        "check": "test:imap-poller",
+        "stav": "pending",
+        "proof": {
+          "cmd": "cd features/inbound/orchestrator && go test ./imap/..."
+        }
+      }
+    ],
+    "vektorGate": "all-met"
+  },
+  "id": "imap-poll",
+  "story_axis": "legacy"
+}
