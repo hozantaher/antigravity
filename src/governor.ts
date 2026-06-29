@@ -224,12 +224,22 @@ export class CyberneticGovernor {
          }
          
          if (resolvedTarget) {
+            let closestNodeDir = '';
+            let closestNodeId = '';
+            
             for (const [nodeDir, nodeId] of nodePaths.entries()) {
-               if (nodeDir.includes('spine') && resolvedTarget.startsWith(nodeDir) && !fullPath.startsWith(nodeDir)) {
-                  const isPublicContract = (resolvedTarget === nodeDir) || (resolvedTarget === path.join(nodeDir, 'index')) || (resolvedTarget === path.join(nodeDir, 'index.ts'));
-                  if (!isPublicContract) {
-                     report.push(`DETECTED: Contract Drift v ${file} -> Importuje z vnitřností uzlu '${nodeId}' místo veřejného kontraktu.`);
+               if (nodeDir.includes('spine') && resolvedTarget.startsWith(nodeDir)) {
+                  if (nodeDir.length > closestNodeDir.length) {
+                     closestNodeDir = nodeDir;
+                     closestNodeId = nodeId;
                   }
+               }
+            }
+            
+            if (closestNodeDir && !fullPath.startsWith(closestNodeDir)) {
+               const isPublicContract = (resolvedTarget === closestNodeDir) || (resolvedTarget === path.join(closestNodeDir, 'index')) || (resolvedTarget === path.join(closestNodeDir, 'index.ts'));
+               if (!isPublicContract) {
+                  report.push(`DETECTED: Contract Drift v ${file} -> Importuje z vnitřností uzlu '${closestNodeId}' místo veřejného kontraktu.`);
                }
             }
          }
