@@ -14,18 +14,18 @@ graph TD
   style demand stroke:#ff9900,stroke-width:2px,fill:default
   platform["platform (Links: 0)"]
   style platform stroke:#3399ff,stroke-width:1px,fill:default
-  auth["auth (Links: 1)"]
-  style auth stroke:#3399ff,stroke-width:2px,fill:default
   account["account (Links: 1)"]
   style account stroke:#ff9900,stroke-width:2px,fill:default
+  auth["auth (Links: 1)"]
+  style auth stroke:#3399ff,stroke-width:2px,fill:default
   engine-learn["engine-learn (Links: 1)"]
   style engine-learn stroke:#ff9900,stroke-width:2px,fill:default
+  outreach-dashboard["outreach-dashboard (Links: 1)"]
+  style outreach-dashboard stroke:#3399ff,stroke-width:2px,fill:default
   engine-drive["engine-drive (Links: 1)"]
   style engine-drive stroke:#3399ff,stroke-width:2px,fill:default
   demand-search["demand-search (Links: 1)"]
   style demand-search stroke:#ff9900,stroke-width:2px,fill:default
-  outreach-dashboard["outreach-dashboard (Links: 1)"]
-  style outreach-dashboard stroke:#3399ff,stroke-width:2px,fill:default
   bidding["bidding (Links: 1)"]
   style bidding stroke:#ff9900,stroke-width:2px,fill:default
   auction-items["auction-items (Links: 1)"]
@@ -58,27 +58,35 @@ graph TD
   style dsr stroke:#00cc66,stroke-width:2px,fill:default
   worker["worker (Links: 1)"]
   style worker stroke:#00cc66,stroke-width:2px,fill:default
+  symphony-queue["symphony-queue (Links: 3)"]
+  style symphony-queue stroke:#00cc66,stroke-width:4px,fill:default
   relay["relay (Links: 1)"]
   style relay stroke:#00cc66,stroke-width:2px,fill:default
+  arbitrage-miner["arbitrage-miner (Links: 1)"]
+  style arbitrage-miner stroke:#00cc66,stroke-width:2px,fill:default
   saved-search["saved-search (Links: 1)"]
   style saved-search stroke:#00cc66,stroke-width:2px,fill:default
   favorites["favorites (Links: 1)"]
   style favorites stroke:#00cc66,stroke-width:2px,fill:default
+  shadow-broker["shadow-broker (Links: 1)"]
+  style shadow-broker stroke:#00cc66,stroke-width:2px,fill:default
   inbox-orchestrator["inbox-orchestrator (Links: 1)"]
   style inbox-orchestrator stroke:#00cc66,stroke-width:2px,fill:default
   firmy-cz["firmy-cz (Links: 1)"]
   style firmy-cz stroke:#00cc66,stroke-width:2px,fill:default
+  deep-inventory["deep-inventory (Links: 1)"]
+  style deep-inventory stroke:#ff9900,stroke-width:2px,fill:default
 ```
 
 ## 📈 Top Gravitačních Hubů
 
-1. **supply** (2 zpětných vazeb)
-2. **sale** (2 zpětných vazeb)
-3. **engine** (1 zpětných vazeb)
-4. **demand** (1 zpětných vazeb)
-5. **auth** (1 zpětných vazeb)
+1. **symphony-queue** (3 zpětných vazeb)
+2. **supply** (2 zpětných vazeb)
+3. **sale** (2 zpětných vazeb)
+4. **engine** (1 zpětných vazeb)
+5. **demand** (1 zpětných vazeb)
 6. **account** (1 zpětných vazeb)
-7. **engine-learn** (1 zpětných vazeb)
-8. **engine-drive** (1 zpětných vazeb)
-9. **demand-search** (1 zpětných vazeb)
-10. **outreach-dashboard** (1 zpětných vazeb)
+7. **auth** (1 zpětných vazeb)
+8. **engine-learn** (1 zpětných vazeb)
+9. **outreach-dashboard** (1 zpětných vazeb)
+10. **engine-drive** (1 zpětných vazeb)

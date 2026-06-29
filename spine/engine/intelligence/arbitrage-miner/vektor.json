@@ -1,10 +1,13 @@
 {
   "id": "arbitrage-miner",
   "story_axis": "spine",
-  "state": "pending",
+  "state": "met",
   "facets": {
     "ui": [
       "./arbitrage-miner.vue"
+    ],
+    "logic": [
+      "./miner.ts"
     ]
   },
   "edges": []

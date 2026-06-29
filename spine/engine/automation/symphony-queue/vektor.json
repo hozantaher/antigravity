@@ -1,13 +1,16 @@
 {
-  "id": "shadow-broker",
+  "id": "symphony-queue",
   "story_axis": "spine",
   "state": "met",
   "facets": {
     "ui": [
-      "./shadow-broker.vue"
+      "./symphony-queue.vue"
     ],
     "logic": [
-      "./broker.ts"
+      "./logic.ts"
+    ],
+    "contract": [
+      "./index.ts"
     ]
   },
   "edges": []
