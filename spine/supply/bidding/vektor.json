@@ -17,5 +17,16 @@
   ],
   "antiFeature": "Bidding jako jeden neprůhledný blok — dílčí selhání (skrytý soft-close) se schová v zeleném celku.",
   "id": "bidding",
-  "story_axis": "supply"
+  "story_axis": "supply",
+  "facets": {
+    "legacy_unmapped": [
+      "./contract.ts",
+      "./logic/useLiveItems.ts",
+      "./logic/useItemBids.ts",
+      "./ui/PriceStatus.vue",
+      "./ui/ItemBids.vue",
+      "./ui/ItemBid.vue",
+      "./ui/BidRow.vue"
+    ]
+  }
 }

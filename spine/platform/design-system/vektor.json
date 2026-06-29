@@ -17,5 +17,42 @@
   ],
   "antiFeature": "Design-system jako jeden neprůhledný blok — dílčí selhání (off-brand komponenta) se schová v zeleném celku.",
   "id": "design-system",
-  "story_axis": "platform"
+  "story_axis": "platform",
+  "facets": {
+    "legacy_unmapped": [
+      "./contract.ts",
+      "./ui/TableBodySkeletor.vue",
+      "./ui/Loading.vue",
+      "./ui/BaseTransition.vue",
+      "./ui/BaseTextarea.vue",
+      "./ui/BaseSelect.vue",
+      "./ui/BaseRadio.vue",
+      "./ui/BasePagination.vue",
+      "./ui/BaseModal.vue",
+      "./ui/BaseInput.vue",
+      "./ui/BaseImage.vue",
+      "./ui/BaseGeoInput.vue",
+      "./ui/BaseForm.vue",
+      "./ui/BaseEditingArea.vue",
+      "./ui/BaseConfirmation.vue",
+      "./ui/BaseCheckbox.vue",
+      "./logic/useValidators.ts",
+      "./logic/useScrollArrows.ts",
+      "./logic/usePointerKind.ts",
+      "./logic/usePlayground.ts",
+      "./ui/playground/fixtures.ts",
+      "./ui/playground/Swatch.vue",
+      "./ui/playground/Specimen.vue",
+      "./ui/playground/Section.vue",
+      "./ui/playground/Overlays.vue",
+      "./ui/playground/HeadlessUi.vue",
+      "./ui/playground/Foundations.vue",
+      "./ui/playground/Forms.vue",
+      "./ui/playground/Domain.vue",
+      "./ui/playground/Deposit.vue",
+      "./ui/playground/DataDisplay.vue",
+      "./ui/playground/Controls.vue",
+      "./ui/playground/Chrome.vue"
+    ]
+  }
 }

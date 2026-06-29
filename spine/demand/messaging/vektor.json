@@ -17,5 +17,15 @@
   ],
   "antiFeature": "Q&A jako jeden neprůhledný blok — dílčí selhání (skrytý spam) se schová v zeleném celku.",
   "id": "messaging",
-  "story_axis": "demand"
+  "story_axis": "demand",
+  "facets": {
+    "legacy_unmapped": [
+      "./contract.ts",
+      "./ui/QuestionThread.vue",
+      "./ui/QuestionRow.vue",
+      "./ui/QuestionForm.vue",
+      "./logic/useItemQuestions.ts",
+      "./logic/useAdminQuestions.ts"
+    ]
+  }
 }

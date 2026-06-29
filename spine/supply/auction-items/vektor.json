@@ -17,5 +17,27 @@
   ],
   "antiFeature": "Výkladní skříň jako jeden neprůhledný blok — dílčí selhání (cena nad fotkou na kartě) se schová v zeleném celku.",
   "id": "auction-items",
-  "story_axis": "supply"
+  "story_axis": "supply",
+  "facets": {
+    "legacy_unmapped": [
+      "./contract.ts",
+      "./logic/usePagedItems.ts",
+      "./logic/useLiveItemStatus.ts",
+      "./logic/useItemDetail.ts",
+      "./logic/cardView.ts",
+      "./ui/StaticMap.vue",
+      "./ui/NoItems.vue",
+      "./ui/ItemsListing.vue",
+      "./ui/ItemsGridSkeletor.vue",
+      "./ui/ItemsGrid.vue",
+      "./ui/ItemStatus.vue",
+      "./ui/ItemSharing.vue",
+      "./ui/ItemLocation.vue",
+      "./ui/ItemInfo.vue",
+      "./ui/ItemDetailSkeletor.vue",
+      "./ui/ItemDescription.vue",
+      "./ui/ItemContact.vue",
+      "./ui/ItemCard.vue"
+    ]
+  }
 }

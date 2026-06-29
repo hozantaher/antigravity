@@ -17,5 +17,11 @@
   ],
   "antiFeature": "Token v plaintextu nebo bez revoke — přístup, který nejde vzít zpět.",
   "id": "api-tokens",
-  "story_axis": "platform"
+  "story_axis": "platform",
+  "facets": {
+    "legacy_unmapped": [
+      "./ui/ApiTokenCreateDialog.vue",
+      "./logic/useApiTokens.ts"
+    ]
+  }
 }

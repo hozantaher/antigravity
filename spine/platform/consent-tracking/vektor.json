@@ -17,5 +17,13 @@
   ],
   "antiFeature": "Tracking, který běží bez souhlasu — měření za zády uživatele.",
   "id": "consent-tracking",
-  "story_axis": "platform"
+  "story_axis": "platform",
+  "facets": {
+    "legacy_unmapped": [
+      "./ui/CookiesBar.vue",
+      "./logic/useTracking.ts",
+      "./logic/useDetailTracking.ts",
+      "./logic/useCookieConsent.ts"
+    ]
+  }
 }

@@ -17,5 +17,11 @@
   ],
   "antiFeature": "Platba bez faktury — peníze bez papíru, noční můra účetní.",
   "id": "invoicing",
-  "story_axis": "sale"
+  "story_axis": "sale",
+  "facets": {
+    "legacy_unmapped": [
+      "./logic/useInvoices.ts",
+      "./ui/Invoices.vue"
+    ]
+  }
 }

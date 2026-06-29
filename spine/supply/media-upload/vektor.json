@@ -17,5 +17,16 @@
   ],
   "antiFeature": "Oči kupce jako jeden neprůhledný blok — dílčí selhání (placeholder 360°) se schová v zeleném celku.",
   "id": "media-upload",
-  "story_axis": "supply"
+  "story_axis": "supply",
+  "facets": {
+    "legacy_unmapped": [
+      "./contract.ts",
+      "./ui/Pano.vue",
+      "./ui/ItemLightbox.vue",
+      "./ui/ItemGallery.vue",
+      "./logic/useImageUpload.ts",
+      "./logic/useImageProcessing.ts",
+      "./logic/galleryNav.ts"
+    ]
+  }
 }

@@ -93,3 +93,10 @@ Tento log je automaticky spravován systémem Antigravity.
 - **Affected Nodes:** None
 - **Details:** Fáze 5 dokončena: Aktualizován Git pre-commit hook (lint-staged) o blokaci commitů. Pokud vývojář zanechá osiřelý kód, commit selže a donutí ho k nápravě.
 
+
+## [2026-06-29T00:48:24.961Z] MANUAL_LOG
+
+- **Actor:** Human
+- **Affected Nodes:** None
+- **Details:** Fáze 6 dokončena: Aktualizován generátor dokumentace. CLI příkaz 'docs --readme' nyní propočítává SemVer verzi izolovaného uzlu přímo z historie Git logu a vkládá ji jako badge do README.
+

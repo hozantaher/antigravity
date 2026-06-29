@@ -17,5 +17,11 @@
   ],
   "antiFeature": "Porovnání, které tiše vynechá nevýhodný parametr — srovnání, jež klame.",
   "id": "compare",
-  "story_axis": "demand"
+  "story_axis": "demand",
+  "facets": {
+    "legacy_unmapped": [
+      "./logic/useCompare.ts",
+      "./ui/CompareDock.vue"
+    ]
+  }
 }

@@ -17,5 +17,13 @@
   ],
   "antiFeature": "Životopis jako jeden neprůhledný blok — dílčí selhání (torzo specs) se schová v zeleném celku.",
   "id": "vehicle-vin",
-  "story_axis": "supply"
+  "story_axis": "supply",
+  "facets": {
+    "legacy_unmapped": [
+      "./contract.ts",
+      "./ui/ItemVehicle.vue",
+      "./logic/vin.ts",
+      "./logic/vehicleStructuredData.ts"
+    ]
+  }
 }

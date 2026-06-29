@@ -17,5 +17,13 @@
   ],
   "antiFeature": "Doporučení jako jeden neprůhledný blok — dílčí selhání (prázdný rail) se schová v zeleném celku.",
   "id": "recommendation",
-  "story_axis": "demand"
+  "story_axis": "demand",
+  "facets": {
+    "legacy_unmapped": [
+      "./contract.ts",
+      "./ui/SimilarItems.vue",
+      "./ui/RecommendedItems.vue",
+      "./ui/ItemsRail.vue"
+    ]
+  }
 }

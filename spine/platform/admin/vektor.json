@@ -17,5 +17,29 @@
   ],
   "antiFeature": "Admin jako jeden neprůhledný blok — dílčí selhání (tichý ztracený save) se schová v zeleném celku.",
   "id": "admin",
-  "story_axis": "platform"
+  "story_axis": "platform",
+  "facets": {
+    "legacy_unmapped": [
+      "./ui/LocaleTabs.vue",
+      "./ui/ItemDetailVehicle.vue",
+      "./ui/ItemDetailQuestions.vue",
+      "./ui/ItemDetailImages.vue",
+      "./ui/ItemDetailHighlights.vue",
+      "./ui/ItemDetailGeneral.vue",
+      "./ui/ItemDetailDescription.vue",
+      "./ui/ItemDetailBids.vue",
+      "./ui/ItemDetail.vue",
+      "./logic/useUserList.ts",
+      "./logic/useUserDetail.ts",
+      "./logic/useItemList.ts",
+      "./logic/useExternalTranslate.ts",
+      "./logic/useAdminSearch.ts",
+      "./logic/useAdminPagedResource.ts",
+      "./logic/useAdminPagedList.ts",
+      "./logic/useAdminItemVinDecode.ts",
+      "./logic/useAdminItem.ts",
+      "./logic/useAdminCategoryLabel.ts",
+      "./ui/highlights/HighlightInput.vue"
+    ]
+  }
 }

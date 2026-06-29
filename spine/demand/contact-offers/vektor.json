@@ -17,5 +17,10 @@
   ],
   "antiFeature": "Formulář, který odešle do prázdna — poptávka bez záznamu a bez upozornění.",
   "id": "contact-offers",
-  "story_axis": "demand"
+  "story_axis": "demand",
+  "facets": {
+    "legacy_unmapped": [
+      "./ui/ContactForm.vue"
+    ]
+  }
 }

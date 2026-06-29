@@ -17,5 +17,16 @@
   ],
   "antiFeature": "Číselníky jako jeden neprůhledný blok — dílčí selhání (neznámá země) se schová v zeleném celku.",
   "id": "reference-data",
-  "story_axis": "platform"
+  "story_axis": "platform",
+  "facets": {
+    "legacy_unmapped": [
+      "./contract.ts",
+      "./ui/FlagBadge.vue",
+      "./ui/CategoriesGrid.vue",
+      "./logic/useLanguages.ts",
+      "./logic/useCurrencies.ts",
+      "./logic/useCountries.ts",
+      "./logic/useCategories.ts"
+    ]
+  }
 }

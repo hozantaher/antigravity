@@ -18,5 +18,21 @@
   ],
   "antiFeature": "Vypořádání jako jeden neprůhledný blok — dvojí stržení skryté za zeleným checkoutem se schová v zeleném celku.",
   "id": "sale-settlement",
-  "story_axis": "sale"
+  "story_axis": "sale",
+  "facets": {
+    "legacy_unmapped": [
+      "./contract.ts",
+      "./logic/useSettlement.ts",
+      "./ui/settlement/SettlementWizard.vue",
+      "./ui/settlement/SettlementStepper.vue",
+      "./ui/settlement/SettlementStepVerifying.vue",
+      "./ui/settlement/SettlementStepSummary.vue",
+      "./ui/settlement/SettlementStepSuccess.vue",
+      "./ui/settlement/SettlementStepPayment.vue",
+      "./ui/settlement/SettlementStepMethod.vue",
+      "./ui/settlement/SettlementStepCard.vue",
+      "./ui/settlement/SettlementStepBilling.vue",
+      "./ui/settlement/SettlementCard.vue"
+    ]
+  }
 }

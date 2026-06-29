@@ -17,5 +17,10 @@
   ],
   "antiFeature": "i18n jako jeden neprůhledný blok — dílčí selhání (chybějící klíč) se schová v zeleném celku.",
   "id": "i18n",
-  "story_axis": "platform"
+  "story_axis": "platform",
+  "facets": {
+    "legacy_unmapped": [
+      "./ui/Language.vue"
+    ]
+  }
 }

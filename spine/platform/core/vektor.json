@@ -17,5 +17,15 @@
   ],
   "antiFeature": "Jeviště jako jeden neprůhledný blok — dílčí selhání (inzerát mimo sitemapu) se schová v zeleném celku.",
   "id": "core",
-  "story_axis": "platform"
+  "story_axis": "platform",
+  "facets": {
+    "legacy_unmapped": [
+      "./logic/useSharedNow.ts",
+      "./logic/useSeo.ts",
+      "./logic/useInit.ts",
+      "./ui/HowItWorks.vue",
+      "./ui/Header.vue",
+      "./ui/Footer.vue"
+    ]
+  }
 }

@@ -17,5 +17,21 @@
   ],
   "antiFeature": "Kauce jako jeden neprůhledný blok — dílčí selhání (peníze bez protějšku) se schová v zeleném celku.",
   "id": "deposit-billing",
-  "story_axis": "sale"
+  "story_axis": "sale",
+  "facets": {
+    "legacy_unmapped": [
+      "./contract.ts",
+      "./logic/useDeposit.ts",
+      "./ui/deposit/DepositWizard.vue",
+      "./ui/deposit/DepositStepper.vue",
+      "./ui/deposit/DepositStepVerifying.vue",
+      "./ui/deposit/DepositStepSuccess.vue",
+      "./ui/deposit/DepositStepPayment.vue",
+      "./ui/deposit/DepositStepMethod.vue",
+      "./ui/deposit/DepositStepCurrency.vue",
+      "./ui/deposit/DepositStepCard.vue",
+      "./ui/deposit/DepositStepBilling.vue",
+      "./ui/deposit/DepositCard.vue"
+    ]
+  }
 }
