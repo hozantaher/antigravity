@@ -889,6 +889,10 @@
       "./eslint-rules/no-action-getbytext.test.js",
       "./eslint-rules/no-action-getbytext.js",
       "./e2e/fixtures/jobs.ts"
+    ],
+    "tests": [
+      "./searchService.test.js",
+      "./searchController.test.js"
     ]
   },
   "edges": []

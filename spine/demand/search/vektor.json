@@ -9,6 +9,10 @@
     "logic": [
       "./searchService.js",
       "./searchController.js"
+    ],
+    "tests": [
+      "./searchService.test.js",
+      "./searchController.test.js"
     ]
   },
   "edges": []
