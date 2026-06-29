@@ -1,8 +1,0 @@
-STATUS: 403
-HEADER: Server: cloudflare
-HEADER: Cf-Ray: 8a9c4d2e1f0b3a72-PRG
-HEADER: Content-Type: text/html
-EXPECT: cloudflare
-NOTE: Seznam fronted by Cloudflare → 403 + Server:cloudflare = anti-bot block. Same status code as case 09 but different signature → different block_type. Critical to distinguish: KT-A7 routes Cloudflare to alt-source/proxy rotation, plain forbidden to escalate.
----
-<!DOCTYPE html><html><head><title>Sorry, you have been blocked</title></head><body><div class="main-content"><h1>Sorry, you have been blocked</h1><h2>You are unable to access this website</h2></div></body></html>

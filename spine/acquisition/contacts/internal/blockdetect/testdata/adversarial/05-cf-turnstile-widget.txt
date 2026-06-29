@@ -1,6 +1,0 @@
-STATUS: 200
-HEADER: Content-Type: text/html
-EXPECT: captcha
-NOTE: Cloudflare Turnstile widget — distinct from Cloudflare challenge page (no cf-mitigated). Classified as captcha because the widget itself is a captcha gate.
----
-<!DOCTYPE html><html><body><form><div class="cf-turnstile" data-sitekey="0x4AAAAAAAxxxxxxxxxxxxxx"></div></form></body></html>

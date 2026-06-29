@@ -1,8 +1,0 @@
-STATUS: 404
-HEADER: Server: cloudflare
-HEADER: Cf-Ray: 8a9c4d2e1f0b3a72-PRG
-HEADER: Content-Type: text/html
-EXPECT: none
-NOTE: 404 + cf-ray (Cloudflare proxies the origin's 404) — this is NOT a block, it's a legit not-found that happened to be served through Cloudflare. Tests that header-only Cf-Ray presence does not trigger Cloudflare classification (only cf-mitigated or 403+Server:cloudflare or body marker do).
----
-<!DOCTYPE html><html><head><title>Page Not Found</title></head><body><h1>404 — IČO 99999999 nenalezeno</h1></body></html>

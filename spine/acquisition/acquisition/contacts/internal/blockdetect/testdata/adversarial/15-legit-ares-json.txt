@@ -1,7 +1,0 @@
-STATUS: 200
-HEADER: Content-Type: application/json; charset=UTF-8
-HEADER: Server: nginx
-EXPECT: none
-NOTE: Real-shape ARES JSON for a single subject. Nominal happy path — detector must NOT classify as block (zero false positives on the daily 95%+ traffic).
----
-{"ico":"23219700","obchodniJmeno":"Garaaage s.r.o.","sidlo":{"nazevObce":"Praha","psc":"11000","nazevUlice":"Václavské náměstí","cisloDomovni":1},"pravniForma":{"kod":"112"},"datumVzniku":"2024-01-15","financniUrad":{"kod":"01"},"icoVek":1}
