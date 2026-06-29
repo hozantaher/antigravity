@@ -7,6 +7,7 @@ export class UnifiedVectorEngine {
   private rootDir: string;
   private nodes: Map<string, { path: string; manifest: VektorManifest }> = new Map();
   private reverseLinks: Map<string, string[]> = new Map();
+  private terminology: Map<string, { description: string; files: string[] }> = new Map();
 
   constructor(rootDir: string) {
     this.rootDir = rootDir;
@@ -47,6 +48,20 @@ export class UnifiedVectorEngine {
           this.reverseLinks.set(targetId, []);
         }
         this.reverseLinks.get(targetId)!.push(file);
+      }
+
+      // Terminology Scanner
+      const termMatches = content.matchAll(/@terminology\s+([\w-]+)\s*\n([\s\S]*?)\*\//g);
+      for (const match of termMatches) {
+        const term = match[1];
+        const rawDesc = match[2];
+        const desc = rawDesc.split('\n').map(l => l.replace(/^\s*\*\s?/, '')).join(' ').trim();
+        if (!this.terminology.has(term)) {
+          this.terminology.set(term, { description: desc, files: [] });
+        }
+        if (!this.terminology.get(term)!.files.includes(file)) {
+           this.terminology.get(term)!.files.push(file);
+        }
       }
     }
   }
@@ -233,4 +248,27 @@ export class UnifiedVectorEngine {
     
     return md;
   }
+
+  /**
+   * Generates a glossary from @terminology tags.
+   */
+  public generateGlossary(): string {
+    let md = '# 📖 Slovník Pojmů (Glossary)\n\n';
+    md += 'Tento dokument je automaticky generován z `@terminology` tagů v TSDoc komentářích.\n\n';
+
+    const sortedTerms = Array.from(this.terminology.keys()).sort();
+    for (const term of sortedTerms) {
+      const data = this.terminology.get(term)!;
+      md += `### ${term}\n`;
+      md += `${data.description}\n\n`;
+      md += `*Odkazy (Zdroj pravdy):*\n`;
+      for (const file of data.files) {
+        md += `- \`${file}\`\n`;
+      }
+      md += `\n---\n\n`;
+    }
+
+    return md;
+  }
 }
+

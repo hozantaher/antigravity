@@ -8,6 +8,9 @@
     ],
     "logic": [
       "./broker.ts"
+    ],
+    "tests": [
+      "./broker.test.ts"
     ]
   },
   "edges": []

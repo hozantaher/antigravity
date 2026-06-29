@@ -70,3 +70,10 @@ Agenti (včetně mě) musí vždy uvažovat o aplikaci jako o jednom živém org
 3. **Byznysový Mozek (Business Brain):** `arbitrage-miner` (hledá skryté příležitosti v datech, pravá hemisféra) a `shadow-broker` (uzavírá deal skrze stínovou konverzi, levá hemisféra)
 
 **Default Agent Behavior:** Při každém úkolu od uživatele musíte defaultně přemýšlet v rámci tohoto +100M modelu a **Dokonalé Symfonie**. Generujte asymetrické synergie, nenavrhujte hloupé CRUD aplikace, ale automatizované stroje na generování zisku, které propojují tyto hemisféry.
+
+## 🏛️ Terminologie a Typologie (Glossary & Schemas)
+Aby byla codebase bezpečná pro LLM interakce, agenti musí dodržovat následující pravidla pro typy:
+1. **Zod Runtime Validace:** Všechna nová DTO (Payloady do fronty, HTTP body) tvořte jako `zod` schemata. Zod zajistí ochranu proti LLM halucinacím. TypeScript interface pak vygenerujte pomocí `z.infer<typeof Schema>`.
+2. **Core Types Node:** Sdílené byznysové typy (např. `ArbitrageOpportunity`) musí žít v dedikovaném radiálním uzlu `spine/domain/core-types`. Nevytvářejte ad-hoc `interface` v lokálních souborech front nebo workerů. Vždy naimportujte kontrakt z `core-types`.
+3. **Glossary-as-Code:** Když vytvoříte nový koncept nebo byznysový model v kódu, napište k němu TSDoc s tagem `@terminology NazevPojmu`. Náš `ag:map --glossary` skript to přečte a vygeneruje dokumentaci do `docs/reference/GLOSSARY.md`.
+4. **Type Drift:** Vyhýbejte se používání klíčového slova `any` na hranicích uzlů (uvnitř veřejných `index.ts`). Data opouštějící uzel musí být striktně typovaná.

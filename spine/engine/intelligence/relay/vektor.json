@@ -8,6 +8,12 @@
     ],
     "logic": [
       "./logic.ts"
+    ],
+    "public": [
+      "./index.ts"
+    ],
+    "tests": [
+      "./logic.test.ts"
     ]
   },
   "edges": []

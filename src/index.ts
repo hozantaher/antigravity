@@ -143,6 +143,7 @@ program
     'Vygeneruje docs/reference/topology-map.md s mapou vektorového stromu (Mermaid graf) pro AI agenty'
   )
   .option('--gravity', 'Vygeneruje speciální gravitační mapu založenou na reverse links (docs/reference/gravity-map.md)')
+  .option('--glossary', 'Vygeneruje terminologický slovník (docs/reference/GLOSSARY.md)')
   .action(async (options) => {
     const root = process.cwd();
     const engine = new UnifiedVectorEngine(root);
@@ -153,6 +154,11 @@ program
       const outPath = path.join(root, 'docs', 'reference', 'gravity-map.md');
       fs.writeFileSync(outPath, md, 'utf8');
       console.log(`SUCCESS: Gravitational map generated at docs/reference/gravity-map.md`);
+    } else if (options.glossary) {
+      const md = engine.generateGlossary();
+      const outPath = path.join(root, 'docs', 'reference', 'GLOSSARY.md');
+      fs.writeFileSync(outPath, md, 'utf8');
+      console.log(`SUCCESS: Glossary generated at docs/reference/GLOSSARY.md`);
     } else {
       const md = engine.generateArchitectureMap();
       const outPath = path.join(root, 'docs', 'reference', 'topology-map.md');
@@ -209,6 +215,21 @@ program
     } else {
       console.log('Dostupné akce: nightwatch, discover');
     }
+  });
+
+program
+  .command('daemon')
+  .description('Spustí Antigravity backend proces (BullMQ Workery, Shadow Broker)')
+  .action(async () => {
+    console.log('[Daemon] Startuji Antigravity Engine...');
+    
+    // Načteme brokera, který se sám přihlásí k odběru BullMQ fronty
+    const { ShadowBroker } = require('../spine/engine/drive/shadow-broker/broker');
+    const broker = new ShadowBroker();
+    console.log('[Daemon] Shadow Broker aktivován. Čekám na příležitosti z levé hemisféry.');
+    
+    // Keep-alive
+    process.stdin.resume();
   });
 
 program.parse(process.argv);

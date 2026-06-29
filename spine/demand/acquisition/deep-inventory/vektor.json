@@ -5,6 +5,15 @@
   "facets": {
     "ui": [
       "./deep-inventory.vue"
+    ],
+    "logic": [
+      "./scraper.ts"
+    ],
+    "public": [
+      "./index.ts"
+    ],
+    "tests": [
+      "./scraper.test.ts"
     ]
   },
   "edges": []

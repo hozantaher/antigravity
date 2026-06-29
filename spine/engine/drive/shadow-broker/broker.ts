@@ -1,17 +1,21 @@
 import { SymphonyQueue, ArbitrageOpportunity } from '../../automation/symphony-queue/index';
 // @vektor-link: symphony-queue
+import { PrivacyGateway } from '../../../platform/security/privacy-gateway/index';
+// @vektor-link: privacy-gateway
 
 /**
  * Levá hemisféra: Shadow Broker
  * Naslouchá na frontě a provádí exekutivu (vytváření Shadow Draftů).
  */
 export class ShadowBroker {
+  private gateway = new PrivacyGateway();
+
   constructor() {
     this.initialize();
   }
 
   private initialize() {
-    console.log('[ShadowBroker] Waking up, subscribing to SymphonyQueue...');
+    console.log('[ShadowBroker] Probouzím se, napojuji na SymphonyQueue...');
     
     SymphonyQueue.subscribe(async (op: ArbitrageOpportunity) => {
       await this.executeShadowDraft(op);
@@ -19,14 +23,22 @@ export class ShadowBroker {
   }
 
   private async executeShadowDraft(op: ArbitrageOpportunity) {
-    // Simulace asynchronní sítě a vyjednávání přes Privacy Gateway
-    console.log(`[ShadowBroker] Starting execution for asset ${op.assetId}...`);
+    console.log(`[ShadowBroker] Exekuce pro inzerát ${op.assetId}...`);
     
-    return new Promise<void>((resolve) => {
-      setTimeout(() => {
-        console.log(`[ShadowBroker] SUCCESS! Shadow Draft delivered. Captured profit: ${op.expectedProfit}`);
-        resolve();
-      }, 100);
-    });
+    // 1. Uložení stínového draftu do naší databáze (zde simulováno)
+    const draftId = `draft_${Math.random().toString(36).substr(2, 9)}`;
+    const contactMock = `seller_${op.assetId}@example.com`;
+    
+    console.log(`[ShadowBroker] Ukládám stínový draft [${draftId}] do DB Auction24...`);
+    
+    // 2. Vygenerování magického linku pro bezpečný přístup prodejce
+    const magicLink = this.gateway.generateMagicLink(draftId, contactMock);
+    
+    // 3. Odeslání (simulované přes SMS / E-mail gateway)
+    console.log(`[ShadowBroker] ✉️ Odesílám Magický Link prodejci na ${contactMock}:`);
+    console.log(`   -> "Našli jsme kupce pro vaše auto. Klikněte a rovnou prodejte za ${op.metadata.price + op.expectedProfit} CZK:"`);
+    console.log(`   -> ${magicLink}`);
+    
+    return Promise.resolve();
   }
 }

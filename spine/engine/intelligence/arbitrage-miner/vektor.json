@@ -8,6 +8,9 @@
     ],
     "logic": [
       "./miner.ts"
+    ],
+    "tests": [
+      "./miner.test.ts"
     ]
   },
   "edges": []

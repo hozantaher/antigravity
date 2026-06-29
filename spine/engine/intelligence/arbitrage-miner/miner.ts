@@ -1,27 +1,43 @@
 import { SymphonyQueue, ArbitrageOpportunity } from '../../automation/symphony-queue/index';
 // @vektor-link: symphony-queue
+import { DeepInventoryScraper } from '../../../demand/acquisition/deep-inventory/index';
+// @vektor-link: deep-inventory
+import { RelayEngine } from '../relay/index';
+// @vektor-link: relay
 
 /**
  * Pravá hemisféra: Arbitrage Miner
  * Ponořuje se do deep-inventory a hledá anomálie (Arbitrage Scoring).
  */
 export class ArbitrageMiner {
-  public scanMarket(marketData: any[]) {
-    console.log('[ArbitrageMiner] Scanning market data...');
+  private scraper = new DeepInventoryScraper();
+  private relay = new RelayEngine();
+
+  public async mineMarket(url: string) {
+    console.log('[ArbitrageMiner] Zahajuji těžbu na trhu:', url);
     
-    // Asymetrická logika: Hledáme příležitosti, kde je reálná hodnota o 20% vyšší než cena
-    const opportunities = marketData.filter((d: any) => d.realValue > d.price * 1.2);
+    // 1. Oči: Nasátí inzerátů
+    const marketData = await this.scraper.scrapeInventory(url);
     
-    for (const op of opportunities) {
-      const opportunity: ArbitrageOpportunity = {
-        id: `op_${op.id}_${Date.now()}`,
-        assetId: op.id,
-        expectedProfit: op.realValue - op.price,
-        metadata: { source: 'deep-inventory', raw: op }
-      };
+    // 2. Mozek: Vyhodnocení pomocí LLM a hledání arbitráže
+    for (const item of marketData) {
+      // Vylepšení odhadu pomocí kognitivní vrstvy
+      const estimatedValue = await this.relay.evaluateArbitrageScore(item.title, item.price);
       
-      // Odeslání do levé hemisféry přes Queue
-      SymphonyQueue.enqueue(opportunity);
+      // Asymetrická logika: Hledáme příležitosti, kde LLM říká, že reálná hodnota je o 20% vyšší
+      if (estimatedValue > item.price * 1.2) {
+        console.log(`[ArbitrageMiner] Nalezena příležitost: ${item.title} (Cena: ${item.price}, Odhad: ${estimatedValue})`);
+        
+        const opportunity: ArbitrageOpportunity = {
+          id: item.id,
+          assetId: item.id,
+          expectedProfit: estimatedValue - item.price,
+          metadata: { title: item.title, price: item.price, url: item.sourceUrl }
+        };
+        
+        // 3. Odeslání do levé hemisféry (exekutivy) přes orchestrátor
+        SymphonyQueue.enqueue(opportunity);
+      }
     }
   }
 }

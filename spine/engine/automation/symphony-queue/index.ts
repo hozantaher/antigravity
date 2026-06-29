@@ -1,2 +1,2 @@
-// AUTO-HEALED CONTRACT
-export const SymphonyQueue, ArbitrageOpportunity = 'HEALED';
+export { SymphonyQueue } from './logic';
+export type { ArbitrageOpportunity } from '../../../domain/core-types/index';

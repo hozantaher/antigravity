@@ -11,6 +11,9 @@
     ],
     "contract": [
       "./index.ts"
+    ],
+    "tests": [
+      "./logic.test.ts"
     ]
   },
   "edges": []
