@@ -6,7 +6,7 @@
  * Default = dry-run (nic nezapíše, jen ukáže vygenerované manifesty + projekci coverage).
  */
 import 'dotenv/config';
-import { synthesize, loadSeverka } from '../src/derive/synthesize';
+import { runPipeline, loadSeverka } from '../src/derive/synthesize';
 import { providerFromEnv } from '../src/llm/provider';
 
 const args = process.argv.slice(2);
@@ -47,19 +47,57 @@ const main = async () => {
     `Target: ${targetDir}  ·  mode: ${write ? 'WRITE' : 'dry-run'}  ·  concurrency ${concurrency}${limit ? `  ·  limit ${limit}` : ''}\n`,
   );
 
-  const rep = await synthesize(targetDir, {
-    provider,
-    severka,
-    write,
-    limit,
-    concurrency,
-    onProgress: (d, total, o) => {
-      const extra =
-        o.status === 'invalid' && o.errors ? ` — ${o.errors[0]}` : o.pillar ? ` (${o.pillar}/${o.role})` : '';
-      console.log(`[${String(d).padStart(3)}/${total}] ${icon(o.status)} ${o.path}${extra}`);
-    },
-  });
+  // Liveness probe — radši hlasitě selhat než tiše vyrobit desítky "no-story" proti mrtvému podu.
+  if (provider.name !== 'mock') {
+    process.stdout.write('Ověřuji LLM endpoint… ');
+    try {
+      const pong = await provider.complete([{ role: 'user', content: 'Odpověz jediným slovem: ok' }], {
+        timeoutMs: 60000,
+      });
+      console.log(`živý ✓ (${pong.slice(0, 24).replace(/\s+/g, ' ').trim()})`);
+    } catch (e: any) {
+      console.error(
+        `\n✗ LLM endpoint NEREAGUJE: ${String(e.message).slice(0, 140)}\n` +
+          '  Pod nejspíš neběží / je mrtvý / inference timeoutuje. Synthézu nespouštím — končím.',
+      );
+      process.exit(3);
+    }
+  }
 
+  const result = await runPipeline(
+    targetDir,
+    {
+      provider,
+      severka,
+      write,
+      limit,
+      concurrency,
+      onProgress: (d, total, o) => {
+        const extra =
+          o.status === 'invalid' && o.errors ? ` — ${o.errors[0]}` : o.pillar ? ` (${o.pillar}/${o.role})` : '';
+        console.log(`[${String(d).padStart(3)}/${total}] ${icon(o.status)} ${o.path}${extra}`);
+      },
+    },
+    {
+      onPhase: (phase, info: any) => {
+        if (phase === 'assess')
+          console.log(
+            `\n━━ FÁZE A — zaštěrkat se strukturou ━━\n  stav: ${info.state}  ·  code-uzlů: ${info.codeNodes}  ·  manifestů: ${info.manifestNodes}  ·  chybí: ${info.missing.length}`,
+          );
+        else if (phase === 'migrate')
+          console.log(
+            `\n━━ FÁZE B — změna struktury (node manifesty) ━━\n  ${write ? 'vytvořeno' : 'k vytvoření (dry-run)'}: ${info.created.length}  ·  přeskočeno (už mají manifest): ${info.skipped.length}`,
+          );
+        else if (phase === 'skip-migrate')
+          console.log(
+            `\n━━ FÁZE B — přeskočeno: projekt UŽ JE vektor-tree (${info.manifestNodes} manifestů, struktura nezměněna) ━━`,
+          );
+        else if (phase === 'synthesize-start') console.log('\n━━ FÁZE C — vektory + stories (LLM) ━━');
+      },
+    },
+  );
+
+  const rep = result.synthesis;
   // plné manifesty tiskneme jen u malého běhu (jinak zahltí); velký běh = jen progress + report
   if (rep.attempted <= 12) {
     for (const o of rep.outcomes) {
@@ -79,6 +117,9 @@ const main = async () => {
 
   const written = rep.outcomes.filter((o) => o.status === 'written').length;
   console.log(`\n=== REPORT ===`);
+  console.log(
+    `  struktura:          ${result.assessment.state}${result.migration ? ` · node manifestů ${write ? 'vytvořeno' : 'navrženo'}: ${result.migration.created.length}` : ' (nezměněna)'}`,
+  );
   console.log(`  uzlů celkem:        ${rep.totalNodes}`);
   console.log(`  storyless před:     ${rep.storylessBefore}`);
   console.log(`  zpracováno:         ${rep.attempted}`);

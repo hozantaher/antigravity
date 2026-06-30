@@ -5,6 +5,12 @@ import { buildBubble } from './context';
 import { tellStory, Severka, StoryResult } from './storyteller';
 import { LlmProvider } from '../llm/provider';
 import { VektorManifestSchema, validateDerived, isStoryComplete } from '../vektor.schema';
+import {
+  assessStructure,
+  materializeStructure,
+  StructureAssessment,
+  MigrationResult,
+} from './migrate';
 
 /**
  * Orchestrátor (P5): dopočítá CHYBĚJÍCÍ STORIES pro storyless uzly libovolného repa.
@@ -258,3 +264,42 @@ export const synthesize = async (
     outcomes,
   };
 };
+
+// ── Plný 3-fázový průběh: zaštěrkat se strukturou → změnit ji → vektory+stories ──────────────
+export interface PipelineReport {
+  assessment: StructureAssessment;
+  migration: MigrationResult | null;
+  synthesis: SynthesizeReport;
+}
+
+export interface PipelineHooks {
+  onPhase?: (
+    phase: 'assess' | 'migrate' | 'skip-migrate' | 'synthesize-start',
+    info: StructureAssessment | MigrationResult | null,
+  ) => void;
+}
+
+export async function runPipeline(
+  targetDir: string,
+  opts: SynthesizeOptions,
+  hooks: PipelineHooks = {},
+): Promise<PipelineReport> {
+  // FÁZE A — zaštěrkat s existující strukturou
+  const assessment = assessStructure(targetDir);
+  hooks.onPhase?.('assess', assessment);
+
+  // FÁZE B — změnit strukturu (jen pokud ještě NEbyla změněna na vektor-tree)
+  let migration: MigrationResult | null = null;
+  if (assessment.alreadyMigrated) {
+    hooks.onPhase?.('skip-migrate', assessment);
+  } else {
+    migration = materializeStructure(targetDir, { write: opts.write });
+    hooks.onPhase?.('migrate', migration);
+  }
+
+  // FÁZE C — zařídit vektory + stories
+  hooks.onPhase?.('synthesize-start', null);
+  const synthesis = await synthesize(targetDir, opts);
+
+  return { assessment, migration, synthesis };
+}

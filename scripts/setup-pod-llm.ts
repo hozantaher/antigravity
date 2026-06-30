@@ -8,25 +8,52 @@ import * as path from 'path';
 const OLLAMA_PORT = 11434;
 const MODEL = process.env.RUNPOD_LLM_MODEL || 'qwen2.5:14b-instruct';
 const DISK_GB = /(?:32b|70b|72b)/i.test(MODEL) ? 50 : 30; // velký model = víc container disku na pull
+const VOLUME_ID = process.env.RUNPOD_VOLUME_ID; // perzistentní cache modelů (přežije teardown)
+const VOLUME_DC = process.env.RUNPOD_VOLUME_DC; // datacentrum volume — pod musí běžet tam
 const URL_FILE = '/tmp/runpod_llm_url';
 const POD_FILE = '/tmp/runpod_llm_pod';
 const MODEL_FILE = '/tmp/runpod_llm_model';
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
-async function pullModel(url: string, timeoutS = 900): Promise<string> {
+async function pullModel(url: string, timeoutS = 1800): Promise<string> {
   // qwen2.5:14b je instruct varianta se stejným chováním → fallback, když přesný tag 404.
   const tags = [MODEL, ...(MODEL !== 'qwen2.5:14b' ? ['qwen2.5:14b'] : [])];
   let lastErr: any;
   for (const tag of tags) {
     for (let attempt = 1; attempt <= 3; attempt++) {
       try {
-        console.log(`[Setup] Stahuji ${tag} (pokus ${attempt}/3)...`);
-        // stream:false → request blokuje do dokončení; posíláme model i name (různé verze Ollama)
-        await axios.post(
+        console.log(`[Setup] Stahuji ${tag} (pokus ${attempt}/3, streaming)...`);
+        // stream:true je KLÍČOVÉ: RunPod proxy jede přes Cloudflare s ~100s timeoutem. stream:false
+        // drží spojení až do konce stahování (minuty u velkých modelů) → 524. Se streamem tečou
+        // průběžné progress řádky → spojení žije a Cloudflare nevyprší. Čteme NDJSON do "success".
+        const res = await axios.post(
           `${url}/api/pull`,
-          { model: tag, name: tag, stream: false },
-          { timeout: timeoutS * 1000 },
+          { model: tag, name: tag, stream: true },
+          { timeout: timeoutS * 1000, responseType: 'stream' },
         );
+        await new Promise<void>((resolve, reject) => {
+          let success = false;
+          let buf = '';
+          res.data.on('data', (chunk: Buffer) => {
+            buf += chunk.toString();
+            const lines = buf.split('\n');
+            buf = lines.pop() || ''; // poslední (možná částečný) řádek nech do dalšího chunku
+            for (const line of lines) {
+              if (!line.trim()) continue;
+              try {
+                const o = JSON.parse(line);
+                if (o.error) return reject(new Error(o.error));
+                if (typeof o.status === 'string' && o.status.includes('success')) success = true;
+              } catch {
+                /* částečný/nevalidní řádek — ignoruj */
+              }
+            }
+          });
+          res.data.on('end', () =>
+            success ? resolve() : reject(new Error('pull stream skončil bez "success"')),
+          );
+          res.data.on('error', reject);
+        });
         return tag;
       } catch (e: any) {
         lastErr = e;
@@ -38,13 +65,15 @@ async function pullModel(url: string, timeoutS = 900): Promise<string> {
   }
   throw new Error(`[Setup] Stahování modelu selhalo i po retry: ${lastErr?.message}`);
 }
-async function waitForProxy(url: string, timeoutS = 240): Promise<boolean> {
+async function waitForProxy(url: string, timeoutS = 300): Promise<boolean> {
   const deadline = Date.now() + timeoutS * 1000;
   while (Date.now() < deadline) {
     try {
-      // Stačí pingnout kořen, který Ollama odpoví 200 "Ollama is running"
-      const res = await axios.get(`${url}/`, { timeout: 10000 });
-      if (res.status === 200) {
+      // POZOR: GET / vrací 200 i z RunPod proxy "pod startuje" stránky → falešné "Ollama běží".
+      // Čekáme na SKUTEČNÉ Ollama API: /api/tags vrací JSON {models:[...]}, což proxy placeholder
+      // nikdy nevrátí. Bez toho startoval pull dřív, než API obsluhovalo → /api/pull = 404.
+      const res = await axios.get(`${url}/api/tags`, { timeout: 10000 });
+      if (res.status === 200 && res.data && Array.isArray(res.data.models)) {
         return true;
       }
     } catch (e) {
@@ -84,6 +113,9 @@ const GPU_VRAM: Record<string, number> = {
 async function up() {
   const rp = new RunPodClient();
   console.log(`[Setup] Model: ${MODEL}`);
+  if (VOLUME_ID) {
+    console.log(`[Setup] Network volume ${VOLUME_ID} @ ${VOLUME_DC || '?'} → /root/.ollama (model přežije teardown; pod nutně v ${VOLUME_DC || 'DC volume'})`);
+  }
 
   // RUNPOD_GPU override → vyzkoušej preferovanou GPU první (community i secure), pak fallback list.
   const preferred = process.env.RUNPOD_GPU;
@@ -101,7 +133,7 @@ async function up() {
   for (const c of candidates) {
     try {
       console.log(`[Setup] Zkouším ${c.gpu} (${c.cloud})...`);
-      pod = await rp.provision('dummy-key', DISK_GB, OLLAMA_PORT, c.gpu, c.cloud);
+      pod = await rp.provision('dummy-key', DISK_GB, OLLAMA_PORT, c.gpu, c.cloud, VOLUME_ID, VOLUME_DC);
       console.log(`[Setup] ✓ Nasazeno: ${c.gpu} (${c.cloud})`);
       break;
     } catch (e: any) {

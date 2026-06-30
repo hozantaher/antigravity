@@ -46,6 +46,8 @@ export class RunPodClient {
     port: number,
     gpuTypeId = 'NVIDIA RTX A5000',
     cloudType = 'SECURE',
+    volumeId?: string,
+    dataCenterId?: string,
   ): Promise<any> {
     if (!this.apiKey) {
       // MOCK
@@ -68,28 +70,31 @@ export class RunPodClient {
         }
       }
     `;
-    const vars = {
-      input: {
-        cloudType,
-        gpuCount: 1,
-        volumeInGb: 0, // one-shot běh nepotřebuje perzistentní volume → menší nárok na stroj
-        containerDiskInGb: diskGb,
-        minVcpuCount: 2,
-        minMemoryInGb: 15,
-        gpuTypeId,
-        name: 'Antigravity LLM Brain',
-        imageName: 'ollama/ollama', // Oficialni image s rovnou běžícím API
-        dockerArgs: '',
-        ports: `${port}/http`,
-        volumeMountPath: '/workspace',
-        env: [
-          { key: 'PUBLIC_KEY', value: pubKey },
-          { key: 'OLLAMA_HOST', value: '0.0.0.0' }
-        ]
-      }
+    const input: any = {
+      cloudType,
+      gpuCount: 1,
+      volumeInGb: 0, // ephemeral; perzistenci řeší network volume (níže), když je zadán
+      containerDiskInGb: diskGb,
+      minVcpuCount: 2,
+      minMemoryInGb: 15,
+      gpuTypeId,
+      name: 'Antigravity LLM Brain',
+      imageName: 'ollama/ollama', // Oficialni image s rovnou běžícím API
+      dockerArgs: '',
+      ports: `${port}/http`,
+      // S network volume mountujeme cache modelů Ollamy (/root/.ollama) → model přežije teardown.
+      volumeMountPath: volumeId ? '/root/.ollama' : '/workspace',
+      env: [
+        { key: 'PUBLIC_KEY', value: pubKey },
+        { key: 'OLLAMA_HOST', value: '0.0.0.0' },
+      ],
     };
-    
-    const res = await this.query(q, vars);
+    if (volumeId) {
+      input.networkVolumeId = volumeId;
+      if (dataCenterId) input.dataCenterId = dataCenterId; // volume je region-locked
+    }
+
+    const res = await this.query(q, { input });
     const pod = res.podFindAndDeployOnDemand;
     
     return {
@@ -97,7 +102,7 @@ export class RunPodClient {
       ip: 'x.x.x.x', // V produkci je potřeba počkat na start a získat IP z pod(id) query
       port: 22,
       proxyUrl: `https://${pod.id}-${port}.proxy.runpod.net`,
-      gpu: 'NVIDIA RTX 3090',
+      gpu: gpuTypeId,
       costPerHour: pod.costPerHr
     };
   }

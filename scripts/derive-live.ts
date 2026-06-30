@@ -41,6 +41,15 @@ const main = () => {
   }
 
   try {
+    // Vyčisti stale /tmp z dřívějšího (už mrtvého) podu — jinak by check níže uvěřil staré URL
+    // a synthesizer by jel proti mrtvému endpointu (→ tiše samé "no-story").
+    for (const f of [URL_FILE, '/tmp/runpod_llm_pod', '/tmp/runpod_llm_model']) {
+      try {
+        if (fs.existsSync(f)) fs.unlinkSync(f);
+      } catch {
+        /* ignore */
+      }
+    }
     console.log('▶ [1/3] Provisioning RunPod LLM (GPU pod + model pull, několik minut)...');
     npx(['ts-node', 'scripts/setup-pod-llm.ts']);
 
