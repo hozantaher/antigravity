@@ -40,7 +40,13 @@ export class RunPodClient {
     return 0; // Balance field no longer exists on User
   }
 
-  public async provision(pubKey: string, diskGb: number, port: number): Promise<any> {
+  public async provision(
+    pubKey: string,
+    diskGb: number,
+    port: number,
+    gpuTypeId = 'NVIDIA RTX A5000',
+    cloudType = 'SECURE',
+  ): Promise<any> {
     if (!this.apiKey) {
       // MOCK
       return {
@@ -64,13 +70,13 @@ export class RunPodClient {
     `;
     const vars = {
       input: {
-        cloudType: 'SECURE',
+        cloudType,
         gpuCount: 1,
-        volumeInGb: diskGb,
+        volumeInGb: 0, // one-shot běh nepotřebuje perzistentní volume → menší nárok na stroj
         containerDiskInGb: diskGb,
         minVcpuCount: 2,
         minMemoryInGb: 15,
-        gpuTypeId: 'NVIDIA RTX A5000',
+        gpuTypeId,
         name: 'Antigravity LLM Brain',
         imageName: 'ollama/ollama', // Oficialni image s rovnou běžícím API
         dockerArgs: '',
